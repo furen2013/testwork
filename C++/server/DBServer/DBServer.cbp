@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="DBServer" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="linux_debug">
+				<Option output="../../intermediate/Server/DBServer/linux_debug/DBServerD" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../bin/Server/DBServer/" />
+				<Option object_output="../../intermediate/Server/DBServer/linux_debug" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-march=nocona" />
+					<Add option="-O3" />
+					<Add option="-W" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="../common/openssl-0.9.8b/inc32" />
+					<Add directory="../common/Net" />
+					<Add directory="../common/Encrypt/" />
+					<Add directory="../common/Com" />
+					<Add directory="../Common/Log" />
+					<Add directory="../Common/Xml" />
+					<Add directory="../Common" />
+					<Add directory="../Common/share/" />
+					<Add directory="../../SDBase/Public" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="../Common/libmysqlclient_r.a" />
+					<Add library="/usr/lib/libssl.so.0.9.8" />
+					<Add library="/lib/Common.so" />
+					<Add library="/lib/new_common.so" />
+					<Add directory="../common/openssl-0.9.8b/lib" />
+					<Add directory="../../Bin/Server/Common" />
+					<Add directory="../../Bin/Server/SDBase" />
+					<Add directory="../../Server/Lib" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cp ../../intermediate/Server/DBServer/linux_debug/DBServerD ../../bin_linux/Server/DBServer/" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="linux_release">
+				<Option output="../../intermediate/Server/DBServer/linux_release/DBServer" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../bin/Server/DBServer/" />
+				<Option object_output="../../intermediate/Server/DBServer/linux_release" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-march=nocona" />
+					<Add option="-O3" />
+					<Add option="-W" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="../common/openssl-0.9.8b/inc32" />
+					<Add directory="../common/Net" />
+					<Add directory="../common/Encrypt/" />
+					<Add directory="../common/Com" />
+					<Add directory="../Common/Log" />
+					<Add directory="../Common/Xml" />
+					<Add directory="../Common" />
+					<Add directory="../Common/share/" />
+					<Add directory="../../SDBase/Public" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="../Common/libmysqlclient_r.a" />
+					<Add library="/usr/lib/libssl.so.0.9.8" />
+					<Add library="/lib/libCommon.a" />
+					<Add library="/lib/libnew_common.a" />
+					<Add directory="../common/openssl-0.9.8b/lib" />
+					<Add directory="../../Bin/Server/Common" />
+					<Add directory="../../Bin/Server/SDBase" />
+					<Add directory="../../Server/Lib" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cp ../../intermediate/Server/DBServer/linux_release/DBServer ../../bin_linux/Server/DBServer/" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add directory="../common/openssl-0.9.8b/inc32" />
+			<Add directory="../common/Net" />
+			<Add directory="../common/Encrypt/" />
+			<Add directory="../common/Com" />
+			<Add directory="../Common/Log" />
+			<Add directory="../Common/Xml" />
+			<Add directory="../Common" />
+			<Add directory="../Common/share/" />
+			<Add directory="../../SDBase/Public" />
+			<Add directory="../../boost_lib/boost_1_36_0/" />
+			<Add directory="../../new_common/Source/log4cpp-1.0/include/" />
+		</Compiler>
+		<Unit filename="AccountMgr.cpp" />
+		<Unit filename="AccountMgr.h" />
+		<Unit filename="Config.cpp" />
+		<Unit filename="Config.h" />
+		<Unit filename="DBServer.cpp" />
+		<Unit filename="DataInterface.cpp" />
+		<Unit filename="DataInterface.h" />
+		<Unit filename="Net/GSBuilder.cpp" />
+		<Unit filename="Net/GSBuilder.h" />
+		<Unit filename="Net/GSListenSocket.cpp" />
+		<Unit filename="Net/GSListenSocket.h" />
+		<Unit filename="Net/GSParser.cpp" />
+		<Unit filename="Net/GSParser.h" />
+		<Unit filename="Net/GSSocket.cpp" />
+		<Unit filename="Net/GSSocket.h" />
+		<Unit filename="Net/GTBuilder.cpp" />
+		<Unit filename="Net/GTBuilder.h" />
+		<Unit filename="Net/GTListenSocket.cpp" />
+		<Unit filename="Net/GTListenSocket.h" />
+		<Unit filename="Net/GTParser.cpp" />
+		<Unit filename="Net/GTParser.h" />
+		<Unit filename="Net/GTSocket.cpp" />
+		<Unit filename="Net/GTSocket.h" />
+		<Unit filename="ReadMe.txt" />
+		<Unit filename="Server.cpp" />
+		<Unit filename="Server.h" />
+		<Unit filename="WorldInfo.cpp" />
+		<Unit filename="WorldInfo.h" />
+		<Unit filename="res/DBServer.manifest">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="stdafx.cpp" />
+		<Unit filename="stdafx.h" />
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<lib_finder disable_auto="1" />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

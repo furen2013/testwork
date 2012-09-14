@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="new_common" />
+		<Option platforms="Unix;" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="linux_debug">
+				<Option platforms="Unix;" />
+				<Option output="../intermediate/new_common/linux_debug/libnew_commonD" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="../intermediate/new_common/linux_debug" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-W" />
+					<Add option="-g" />
+					<Add option="-D_DEBUG" />
+					<Add option="-DBOOST_ALL_NO_LIB" />
+					<Add option="-DBOOST_THREAD_BUILD_LIB" />
+					<Add option="-DLINUX_COMPATIBLE" />
+					<Add option="-DDIGITAL_UNIX_BUG_COMPATIBLE" />
+				</Compiler>
+				<ExtraCommands>
+					<Add after="cp ../intermediate/new_common/linux_debug/libnew_commonD.a /lib" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="linux_release">
+				<Option platforms="Unix;" />
+				<Option output="../intermediate/new_common/linux_release/libnew_common" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="Release Win32" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-W" />
+					<Add option="-DNDEBUG" />
+					<Add option="-DBOOST_ALL_NO_LIB" />
+					<Add option="-DBOOST_THREAD_BUILD_LIB" />
+					<Add option="-DLINUX_COMPATIBLE" />
+					<Add option="-DDIGITAL_UNIX_BUG_COMPATIBLE" />
+				</Compiler>
+				<ExtraCommands>
+					<Add after="cp ../intermediate/new_common/linux_release/libnew_common.a /lib" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="linux_debug so">
+				<Option platforms="Unix;" />
+				<Option output="../intermediate/new_common/linux_debug/new_common" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../intermediate/new_common/linux_debug" />
+				<Option object_output="../intermediate/new_common/linux_debug" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-march=nocona" />
+					<Add option="-O3" />
+					<Add option="-W" />
+					<Add option="-D_DEBUG" />
+					<Add option="-DBOOST_ALL_NO_LIB" />
+					<Add option="-DBOOST_THREAD_BUILD_LIB" />
+					<Add option="-DLINUX_COMPATIBLE" />
+					<Add option="-DDIGITAL_UNIX_BUG_COMPATIBLE" />
+				</Compiler>
+				<ExtraCommands>
+					<Add after="cp ../intermediate/new_common/linux_debug/new_common.so /lib" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add directory="Source/openssl-0.9.8b/inc32" />
+			<Add directory="Source/log4cpp-1.0/" />
+			<Add directory="Source/log4cpp-1.0/include/" />
+		</Compiler>
+		<Unit filename="../boost_lib/boost_1_36_0/src/thread/pthread/timeconv.inl" />
+		<Unit filename="../boost_lib/boost_1_36_0/src/thread/win32/timeconv.inl" />
+		<Unit filename="ReadMe.txt" />
+		<Unit filename="Source/compression/lzmalib/Alloc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source/compression/lzmalib/Alloc.h" />
+		<Unit filename="Source/compression/lzmalib/LzFind.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source/compression/lzmalib/LzFind.h" />
+		<Unit filename="Source/compression/lzmalib/LzHash.h" />
+		<Unit filename="Source/compression/lzmalib/LzmaCompressionStrategy.h" />
+		<Unit filename="Source/compression/lzmalib/LzmaDec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source/compression/lzmalib/LzmaDec.h" />
+		<Unit filename="Source/compression/lzmalib/LzmaEnc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source/compression/lzmalib/LzmaEnc.h" />
+		<Unit filename="Source/compression/lzmalib/LzmaLib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source/compression/lzmalib/LzmaLib.h" />
+		<Unit filename="Source/compression/lzmalib/Types.h" />
+		<Unit filename="Source/compression/zlib/ZlibCompressionStrategy.h" />
+		<Unit filename="Source/compression/zlib/adler32.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source/compression/zlib/compress.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source/compression/zlib/crc32.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source/compression/zlib/crc32.h" />
+		<Unit filename="Source/compression/zlib/deflate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source/compression/zlib/deflate.h" />
+		<Unit filename="Source/compression/zlib/example.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source/compression/zlib/gzio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source/compression/zlib/infback.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source/compression/zlib/inffast.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source/compression/zlib/inffast.h" />
+		<Unit filename="Source/compression/zlib/inffixed.h" />
+		<Unit filename="Source/compression/zlib/inflate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source/compression/zlib/inflate.h" />
+		<Unit filename="Source/compression/zlib/inftrees.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source/compression/zlib/inftrees.h" />
+		<Unit filename="Source/compression/zlib/trees.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source/compression/zlib/trees.h" />
+		<Unit filename="Source/compression/zlib/uncompr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source/compression/zlib/zconf.h" />
+		<Unit filename="Source/compression/zlib/zlib.h" />
+		<Unit filename="Source/compression/zlib/zutil.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source/compression/zlib/zutil.h" />
+		<Unit filename="Source/log4cpp-1.0/MyLog.cpp" />
+		<Unit filename="Source/log4cpp-1.0/MyLog.h" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/AbortAppender.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/Appender.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/AppenderSkeleton.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/AppendersFactory.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/BasicConfigurator.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/BasicLayout.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/BufferingAppender.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/Category.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/CategoryStream.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/Configurator.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/Export.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/FactoryParams.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/FileAppender.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/Filter.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/FixedContextCategory.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/HierarchyMaintainer.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/IdsaAppender.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/Layout.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/LayoutAppender.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/LayoutsFactory.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/LevelEvaluator.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/LoggingEvent.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/Manipulator.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/NDC.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/NTEventLogAppender.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/OstreamAppender.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/PassThroughLayout.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/PatternLayout.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/Portability.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/Priority.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/PropertyConfigurator.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/RemoteSyslogAppender.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/RollingFileAppender.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/SimpleConfigurator.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/SimpleLayout.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/StringQueueAppender.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/SyslogAppender.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/TimeStamp.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/TriggeringEventEvaluator.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/TriggeringEventEvaluatorFactory.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/Win32DebugAppender.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/config-openvms.h" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/config-win32.h" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/config.h" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/convenience.h" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/threading/BoostThreads.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/threading/DummyThreads.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/threading/MSThreads.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/threading/OmniThreads.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/threading/PThreads.hh" />
+		<Unit filename="Source/log4cpp-1.0/include/log4cpp/threading/Threading.hh" />
+		<Unit filename="Source/log4cpp-1.0/src/AbortAppender.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/Appender.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/AppenderSkeleton.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/AppendersFactory.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/BasicConfigurator.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/BasicLayout.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/BufferingAppender.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/Category.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/CategoryStream.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/Configurator.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/DllMain.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/DummyThreads.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/FactoryParams.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/FileAppender.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/Filter.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/FixedContextCategory.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/HierarchyMaintainer.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/IdsaAppender.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/LayoutAppender.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/LayoutsFactory.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/LevelEvaluator.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/Localtime.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/Localtime.hh" />
+		<Unit filename="Source/log4cpp-1.0/src/LoggingEvent.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/MSThreads.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/NDC.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/NTEventLogAppender.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/OmniThreads.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/OstreamAppender.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/PThreads.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/PassThroughLayout.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/PatternLayout.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/PortabilityImpl.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/PortabilityImpl.hh" />
+		<Unit filename="Source/log4cpp-1.0/src/Priority.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/Properties.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/Properties.hh" />
+		<Unit filename="Source/log4cpp-1.0/src/PropertyConfigurator.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/PropertyConfiguratorImpl.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/PropertyConfiguratorImpl.hh" />
+		<Unit filename="Source/log4cpp-1.0/src/RemoteSyslogAppender.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/RollingFileAppender.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/SimpleConfigurator.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/SimpleLayout.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/StringQueueAppender.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/StringUtil.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/StringUtil.hh" />
+		<Unit filename="Source/log4cpp-1.0/src/SyslogAppender.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/TimeStamp.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/TriggeringEventEvaluatorFactory.cpp" />
+		<Unit filename="Source/log4cpp-1.0/src/Win32DebugAppender.cpp" />
+		<Unit filename="Source/net/asiodef.h" />
+		<Unit filename="Source/net/tcpclient.cpp" />
+		<Unit filename="Source/net/tcpclient.h" />
+		<Unit filename="Source/net/tcpserver.cpp" />
+		<Unit filename="Source/net/tcpserver.h" />
+		<Unit filename="Source/net/tcpsession.cpp" />
+		<Unit filename="Source/net/tcpsession.h" />
+		<Unit filename="Source/ssl/MD5.h" />
+		<Unit filename="Source/ssl/__MD5.cpp" />
+		<Unit filename="Source/ssl/__crc32.cpp" />
+		<Unit filename="Source/ssl/crc32.h" />
+		<Unit filename="Source/ssl/crypt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source/ssl/crypt.h" />
+		<Unit filename="Source/utilities/call_back.cpp" />
+		<Unit filename="Source/utilities/call_back.h" />
+		<Unit filename="Source/utilities/mt_buffer.h" />
+		<Unit filename="Source/utilities/task_thread_pool.cpp" />
+		<Unit filename="Source/utilities/task_thread_pool.h" />
+		<Unit filename="Source/utilities/utilities.cpp" />
+		<Unit filename="Source/utilities/utilities.h" />
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<lib_finder disable_auto="1" />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

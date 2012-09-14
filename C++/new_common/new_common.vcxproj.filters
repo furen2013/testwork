@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{d057eb68-9aa1-4b3d-8c19-e402628ed166}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\log4cpp">
+      <UniqueIdentifier>{e4e994f0-3c9f-4239-943d-23e755cab62d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\log4cpp\include">
+      <UniqueIdentifier>{b9e33286-02dc-4a73-9f62-5e45b0505b8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\log4cpp\include\threading">
+      <UniqueIdentifier>{2b41ce02-0237-4355-a404-a7cdd0ed2019}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\log4cpp\src">
+      <UniqueIdentifier>{edbac2e5-d30b-45b3-803d-d134e1e7e859}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\compression">
+      <UniqueIdentifier>{a0add46e-c1ef-4eea-aa1c-0380c7068454}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\compression\lzmalib">
+      <UniqueIdentifier>{b7b3dfd2-0d02-4204-85b7-a073774835ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\compression\zlib">
+      <UniqueIdentifier>{cc51b4c6-aa69-4b41-be3c-0a7f2c7409b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\ssl">
+      <UniqueIdentifier>{3e6c926b-2c0e-4a0e-a8e0-8770f073a203}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\net">
+      <UniqueIdentifier>{48ff83bb-0a4a-456c-afef-3b76e299ceee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\utilities">
+      <UniqueIdentifier>{b4cbe0ed-6bce-4001-826c-23e9708021ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Component">
+      <UniqueIdentifier>{0f84ba72-f534-4be5-a45e-cea14551d709}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\log4cpp-1.0\MyLog.cpp">
+      <Filter>Source\log4cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\AbortAppender.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\Appender.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\AppendersFactory.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\AppenderSkeleton.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\BasicConfigurator.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\BasicLayout.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\BufferingAppender.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\Category.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\CategoryStream.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\Configurator.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\DllMain.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\DummyThreads.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\FactoryParams.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\FileAppender.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\Filter.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\FixedContextCategory.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\HierarchyMaintainer.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\IdsaAppender.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\LayoutAppender.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\LayoutsFactory.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\LevelEvaluator.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\Localtime.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\LoggingEvent.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\MSThreads.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\NDC.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\NTEventLogAppender.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\OmniThreads.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\OstreamAppender.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\PassThroughLayout.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\PatternLayout.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\PortabilityImpl.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\Priority.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\Properties.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\PropertyConfigurator.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\PropertyConfiguratorImpl.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\PThreads.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\RemoteSyslogAppender.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\RollingFileAppender.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\SimpleConfigurator.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\SimpleLayout.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\snprintf.c">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\StringQueueAppender.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\StringUtil.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\SyslogAppender.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\TimeStamp.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\TriggeringEventEvaluatorFactory.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\log4cpp-1.0\src\Win32DebugAppender.cpp">
+      <Filter>Source\log4cpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\compression\lzmalib\Alloc.c">
+      <Filter>Source\compression\lzmalib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\compression\lzmalib\LzFind.c">
+      <Filter>Source\compression\lzmalib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\compression\lzmalib\LzmaDec.c">
+      <Filter>Source\compression\lzmalib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\compression\lzmalib\LzmaEnc.c">
+      <Filter>Source\compression\lzmalib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\compression\lzmalib\LzmaLib.c">
+      <Filter>Source\compression\lzmalib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\adler32.c">
+      <Filter>Source\compression\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\compress.c">
+      <Filter>Source\compression\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\crc32.c">
+      <Filter>Source\compression\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\deflate.c">
+      <Filter>Source\compression\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\example.c">
+      <Filter>Source\compression\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\gzio.c">
+      <Filter>Source\compression\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\infback.c">
+      <Filter>Source\compression\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\inffast.c">
+      <Filter>Source\compression\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\inflate.c">
+      <Filter>Source\compression\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\inftrees.c">
+      <Filter>Source\compression\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\trees.c">
+      <Filter>Source\compression\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\uncompr.c">
+      <Filter>Source\compression\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\zutil.c">
+      <Filter>Source\compression\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ssl\__crc32.cpp">
+      <Filter>Source\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ssl\__MD5.cpp">
+      <Filter>Source\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ssl\crypt.c">
+      <Filter>Source\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Net\tcpclient.cpp">
+      <Filter>Source\net</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Net\tcpserver.cpp">
+      <Filter>Source\net</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Net\tcpsession.cpp">
+      <Filter>Source\net</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\utilities\call_back.cpp">
+      <Filter>Source\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\utilities\task_thread_pool.cpp">
+      <Filter>Source\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\utilities\utilities.cpp">
+      <Filter>Source\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\net\tcp_baseSession.cpp">
+      <Filter>Source\net</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\AbortAppender.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Appender.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\AppendersFactory.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\AppenderSkeleton.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\BasicConfigurator.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\BasicLayout.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\BufferingAppender.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Category.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\CategoryStream.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Configurator.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Export.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\FactoryParams.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\FileAppender.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Filter.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\FixedContextCategory.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\HierarchyMaintainer.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\IdsaAppender.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Layout.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\LayoutAppender.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\LayoutsFactory.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\LevelEvaluator.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\LoggingEvent.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Makefile.am">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Makefile.in">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Manipulator.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\NDC.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\NTEventLogAppender.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\OstreamAppender.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\PassThroughLayout.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\PatternLayout.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Portability.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Priority.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\PropertyConfigurator.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\RemoteSyslogAppender.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\RollingFileAppender.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\SimpleConfigurator.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\SimpleLayout.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\StringQueueAppender.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\SyslogAppender.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\TimeStamp.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\TriggeringEventEvaluator.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\TriggeringEventEvaluatorFactory.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Win32DebugAppender.hh">
+      <Filter>Source\log4cpp\include</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\threading\BoostThreads.hh">
+      <Filter>Source\log4cpp\include\threading</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\threading\DummyThreads.hh">
+      <Filter>Source\log4cpp\include\threading</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\threading\Makefile.am">
+      <Filter>Source\log4cpp\include\threading</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\threading\Makefile.in">
+      <Filter>Source\log4cpp\include\threading</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\threading\MSThreads.hh">
+      <Filter>Source\log4cpp\include\threading</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\threading\OmniThreads.hh">
+      <Filter>Source\log4cpp\include\threading</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\threading\PThreads.hh">
+      <Filter>Source\log4cpp\include\threading</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\threading\Threading.hh">
+      <Filter>Source\log4cpp\include\threading</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\src\Localtime.hh">
+      <Filter>Source\log4cpp\src</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\src\PortabilityImpl.hh">
+      <Filter>Source\log4cpp\src</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\src\Properties.hh">
+      <Filter>Source\log4cpp\src</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\src\PropertyConfiguratorImpl.hh">
+      <Filter>Source\log4cpp\src</Filter>
+    </None>
+    <None Include="Source\log4cpp-1.0\src\StringUtil.hh">
+      <Filter>Source\log4cpp\src</Filter>
+    </None>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\log4cpp-1.0\MyLog.h">
+      <Filter>Source\log4cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\log4cpp-1.0\include\log4cpp\config-openvms.h">
+      <Filter>Source\log4cpp\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\log4cpp-1.0\include\log4cpp\config-win32.h">
+      <Filter>Source\log4cpp\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\log4cpp-1.0\include\log4cpp\convenience.h">
+      <Filter>Source\log4cpp\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\compression\lzmalib\Alloc.h">
+      <Filter>Source\compression\lzmalib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\compression\lzmalib\LzFind.h">
+      <Filter>Source\compression\lzmalib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\compression\lzmalib\LzHash.h">
+      <Filter>Source\compression\lzmalib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\compression\lzmalib\LzmaCompressionStrategy.h">
+      <Filter>Source\compression\lzmalib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\compression\lzmalib\LzmaDec.h">
+      <Filter>Source\compression\lzmalib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\compression\lzmalib\LzmaEnc.h">
+      <Filter>Source\compression\lzmalib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\compression\lzmalib\LzmaLib.h">
+      <Filter>Source\compression\lzmalib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\compression\lzmalib\Types.h">
+      <Filter>Source\compression\lzmalib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\compression\zlib\crc32.h">
+      <Filter>Source\compression\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\compression\zlib\deflate.h">
+      <Filter>Source\compression\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\compression\zlib\inffast.h">
+      <Filter>Source\compression\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\compression\zlib\inffixed.h">
+      <Filter>Source\compression\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\compression\zlib\inflate.h">
+      <Filter>Source\compression\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\compression\zlib\inftrees.h">
+      <Filter>Source\compression\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\compression\zlib\trees.h">
+      <Filter>Source\compression\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\compression\zlib\zconf.h">
+      <Filter>Source\compression\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\compression\zlib\zlib.h">
+      <Filter>Source\compression\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\compression\zlib\ZlibCompressionStrategy.h">
+      <Filter>Source\compression\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\compression\zlib\zutil.h">
+      <Filter>Source\compression\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ssl\crc32.h">
+      <Filter>Source\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ssl\crypt.h">
+      <Filter>Source\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ssl\MD5.h">
+      <Filter>Source\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Net\asiodef.h">
+      <Filter>Source\net</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Net\tcpclient.h">
+      <Filter>Source\net</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Net\tcpserver.h">
+      <Filter>Source\net</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Net\tcpsession.h">
+      <Filter>Source\net</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\utilities\call_back.h">
+      <Filter>Source\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\utilities\memory_pool.h">
+      <Filter>Source\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\utilities\mt_buffer.h">
+      <Filter>Source\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\utilities\task_thread_pool.h">
+      <Filter>Source\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\utilities\utilities.h">
+      <Filter>Source\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Component\str2number.h">
+      <Filter>Source\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\net\tcp_baseSession.h">
+      <Filter>Source\net</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

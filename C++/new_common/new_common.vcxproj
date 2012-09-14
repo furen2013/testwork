@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{307CA303-A4A8-4902-872A-3A99A1C91360}</ProjectGuid>
+    <RootNamespace>new_common</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\intermediate\Server\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\intermediate\Server\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\intermediate\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)</IntDir>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>Source/log4cpp-1.0/include;Source/log4cpp-1.0/;../../../boost_lib/boost_1_51_0;Source/openssl-0.9.8b/inc32;vld;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Lib>
+      <OutputFile>..\D_LIB\$(ProjectName)D.lib</OutputFile>
+      <AdditionalLibraryDirectories>vld;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <AdditionalIncludeDirectories>Source/log4cpp-1.0/include;Source/log4cpp-1.0;../boost_lib/boost_1_36_0;Source/openssl-0.9.8b/inc32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;BOOST_ALL_NO_LIB;BOOST_THREAD_BUILD_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Lib>
+      <OutputFile>Lib\$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\log4cpp-1.0\MyLog.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\AbortAppender.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\Appender.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\AppendersFactory.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\AppenderSkeleton.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\BasicConfigurator.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\BasicLayout.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\BufferingAppender.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\Category.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\CategoryStream.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\Configurator.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\DllMain.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\DummyThreads.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\FactoryParams.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\FileAppender.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\Filter.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\FixedContextCategory.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\HierarchyMaintainer.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\IdsaAppender.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\LayoutAppender.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\LayoutsFactory.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\LevelEvaluator.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\Localtime.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\LoggingEvent.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\MSThreads.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\NDC.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\NTEventLogAppender.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\OmniThreads.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\OstreamAppender.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\PassThroughLayout.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\PatternLayout.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\PortabilityImpl.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\Priority.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\Properties.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\PropertyConfigurator.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\PropertyConfiguratorImpl.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\PThreads.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\RemoteSyslogAppender.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\RollingFileAppender.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\SimpleConfigurator.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\SimpleLayout.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\snprintf.c" />
+    <ClCompile Include="Source\log4cpp-1.0\src\StringQueueAppender.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\StringUtil.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\SyslogAppender.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\TimeStamp.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\TriggeringEventEvaluatorFactory.cpp" />
+    <ClCompile Include="Source\log4cpp-1.0\src\Win32DebugAppender.cpp" />
+    <ClCompile Include="Source\compression\lzmalib\Alloc.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Full</Optimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DebugInformationFormat>
+    </ClCompile>
+    <ClCompile Include="Source\compression\lzmalib\LzFind.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Full</Optimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DebugInformationFormat>
+    </ClCompile>
+    <ClCompile Include="Source\compression\lzmalib\LzmaDec.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Full</Optimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DebugInformationFormat>
+    </ClCompile>
+    <ClCompile Include="Source\compression\lzmalib\LzmaEnc.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Full</Optimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DebugInformationFormat>
+    </ClCompile>
+    <ClCompile Include="Source\compression\lzmalib\LzmaLib.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Full</Optimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DebugInformationFormat>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\adler32.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Full</Optimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DebugInformationFormat>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\compress.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Full</Optimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DebugInformationFormat>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\crc32.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Full</Optimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DebugInformationFormat>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\deflate.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Full</Optimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DebugInformationFormat>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\example.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Full</Optimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DebugInformationFormat>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\gzio.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Full</Optimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DebugInformationFormat>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\infback.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Full</Optimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DebugInformationFormat>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\inffast.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Full</Optimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DebugInformationFormat>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\inflate.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Full</Optimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DebugInformationFormat>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\inftrees.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Full</Optimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DebugInformationFormat>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\trees.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Full</Optimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DebugInformationFormat>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\uncompr.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Full</Optimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DebugInformationFormat>
+    </ClCompile>
+    <ClCompile Include="Source\compression\zlib\zutil.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Full</Optimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DebugInformationFormat>
+    </ClCompile>
+    <ClCompile Include="Source\net\tcp_baseSession.cpp" />
+    <ClCompile Include="Source\ssl\__crc32.cpp" />
+    <ClCompile Include="Source\ssl\__MD5.cpp" />
+    <ClCompile Include="Source\ssl\crypt.c" />
+    <ClCompile Include="Source\Net\tcpclient.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Source\Net\tcpserver.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Source\Net\tcpsession.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Source\utilities\call_back.cpp" />
+    <ClCompile Include="Source\utilities\task_thread_pool.cpp" />
+    <ClCompile Include="Source\utilities\utilities.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\log4cpp-1.0\include\log4cpp\AbortAppender.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Appender.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\AppendersFactory.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\AppenderSkeleton.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\BasicConfigurator.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\BasicLayout.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\BufferingAppender.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Category.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\CategoryStream.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Configurator.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Export.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\FactoryParams.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\FileAppender.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Filter.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\FixedContextCategory.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\HierarchyMaintainer.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\IdsaAppender.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Layout.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\LayoutAppender.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\LayoutsFactory.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\LevelEvaluator.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\LoggingEvent.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Makefile.am" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Makefile.in" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Manipulator.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\NDC.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\NTEventLogAppender.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\OstreamAppender.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\PassThroughLayout.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\PatternLayout.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Portability.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Priority.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\PropertyConfigurator.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\RemoteSyslogAppender.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\RollingFileAppender.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\SimpleConfigurator.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\SimpleLayout.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\StringQueueAppender.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\SyslogAppender.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\TimeStamp.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\TriggeringEventEvaluator.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\TriggeringEventEvaluatorFactory.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\Win32DebugAppender.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\threading\BoostThreads.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\threading\DummyThreads.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\threading\Makefile.am" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\threading\Makefile.in" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\threading\MSThreads.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\threading\OmniThreads.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\threading\PThreads.hh" />
+    <None Include="Source\log4cpp-1.0\include\log4cpp\threading\Threading.hh" />
+    <None Include="Source\log4cpp-1.0\src\Localtime.hh" />
+    <None Include="Source\log4cpp-1.0\src\PortabilityImpl.hh" />
+    <None Include="Source\log4cpp-1.0\src\Properties.hh" />
+    <None Include="Source\log4cpp-1.0\src\PropertyConfiguratorImpl.hh" />
+    <None Include="Source\log4cpp-1.0\src\StringUtil.hh" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Component\str2number.h" />
+    <ClInclude Include="Source\log4cpp-1.0\MyLog.h" />
+    <ClInclude Include="Source\log4cpp-1.0\include\log4cpp\config-openvms.h" />
+    <ClInclude Include="Source\log4cpp-1.0\include\log4cpp\config-win32.h" />
+    <ClInclude Include="Source\log4cpp-1.0\include\log4cpp\convenience.h" />
+    <ClInclude Include="Source\compression\lzmalib\Alloc.h" />
+    <ClInclude Include="Source\compression\lzmalib\LzFind.h" />
+    <ClInclude Include="Source\compression\lzmalib\LzHash.h" />
+    <ClInclude Include="Source\compression\lzmalib\LzmaCompressionStrategy.h" />
+    <ClInclude Include="Source\compression\lzmalib\LzmaDec.h" />
+    <ClInclude Include="Source\compression\lzmalib\LzmaEnc.h" />
+    <ClInclude Include="Source\compression\lzmalib\LzmaLib.h" />
+    <ClInclude Include="Source\compression\lzmalib\Types.h" />
+    <ClInclude Include="Source\compression\zlib\crc32.h" />
+    <ClInclude Include="Source\compression\zlib\deflate.h" />
+    <ClInclude Include="Source\compression\zlib\inffast.h" />
+    <ClInclude Include="Source\compression\zlib\inffixed.h" />
+    <ClInclude Include="Source\compression\zlib\inflate.h" />
+    <ClInclude Include="Source\compression\zlib\inftrees.h" />
+    <ClInclude Include="Source\compression\zlib\trees.h" />
+    <ClInclude Include="Source\compression\zlib\zconf.h" />
+    <ClInclude Include="Source\compression\zlib\zlib.h" />
+    <ClInclude Include="Source\compression\zlib\ZlibCompressionStrategy.h" />
+    <ClInclude Include="Source\compression\zlib\zutil.h" />
+    <ClInclude Include="Source\net\tcp_baseSession.h" />
+    <ClInclude Include="Source\ssl\crc32.h" />
+    <ClInclude Include="Source\ssl\crypt.h" />
+    <ClInclude Include="Source\ssl\MD5.h" />
+    <ClInclude Include="Source\Net\asiodef.h" />
+    <ClInclude Include="Source\Net\tcpclient.h" />
+    <ClInclude Include="Source\Net\tcpserver.h" />
+    <ClInclude Include="Source\Net\tcpsession.h" />
+    <ClInclude Include="Source\utilities\call_back.h" />
+    <ClInclude Include="Source\utilities\memory_pool.h" />
+    <ClInclude Include="Source\utilities\mt_buffer.h" />
+    <ClInclude Include="Source\utilities\task_thread_pool.h" />
+    <ClInclude Include="Source\utilities\utilities.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

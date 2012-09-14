@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="linux_debug" />
+	<File name="AccountMgr.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="36312" topLine="1061" />
+	</File>
+	<File name="AccountMgr.h" open="0" top="0" tabpos="5">
+		<Cursor position="5186" topLine="114" />
+	</File>
+	<File name="Config.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="96" topLine="3" />
+	</File>
+	<File name="DBServer.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="2485" topLine="87" />
+	</File>
+	<File name="DataInterface.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="6489" topLine="228" />
+	</File>
+	<File name="Net/GSBuilder.cpp" open="0" top="0" tabpos="7">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="Net/GSListenSocket.cpp" open="0" top="0" tabpos="8">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="Net/GSListenSocket.h" open="0" top="0" tabpos="17">
+		<Cursor position="16" topLine="0" />
+	</File>
+	<File name="Net/GSParser.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="2474" topLine="0" />
+	</File>
+	<File name="Net/GSSocket.cpp" open="0" top="0" tabpos="10">
+		<Cursor position="45" topLine="0" />
+	</File>
+	<File name="Net/GSSocket.h" open="0" top="0" tabpos="18">
+		<Cursor position="790" topLine="0" />
+	</File>
+	<File name="Net/GTBuilder.cpp" open="0" top="0" tabpos="11">
+		<Cursor position="22" topLine="0" />
+	</File>
+	<File name="Net/GTListenSocket.cpp" open="0" top="0" tabpos="12">
+		<Cursor position="51" topLine="0" />
+	</File>
+	<File name="Net/GTListenSocket.h" open="0" top="0" tabpos="16">
+		<Cursor position="16" topLine="0" />
+	</File>
+	<File name="Net/GTParser.cpp" open="0" top="0" tabpos="3">
+		<Cursor position="3234" topLine="95" />
+	</File>
+	<File name="Net/GTSocket.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="919" topLine="10" />
+	</File>
+	<File name="Net/GTSocket.h" open="0" top="0" tabpos="19">
+		<Cursor position="16" topLine="0" />
+	</File>
+	<File name="Server.cpp" open="0" top="0" tabpos="7">
+		<Cursor position="3597" topLine="89" />
+	</File>
+	<File name="WorldInfo.h" open="0" top="0" tabpos="6">
+		<Cursor position="1400" topLine="31" />
+	</File>
+	<File name="stdafx.h" open="0" top="0" tabpos="4">
+		<Cursor position="1523" topLine="5" />
+	</File>
+</CodeBlocks_layout_file>

@@ -1,0 +1,12 @@
+enum MsgType
+{
+    C2Gate_MsgNull		 = 0;
+    C2Gate_MsgLoginReq		 = 1;
+    C2Gate_MsgCreateAcountReq	 = 2;
+}
+
+message MsgHead
+{
+  required MsgType Type = 1;
+  required int32 msgSize = 2;	
+}

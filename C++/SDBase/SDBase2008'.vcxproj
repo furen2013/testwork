@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>SDBase</ProjectName>
+    <ProjectGuid>{6DBA0AD4-F795-4CE0-9F25-9209F1D6F305}</ProjectGuid>
+    <RootNamespace>SDBase</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\intermediate\Server\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\intermediate\Server\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\intermediate\Server\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\intermediate\Server\$(ProjectName)\$(Configuration)\</IntDir>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)SDBaseD.lib</OutputFile>
+    </Lib>
+    <PostBuildEvent>
+      <Command>copy ..\intermediate\Server\$(ProjectName)\$(Configuration)\*.Lib ..\Server\Lib\</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>false</StringPooling>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <PostBuildEvent>
+      <Command>copy ..\intermediate\Server\$(ProjectName)\$(Configuration)\*.Lib ..\Server\Lib\</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="SDBase.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Public\DBCStores.h" />
+    <ClInclude Include="Public\ByteBuffer.h" />
+    <ClInclude Include="Public\ContributionDef.h" />
+    <ClInclude Include="Public\CreatureDef.h" />
+    <ClInclude Include="Public\GossipDef.h" />
+    <ClInclude Include="Public\ItemDef.h" />
+    <ClInclude Include="Public\itemprototype.h" />
+    <ClInclude Include="Public\MailDef.h" />
+    <ClInclude Include="Public\MapDef.h" />
+    <ClInclude Include="Public\PlayerDef.h" />
+    <ClInclude Include="Public\PublicDef.h" />
+    <ClInclude Include="Public\QuestDef.h" />
+    <ClInclude Include="Public\Singleton.h" />
+    <ClInclude Include="Public\SkillDef.h" />
+    <ClInclude Include="Public\SpellDef.h" />
+    <ClInclude Include="Public\Timer.h" />
+    <ClInclude Include="Public\TypeDef.h" />
+    <ClInclude Include="Public\UnitDef.h" />
+    <ClInclude Include="Public\UpdateFields.h" />
+    <ClInclude Include="Public\UpdateMask.h" />
+    <ClInclude Include="Protocol\C2LS.h" />
+    <ClInclude Include="Protocol\C2S.h" />
+    <ClInclude Include="Protocol\C2S_ArenaTeam.h" />
+    <ClInclude Include="Protocol\C2S_Auction.h" />
+    <ClInclude Include="Protocol\C2S_BattleGround.h" />
+    <ClInclude Include="Protocol\C2S_Channel.h" />
+    <ClInclude Include="Protocol\C2S_Chat.h" />
+    <ClInclude Include="Protocol\C2S_Contribution.h" />
+    <ClInclude Include="Protocol\C2S_Duel.h" />
+    <ClInclude Include="Protocol\C2S_Group.h" />
+    <ClInclude Include="Protocol\C2S_Guild.h" />
+    <ClInclude Include="Protocol\C2S_Item.h" />
+    <ClInclude Include="Protocol\C2S_Loot.h" />
+    <ClInclude Include="Protocol\C2S_Mail.h" />
+    <ClInclude Include="Protocol\C2S_Move.h" />
+    <ClInclude Include="Protocol\C2S_Pet.h" />
+    <ClInclude Include="Protocol\C2S_PVP.h" />
+    <ClInclude Include="Protocol\C2S_Quest.h" />
+    <ClInclude Include="Protocol\C2S_Spell.h" />
+    <ClInclude Include="Protocol\C2S_Trade.h" />
+    <ClInclude Include="Protocol\LS2C.h" />
+    <ClInclude Include="Protocol\Opcodes.h" />
+    <ClInclude Include="Protocol\PacketDef.h" />
+    <ClInclude Include="Protocol\S2C.h" />
+    <ClInclude Include="Protocol\S2C_AI.h" />
+    <ClInclude Include="Protocol\S2C_ArenaTeam.h" />
+    <ClInclude Include="Protocol\S2C_Auction.h" />
+    <ClInclude Include="Protocol\S2C_BattleGround.h" />
+    <ClInclude Include="Protocol\S2C_Channel.h" />
+    <ClInclude Include="Protocol\S2C_Chat.h" />
+    <ClInclude Include="Protocol\S2C_Contribution.h" />
+    <ClInclude Include="Protocol\S2C_Duel.h" />
+    <ClInclude Include="Protocol\S2C_Group.h" />
+    <ClInclude Include="Protocol\S2C_Guild.h" />
+    <ClInclude Include="Protocol\S2C_Item.h" />
+    <ClInclude Include="Protocol\S2C_Loot.h" />
+    <ClInclude Include="Protocol\S2C_Mail.h" />
+    <ClInclude Include="Protocol\S2C_Move.h" />
+    <ClInclude Include="Protocol\S2C_Pet.h" />
+    <ClInclude Include="Protocol\S2C_Player.h" />
+    <ClInclude Include="Protocol\S2C_PVP.h" />
+    <ClInclude Include="Protocol\S2C_Quest.h" />
+    <ClInclude Include="Protocol\S2C_Spell.h" />
+    <ClInclude Include="Protocol\S2C_Trade.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

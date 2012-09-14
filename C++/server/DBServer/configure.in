@@ -1,0 +1,30 @@
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+#AC_PREREQ(2.61)
+AC_INIT(DBServerD, 1.0, www.fzycube.com)
+AM_INIT_AUTOMAKE(DBServerD, 1.0)
+#AC_CONFIG_SRCDIR([stdafx.h])
+#AC_CONFIG_HEADER([config.h])
+
+# Checks for programs.
+AC_PROG_CXX
+#AC_PROG_CC
+
+# Checks for libraries.
+AC_CHECK_LIB([pthread],[mysqlclient_r],[ac_client],[new_common],[Common],[ssl])
+AC_PROG_RANLIB
+# Checks for header files.
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_HEADER_STDBOOL
+AC_C_CONST
+AC_STRUCT_TM
+AC_C_VOLATILE
+
+# Checks for library functions.
+AC_FUNC_ERROR_AT_LINE
+AC_TYPE_SIGNAL
+
+AC_OUTPUT(Makefile)
+

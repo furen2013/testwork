@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="linux_debug" />
+	<File name="Config.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="1146" topLine="0" />
+	</File>
+	<File name="Config.h" open="0" top="0" tabpos="1">
+		<Cursor position="463" topLine="0" />
+	</File>
+	<File name="GateServer.cpp" open="0" top="0" tabpos="8">
+		<Cursor position="2035" topLine="0" />
+	</File>
+	<File name="Net/CListenSocket.cpp" open="0" top="0" tabpos="7">
+		<Cursor position="413" topLine="13" />
+	</File>
+	<File name="Net/CListenSocket.h" open="0" top="0" tabpos="0">
+		<Cursor position="66" topLine="0" />
+	</File>
+	<File name="Net/CParser.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="5134" topLine="136" />
+	</File>
+	<File name="Net/CSParser.cpp" open="0" top="0" tabpos="9">
+		<Cursor position="2726" topLine="87" />
+	</File>
+	<File name="Net/CSSocket.cpp" open="0" top="0" tabpos="10">
+		<Cursor position="916" topLine="12" />
+	</File>
+	<File name="Net/CSSocket.h" open="0" top="0" tabpos="0">
+		<Cursor position="556" topLine="0" />
+	</File>
+	<File name="Net/CSocket.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="4415" topLine="132" />
+	</File>
+	<File name="Net/CSocket.h" open="0" top="0" tabpos="0">
+		<Cursor position="69" topLine="0" />
+	</File>
+	<File name="Net/DSParser.cpp" open="0" top="0" tabpos="11">
+		<Cursor position="1079" topLine="21" />
+	</File>
+	<File name="Net/DSSocket.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="22" topLine="0" />
+	</File>
+	<File name="Net/DSSocket.h" open="0" top="0" tabpos="0">
+		<Cursor position="40" topLine="0" />
+	</File>
+	<File name="Net/GSParser.cpp" open="0" top="0" tabpos="4">
+		<Cursor position="1132" topLine="30" />
+	</File>
+	<File name="Net/GSSocket.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="600" topLine="0" />
+	</File>
+	<File name="Net/GSSocket.h" open="0" top="0" tabpos="0">
+		<Cursor position="504" topLine="0" />
+	</File>
+	<File name="Server.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="3027" topLine="81" />
+	</File>
+	<File name="UserManager.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="614" topLine="46" />
+	</File>
+	<File name="UserManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="712" topLine="0" />
+	</File>
+	<File name="stdafx.h" open="0" top="0" tabpos="4">
+		<Cursor position="495" topLine="2" />
+	</File>
+</CodeBlocks_layout_file>

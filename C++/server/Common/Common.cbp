@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Common" />
+		<Option platforms="Unix;" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="linux_debug">
+				<Option platforms="Unix;" />
+				<Option output="../../intermediate/Server/Common/linux_debug/libCommonD" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="../../intermediate/Server/Common/linux_debug" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-march=nocona" />
+					<Add option="-O3" />
+					<Add option="-W" />
+					<Add option="-D_DEBUG" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="../Common" />
+					<Add directory="share/" />
+					<Add directory="database/" />
+					<Add directory="config" />
+					<Add directory="util" />
+					<Add directory="../../SDBase/Public" />
+				</ResourceCompiler>
+				<ExtraCommands>
+					<Add after="cp ../../intermediate/Server/Common/linux_debug/libCommonD.a /lib" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="linux_release">
+				<Option output="../../intermediate/Server/Common/linux_release/libCommon" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="../../intermediate/Server/Common/linux_release" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-W" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_LIB" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="../Common" />
+					<Add directory="share/" />
+					<Add directory="database/" />
+					<Add directory="config" />
+					<Add directory="util" />
+					<Add directory="../../SDBase/Public" />
+				</ResourceCompiler>
+				<ExtraCommands>
+					<Add after="cp ../../intermediate/Server/Common/linux_release/libCommon.a /lib" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="linux_debug so">
+				<Option platforms="Unix;" />
+				<Option output="../../intermediate/Server/Common/linux_debug/Common" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../intermediate/Server/Common/linux_debug" />
+				<Option object_output="../../intermediate/Server/Common/linux_debug" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-march=nocona" />
+					<Add option="-O3" />
+					<Add option="-W" />
+					<Add option="-D_DEBUG" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="../Common" />
+					<Add directory="share/" />
+					<Add directory="database/" />
+					<Add directory="config" />
+					<Add directory="util" />
+					<Add directory="../../SDBase/Public" />
+				</ResourceCompiler>
+				<ExtraCommands>
+					<Add after="cp ../../intermediate/Server/Common/linux_debug/Common.so /lib" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add directory="../Common" />
+			<Add directory="share/" />
+			<Add directory="database/" />
+			<Add directory="config" />
+			<Add directory="util" />
+			<Add directory="../../SDBase/Public" />
+			<Add directory="../../boost_lib/boost_1_36_0/" />
+			<Add directory="../../new_common/Source/log4cpp-1.0/include/" />
+			<Add directory="../../new_common/Source/log4cpp-1.0/" />
+		</Compiler>
+		<Unit filename="Com/Utility.cpp" />
+		<Unit filename="Com/Utility.h" />
+		<Unit filename="Platform/Base.cpp" />
+		<Unit filename="Platform/Base.h" />
+		<Unit filename="Platform/Common.h" />
+		<Unit filename="Platform/CompilerDefs.h" />
+		<Unit filename="Platform/CreationPolicy.h" />
+		<Unit filename="Platform/Errors.h" />
+		<Unit filename="Platform/FactoryHolder.h" />
+		<Unit filename="Platform/Mthread.cpp" />
+		<Unit filename="Platform/Mthread.h" />
+		<Unit filename="Platform/ObjectLifeTime.cpp" />
+		<Unit filename="Platform/ObjectLifeTime.h" />
+		<Unit filename="Platform/ObjectRegistry.h" />
+		<Unit filename="Platform/ProgressBar.cpp" />
+		<Unit filename="Platform/ProgressBar.h" />
+		<Unit filename="Platform/ServiceWin32.cpp" />
+		<Unit filename="Platform/ServiceWin32.h" />
+		<Unit filename="Platform/SystemConfig.h" />
+		<Unit filename="Platform/ThreadingModel.h" />
+		<Unit filename="Platform/Timer.h" />
+		<Unit filename="Platform/Util.cpp" />
+		<Unit filename="Platform/Util.h" />
+		<Unit filename="Platform/WheatyExceptionReport.cpp" />
+		<Unit filename="Platform/WheatyExceptionReport.h" />
+		<Unit filename="Platform/define.h" />
+		<Unit filename="Platform/svn_revision.h" />
+		<Unit filename="Protocol/CS2GT.h" />
+		<Unit filename="Protocol/CS2LS.h" />
+		<Unit filename="Protocol/DB2GS.h" />
+		<Unit filename="Protocol/DB2GT.h" />
+		<Unit filename="Protocol/GS2DB.h" />
+		<Unit filename="Protocol/GS2GT.h" />
+		<Unit filename="Protocol/GS2MS.h" />
+		<Unit filename="Protocol/GT2CS.h" />
+		<Unit filename="Protocol/GT2DB.h" />
+		<Unit filename="Protocol/GT2GS.h" />
+		<Unit filename="Protocol/LS2CS.h" />
+		<Unit filename="Protocol/MS2GS.h" />
+		<Unit filename="Protocol/PacketDef.h" />
+		<Unit filename="Stream/FileStream.cpp" />
+		<Unit filename="Stream/FileStream.h" />
+		<Unit filename="Stream/Stream.cpp" />
+		<Unit filename="Stream/Stream.h" />
+		<Unit filename="Stream/TagStream.cpp" />
+		<Unit filename="Stream/TagStream.h" />
+		<Unit filename="encrypt/Base64.cpp" />
+		<Unit filename="encrypt/Base64.h" />
+		<Unit filename="encrypt/RsaDesManager.cpp" />
+		<Unit filename="encrypt/RsaDesManager.h" />
+		<Unit filename="mongoose/mongoose.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="mongoose/mongoose.h" />
+		<Unit filename="share/Auth/BigNumber.cpp" />
+		<Unit filename="share/Auth/BigNumber.h" />
+		<Unit filename="share/Auth/MD5.cpp" />
+		<Unit filename="share/Auth/MD5.h" />
+		<Unit filename="share/Auth/Sha1.cpp" />
+		<Unit filename="share/Auth/Sha1.h" />
+		<Unit filename="share/Auth/WowCrypt.cpp" />
+		<Unit filename="share/Auth/WowCrypt.h" />
+		<Unit filename="share/CThreads.cpp" />
+		<Unit filename="share/CThreads.h" />
+		<Unit filename="share/CallBack.cpp" />
+		<Unit filename="share/CallBack.h" />
+		<Unit filename="share/CircularQueue.h" />
+		<Unit filename="share/Common.h" />
+		<Unit filename="share/Config/Config.cpp" />
+		<Unit filename="share/Config/Config.h" />
+		<Unit filename="share/Config/ConfigEnv.h" />
+		<Unit filename="share/CoreMemoryAllocator.cpp" />
+		<Unit filename="share/CoreMemoryAllocator_Core.cpp" />
+		<Unit filename="share/CrashHandler.cpp" />
+		<Unit filename="share/CrashHandler.h" />
+		<Unit filename="share/Database/CreateInterface.cpp" />
+		<Unit filename="share/Database/DataStore.h" />
+		<Unit filename="share/Database/Database.cpp" />
+		<Unit filename="share/Database/Database.h" />
+		<Unit filename="share/Database/DatabaseEnv.h" />
+		<Unit filename="share/Database/Field.h" />
+		<Unit filename="share/Database/MySQLDatabase.cpp" />
+		<Unit filename="share/Database/MySQLDatabase.h" />
+		<Unit filename="share/Database/PostgresDatabase.cpp" />
+		<Unit filename="share/Database/PostgresDatabase.h" />
+		<Unit filename="share/Database/SQLiteDatabase.cpp" />
+		<Unit filename="share/Database/SQLiteDatabase.h" />
+		<Unit filename="share/Errors.h" />
+		<Unit filename="share/LocationVector.h" />
+		<Unit filename="share/Log.cpp" />
+		<Unit filename="share/Log.h" />
+		<Unit filename="share/MemoryLeaks.cpp" />
+		<Unit filename="share/MemoryLeaks.h" />
+		<Unit filename="share/MersenneTwister.cpp" />
+		<Unit filename="share/MersenneTwister.h" />
+		<Unit filename="share/NGLog.h" />
+		<Unit filename="share/New-Bytebuffer.h" />
+		<Unit filename="share/PacketLog.cpp" />
+		<Unit filename="share/PacketLog.h" />
+		<Unit filename="share/PreallocatedQueue.h" />
+		<Unit filename="share/RC4Engine.h" />
+		<Unit filename="share/ServiceWin32.cpp" />
+		<Unit filename="share/ServiceWin32.h" />
+		<Unit filename="share/Singleton.h" />
+		<Unit filename="share/SmartPointer.h" />
+		<Unit filename="share/StackBuffer.h" />
+		<Unit filename="share/StackWalker.cpp" />
+		<Unit filename="share/StackWalker.h" />
+		<Unit filename="share/Storage.h" />
+		<Unit filename="share/SunyouConfig.h" />
+		<Unit filename="share/Threading/Condition.h" />
+		<Unit filename="share/Threading/Guard.h" />
+		<Unit filename="share/Threading/LockedQueue.h" />
+		<Unit filename="share/Threading/Mutex.cpp" />
+		<Unit filename="share/Threading/Mutex.h" />
+		<Unit filename="share/Threading/Queue.h" />
+		<Unit filename="share/Threading/RWLock.h" />
+		<Unit filename="share/Threading/ThreadPool.cpp" />
+		<Unit filename="share/Threading/ThreadPool.h" />
+		<Unit filename="share/Threading/ThreadStarter.h" />
+		<Unit filename="share/Threading/Threading.h" />
+		<Unit filename="share/Timer.h" />
+		<Unit filename="share/Util.cpp" />
+		<Unit filename="share/Util.h" />
+		<Unit filename="share/WoWGuid.h" />
+		<Unit filename="share/WorldPacket.h" />
+		<Unit filename="share/crc32.cpp" />
+		<Unit filename="share/crc32.h" />
+		<Unit filename="share/pcre/config.h" />
+		<Unit filename="share/pcre/pcre.h" />
+		<Unit filename="share/pcre/pcre_chartables.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/pcre_compile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/pcre_config.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/pcre_dfa_exec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/pcre_exec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/pcre_fullinfo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/pcre_get.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/pcre_globals.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/pcre_info.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/pcre_internal.h" />
+		<Unit filename="share/pcre/pcre_maketables.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/pcre_newline.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/pcre_ord2utf8.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/pcre_refcount.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/pcre_study.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/pcre_tables.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/pcre_try_flipped.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/pcre_ucp_searchfuncs.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/pcre_valid_utf8.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/pcre_version.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/pcre_xclass.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/pcre/ucp.h" />
+		<Unit filename="share/pcre/ucpinternal.h" />
+		<Unit filename="share/pcre/ucptable.h" />
+		<Unit filename="share/sunyou_getopt.cpp" />
+		<Unit filename="share/sunyou_getopt.h" />
+		<Unit filename="share/svn_revision.h" />
+		<Unit filename="share/zlib/adler32.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/zlib/compress.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/zlib/crc32.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/zlib/crc32.h" />
+		<Unit filename="share/zlib/deflate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/zlib/deflate.h" />
+		<Unit filename="share/zlib/example.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/zlib/gzio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/zlib/infback.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/zlib/inffast.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/zlib/inffast.h" />
+		<Unit filename="share/zlib/inffixed.h" />
+		<Unit filename="share/zlib/inflate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/zlib/inflate.h" />
+		<Unit filename="share/zlib/inftrees.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/zlib/inftrees.h" />
+		<Unit filename="share/zlib/trees.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/zlib/trees.h" />
+		<Unit filename="share/zlib/uncompr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/zlib/zconf.h" />
+		<Unit filename="share/zlib/zlib.h" />
+		<Unit filename="share/zlib/zutil.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="share/zlib/zutil.h" />
+		<Unit filename="stdafx.cpp" />
+		<Unit filename="tinyxml/tinystr.cpp" />
+		<Unit filename="tinyxml/tinystr.h" />
+		<Unit filename="tinyxml/tinyxml.cpp" />
+		<Unit filename="tinyxml/tinyxml.h" />
+		<Unit filename="tinyxml/tinyxmlerror.cpp" />
+		<Unit filename="tinyxml/tinyxmlparser.cpp" />
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<lib_finder disable_auto="1" />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

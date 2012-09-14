@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="GateServer" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="linux_debug">
+				<Option platforms="Unix;" />
+				<Option output="../../intermediate/Server/GateServer/linux_debug/GateServerD" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../bin/Server/GateServer/" />
+				<Option object_output="../../intermediate/Server/GateServer/linux_debug" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-march=nocona" />
+					<Add option="-O3" />
+					<Add option="-W" />
+					<Add option="-g" />
+					<Add option="-O0" />
+					<Add option="-D_DEBUG" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="../Common" />
+					<Add directory="../../NetCommon/Src" />
+					<Add directory="../Common/share/" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="/lib/Common.so" />
+					<Add library="/lib/new_common.so" />
+					<Add library="/usr/lib/libssl.so.0.9.8" />
+					<Add library="../Common/libmysqlclient_r.a" />
+					<Add directory="../../Bin/Server/Common" />
+					<Add directory="../../Bin/Server/SDBase" />
+					<Add directory="../../Server/Lib" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cp ../../intermediate/Server/GateServer/linux_debug/GateServerD ../../bin_linux/Server/GateServer/" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="linux_release">
+				<Option output="../../intermediate/Server/GateServer/linux_release/GateServer" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../bin/Server/GateServer/" />
+				<Option object_output="../../intermediate/Server/GateServer/linux_release" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-march=nocona" />
+					<Add option="-O3" />
+					<Add option="-W" />
+					<Add option="-DNDEBUG" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="../Common" />
+					<Add directory="../../NetCommon/Src" />
+					<Add directory="../Common/share/" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="/lib/libCommon.a" />
+					<Add library="/lib/libnew_common.a" />
+					<Add library="/usr/lib/libssl.so.0.9.8" />
+					<Add library="../Common/libmysqlclient_r.a" />
+					<Add directory="../../Bin/Server/Common" />
+					<Add directory="../../NetCommon/Lib" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cp ../../intermediate/Server/GateServer/linux_release/GateServer ../../bin_linux/Server/GateServer/" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add directory="../Common" />
+			<Add directory="../../NetCommon/Src" />
+			<Add directory="../Common/share/" />
+			<Add directory="../../boost_lib/boost_1_36_0/" />
+			<Add directory="../../new_common/Source/log4cpp-1.0/include/" />
+		</Compiler>
+		<Unit filename="Config.cpp" />
+		<Unit filename="Config.h" />
+		<Unit filename="GateServer.cpp" />
+		<Unit filename="Net/CListenSocket.cpp" />
+		<Unit filename="Net/CListenSocket.h" />
+		<Unit filename="Net/CParser.cpp" />
+		<Unit filename="Net/CParser.h" />
+		<Unit filename="Net/CSParser.cpp" />
+		<Unit filename="Net/CSParser.h" />
+		<Unit filename="Net/CSSocket.cpp" />
+		<Unit filename="Net/CSSocket.h" />
+		<Unit filename="Net/CSocket.cpp" />
+		<Unit filename="Net/CSocket.h" />
+		<Unit filename="Net/DSParser.cpp" />
+		<Unit filename="Net/DSParser.h" />
+		<Unit filename="Net/DSSocket.cpp" />
+		<Unit filename="Net/DSSocket.h" />
+		<Unit filename="Net/GSParser.cpp" />
+		<Unit filename="Net/GSParser.h" />
+		<Unit filename="Net/GSSocket.cpp" />
+		<Unit filename="Net/GSSocket.h" />
+		<Unit filename="ReadMe.txt" />
+		<Unit filename="Server.cpp" />
+		<Unit filename="Server.h" />
+		<Unit filename="UserManager.cpp" />
+		<Unit filename="UserManager.h" />
+		<Unit filename="res/GateServer.manifest">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="stdafx.cpp" />
+		<Unit filename="stdafx.h" />
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

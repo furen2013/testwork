@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="linux_debug so" />
+	<File name="Source/compression/lzmalib/Alloc.c" open="0" top="0" tabpos="0">
+		<Cursor position="427" topLine="13" />
+	</File>
+	<File name="Source/compression/lzmalib/Alloc.h" open="0" top="0" tabpos="0">
+		<Cursor position="175" topLine="1" />
+	</File>
+	<File name="Source/compression/lzmalib/LzmaCompressionStrategy.h" open="0" top="0" tabpos="1">
+		<Cursor position="214" topLine="0" />
+	</File>
+	<File name="Source/compression/lzmalib/LzmaLib.c" open="0" top="0" tabpos="16">
+		<Cursor position="625" topLine="0" />
+	</File>
+	<File name="Source/log4cpp-1.0/MyLog.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="757" topLine="6" />
+	</File>
+	<File name="Source/log4cpp-1.0/MyLog.h" open="0" top="0" tabpos="3">
+		<Cursor position="214" topLine="0" />
+	</File>
+	<File name="Source/log4cpp-1.0/include/log4cpp/Category.hh" open="0" top="0" tabpos="39">
+		<Cursor position="687" topLine="13" />
+	</File>
+	<File name="Source/log4cpp-1.0/include/log4cpp/CategoryStream.hh" open="0" top="0" tabpos="3">
+		<Cursor position="2764" topLine="77" />
+	</File>
+	<File name="Source/log4cpp-1.0/include/log4cpp/Export.hh" open="0" top="0" tabpos="4">
+		<Cursor position="570" topLine="0" />
+	</File>
+	<File name="Source/log4cpp-1.0/include/log4cpp/Portability.hh" open="0" top="0" tabpos="2">
+		<Cursor position="1035" topLine="13" />
+	</File>
+	<File name="Source/log4cpp-1.0/include/log4cpp/config-win32.h" open="0" top="0" tabpos="3">
+		<Cursor position="659" topLine="0" />
+	</File>
+	<File name="Source/log4cpp-1.0/include/log4cpp/config.h" open="0" top="0" tabpos="7">
+		<Cursor position="2395" topLine="70" />
+	</File>
+	<File name="Source/log4cpp-1.0/src/Category.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="7336" topLine="238" />
+	</File>
+	<File name="Source/log4cpp-1.0/src/OstreamAppender.cpp" open="0" top="0" tabpos="7">
+		<Cursor position="1769" topLine="54" />
+	</File>
+	<File name="Source/log4cpp-1.0/src/StringUtil.cpp" open="0" top="0" tabpos="6">
+		<Cursor position="476" topLine="6" />
+	</File>
+	<File name="Source/net/asiodef.h" open="1" top="0" tabpos="3">
+		<Cursor position="583" topLine="0" />
+	</File>
+	<File name="Source/net/tcpsession.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="7868" topLine="277" />
+	</File>
+	<File name="Source/ssl/MD5.h" open="0" top="0" tabpos="9">
+		<Cursor position="548" topLine="0" />
+	</File>
+	<File name="Source/utilities/mt_buffer.h" open="0" top="0" tabpos="2">
+		<Cursor position="1445" topLine="56" />
+	</File>
+	<File name="Source/utilities/utilities.h" open="1" top="0" tabpos="2">
+		<Cursor position="279" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>

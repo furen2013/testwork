@@ -1,0 +1,31 @@
+
+enum MsgType
+{
+  C2G_MsgLoginReq		 = 0,
+  C2G_MsgCreateAcountReq	 = 1,
+}
+message MsgC2GHead
+{
+  required int32 msgSize;
+  required MsgType Type; 		
+}
+
+message MsgC2GLoginReq
+{
+  
+	
+required string id = 1;
+	required string password = 2;
+}
+
+
+message MsgC2GCreateAcountReq
+{
+  
+	
+required string id = 1;
+	required string name = 2;
+	required string password = 3;
+}
+
+

@@ -1,0 +1,28 @@
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+#AC_PREREQ(2.61)
+AC_INIT(GateServerD,1.0,www.fzycube.com)
+#AC_CONFIG_SRCDIR([Net/CParser.cpp])
+AM_INIT_AUTOMAKE(GateServerD, 1.0)
+# Checks for programs.
+AC_PROG_CXX
+AC_PROG_CC
+
+# Checks for libraries.
+AC_CHECK_LIB([pthread],[mysqlclient_r],[new_common],[Common],[ssl])
+AC_PROG_RANLIB
+
+# Checks for header files.
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_HEADER_STDBOOL
+AC_C_CONST
+AC_STRUCT_TM
+AC_C_VOLATILE
+
+# Checks for library functions.
+AC_FUNC_ERROR_AT_LINE
+AC_TYPE_SIGNAL
+
+AC_OUTPUT(Makefile)

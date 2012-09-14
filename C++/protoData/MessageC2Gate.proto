@@ -1,0 +1,32 @@
+
+message MsgC2GateHead
+{
+  enum MsgType
+  {
+    C2Gate_MsgLoginReq		 = 0,
+    C2Gate_MsgCreateAcountReq	 = 1,
+  }
+  required MsgType Type;
+  required int32 msgSize;
+  optional int32 		
+}
+
+message MsgC2GateLoginReq
+{
+  
+	
+required string id = 1;
+	required string password = 2;
+}
+
+
+message MsgC2GateCreateAcountReq
+{
+  
+	
+required string id = 1;
+	required string name = 2;
+	required string password = 3;
+}
+
+

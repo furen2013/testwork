@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="linux_debug so" />
+	<File name="Com/Utility.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="428" topLine="0" />
+	</File>
+	<File name="Com/Utility.h" open="0" top="0" tabpos="3">
+		<Cursor position="324" topLine="0" />
+	</File>
+	<File name="Platform/Common.h" open="0" top="0" tabpos="1">
+		<Cursor position="2503" topLine="101" />
+	</File>
+	<File name="Platform/CompilerDefs.h" open="0" top="0" tabpos="1">
+		<Cursor position="827" topLine="1" />
+	</File>
+	<File name="Platform/Mthread.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="4470" topLine="163" />
+	</File>
+	<File name="Platform/Mthread.h" open="0" top="0" tabpos="0">
+		<Cursor position="73" topLine="0" />
+	</File>
+	<File name="Platform/ObjectLifeTime.cpp" open="0" top="0" tabpos="3">
+		<Cursor position="183" topLine="0" />
+	</File>
+	<File name="Platform/ObjectLifeTime.h" open="0" top="0" tabpos="2">
+		<Cursor position="695" topLine="0" />
+	</File>
+	<File name="Platform/ProgressBar.h" open="0" top="0" tabpos="4">
+		<Cursor position="349" topLine="0" />
+	</File>
+	<File name="Platform/ServiceWin32.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="13" topLine="0" />
+	</File>
+	<File name="Platform/ServiceWin32.h" open="0" top="0" tabpos="0">
+		<Cursor position="13" topLine="0" />
+	</File>
+	<File name="Platform/Util.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="63" topLine="0" />
+	</File>
+	<File name="Platform/Util.h" open="0" top="0" tabpos="6">
+		<Cursor position="3449" topLine="81" />
+	</File>
+	<File name="Platform/WheatyExceptionReport.cpp" open="0" top="0" tabpos="7">
+		<Cursor position="37117" topLine="931" />
+	</File>
+	<File name="Platform/define.h" open="0" top="0" tabpos="5">
+		<Cursor position="2313" topLine="64" />
+	</File>
+	<File name="Protocol/CS2LS.h" open="0" top="0" tabpos="24">
+		<Cursor position="1323" topLine="13" />
+	</File>
+	<File name="Protocol/GS2DB.h" open="0" top="0" tabpos="2">
+		<Cursor position="1100" topLine="12" />
+	</File>
+	<File name="Protocol/GT2CS.h" open="0" top="0" tabpos="19">
+		<Cursor position="977" topLine="0" />
+	</File>
+	<File name="Protocol/GT2GS.h" open="0" top="0" tabpos="3">
+		<Cursor position="167" topLine="0" />
+	</File>
+	<File name="encrypt/Base64.cpp" open="0" top="0" tabpos="8">
+		<Cursor position="1903" topLine="47" />
+	</File>
+	<File name="encrypt/Base64.h" open="0" top="0" tabpos="9">
+		<Cursor position="480" topLine="0" />
+	</File>
+	<File name="encrypt/RsaDesManager.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="17" topLine="0" />
+	</File>
+	<File name="encrypt/RsaDesManager.h" open="0" top="0" tabpos="3">
+		<Cursor position="98" topLine="0" />
+	</File>
+	<File name="mongoose/mongoose.c" open="0" top="0" tabpos="2">
+		<Cursor position="39048" topLine="1518" />
+	</File>
+	<File name="mongoose/mongoose.h" open="0" top="0" tabpos="1">
+		<Cursor position="7573" topLine="178" />
+	</File>
+	<File name="share/Auth/BigNumber.cpp" open="0" top="0" tabpos="63">
+		<Cursor position="1899" topLine="96" />
+	</File>
+	<File name="share/Auth/MD5.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="705" topLine="23" />
+	</File>
+	<File name="share/Auth/MD5.h" open="0" top="0" tabpos="14">
+		<Cursor position="459" topLine="0" />
+	</File>
+	<File name="share/Auth/Sha1.cpp" open="0" top="0" tabpos="58">
+		<Cursor position="88" topLine="0" />
+	</File>
+	<File name="share/Auth/Sha1.h" open="0" top="0" tabpos="56">
+		<Cursor position="112" topLine="0" />
+	</File>
+	<File name="share/CThreads.h" open="0" top="0" tabpos="4">
+		<Cursor position="193" topLine="0" />
+	</File>
+	<File name="share/Common.h" open="0" top="0" tabpos="3">
+		<Cursor position="14429" topLine="547" />
+	</File>
+	<File name="share/Config/Config.cpp" open="0" top="0" tabpos="16">
+		<Cursor position="1871" topLine="99" />
+	</File>
+	<File name="share/Config/Config.h" open="0" top="0" tabpos="18">
+		<Cursor position="999" topLine="18" />
+	</File>
+	<File name="share/CoreMemoryAllocator.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="31" topLine="0" />
+	</File>
+	<File name="share/CoreMemoryAllocator_Core.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="share/CrashHandler.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="491" topLine="0" />
+	</File>
+	<File name="share/CrashHandler.h" open="0" top="0" tabpos="0">
+		<Cursor position="482" topLine="9" />
+	</File>
+	<File name="share/Database/Database.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="6067" topLine="280" />
+	</File>
+	<File name="share/Database/Database.h" open="0" top="0" tabpos="2">
+		<Cursor position="590" topLine="28" />
+	</File>
+	<File name="share/Database/DatabaseEnv.h" open="0" top="0" tabpos="0">
+		<Cursor position="416" topLine="0" />
+	</File>
+	<File name="share/Database/Field.h" open="0" top="0" tabpos="6">
+		<Cursor position="634" topLine="0" />
+	</File>
+	<File name="share/Database/MySQLDatabase.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="1542" topLine="41" />
+	</File>
+	<File name="share/Database/MySQLDatabase.h" open="0" top="0" tabpos="0">
+		<Cursor position="1212" topLine="7" />
+	</File>
+	<File name="share/Database/PostgresDatabase.h" open="0" top="0" tabpos="0">
+		<Cursor position="1268" topLine="10" />
+	</File>
+	<File name="share/Database/SQLiteDatabase.h" open="0" top="0" tabpos="0">
+		<Cursor position="1063" topLine="8" />
+	</File>
+	<File name="share/LocationVector.h" open="0" top="0" tabpos="0">
+		<Cursor position="226" topLine="0" />
+	</File>
+	<File name="share/Log.cpp" open="0" top="0" tabpos="7">
+		<Cursor position="4112" topLine="231" />
+	</File>
+	<File name="share/Log.h" open="0" top="0" tabpos="6">
+		<Cursor position="1268" topLine="24" />
+	</File>
+	<File name="share/NGLog.h" open="0" top="0" tabpos="6">
+		<Cursor position="5489" topLine="264" />
+	</File>
+	<File name="share/New-Bytebuffer.h" open="0" top="0" tabpos="0">
+		<Cursor position="128" topLine="7" />
+	</File>
+	<File name="share/PacketLog.h" open="0" top="0" tabpos="60">
+		<Cursor position="873" topLine="0" />
+	</File>
+	<File name="share/ServiceWin32.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="13" topLine="0" />
+	</File>
+	<File name="share/ServiceWin32.h" open="0" top="0" tabpos="0">
+		<Cursor position="13" topLine="0" />
+	</File>
+	<File name="share/Singleton.h" open="0" top="0" tabpos="1">
+		<Cursor position="798" topLine="0" />
+	</File>
+	<File name="share/SmartPointer.h" open="0" top="0" tabpos="0">
+		<Cursor position="1446" topLine="0" />
+	</File>
+	<File name="share/StackBuffer.h" open="0" top="0" tabpos="0">
+		<Cursor position="394" topLine="0" />
+	</File>
+	<File name="share/StackWalker.cpp" open="0" top="0" tabpos="12">
+		<Cursor position="39323" topLine="1189" />
+	</File>
+	<File name="share/Storage.h" open="0" top="0" tabpos="1">
+		<Cursor position="14630" topLine="645" />
+	</File>
+	<File name="share/Threading/Condition.h" open="0" top="0" tabpos="0">
+		<Cursor position="10964" topLine="405" />
+	</File>
+	<File name="share/Threading/Guard.h" open="0" top="0" tabpos="0">
+		<Cursor position="318" topLine="0" />
+	</File>
+	<File name="share/Threading/LockedQueue.h" open="0" top="0" tabpos="0">
+		<Cursor position="894" topLine="25" />
+	</File>
+	<File name="share/Threading/Mutex.cpp" open="0" top="0" tabpos="32">
+		<Cursor position="675" topLine="5" />
+	</File>
+	<File name="share/Threading/Mutex.h" open="0" top="0" tabpos="0">
+		<Cursor position="658" topLine="21" />
+	</File>
+	<File name="share/Threading/ThreadPool.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="8590" topLine="302" />
+	</File>
+	<File name="share/Threading/ThreadPool.h" open="0" top="0" tabpos="0">
+		<Cursor position="4530" topLine="176" />
+	</File>
+	<File name="share/Threading/ThreadStarter.h" open="0" top="0" tabpos="0">
+		<Cursor position="207" topLine="0" />
+	</File>
+	<File name="share/Util.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="417" topLine="0" />
+	</File>
+	<File name="share/Util.h" open="0" top="0" tabpos="2">
+		<Cursor position="332" topLine="0" />
+	</File>
+	<File name="share/WoWGuid.h" open="0" top="0" tabpos="0">
+		<Cursor position="282" topLine="10" />
+	</File>
+	<File name="share/WorldPacket.h" open="0" top="0" tabpos="0">
+		<Cursor position="853" topLine="9" />
+	</File>
+	<File name="share/pcre/config.h" open="0" top="0" tabpos="0">
+		<Cursor position="10241" topLine="243" />
+	</File>
+	<File name="share/zlib/zutil.h" open="0" top="0" tabpos="0">
+		<Cursor position="3570" topLine="103" />
+	</File>
+	<File name="stdafx.cpp" open="0" top="0" tabpos="3">
+		<Cursor position="543" topLine="0" />
+	</File>
+	<File name="tinyxml/tinyxml.cpp" open="0" top="0" tabpos="14">
+		<Cursor position="36043" topLine="1728" />
+	</File>
+	<File name="tinyxml/tinyxml.h" open="0" top="0" tabpos="13">
+		<Cursor position="1507" topLine="27" />
+	</File>
+</CodeBlocks_layout_file>

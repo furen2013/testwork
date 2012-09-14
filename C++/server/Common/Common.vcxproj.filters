@@ -1,0 +1,616 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{577cf219-70b4-4f70-849c-23c03b4d3252}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Stream">
+      <UniqueIdentifier>{9aa12fd9-2996-40a5-9947-cbe20e9f627e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Encrypt">
+      <UniqueIdentifier>{cd0d28e4-d3f0-4adc-933c-f2fa54c56f29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Com">
+      <UniqueIdentifier>{a5cade7a-652a-4e64-95c2-6b1039c86938}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyxml">
+      <UniqueIdentifier>{bdd9a7fb-b8a2-4680-a0cc-83c71c071d70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Protocol">
+      <UniqueIdentifier>{264b1d7d-e57a-42c9-863b-5d9cbed5bca0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="share">
+      <UniqueIdentifier>{a6d04fc0-3235-4a85-b86c-69f2b4cb15c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="share\Auth">
+      <UniqueIdentifier>{03dc21c0-d292-400e-be07-3cd08e602cd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="share\Config">
+      <UniqueIdentifier>{40b164cf-73ec-47a0-9a30-976ef0d85426}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="share\Database">
+      <UniqueIdentifier>{4a30245c-e571-442d-be29-94285c579720}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="share\pcre">
+      <UniqueIdentifier>{40d927a3-a59b-4fa3-83a1-0519828ad60b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="share\Threading">
+      <UniqueIdentifier>{2bbdcd60-54b9-4cfb-90e3-0ec83760b33c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="share\Util">
+      <UniqueIdentifier>{b6662682-0ae3-416e-ade2-38672de8c6f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="share\Zlib">
+      <UniqueIdentifier>{11b18e49-7c5a-4823-ba87-f4a215219e98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="webserver">
+      <UniqueIdentifier>{9896cc0e-ef18-4912-b71b-b00be505ad18}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\Base.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\Mthread.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\ObjectLifeTime.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\ProgressBar.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\ServiceWin32.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\Util.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\WheatyExceptionReport.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Stream\FileStream.cpp">
+      <Filter>Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="Stream\Stream.cpp">
+      <Filter>Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="Stream\TagStream.cpp">
+      <Filter>Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="encrypt\Base64.cpp">
+      <Filter>Encrypt</Filter>
+    </ClCompile>
+    <ClCompile Include="encrypt\RsaDesManager.cpp">
+      <Filter>Encrypt</Filter>
+    </ClCompile>
+    <ClCompile Include="Com\Utility.cpp">
+      <Filter>Com</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml\tinystr.cpp">
+      <Filter>tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml\tinyxml.cpp">
+      <Filter>tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml\tinyxmlerror.cpp">
+      <Filter>tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml\tinyxmlparser.cpp">
+      <Filter>tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol\PacketDef.Cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="share\ServiceWin32.cpp">
+      <Filter>share</Filter>
+    </ClCompile>
+    <ClCompile Include="share\sunyou_getopt.cpp">
+      <Filter>share</Filter>
+    </ClCompile>
+    <ClCompile Include="share\Auth\BigNumber.cpp">
+      <Filter>share\Auth</Filter>
+    </ClCompile>
+    <ClCompile Include="share\Auth\MD5.cpp">
+      <Filter>share\Auth</Filter>
+    </ClCompile>
+    <ClCompile Include="share\Auth\Sha1.cpp">
+      <Filter>share\Auth</Filter>
+    </ClCompile>
+    <ClCompile Include="share\Auth\WowCrypt.cpp">
+      <Filter>share\Auth</Filter>
+    </ClCompile>
+    <ClCompile Include="share\Config\Config.cpp">
+      <Filter>share\Config</Filter>
+    </ClCompile>
+    <ClCompile Include="share\Database\CreateInterface.cpp">
+      <Filter>share\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="share\Database\Database.cpp">
+      <Filter>share\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="share\Database\MySQLDatabase.cpp">
+      <Filter>share\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="share\Database\PostgresDatabase.cpp">
+      <Filter>share\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="share\Database\SQLiteDatabase.cpp">
+      <Filter>share\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_chartables.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_compile.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_config.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_dfa_exec.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_exec.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_fullinfo.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_get.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_globals.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_info.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_maketables.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_newline.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_ord2utf8.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_refcount.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_study.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_tables.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_try_flipped.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_ucp_searchfuncs.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_valid_utf8.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_version.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\pcre\pcre_xclass.c">
+      <Filter>share\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="share\Threading\Mutex.cpp">
+      <Filter>share\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="share\Threading\ThreadPool.cpp">
+      <Filter>share\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="share\CallBack.cpp">
+      <Filter>share\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="share\CoreMemoryAllocator.cpp">
+      <Filter>share\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="share\CoreMemoryAllocator_Core.cpp">
+      <Filter>share\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="share\CrashHandler.cpp">
+      <Filter>share\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="share\crc32.cpp">
+      <Filter>share\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="share\CThreads.cpp">
+      <Filter>share\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="share\MemoryLeaks.cpp">
+      <Filter>share\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="share\MersenneTwister.cpp">
+      <Filter>share\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="share\PacketLog.cpp">
+      <Filter>share\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="share\StackWalker.cpp">
+      <Filter>share\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="share\Util.cpp">
+      <Filter>share\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="share\zlib\adler32.c">
+      <Filter>share\Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="share\zlib\compress.c">
+      <Filter>share\Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="share\zlib\crc32.c">
+      <Filter>share\Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="share\zlib\deflate.c">
+      <Filter>share\Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="share\zlib\example.c">
+      <Filter>share\Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="share\zlib\gzio.c">
+      <Filter>share\Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="share\zlib\infback.c">
+      <Filter>share\Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="share\zlib\inffast.c">
+      <Filter>share\Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="share\zlib\inflate.c">
+      <Filter>share\Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="share\zlib\inftrees.c">
+      <Filter>share\Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="share\zlib\trees.c">
+      <Filter>share\Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="share\zlib\uncompr.c">
+      <Filter>share\Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="share\zlib\zutil.c">
+      <Filter>share\Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="mongoose\mongoose.c">
+      <Filter>webserver</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Platform\Base.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\Common.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\CompilerDefs.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\CreationPolicy.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\define.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\Errors.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\FactoryHolder.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\Mthread.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\ObjectLifeTime.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\ObjectRegistry.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\ProgressBar.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\ServiceWin32.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\svn_revision.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\SystemConfig.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\ThreadingModel.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\Timer.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\Util.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\WheatyExceptionReport.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Stream\FileStream.h">
+      <Filter>Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="Stream\Stream.h">
+      <Filter>Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="Stream\TagStream.h">
+      <Filter>Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="encrypt\Base64.h">
+      <Filter>Encrypt</Filter>
+    </ClInclude>
+    <ClInclude Include="encrypt\RsaDesManager.h">
+      <Filter>Encrypt</Filter>
+    </ClInclude>
+    <ClInclude Include="Com\Utility.h">
+      <Filter>Com</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml\tinystr.h">
+      <Filter>tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml\tinyxml.h">
+      <Filter>tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\AC2Client.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\Client2AC.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\CS2GT.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\CS2LS.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\DB2GS.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\DB2GT.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\GS2DB.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\GS2GT.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\GS2MS.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\GT2CS.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\GT2DB.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\GT2GS.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\LS2CS.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\MS2GS.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\PacketDef.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Common.h">
+      <Filter>share</Filter>
+    </ClInclude>
+    <ClInclude Include="share\ServiceWin32.h">
+      <Filter>share</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Storage.h">
+      <Filter>share</Filter>
+    </ClInclude>
+    <ClInclude Include="share\sunyou_getopt.h">
+      <Filter>share</Filter>
+    </ClInclude>
+    <ClInclude Include="share\SunyouConfig.h">
+      <Filter>share</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Auth\BigNumber.h">
+      <Filter>share\Auth</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Auth\MD5.h">
+      <Filter>share\Auth</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Auth\Sha1.h">
+      <Filter>share\Auth</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Auth\WowCrypt.h">
+      <Filter>share\Auth</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Config\Config.h">
+      <Filter>share\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Config\ConfigEnv.h">
+      <Filter>share\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Database\Database.h">
+      <Filter>share\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Database\DatabaseEnv.h">
+      <Filter>share\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Database\DataStore.h">
+      <Filter>share\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Database\Field.h">
+      <Filter>share\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Database\MySQLDatabase.h">
+      <Filter>share\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Database\PostgresDatabase.h">
+      <Filter>share\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Database\SQLiteDatabase.h">
+      <Filter>share\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="share\pcre\config.h">
+      <Filter>share\pcre</Filter>
+    </ClInclude>
+    <ClInclude Include="share\pcre\pcre.h">
+      <Filter>share\pcre</Filter>
+    </ClInclude>
+    <ClInclude Include="share\pcre\pcre_internal.h">
+      <Filter>share\pcre</Filter>
+    </ClInclude>
+    <ClInclude Include="share\pcre\ucp.h">
+      <Filter>share\pcre</Filter>
+    </ClInclude>
+    <ClInclude Include="share\pcre\ucpinternal.h">
+      <Filter>share\pcre</Filter>
+    </ClInclude>
+    <ClInclude Include="share\pcre\ucptable.h">
+      <Filter>share\pcre</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Threading\Condition.h">
+      <Filter>share\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Threading\Guard.h">
+      <Filter>share\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Threading\LockedQueue.h">
+      <Filter>share\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Threading\Mutex.h">
+      <Filter>share\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Threading\Queue.h">
+      <Filter>share\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Threading\RWLock.h">
+      <Filter>share\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Threading\Threading.h">
+      <Filter>share\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Threading\ThreadPool.h">
+      <Filter>share\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Threading\ThreadStarter.h">
+      <Filter>share\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="share\CallBack.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\CircularQueue.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\CrashHandler.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\crc32.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\CThreads.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Errors.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\LocationVector.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\MemoryLeaks.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\MersenneTwister.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\New-Bytebuffer.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\NGLog.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\PacketLog.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\PreallocatedQueue.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\RC4Engine.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Singleton.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\SmartPointer.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\StackBuffer.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\StackWalker.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\svn_revision.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Timer.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\Util.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\WorldPacket.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\WoWGuid.h">
+      <Filter>share\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="share\zlib\crc32.h">
+      <Filter>share\Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="share\zlib\deflate.h">
+      <Filter>share\Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="share\zlib\inffast.h">
+      <Filter>share\Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="share\zlib\inffixed.h">
+      <Filter>share\Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="share\zlib\inflate.h">
+      <Filter>share\Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="share\zlib\inftrees.h">
+      <Filter>share\Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="share\zlib\trees.h">
+      <Filter>share\Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="share\zlib\zconf.h">
+      <Filter>share\Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="share\zlib\zlib.h">
+      <Filter>share\Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="share\zlib\zutil.h">
+      <Filter>share\Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoose\mongoose.h">
+      <Filter>webserver</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
