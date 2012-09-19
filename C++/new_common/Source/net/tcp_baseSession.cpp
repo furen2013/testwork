@@ -215,7 +215,7 @@ void tcp_basesession::_send_message( message_t* msg )
 	m_not_sent_size += msg->len;
 	if( m_father && m_father->is_limit_mode() )
 	{
-		if( m_not_sent_size >= QUEUE_MESSAGE_LIMIT_SIZE )
+		if( m_not_sent_size >= m_queue_message_limit_size )
 		{
 			//printf("error: not send size > QUEUE_MESSAGE_LIMIT_SIZE close socket\n");
 			close();
@@ -428,6 +428,74 @@ void tcp_basesession::_write_message()
 		boost::asio::placeholders::error, len, 0 ) );
 
 	m_is_sending_data = true;
+}
+
+void tcp_basesession::_Read_Other()
+{
+
+}
+
+
+void tcp_basesession::_read_next_message()
+{
+	boost::asio::async_read( *m_socket,
+		boost::asio::buffer( m_recv_buffer, m_message_head_len ),
+		boost::bind( &tcp_basesession::handle_read_header, this,
+		boost::asio::placeholders::error ) );
+}
+
+void tcp_basesession::handle_read_body( const boost::system::error_code& error )
+{
+	if( !is_valid() )
+		return;
+
+	if( !error )
+	{
+		_record_action();
+		_Read_Other();
+	}
+	else
+		_on_close( error );
+}
+
+void tcp_basesession::handle_read_header( const boost::system::error_code& error )
+{
+	if( !is_valid() )
+		return;
+
+	if( !error )
+	{
+		_record_action();
+
+		unsigned short datalen = *(unsigned short*)m_recv_buffer;
+		m_recv_size += datalen;
+
+		if( datalen > m_message_head_len )
+		{
+			//assert( datalen <= MAX_MESSAGE_LEN );
+			boost::asio::async_read( *m_socket,
+				boost::asio::buffer( m_recv_buffer + m_message_head_len, datalen - m_message_head_len ),
+				boost::bind( &tcp_basesession::handle_read_body, this,
+				boost::asio::placeholders::error ) );
+		}
+		else if( datalen == m_message_head_len )
+		{
+			_Read_Other();
+		}
+		else
+		{
+			//printf( "datalen < 12, close socket\n" );
+			if( m_father )
+			{
+				m_father->add_ban_ip( this->get_remote_address_ui(), 120, net_global::BAN_REASON_HACK_PACKET );
+				printf( "IP:[%s] try to hack server. Ban it for 120 seconds.\n", get_remote_address_string().c_str() );
+			}
+			this->close();
+			net_global::write_close_log( "IP:[%s] message length is not valid", this->get_remote_address_string().c_str() );
+		}
+	}
+	else
+		_on_close( error );
 }
 
 void tcp_basesession::handle_write( const boost::system::error_code& error, int size, int block_idx )

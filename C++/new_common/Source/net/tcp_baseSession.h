@@ -50,7 +50,7 @@ public:
 #endif
 
 public:
-	virtual void handle_read_header( const boost::system::error_code& error ) = 0;
+	virtual void handle_read_header( const boost::system::error_code& error );
 	virtual void handle_read_body( const boost::system::error_code& error ) = 0;
 	virtual void handle_write( const boost::system::error_code& error, int size, int block_idx );
 
@@ -58,6 +58,7 @@ protected:
 	virtual call_back_mgr* _get_cb_mgr();
 	void _send_message( message_t* msg );
 	virtual void _write_message();
+	virtual void _Read_Other();
 	virtual void _read_next_message() = 0;
 	//void _uncompress_message();
 	//message_t* _compress_message( const void* data, unsigned short len, int t_idx );
@@ -66,6 +67,10 @@ protected:
 	void _clear_recv_msg();
 	void _clear_send_msg();
 	void _on_close( const boost::system::error_code& error );
+protected:
+	
+
+protected:
 
 	boost::asio::io_service& m_io_service;
 	volatile bool m_isconnected;

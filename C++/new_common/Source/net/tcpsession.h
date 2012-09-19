@@ -12,17 +12,18 @@ public:
 	virtual ~tcp_session();
 
 public:
-	virtual void handle_read_header( const boost::system::error_code& error );
-	virtual void handle_read_body( const boost::system::error_code& error );
-	virtual void handle_write( const boost::system::error_code& error, int size, int block_idx );
+	//virtual void handle_read_header( const boost::system::error_code& error );
+	//virtual void handle_read_body( const boost::system::error_code& error );
+	//virtual void handle_write( const boost::system::error_code& error, int size, int block_idx );
 	virtual void send_message( const void* data, unsigned short len );
 
 
 protected:
 	void _uncompress_message();
 	message_t* _compress_message( const void* data, unsigned short len, int t_idx );
-	virtual void _write_message();
-	virtual void _read_next_message();
+	//virtual void _write_message();
+	//virtual void _read_next_message();
+	virtual void _Read_Other();
 
 protected:
 	friend struct compress_send_task;
