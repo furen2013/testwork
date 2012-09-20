@@ -51,7 +51,7 @@ public:
 
 public:
 	virtual void handle_read_header( const boost::system::error_code& error );
-	virtual void handle_read_body( const boost::system::error_code& error ) = 0;
+	virtual void handle_read_body( const boost::system::error_code& error );
 	virtual void handle_write( const boost::system::error_code& error, int size, int block_idx );
 
 protected:
@@ -59,7 +59,7 @@ protected:
 	void _send_message( message_t* msg );
 	virtual void _write_message();
 	virtual void _Read_Other();
-	virtual void _read_next_message() = 0;
+	virtual void _read_next_message();
 	//void _uncompress_message();
 	//message_t* _compress_message( const void* data, unsigned short len, int t_idx );
 	void _check_action_time();

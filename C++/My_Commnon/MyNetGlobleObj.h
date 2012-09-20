@@ -3,6 +3,7 @@
 
 #pragma once
 #include "asiodef.h"
+class MsgHead;
 struct MyNetGlobleObj : public net_global
 {
 public:
@@ -16,6 +17,7 @@ private:
 	static int mMessageBasicHeadLen;
 	static int mQueueMessageLimitSize;
 	static bool bIsInit;
+	static MsgHead* pMsgHead;
 };
 
 

@@ -83,7 +83,7 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>new_commonD.lib;libprotobuf.lib;libprotoc.lib;MsgShardD.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>new_commonD.lib;libprotobuf.lib;libprotoc.lib;MsgShardD.lib;My_CommnonD.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(ProjectName)D.exe</OutputFile>
       <AdditionalLibraryDirectories>../../D_LIB/;..\common\openssl-0.9.8b\lib;../../lib_x86/;E:\MyCode\GitHub\MyPhoneWork\C++\lib_x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
