@@ -60,7 +60,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>E:\MyCode\GitHub\TestProtocolBufers\protobuf-2.4.1\protobuf-2.4.1\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\TestProtocolBufers\protobuf-2.4.1\protobuf-2.4.1\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Lib>
       <OutputFile>..\D_LIB\$(ProjectName)D.lib</OutputFile>

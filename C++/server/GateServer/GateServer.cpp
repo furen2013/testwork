@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 	msgHead.set_msgsize(10000);
 	msgHead.set_type(MsgType::C2Gate_MsgNull);
 	mysize = msgHead.ByteSize();
-
+	mysize = sizeof(_tagPakHead);
 	mysize = msgHead.GetCachedSize();
 	int n = 0;
 	n ++;

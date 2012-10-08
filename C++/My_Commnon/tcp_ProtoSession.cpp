@@ -47,17 +47,17 @@ void Tcp_ProtoSession::send_message(MsgType type, google::protobuf::Message* msg
 	size_t headsize = msgHead.ByteSize();
 	size_t bodysize = msgBody->ByteSize();
 	size_t mark = sizeof(unsigned short);
-	size_t si = headsize + bodysize + sizeof(unsigned short) + mark;
+	size_t head = mark * 2;
+	size_t si = headsize + bodysize + head;
 	mark = headsize + bodysize;
 	message_t* msg = MyNetGlobleObj::get_message(si);
-	*(msg->data) = headsize + bodysize;
-	msgHead.SerializeToArray(msg->data + mark , headsize);
-	msgBody->SerializeToArray(msg->data + headsize + mark, bodysize);
-	if (m_father)
-	{
-		m_father->push_message(msg);
-	}
-	
+	*((unsigned short*)msg->data) = headsize + bodysize;
+	*((unsigned short*)msg->data + mark) = headsize;
+	msg->len = si;
+	msg->from = this;
+	msgHead.SerializeToArray(msg->data + head , headsize);
+	msgBody->SerializeToArray(msg->data + headsize + head, bodysize);
+	_send_message(msg);
 	
 }
 
@@ -71,7 +71,7 @@ void Tcp_ProtoSession::send_message( const void* data, unsigned short len )
 	message_t* msg = MyNetGlobleObj::get_message( trueSize );
 	memcpy(msg->data, data, trueSize);
 	
-	m_father->push_message(msg);
+	//m_father->push_message(msg);
 	//if (m_father)
 	//{
 	//	int ti = 0;
