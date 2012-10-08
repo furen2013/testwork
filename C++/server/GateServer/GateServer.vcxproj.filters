@@ -8,6 +8,9 @@
     <Filter Include="Net">
       <UniqueIdentifier>{4ff4e576-738d-4999-9579-9c50aa9c0bdc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ProtoNet">
+      <UniqueIdentifier>{f1bb80dd-efeb-4468-b4da-22c15d5c8b94}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Config.cpp">
@@ -40,6 +43,9 @@
     <ClCompile Include="Net\GSSocket.cpp">
       <Filter>Net</Filter>
     </ClCompile>
+    <ClCompile Include="ProtoNet\GProtoSocket.cpp">
+      <Filter>ProtoNet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h">
@@ -68,6 +74,10 @@
     </ClInclude>
     <ClInclude Include="Net\GSSocket.h">
       <Filter>Net</Filter>
+    </ClInclude>
+    <ClInclude Include="GProtoSocket.h" />
+    <ClInclude Include="ProtoNet\GProtoSocket.h">
+      <Filter>ProtoNet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -15,7 +15,7 @@ void CGSListenSocket::stop()
 {
 
 }
-tcp_session* CGSListenSocket::create_session()
+tcp_basesession* CGSListenSocket::create_session()
 {
 	return new CGTSocket( *net_global::get_io_service() );
 }

@@ -47,6 +47,8 @@ void CGSSocket::on_connect_failed( boost::system::error_code error )
 
 void CGSSocket::proc_message( const message_t& msg )
 {
+
+
 	//sGSParser.ParsePacket( this, (char*)msg.data, msg.len );
 }
 

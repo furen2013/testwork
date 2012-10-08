@@ -16,8 +16,6 @@ private:
 	static int mMessageHeadLen;
 	static int mMessageBasicHeadLen;
 	static int mQueueMessageLimitSize;
-	static bool bIsInit;
-	static MsgHead* pMsgHead;
 };
 
 

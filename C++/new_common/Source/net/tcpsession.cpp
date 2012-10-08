@@ -237,6 +237,13 @@ void tcp_session::_uncompress_message()
 	net_global::write_close_log( "IP:[%s] uncompress message failed", this->get_remote_address_string().c_str() );
 }
 
+void tcp_session::_async_read(unsigned short datalen)
+{
+	boost::asio::async_read( *m_socket,
+		boost::asio::buffer( m_recv_buffer + m_message_head_len, datalen - m_message_head_len ),
+		boost::bind( &tcp_basesession::handle_read_body, this,
+		boost::asio::placeholders::error ) );
+}
 message_t* tcp_session::_compress_message( const void* data, unsigned short len, int t_idx )
 {
 	if( m_iscompress && len >= 128 && net_global::get_compress_strategy() )

@@ -9,7 +9,7 @@ public:
 	virtual ~CGSListenSocket(void);
 
 	virtual void stop();
-	virtual tcp_session* create_session();
+	virtual tcp_basesession* create_session();
 
 private:
 

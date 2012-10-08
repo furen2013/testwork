@@ -21,6 +21,7 @@ public:
 protected:
 	void _uncompress_message();
 	message_t* _compress_message( const void* data, unsigned short len, int t_idx );
+	void _async_read(unsigned short datalen);
 	//virtual void _write_message();
 	//virtual void _read_next_message();
 	virtual void _Read_Other();

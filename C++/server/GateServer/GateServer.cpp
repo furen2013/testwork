@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "MessageC2Gate.pb.h"
 #include "iostream"
+#include "../../../MsgShard/MsgHead.pb.h"
 #ifdef WIN32
 #include "../Common/Platform/ServiceWin32.h"
 char serviceName[] = "Sunyou GT";
@@ -34,6 +35,19 @@ void usage(const char *prog)
 
 int main(int argc, char **argv)
 {
+	size_t mysize = 0;
+	MsgHead msgHead;
+	//msgHead.SetCachedSize(20);
+	mysize = msgHead.ByteSize();
+	msgHead.set_msgsize(10000);
+	msgHead.set_type(MsgType::C2Gate_MsgNull);
+	mysize = msgHead.ByteSize();
+
+	mysize = msgHead.GetCachedSize();
+	int n = 0;
+	n ++;
+
+
 	MsgC2GateLoginReq MsgC2G;
 	MsgC2G.set_id("111111");
 	MsgC2G.set_password("12121211");

@@ -67,7 +67,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../../new_common/source/log4cpp-1.0/include;..\common\openssl-0.9.8b\inc32;..\common\Net;..\common\Encrypt\;..\common\Com;..\Common\Log;..\Common\Xml;../Common;../Common/share/;../../SDBase/Public;..\..\..\boost_lib\boost_1_51_0;..\..\..\..\boost_lib\boost_1_51_0;E:\MyCode\GitHub\TestProtocolBufers\protobuf-2.4.1\protobuf-2.4.1\src;E:\MyCode\GitHub\MyPhoneWork\C++\MsgShard;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../new_common/source/log4cpp-1.0/include;..\common\openssl-0.9.8b\inc32;..\common\Net;..\common\Encrypt\;..\common\Com;..\Common\Log;..\Common\Xml;../Common;../Common/share/;../../SDBase/Public;..\..\..\boost_lib\boost_1_51_0;..\..\..\..\boost_lib\boost_1_51_0;E:\MyCode\GitHub\TestProtocolBufers\protobuf-2.4.1\protobuf-2.4.1\src;E:\MyCode\GitHub\MyPhoneWork\C++\MsgShard;./../new_common/source/net;../../new_common/Source/net/;../../My_Commnon/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;BOOST_ALL_NO_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -95,7 +95,7 @@
       <Profile>true</Profile>
     </Link>
     <PostBuildEvent>
-      <Command>Copy $(OutDir)$(ProjectName)D.exe ..\..\..\Bin\GateServer.exe</Command>
+      <Command>Copy $(OutDir)$(ProjectName)D.exe ..\..\ServerExe\GateServer.exe</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -140,6 +140,7 @@ copy ..\..\intermediate\Server\$(ProjectName)\$(Configuration)\*.pdb ..\..\Bin\S
   <ItemGroup>
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="GateServer.cpp" />
+    <ClCompile Include="ProtoNet\GProtoSocket.cpp" />
     <ClCompile Include="Server.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -179,6 +180,8 @@ copy ..\..\intermediate\Server\$(ProjectName)\$(Configuration)\*.pdb ..\..\Bin\S
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h" />
+    <ClInclude Include="GProtoSocket.h" />
+    <ClInclude Include="ProtoNet\GProtoSocket.h" />
     <ClInclude Include="Server.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="UserManager.h" />

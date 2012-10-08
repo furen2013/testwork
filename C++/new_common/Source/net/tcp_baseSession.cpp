@@ -458,6 +458,7 @@ void tcp_basesession::handle_read_body( const boost::system::error_code& error )
 		_on_close( error );
 }
 
+
 void tcp_basesession::handle_read_header( const boost::system::error_code& error )
 {
 	if( !is_valid() )
@@ -473,10 +474,11 @@ void tcp_basesession::handle_read_header( const boost::system::error_code& error
 		if( datalen > m_message_head_len )
 		{
 			//assert( datalen <= MAX_MESSAGE_LEN );
-			boost::asio::async_read( *m_socket,
-				boost::asio::buffer( m_recv_buffer + m_message_head_len, datalen - m_message_head_len ),
-				boost::bind( &tcp_basesession::handle_read_body, this,
-				boost::asio::placeholders::error ) );
+			_async_read(datalen);
+			//boost::asio::async_read( *m_socket,
+			//	boost::asio::buffer( m_recv_buffer + m_message_head_len, datalen - m_message_head_len ),
+			//	boost::bind( &tcp_basesession::handle_read_body, this,
+			//	boost::asio::placeholders::error ) );
 		}
 		else if( datalen == m_message_head_len )
 		{
