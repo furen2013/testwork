@@ -46,6 +46,12 @@
     <ClCompile Include="ProtoNet\GProtoSocket.cpp">
       <Filter>ProtoNet</Filter>
     </ClCompile>
+    <ClCompile Include="ProtoNet\CListenProtoSocket.cpp">
+      <Filter>ProtoNet</Filter>
+    </ClCompile>
+    <ClCompile Include="ProtoNet\CProtoSocket.cpp">
+      <Filter>ProtoNet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h">
@@ -77,6 +83,12 @@
     </ClInclude>
     <ClInclude Include="GProtoSocket.h" />
     <ClInclude Include="ProtoNet\GProtoSocket.h">
+      <Filter>ProtoNet</Filter>
+    </ClInclude>
+    <ClInclude Include="ProtoNet\CListenProtoSocket.h">
+      <Filter>ProtoNet</Filter>
+    </ClInclude>
+    <ClInclude Include="ProtoNet\CProtoSocket.h">
       <Filter>ProtoNet</Filter>
     </ClInclude>
   </ItemGroup>

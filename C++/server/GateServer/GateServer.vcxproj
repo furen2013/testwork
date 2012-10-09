@@ -140,6 +140,8 @@ copy ..\..\intermediate\Server\$(ProjectName)\$(Configuration)\*.pdb ..\..\Bin\S
   <ItemGroup>
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="GateServer.cpp" />
+    <ClCompile Include="ProtoNet\CListenProtoSocket.cpp" />
+    <ClCompile Include="ProtoNet\CProtoSocket.cpp" />
     <ClCompile Include="ProtoNet\GProtoSocket.cpp" />
     <ClCompile Include="Server.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -181,6 +183,8 @@ copy ..\..\intermediate\Server\$(ProjectName)\$(Configuration)\*.pdb ..\..\Bin\S
   <ItemGroup>
     <ClInclude Include="Config.h" />
     <ClInclude Include="GProtoSocket.h" />
+    <ClInclude Include="ProtoNet\CListenProtoSocket.h" />
+    <ClInclude Include="ProtoNet\CProtoSocket.h" />
     <ClInclude Include="ProtoNet\GProtoSocket.h" />
     <ClInclude Include="Server.h" />
     <ClInclude Include="stdafx.h" />

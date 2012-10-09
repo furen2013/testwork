@@ -3,8 +3,8 @@
 class CGProtoSocket :public tcp_ProtoClient
 {
 public:
-	CGProtoSocket(void);
-	~CGProtoSocket(void);
+	CGProtoSocket(boost::asio::io_service& is);
+	virtual ~CGProtoSocket(void);
 
 public:
 	virtual void on_close( const boost::system::error_code& error );

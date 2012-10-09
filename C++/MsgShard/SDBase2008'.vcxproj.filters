@@ -38,5 +38,8 @@
     <ClInclude Include="MsgHead.pb.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="TypeDef.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

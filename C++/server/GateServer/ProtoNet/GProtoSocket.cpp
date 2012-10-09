@@ -3,7 +3,7 @@
 #include "MyNetGlobleObj.h"
 
 
-CGProtoSocket::CGProtoSocket(void):tcp_ProtoClient(*MyNetGlobleObj::get_io_service() )
+CGProtoSocket::CGProtoSocket(boost::asio::io_service& is):tcp_ProtoClient(*MyNetGlobleObj::get_io_service() )
 {
 }
 
