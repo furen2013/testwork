@@ -36,3 +36,4 @@ using namespace std;
 extern time_t UNIXTIME;		/* update this every loop to avoid the time() syscall! */
 extern tm g_localTime;
 extern FILE* g_fpLogConnection;
+

@@ -18,14 +18,19 @@ CCProtoSocket::~CCProtoSocket(void)
 
 void CCProtoSocket::reset()
 {
-
+	m_accept_time = 0;
+	m_is_valid_connection = false;
+	m_nMsgSize = 0 ;
+	m_nMsgCleanTime = 0;
+	m_bAuthSuccess =  false;
+	Tcp_ProtoSession::reset();
 }
 void CCProtoSocket::on_close( const boost::system::error_code& error )
 {
-	MyLog::log->info("disconnected transid:[%d] accountid:[%d] error[%s] onlinetime[%d]s", m_dwSessionID, m_nAccountID, error.message().c_str(), (uint32)UNIXTIME - m_LoginTime );
+	//MyLog::log->info("disconnected transid:[%d] accountid:[%d] error[%s] onlinetime[%d]s", m_dwSessionID, m_nAccountID, error.message().c_str(), (uint32)UNIXTIME - m_LoginTime );
 
-	Tcp_ProtoSession::on_close( error );
-	m_StartTime = -1;
+	//Tcp_ProtoSession::on_close( error );
+	//m_StartTime = -1;
 
 	MyLog::log->debug( "accept count:[%d]", --accept_count );
 }
@@ -45,7 +50,7 @@ void CCProtoSocket::on_accept( tcp_server* p )
 }
 void CCProtoSocket::proc_message( const message_t& msg )
 {
-
+	//msg.data 
 }
 void CCProtoSocket::run()
 {

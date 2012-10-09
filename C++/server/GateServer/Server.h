@@ -11,7 +11,6 @@ enum
 	UPDATE_DEBUG,
 	UPDATE_COUNT,
 };
-
 class CServer : public Singleton<CServer>
 {
 public:
