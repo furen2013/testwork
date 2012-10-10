@@ -173,6 +173,12 @@ void tcp_session::_Read_Other()
 	_read_next_message();
 }
 
+void tcp_session::_accept()
+{
+	m_send_crypt_key = rand() % 255 + 1;
+	m_recv_crypt_key = m_send_crypt_key;
+	send_message( &m_send_crypt_key, 1 );
+}
 
 
 void tcp_session::_uncompress_message()

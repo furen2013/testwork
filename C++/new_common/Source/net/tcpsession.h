@@ -25,6 +25,7 @@ protected:
 	//virtual void _write_message();
 	//virtual void _read_next_message();
 	virtual void _Read_Other();
+	virtual void _accept();
 
 protected:
 	friend struct compress_send_task;

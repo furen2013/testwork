@@ -18,6 +18,7 @@ protected:
 	virtual void _Read_Other();
 	virtual void _async_read(unsigned short datalen);
 	virtual void receive();
+	virtual void _accept();
 
 };
 

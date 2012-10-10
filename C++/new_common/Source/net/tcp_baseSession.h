@@ -68,6 +68,7 @@ protected:
 	void _clear_recv_msg();
 	void _clear_send_msg();
 	void _on_close( const boost::system::error_code& error );
+	virtual void _accept();
 protected:
 	
 

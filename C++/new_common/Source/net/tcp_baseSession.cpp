@@ -28,6 +28,11 @@ void tcp_basesession::set_valid( bool b )
 	interlocked_write( &m_isvalid, b ? 1 : 0 );
 }
 
+void tcp_basesession::_accept()
+{
+
+}
+
 void tcp_basesession::on_accept( tcp_server* p )
 {
 	p->increase_connection_count();
@@ -35,9 +40,10 @@ void tcp_basesession::on_accept( tcp_server* p )
 	m_last_action_time = (unsigned int)time( NULL );
 	m_father = p;
 	m_dsv.reset();
-	m_send_crypt_key = rand() % 255 + 1;
-	m_recv_crypt_key = m_send_crypt_key;
-	send_message( &m_send_crypt_key, 1 );
+	_accept();
+	//m_send_crypt_key = rand() % 255 + 1;
+	//m_recv_crypt_key = m_send_crypt_key;
+	//send_message( &m_send_crypt_key, 1 );
 	_read_next_message();
 	m_thread_index = p->generate_thread_index();
 
