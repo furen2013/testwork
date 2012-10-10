@@ -1,4 +1,5 @@
 #pragma once
+using namespace std;
 enum
 {
 	PROTO_UPDATE_RECONN = 0,
@@ -7,7 +8,7 @@ enum
 	PROTO_UPDATE_COUNT,
 };
 
-class CProtoServer
+class CProtoServer : public Singleton<CProtoServer>
 {
 public:
 	CProtoServer(void);
@@ -16,6 +17,7 @@ public:
 
 public:
 	bool Init();
+	void Run();
 	void _HookSignals();
 	void _UnhookSignals();
 	static void _OnSignal(int s);
@@ -25,3 +27,4 @@ protected:
 	IntervalTimer m_timers[PROTO_UPDATE_COUNT];
 };
 
+#define sProtoServer CProtoServer::getSingleton()

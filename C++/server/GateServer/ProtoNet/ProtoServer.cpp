@@ -2,6 +2,7 @@
 #include "ProtoServer.h"
 #include <signal.h>
 #include "MyNetGlobleObj.h"
+#include "CListenProtoSocket.h"
 
 
 #include "../../new_common/Source/new_common.h"
@@ -12,6 +13,7 @@ extern int m_ServiceStatus;
 #endif
 volatile bool CProtoServer::m_stopEvent = false;
 zip_compress_strategy impcs;
+initialiseSingleton(CProtoServer);
 CProtoServer::CProtoServer(void)
 {
 }
@@ -97,24 +99,24 @@ bool CProtoServer::Init()
 #endif
 //
 //	//载入所有配置文件的信息
-//	if (!sGTConfig.Load())
-//	{
-//		return false;
-//	}
+	//if (!sGTConfig.Load())
+	//{
+	//	return false;
+	//}
 //	m_nGroupID = sGTConfig.m_nGroupID;
-//
-//#ifdef _WIN32
-//	if( !sCLS.create( sGTConfig.m_nGatePort, 50, 2 ) )
-//#else
-//	if( !sCLS.create( sGTConfig.m_nGatePort, sGTConfig.m_nPlayerLimit, 16 ) )
-//#endif
-//	{
-//		MyLog::log->error("Start Listen Client on port[%u]", sGTConfig.m_nGatePort);
-//		return false;
-//	}
-//	sCLS.set_limit_mode( true );
-//	MyLog::log->notice("Start Listen Client on port[%u]", sGTConfig.m_nGatePort);
-//
+
+#ifdef _WIN32
+	if( !CCListenProtoSocket::getSingleton().create( 95501, 50, 2 ) )
+#else
+	if( !CCListenProtoSocket::getSingleton().create( 95501, sGTConfig.m_nPlayerLimit, 16 ) )
+#endif
+	{
+		MyLog::log->error("Start Listen Client on port[%u]", 95501);
+		return false;
+	}
+	CCListenProtoSocket::getSingleton().set_limit_mode( true );
+	MyLog::log->notice("Start Listen Client on port[%u]", 95501);
+
 //	if(!ConnectCS()) return false;
 //	if(!ConnectDB()) return false;
 //	if(!ConnectGS()) return false;
@@ -122,6 +124,76 @@ bool CProtoServer::Init()
 //	MyLog::log->info("========================Sunyou LS Init OK!========================");
 
 	return true;
+}
+
+void CProtoServer::Run()
+{
+	MyLog::log->info("========================Sunyou Start!========================");
+	uint32 realCurrTime, realPrevTime;
+	realCurrTime = realPrevTime = getMSTime();
+
+	///- Wait for termination signal
+	while (!m_stopEvent)
+	{
+		if (realPrevTime > realCurrTime)
+			realPrevTime = 0;
+
+		realCurrTime = getMSTime();
+		//if( UNIXTIME != realCurrTime )
+		{
+			UNIXTIME = time(NULL);
+			g_localTime = *localtime(&UNIXTIME);
+		}
+
+#ifdef WIN32
+		if (m_ServiceStatus == 0) m_stopEvent = true;
+		while (m_ServiceStatus == 2) Sleep(1000);
+#endif
+		///- Update the different timers
+		for(int i = 0; i < PROTO_UPDATE_COUNT; i++)
+			if(m_timers[i].GetCurrent()>=0)
+				m_timers[i].Update( realCurrTime - realPrevTime );
+			else m_timers[i].SetCurrent(0);
+
+			if (m_timers[PROTO_UPDATE_RECONN].Passed())
+			{
+				//重连
+				m_timers[PROTO_UPDATE_RECONN].Reset();
+			}
+
+			if( m_timers[PROTO_UPDATE_MSG].Passed() )
+			{
+				m_timers[UPDATE_MSG].Reset();
+				//for( int i = 0; i < 4; ++i )
+				//	g_gssocket[i]->run_no_wait();
+				//sCSSocket.run_no_wait();
+				//sDBSocket.run_no_wait();
+				CCListenProtoSocket::getSingleton().run_no_wait();
+				//sCLS.run_no_wait();
+			}
+
+			//sCParser.m_nTimePass += realCurrTime - realPrevTime;
+			//sGSParser.m_nTimePass += realCurrTime - realPrevTime;
+			if( m_timers[PROTO_UPDATE_DEBUG].Passed() )
+			{
+				m_timers[PROTO_UPDATE_DEBUG].Reset();
+				if( g_fpLogConnection )
+					fflush( g_fpLogConnection );
+				//MyLog::log->debug("Recv C MsgSize[%d]..............SizePerS[%2d%]\n       Recv GS MsgSize[%d]..............SizePerS[%2d%]", sCParser.m_nMsgSize, sCParser.m_nMsgSize*1000/sCParser.m_nTimePass, sGSParser.m_nMsgSize, sGSParser.m_nMsgSize*1000/sGSParser.m_nTimePass);
+
+				//MyLog::log->notice( "asio thread alive count = %d", get_asio_thread_alive_count() );
+			}
+			realCurrTime = getMSTime();
+
+			if( realCurrTime - realPrevTime < 5/*sGTConfig.m_nFrameTick*/ )
+			{
+				Sleep( 5/*sGTConfig.m_nFrameTick*/ + realPrevTime - realCurrTime );
+			}
+
+			realPrevTime = realCurrTime;
+	}
+
+	MyLog::log->info("========================Sunyou Stop!========================");
 }
 
 void CProtoServer::_OnSignal(int s)

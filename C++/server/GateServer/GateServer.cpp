@@ -2,6 +2,8 @@
 #include "MessageC2Gate.pb.h"
 #include "iostream"
 #include "../../../MsgShard/MsgHead.pb.h"
+#include "ProtoNet/CListenProtoSocket.h"
+#include "ProtoNet/ProtoServer.h"
 #ifdef WIN32
 #include "../Common/Platform/ServiceWin32.h"
 char serviceName[] = "Sunyou GT";
@@ -145,12 +147,19 @@ int main(int argc, char **argv)
 	}
 	MyLog::log->info("Using configuration file %s.", cfg_file);
 
-	if(!sServer.Init())
+	if (!sProtoServer.Init())
 	{
 		return -1;
 	}
 
-	sServer.Run();
+	sProtoServer.Run();
+
+	//if(!sServer.Init())
+	//{
+	//	return -1;
+	//}
+
+	//sServer.Run();
 	fclose( g_fpLogConnection );
 	MyLog::Release();
 }
