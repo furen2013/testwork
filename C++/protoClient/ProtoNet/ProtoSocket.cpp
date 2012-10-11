@@ -1,6 +1,6 @@
 #include "StdAfx.h"
 #include "ProtoSocket.h"
-
+#include "../new_common/Source/log4cpp-1.0/MyLog.h"
 
 
 CProtoSocket* g_css;
@@ -16,7 +16,7 @@ CProtoSocket::~CProtoSocket(void)
 
 void CProtoSocket::on_close( const boost::system::error_code& error )
 {
-	//MyLog::log->error( "center server disconnected, error message:%s", error.message().c_str() );
+	MyLog::log->error( "center server disconnected, error message:%s", error.message().c_str() );
 	tcp_ProtoClient::on_close( error );
 }
 
