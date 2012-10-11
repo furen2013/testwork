@@ -7,7 +7,7 @@
 
 Tcp_ProtoSession::Tcp_ProtoSession( boost::asio::io_service& is ) :tcp_basesession(is)
 {
-
+	m_message_head_len = MyNetGlobleObj::GetMsgHeadLen();
 }
 
 
@@ -25,11 +25,9 @@ void Tcp_ProtoSession::_async_read(unsigned short datalen)
 
 void Tcp_ProtoSession::_accept()
 {
-	MsgC2GateLoginReq Msg;
-	Msg.set_id("100");
-	Msg.set_password("121212");
-
-	send_message(MsgType::C2Gate_MsgLoginReq, &Msg);
+	m_send_crypt_key = rand() % 255 + 1;
+	m_recv_crypt_key = m_send_crypt_key;
+	send_message( &m_send_crypt_key, 1 );
 }
 
 void Tcp_ProtoSession::receive()
@@ -68,7 +66,7 @@ void Tcp_ProtoSession::send_message(MsgType type, google::protobuf::Message* msg
 	msgHead.SerializeToArray(msg->data + head , headsize);
 	msgBody->SerializeToArray(msg->data + headsize + head, bodysize);
 	_send_message(msg);
-	
+
 }
 
 
@@ -77,6 +75,11 @@ void Tcp_ProtoSession::send_message( const void* data, unsigned short len )
 {
 	if( !is_valid() || !m_isconnected || !data || !len	 || len > MAX_MESSAGE_LEN - 1 || m_send_crypt_key == 0 )
 		return;
+
+	message_t* p = net_global::get_message( len);
+	p->from = this;
+	memcpy( p->data, data, len );
+	_send_message(p);
 	//size_t trueSize = len + m_message_head_len;
 	//message_t* msg = MyNetGlobleObj::get_message( trueSize );
 	//memcpy(msg->data, data, trueSize);

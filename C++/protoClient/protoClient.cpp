@@ -19,6 +19,8 @@ int _tmain(int argc, _TCHAR* argv[])
 #else
 	MyNetGlobleObj::init_net_service( 32, 5, &impcs, true, 9000 );
 #endif
+	int HeadLen = 2 * sizeof(unsigned short);
+	MyNetGlobleObj::InitMsg(HeadLen, 0);
 	CProtoSocket* protoSocket = new CProtoSocket(*MyNetGlobleObj::get_io_service());
 	protoSocket->connect("127.0.0.1", 95501);
 	while (true)

@@ -97,6 +97,8 @@ bool CProtoServer::Init()
 #else
 	MyNetGlobleObj::init_net_service( 32, 5, &impcs, true, 9000 );
 #endif
+	int HeadLen = 2 * sizeof(unsigned short);
+	MyNetGlobleObj::InitMsg(HeadLen, 0);
 //
 //	//载入所有配置文件的信息
 	//if (!sGTConfig.Load())
