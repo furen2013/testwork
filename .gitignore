@@ -125,7 +125,9 @@ Thumbs.db
 
 # Folder config file
 Desktop.ini
-
+*.log
+*.manifest
+C++/D_LIB/
 
 #############
 ## Python
