@@ -10,12 +10,13 @@
 #include "../new_common/Source/log4cpp-1.0/MyLog.h"
 #include <boost/thread.hpp>   
 #include <iostream>  
+#include "MessageC2Gate.pb.h"
 
 #ifdef WIN32
 #include "../server/Common/Platform/ServiceWin32.h"
 zip_compress_strategy impcs;
 #endif
-
+static boost::thread* s_net_client_thread = NULL;
 CProtoSocket* protoSocket = NULL;
 void thread()
 {
@@ -38,12 +39,13 @@ int _tmain(int argc, _TCHAR* argv[])
 #else
 	MyNetGlobleObj::init_net_service( 32, 5, &impcs, true, 9000 );
 #endif
-	int HeadLen = 2 * sizeof(unsigned short);
+	int HeadLen =  sizeof(unsigned short);
 	MyNetGlobleObj::InitMsg(HeadLen, 0);
 	protoSocket = new CProtoSocket(*MyNetGlobleObj::get_io_service());
 	protoSocket->connect("127.0.0.1", 95501);
-	boost::thread t(thread);   
-	t.join();  
+	
+	s_net_client_thread = new boost::thread( &thread );
+	//s_net_client_thread->join();  
 	while (true)
 	{
 		int n = 0;
@@ -52,7 +54,10 @@ int _tmain(int argc, _TCHAR* argv[])
 		{
 		case 1:
 			{
-
+				MsgC2GateLoginReq message;
+				message.set_id("1002");
+				message.set_password("1003");
+				protoSocket->send_message(C2Gate_MsgLoginReq,&message);
 			}
 			break;
 		case 2:

@@ -40,5 +40,7 @@ void CGProtoSocket::on_connect_failed( boost::system::error_code error )
 
 void CGProtoSocket::proc_message( const message_t& msg )
 {
+	unsigned short sI = *((unsigned short*)msg.data);
+	unsigned short sII = *((unsigned short*)msg.data + sizeof(unsigned short));
 	//sCSParser.ParsePacket( this, (char*)msg.data, msg.len );
 }

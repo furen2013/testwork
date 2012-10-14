@@ -18,7 +18,7 @@ Tcp_ProtoSession::~Tcp_ProtoSession(void)
 void Tcp_ProtoSession::_async_read(unsigned short datalen)
 {
 	boost::asio::async_read( *m_socket,
-		boost::asio::buffer( m_recv_buffer, datalen),
+		boost::asio::buffer( m_recv_buffer + sizeof(unsigned short), datalen),
 		boost::bind( &tcp_basesession::handle_read_body, this,
 		boost::asio::placeholders::error ) );
 }
@@ -34,9 +34,10 @@ void Tcp_ProtoSession::receive()
 {
 	unsigned short& datalen = *(unsigned short*)m_recv_buffer;
 	size_t mark = sizeof(unsigned short);
-	message_t* msg = MyNetGlobleObj::get_message( datalen );
+	message_t* msg = MyNetGlobleObj::get_message( datalen  + sizeof(unsigned short));
 	msg->from = this;
-	memcpy( msg->data + mark, m_recv_buffer, datalen );
+	
+	memcpy( msg->data, m_recv_buffer,  datalen  + sizeof(unsigned short) );
 	push_message( msg );
 }
 void Tcp_ProtoSession::_Read_Other()
@@ -57,15 +58,26 @@ void Tcp_ProtoSession::send_message(MsgType type, google::protobuf::Message* msg
 	size_t mark = sizeof(unsigned short);
 	size_t head = mark * 2;
 	size_t si = headsize + bodysize + head;
-	mark = headsize + bodysize;
+	//mark = headsize + bodysize;
 	message_t* msg = MyNetGlobleObj::get_message(si);
-	*((unsigned short*)msg->data) = headsize + bodysize;
-	*((unsigned short*)msg->data + mark) = headsize;
+	*((unsigned short*)msg->data) = headsize + bodysize + mark;
+	*((unsigned short*)msg->data + 1) = headsize;
 	msg->len = si;
 	msg->from = this;
 	msgHead.SerializeToArray(msg->data + head , headsize);
 	msgBody->SerializeToArray(msg->data + headsize + head, bodysize);
 	_send_message(msg);
+
+	unsigned short checksize =  *((unsigned short*)msg->data);
+	unsigned short checkheadsize = *((unsigned short*)msg->data + mark);
+
+	MsgHead Head2;
+	Head2.ParseFromArray(msg->data + head , headsize);
+	int newsize = Head2.msgsize();
+	MsgType Type = Head2.type();
+
+	int n  = 0;
+	n ++;
 
 }
 

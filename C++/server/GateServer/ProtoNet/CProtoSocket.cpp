@@ -51,6 +51,25 @@ void CCProtoSocket::on_accept( tcp_server* p )
 }
 void CCProtoSocket::proc_message( const message_t& msg )
 {
+	unsigned short sI = *((unsigned short*)msg.data);
+	unsigned short sII = *((unsigned short*)msg.data + 1);
+	MyLog::log->debug("accept message size [%d] headsize[%d]", sI, sII);
+	MsgHead head;
+	head.ParseFromArray(msg.data + 2 * sizeof(unsigned short), sII);
+	int nSize = head.msgsize();
+	switch(head.type())
+	{
+	case MsgType::C2Gate_MsgLoginReq:
+		{
+
+		}
+		break;
+	case MsgType::C2Gate_MsgCreateAcountReq:
+		{
+
+		}
+		break;
+	}
 	//msg.data 
 }
 void CCProtoSocket::run()
