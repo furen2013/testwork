@@ -55,6 +55,9 @@
     <ClCompile Include="ProtoNet\ProtoServer.cpp">
       <Filter>ProtoNet</Filter>
     </ClCompile>
+    <ClCompile Include="GateUserManager.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h">
@@ -96,6 +99,7 @@
     <ClInclude Include="ProtoNet\ProtoServer.h">
       <Filter>ProtoNet</Filter>
     </ClInclude>
+    <ClInclude Include="GateUserManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
