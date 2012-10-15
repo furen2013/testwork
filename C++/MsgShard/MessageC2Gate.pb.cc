@@ -21,6 +21,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MsgC2GateCreateAcountReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgC2GateCreateAcountReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgC2GateLoginMacReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgC2GateLoginMacReq_reflection_ = NULL;
 
 }  // namespace
 
@@ -64,6 +67,21 @@ void protobuf_AssignDesc_MessageC2Gate_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MsgC2GateCreateAcountReq));
+  MsgC2GateLoginMacReq_descriptor_ = file->message_type(2);
+  static const int MsgC2GateLoginMacReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2GateLoginMacReq, mac_),
+  };
+  MsgC2GateLoginMacReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MsgC2GateLoginMacReq_descriptor_,
+      MsgC2GateLoginMacReq::default_instance_,
+      MsgC2GateLoginMacReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2GateLoginMacReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2GateLoginMacReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MsgC2GateLoginMacReq));
 }
 
 namespace {
@@ -80,6 +98,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     MsgC2GateLoginReq_descriptor_, &MsgC2GateLoginReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     MsgC2GateCreateAcountReq_descriptor_, &MsgC2GateCreateAcountReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MsgC2GateLoginMacReq_descriptor_, &MsgC2GateLoginMacReq::default_instance());
 }
 
 }  // namespace
@@ -89,6 +109,8 @@ void protobuf_ShutdownFile_MessageC2Gate_2eproto() {
   delete MsgC2GateLoginReq_reflection_;
   delete MsgC2GateCreateAcountReq::default_instance_;
   delete MsgC2GateCreateAcountReq_reflection_;
+  delete MsgC2GateLoginMacReq::default_instance_;
+  delete MsgC2GateLoginMacReq_reflection_;
 }
 
 void protobuf_AddDesc_MessageC2Gate_2eproto() {
@@ -102,13 +124,16 @@ void protobuf_AddDesc_MessageC2Gate_2eproto() {
     "\n\023MessageC2Gate.proto\032\rMsgHead.proto\"1\n\021"
     "MsgC2GateLoginReq\022\n\n\002id\030\001 \002(\t\022\020\n\010passwor"
     "d\030\002 \002(\t\"F\n\030MsgC2GateCreateAcountReq\022\n\n\002i"
-    "d\030\001 \002(\t\022\014\n\004name\030\002 \002(\t\022\020\n\010password\030\003 \002(\t", 159);
+    "d\030\001 \002(\t\022\014\n\004name\030\002 \002(\t\022\020\n\010password\030\003 \002(\t\""
+    "#\n\024MsgC2GateLoginMacReq\022\013\n\003Mac\030\001 \002(\t", 196);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageC2Gate.proto", &protobuf_RegisterTypes);
   MsgC2GateLoginReq::default_instance_ = new MsgC2GateLoginReq();
   MsgC2GateCreateAcountReq::default_instance_ = new MsgC2GateCreateAcountReq();
+  MsgC2GateLoginMacReq::default_instance_ = new MsgC2GateLoginMacReq();
   MsgC2GateLoginReq::default_instance_->InitAsDefaultInstance();
   MsgC2GateCreateAcountReq::default_instance_->InitAsDefaultInstance();
+  MsgC2GateLoginMacReq::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_MessageC2Gate_2eproto);
 }
 
@@ -737,6 +762,231 @@ void MsgC2GateCreateAcountReq::Swap(MsgC2GateCreateAcountReq* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = MsgC2GateCreateAcountReq_descriptor_;
   metadata.reflection = MsgC2GateCreateAcountReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgC2GateLoginMacReq::kMacFieldNumber;
+#endif  // !_MSC_VER
+
+MsgC2GateLoginMacReq::MsgC2GateLoginMacReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MsgC2GateLoginMacReq::InitAsDefaultInstance() {
+}
+
+MsgC2GateLoginMacReq::MsgC2GateLoginMacReq(const MsgC2GateLoginMacReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MsgC2GateLoginMacReq::SharedCtor() {
+  _cached_size_ = 0;
+  mac_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgC2GateLoginMacReq::~MsgC2GateLoginMacReq() {
+  SharedDtor();
+}
+
+void MsgC2GateLoginMacReq::SharedDtor() {
+  if (mac_ != &::google::protobuf::internal::kEmptyString) {
+    delete mac_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void MsgC2GateLoginMacReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgC2GateLoginMacReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgC2GateLoginMacReq_descriptor_;
+}
+
+const MsgC2GateLoginMacReq& MsgC2GateLoginMacReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_MessageC2Gate_2eproto();  return *default_instance_;
+}
+
+MsgC2GateLoginMacReq* MsgC2GateLoginMacReq::default_instance_ = NULL;
+
+MsgC2GateLoginMacReq* MsgC2GateLoginMacReq::New() const {
+  return new MsgC2GateLoginMacReq;
+}
+
+void MsgC2GateLoginMacReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_mac()) {
+      if (mac_ != &::google::protobuf::internal::kEmptyString) {
+        mac_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MsgC2GateLoginMacReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string Mac = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_mac()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->mac().data(), this->mac().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void MsgC2GateLoginMacReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required string Mac = 1;
+  if (has_mac()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mac().data(), this->mac().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->mac(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MsgC2GateLoginMacReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required string Mac = 1;
+  if (has_mac()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mac().data(), this->mac().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->mac(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MsgC2GateLoginMacReq::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required string Mac = 1;
+    if (has_mac()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->mac());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgC2GateLoginMacReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MsgC2GateLoginMacReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgC2GateLoginMacReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgC2GateLoginMacReq::MergeFrom(const MsgC2GateLoginMacReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_mac()) {
+      set_mac(from.mac());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MsgC2GateLoginMacReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgC2GateLoginMacReq::CopyFrom(const MsgC2GateLoginMacReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgC2GateLoginMacReq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  
+  return true;
+}
+
+void MsgC2GateLoginMacReq::Swap(MsgC2GateLoginMacReq* other) {
+  if (other != this) {
+    std::swap(mac_, other->mac_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MsgC2GateLoginMacReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgC2GateLoginMacReq_descriptor_;
+  metadata.reflection = MsgC2GateLoginMacReq_reflection_;
   return metadata;
 }
 

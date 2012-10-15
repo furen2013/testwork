@@ -77,9 +77,11 @@ void protobuf_AddDesc_MsgHead_2eproto() {
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\rMsgHead.proto\"2\n\007MsgHead\022\026\n\004Type\030\001 \002(\016"
-    "2\010.MsgType\022\017\n\007msgSize\030\002 \002(\005*T\n\007MsgType\022\022"
-    "\n\016C2Gate_MsgNull\020\000\022\026\n\022C2Gate_MsgLoginReq"
-    "\020\001\022\035\n\031C2Gate_MsgCreateAcountReq\020\002", 153);
+    "2\010.MsgType\022\017\n\007msgSize\030\002 \002(\005*\246\001\n\007MsgType\022"
+    "\022\n\016C2Gate_MsgNull\020\000\022\026\n\022C2Gate_MsgLoginRe"
+    "q\020\001\022\035\n\031C2Gate_MsgCreateAcountReq\020\002\022\031\n\025C2"
+    "Gate_MsgLoginMacReq\020\003\022\017\n\nC2Gate_END\020\346\007\022\016"
+    "\n\tG2C_Begin\020\347\007\022\024\n\017G2C_LoginMacACK\020\350\007", 236);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MsgHead.proto", &protobuf_RegisterTypes);
   MsgHead::default_instance_ = new MsgHead();
@@ -103,6 +105,10 @@ bool MsgType_IsValid(int value) {
     case 0:
     case 1:
     case 2:
+    case 3:
+    case 998:
+    case 999:
+    case 1000:
       return true;
     default:
       return false;

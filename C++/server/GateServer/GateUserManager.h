@@ -11,6 +11,10 @@ class GateUserManager  : public Singleton<CUserManager>
 public:
 	GateUserManager(void);
 	~GateUserManager(void);
+public:
+	void AddClient(CCProtoSocket* pProtoSocket);
+	void DelClient(DWORD dw);
+
 
 protected:
 	MAPPROTOSOCKET m_clients;

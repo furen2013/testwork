@@ -1,0 +1,6 @@
+import "MsgHead.proto";    
+message MsgG2CLoginMacACK
+{
+	required int64 account = 1;
+}
+

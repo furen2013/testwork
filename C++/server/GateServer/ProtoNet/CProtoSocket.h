@@ -12,6 +12,7 @@ public:
 	virtual void on_accept( tcp_server* p );
 	virtual void proc_message( const message_t& msg );
 	virtual void run();
+	uint32 GetAccountID(){return m_nAccountID;}
 
 protected:
 	uint32 m_nMsgSize;

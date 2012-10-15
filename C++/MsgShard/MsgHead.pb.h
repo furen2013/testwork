@@ -35,11 +35,15 @@ class MsgHead;
 enum MsgType {
   C2Gate_MsgNull = 0,
   C2Gate_MsgLoginReq = 1,
-  C2Gate_MsgCreateAcountReq = 2
+  C2Gate_MsgCreateAcountReq = 2,
+  C2Gate_MsgLoginMacReq = 3,
+  C2Gate_END = 998,
+  G2C_Begin = 999,
+  G2C_LoginMacACK = 1000
 };
 bool MsgType_IsValid(int value);
 const MsgType MsgType_MIN = C2Gate_MsgNull;
-const MsgType MsgType_MAX = C2Gate_MsgCreateAcountReq;
+const MsgType MsgType_MAX = G2C_LoginMacACK;
 const int MsgType_ARRAYSIZE = MsgType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* MsgType_descriptor();

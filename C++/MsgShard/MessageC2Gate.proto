@@ -13,4 +13,8 @@ message MsgC2GateCreateAcountReq
 	required string password = 3;
 }
 
+message MsgC2GateLoginMacReq
+{
+	required string Mac = 1;
+}
 

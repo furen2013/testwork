@@ -33,6 +33,7 @@ void protobuf_ShutdownFile_MessageC2Gate_2eproto();
 
 class MsgC2GateLoginReq;
 class MsgC2GateCreateAcountReq;
+class MsgC2GateLoginMacReq;
 
 // ===================================================================
 
@@ -247,6 +248,92 @@ class MsgC2GateCreateAcountReq : public ::google::protobuf::Message {
   
   void InitAsDefaultInstance();
   static MsgC2GateCreateAcountReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgC2GateLoginMacReq : public ::google::protobuf::Message {
+ public:
+  MsgC2GateLoginMacReq();
+  virtual ~MsgC2GateLoginMacReq();
+  
+  MsgC2GateLoginMacReq(const MsgC2GateLoginMacReq& from);
+  
+  inline MsgC2GateLoginMacReq& operator=(const MsgC2GateLoginMacReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2GateLoginMacReq& default_instance();
+  
+  void Swap(MsgC2GateLoginMacReq* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgC2GateLoginMacReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2GateLoginMacReq& from);
+  void MergeFrom(const MsgC2GateLoginMacReq& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required string Mac = 1;
+  inline bool has_mac() const;
+  inline void clear_mac();
+  static const int kMacFieldNumber = 1;
+  inline const ::std::string& mac() const;
+  inline void set_mac(const ::std::string& value);
+  inline void set_mac(const char* value);
+  inline void set_mac(const char* value, size_t size);
+  inline ::std::string* mutable_mac();
+  inline ::std::string* release_mac();
+  
+  // @@protoc_insertion_point(class_scope:MsgC2GateLoginMacReq)
+ private:
+  inline void set_has_mac();
+  inline void clear_has_mac();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::std::string* mac_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageC2Gate_2eproto();
+  friend void protobuf_AssignDesc_MessageC2Gate_2eproto();
+  friend void protobuf_ShutdownFile_MessageC2Gate_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgC2GateLoginMacReq* default_instance_;
 };
 // ===================================================================
 
@@ -545,6 +632,68 @@ inline ::std::string* MsgC2GateCreateAcountReq::release_password() {
   } else {
     ::std::string* temp = password_;
     password_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// -------------------------------------------------------------------
+
+// MsgC2GateLoginMacReq
+
+// required string Mac = 1;
+inline bool MsgC2GateLoginMacReq::has_mac() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgC2GateLoginMacReq::set_has_mac() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgC2GateLoginMacReq::clear_has_mac() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgC2GateLoginMacReq::clear_mac() {
+  if (mac_ != &::google::protobuf::internal::kEmptyString) {
+    mac_->clear();
+  }
+  clear_has_mac();
+}
+inline const ::std::string& MsgC2GateLoginMacReq::mac() const {
+  return *mac_;
+}
+inline void MsgC2GateLoginMacReq::set_mac(const ::std::string& value) {
+  set_has_mac();
+  if (mac_ == &::google::protobuf::internal::kEmptyString) {
+    mac_ = new ::std::string;
+  }
+  mac_->assign(value);
+}
+inline void MsgC2GateLoginMacReq::set_mac(const char* value) {
+  set_has_mac();
+  if (mac_ == &::google::protobuf::internal::kEmptyString) {
+    mac_ = new ::std::string;
+  }
+  mac_->assign(value);
+}
+inline void MsgC2GateLoginMacReq::set_mac(const char* value, size_t size) {
+  set_has_mac();
+  if (mac_ == &::google::protobuf::internal::kEmptyString) {
+    mac_ = new ::std::string;
+  }
+  mac_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* MsgC2GateLoginMacReq::mutable_mac() {
+  set_has_mac();
+  if (mac_ == &::google::protobuf::internal::kEmptyString) {
+    mac_ = new ::std::string;
+  }
+  return mac_;
+}
+inline ::std::string* MsgC2GateLoginMacReq::release_mac() {
+  clear_has_mac();
+  if (mac_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = mac_;
+    mac_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }

@@ -97,14 +97,19 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="MessageC2Gate.proto" />
+    <None Include="MessageG2C.proto" />
+    <None Include="MsgHead.proto" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MessageC2Gate.pb.cc" />
+    <ClCompile Include="MessageG2C.pb.cc" />
     <ClCompile Include="MsgHead.pb.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MessageC2Gate.pb.h" />
+    <ClInclude Include="MessageG2C.pb.h" />
     <ClInclude Include="MsgHead.pb.h" />
     <ClInclude Include="TypeDef.h" />
   </ItemGroup>
