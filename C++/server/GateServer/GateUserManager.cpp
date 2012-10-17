@@ -22,7 +22,7 @@ void GateUserManager::DelClient(DWORD dw)
 {
 	boost::mutex::scoped_lock lock(m_mutex);
 	MAPPROTOSOCKET::iterator it = m_clients.find(dw);
-	if (dw != m_clients.end())
+	if (it != m_clients.end())
 	{
 		m_clients.erase(dw);
 	}
