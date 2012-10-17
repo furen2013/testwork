@@ -1,4 +1,7 @@
 #pragma once
+#ifndef CCLISTENPROTOSOCKET_H
+#define CCLISTENPROTOSOCKET_H
+
 class CCProtoSocket;
 #include "../../new_common/Source/net/tcpserver.h"
 class CCListenProtoSocket :
@@ -18,3 +21,6 @@ private:
 	boost::mutex m_mutex;
 	map<DWORD, CCProtoSocket*> m_mapAccpetedSockets;
 };
+#define ProtoListen CCListenProtoSocket::getSingleton()
+
+#endif

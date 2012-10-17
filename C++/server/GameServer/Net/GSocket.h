@@ -1,9 +1,10 @@
 #pragma once
 #include "../../new_common/Source/net/tcpsession.h"
+#include "../../My_Commnon/Tcp_ProtoSession.h"
 #include <iostream>
 #include <string.h>
 class CGTSocket :
-	public tcp_session
+	public Tcp_ProtoSession
 {
 public:
 	CGTSocket( boost::asio::io_service& is );

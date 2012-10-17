@@ -11,6 +11,9 @@
     <Filter Include="ProtoNet">
       <UniqueIdentifier>{f1bb80dd-efeb-4468-b4da-22c15d5c8b94}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameLogic">
+      <UniqueIdentifier>{0401d119-5751-42ba-a779-eee3019d1d76}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Config.cpp">
@@ -55,8 +58,8 @@
     <ClCompile Include="ProtoNet\ProtoServer.cpp">
       <Filter>ProtoNet</Filter>
     </ClCompile>
-    <ClCompile Include="GateUserManager.cpp">
-      <Filter>Src</Filter>
+    <ClCompile Include="GameLogic\GateUserManager.cpp">
+      <Filter>GameLogic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -99,7 +102,9 @@
     <ClInclude Include="ProtoNet\ProtoServer.h">
       <Filter>ProtoNet</Filter>
     </ClInclude>
-    <ClInclude Include="GateUserManager.h" />
+    <ClInclude Include="GameLogic\GateUserManager.h">
+      <Filter>GameLogic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />

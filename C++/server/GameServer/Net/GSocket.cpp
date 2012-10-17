@@ -2,7 +2,7 @@
 #include "GSocket.h"
 #include "MyLog.h"
 
-CGTSocket::CGTSocket( boost::asio::io_service& is ) : tcp_session( is )
+CGTSocket::CGTSocket( boost::asio::io_service& is ) : Tcp_ProtoSession( is )
 {
 	m_dwIP = 0;
 	m_iPort = 0;
@@ -21,13 +21,13 @@ void CGTSocket::on_accept( tcp_server* p )
 	MyLog::log->info( "A GT Connection[%s] Accepted", m_strIP.c_str() );
 
 	//sGTLS.AddAcceptedSocket( this );
-	tcp_session::on_accept( p );
+	Tcp_ProtoSession::on_accept( p );
 }
 
 void CGTSocket::on_close( const boost::system::error_code& error )
 {
 	//sGTLS.RemoveAcceptedSocket(this);
-	tcp_session::on_close( error );
+	Tcp_ProtoSession::on_close( error );
 }
 
 void CGTSocket::proc_message( const message_t& msg )

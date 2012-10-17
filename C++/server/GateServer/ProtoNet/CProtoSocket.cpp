@@ -2,6 +2,7 @@
 #include "CProtoSocket.h"
 #include "tcpserver.h"
 #include "CListenProtoSocket.h"
+
 static uint32 accept_count = 0;
 
 CCProtoSocket::CCProtoSocket(boost::asio::io_service& is) :  Tcp_ProtoSession( is ),
@@ -34,6 +35,7 @@ void CCProtoSocket::on_close( const boost::system::error_code& error )
 
 	MyLog::log->debug( "accept count:[%d]", --accept_count );
 	MyLog::log->debug("error message[%s]" , error.message().c_str());
+	ProtoListen.RemoveAcceptedSocket(this);
 }
 void CCProtoSocket::on_accept( tcp_server* p )
 {
@@ -47,7 +49,7 @@ void CCProtoSocket::on_accept( tcp_server* p )
 	MyLog::log->debug( "accept count:[%d]", ++accept_count );
 
 	Tcp_ProtoSession::on_accept(p);
-	//sCLS.AddAcceptedSocket( this );
+	ProtoListen.AddAcceptedSocket(this);
 }
 void CCProtoSocket::proc_message( const message_t& msg )
 {

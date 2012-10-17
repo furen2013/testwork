@@ -139,8 +139,8 @@ copy ..\..\intermediate\Server\$(ProjectName)\$(Configuration)\*.pdb ..\..\Bin\S
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Config.cpp" />
+    <ClCompile Include="GameLogic\GateUserManager.cpp" />
     <ClCompile Include="GateServer.cpp" />
-    <ClCompile Include="GateUserManager.cpp" />
     <ClCompile Include="ProtoNet\CListenProtoSocket.cpp" />
     <ClCompile Include="ProtoNet\CProtoSocket.cpp" />
     <ClCompile Include="ProtoNet\GProtoSocket.cpp" />
@@ -184,7 +184,7 @@ copy ..\..\intermediate\Server\$(ProjectName)\$(Configuration)\*.pdb ..\..\Bin\S
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h" />
-    <ClInclude Include="GateUserManager.h" />
+    <ClInclude Include="GameLogic\GateUserManager.h" />
     <ClInclude Include="ProtoNet\CListenProtoSocket.h" />
     <ClInclude Include="ProtoNet\CProtoSocket.h" />
     <ClInclude Include="ProtoNet\GProtoSocket.h" />
