@@ -82,6 +82,7 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="NetParser.h" />
     <ClInclude Include="Net\GSListenSocket.h" />
     <ClInclude Include="Net\GSocket.h" />
     <ClInclude Include="stdafx.h" />
@@ -89,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameServer.cpp" />
+    <ClCompile Include="NetParser.cpp" />
     <ClCompile Include="Net\GSListenSocket.cpp" />
     <ClCompile Include="Net\GSocket.cpp" />
     <ClCompile Include="stdafx.cpp">

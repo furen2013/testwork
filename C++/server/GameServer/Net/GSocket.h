@@ -1,4 +1,7 @@
 #pragma once
+#ifndef CGTSOCKET_H
+#define CGTSOCKET_H
+
 #include "../../new_common/Source/net/tcpsession.h"
 #include "../../My_Commnon/Tcp_ProtoSession.h"
 #include <iostream>
@@ -22,3 +25,4 @@ public:
 	DWORD  m_dwIP;
 	int m_iPort;
 };
+#endif

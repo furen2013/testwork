@@ -1,4 +1,6 @@
 #pragma once
+#ifndef CPROTOSOCKET_H
+#define CPROTOSOCKET_H
 #include "../../../../My_Commnon/Tcp_ProtoSession.h"
 class CCProtoSocket : public Tcp_ProtoSession
 {
@@ -31,3 +33,4 @@ protected:
 
 };
 
+#endif

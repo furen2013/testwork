@@ -1,8 +1,9 @@
 #include "StdAfx.h"
 #include "LoginGateListener.h"
+#include "MyNetGlobleObj.h"
 
-
-CLoginGateListener::CLoginGateListener(void)
+initialiseSingleton(CLoginGateListener)
+CLoginGateListener::CLoginGateListener(void): tcp_server( 1 )
 {
 }
 
@@ -25,4 +26,10 @@ void CLoginGateListener::delSocket(CLoginGateSocket* p)
 	{
 		m_gats.erase(it);
 	}
+
+}
+
+tcp_basesession* CLoginGateListener::create_session()
+{
+	return new CLoginGateSocket( *MyNetGlobleObj::get_io_service());
 }

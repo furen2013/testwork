@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "GSocket.h"
 #include "MyLog.h"
-
+#include "GSListenSocket.h"
 CGTSocket::CGTSocket( boost::asio::io_service& is ) : Tcp_ProtoSession( is )
 {
 	m_dwIP = 0;
@@ -19,15 +19,16 @@ void CGTSocket::on_accept( tcp_server* p )
 	m_iPort = this->get_remote_port();
 
 	MyLog::log->info( "A GT Connection[%s] Accepted", m_strIP.c_str() );
-
+	
 	//sGTLS.AddAcceptedSocket( this );
 	Tcp_ProtoSession::on_accept( p );
+	GSL.AddGTSocket(this);
 }
-
 void CGTSocket::on_close( const boost::system::error_code& error )
 {
 	//sGTLS.RemoveAcceptedSocket(this);
 	Tcp_ProtoSession::on_close( error );
+	GSL.RemoveGTSocket(this);
 }
 
 void CGTSocket::proc_message( const message_t& msg )

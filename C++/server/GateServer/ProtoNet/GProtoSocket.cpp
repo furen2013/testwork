@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "GProtoSocket.h"
 #include "MyNetGlobleObj.h"
+#include "GateParser.h"
 
 
 CGProtoSocket::CGProtoSocket(boost::asio::io_service& is):tcp_ProtoClient(*MyNetGlobleObj::get_io_service() )
@@ -40,7 +41,9 @@ void CGProtoSocket::on_connect_failed( boost::system::error_code error )
 
 void CGProtoSocket::proc_message( const message_t& msg )
 {
-	unsigned short sI = *((unsigned short*)msg.data);
-	unsigned short sII = *((unsigned short*)msg.data + sizeof(unsigned short));
+	GATEPARSER.ParseMessage(msg,this);
+		
+	//unsigned short sI = *((unsigned short*)msg.data);
+	//unsigned short sII = *((unsigned short*)msg.data + sizeof(unsigned short));
 	//sCSParser.ParsePacket( this, (char*)msg.data, msg.len );
 }

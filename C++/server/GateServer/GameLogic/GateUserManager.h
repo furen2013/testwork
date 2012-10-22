@@ -6,7 +6,7 @@
 class CCProtoSocket;
 typedef std::map<DWORD, CCProtoSocket*> MAPPROTOSOCKET;
 
-class GateUserManager  : public Singleton<CUserManager>
+class GateUserManager  : public Singleton<GateUserManager>
 {
 public:
 	GateUserManager(void);
@@ -22,6 +22,6 @@ protected:
 
 };
 
-#define GUManager GateUserManager::getSingleton();
+#define GUManager GateUserManager::getSingleton()
 
 #endif

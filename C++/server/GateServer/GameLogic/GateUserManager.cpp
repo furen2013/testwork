@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "GateUserManager.h"
 #include "../ProtoNet/CProtoSocket.h"
-
+initialiseSingleton(GateUserManager);
 
 GateUserManager::GateUserManager(void)
 {

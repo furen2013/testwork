@@ -1,4 +1,6 @@
 #pragma once
+#ifndef GPROTOSOCKET_H
+#define GPROTOSOCKET_H
 #include "../../../../My_Commnon/tcp_ProtoClient.h"
 class CGProtoSocket :public tcp_ProtoClient
 {
@@ -13,3 +15,4 @@ public:
 	virtual void proc_message( const message_t& msg );
 };
 
+#endif
