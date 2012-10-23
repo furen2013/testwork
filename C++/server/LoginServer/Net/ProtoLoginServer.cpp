@@ -1,10 +1,12 @@
 #include "StdAfx.h"
 #include "ProtoLoginServer.h"
-#include "MyLog.h"
+#include "../../../../new_common/Source/log4cpp-1.0/MyLog.h"
+#include "../../../Common/Platform/SystemConfig.h"
+#include "../../../Common/share/Config/Config.h"
 #ifdef WIN32
 extern int m_ServiceStatus;
 #endif
-
+initialiseSingleton(CProtoLoginServer);
 CProtoLoginServer::CProtoLoginServer(void)
 {
 }
@@ -14,6 +16,11 @@ CProtoLoginServer::~CProtoLoginServer(void)
 {
 }
 
+
+void CProtoLoginServer::_HookSignals()
+{
+
+}
 bool CProtoLoginServer::Init()
 {
 	MyLog::log->info( "Sunyou Login daemon %s", _FULLVERSION );
@@ -86,4 +93,7 @@ bool CProtoLoginServer::Init()
 //	net_global::init_net_service( 32, 5, &cs, true, 9000 );
 //#endif
 //
+
+	return true;
 }
+

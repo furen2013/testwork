@@ -10,6 +10,7 @@ CCProtoSocket::CCProtoSocket(boost::asio::io_service& is) :  Tcp_ProtoSession( i
 {
 	m_accept_time = 0;
 	m_is_valid_connection = true;
+	m_nAccountID = 0;
 }
 
 

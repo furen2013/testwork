@@ -18,6 +18,10 @@ namespace {
 const ::google::protobuf::Descriptor* MsgG2CLoginMacACK_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgG2CLoginMacACK_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgG2CErrorACK_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgG2CErrorACK_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* MsgG2CErrorACK_enResult_descriptor_ = NULL;
 
 }  // namespace
 
@@ -43,6 +47,22 @@ void protobuf_AssignDesc_MessageG2C_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MsgG2CLoginMacACK));
+  MsgG2CErrorACK_descriptor_ = file->message_type(1);
+  static const int MsgG2CErrorACK_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2CErrorACK, en_),
+  };
+  MsgG2CErrorACK_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MsgG2CErrorACK_descriptor_,
+      MsgG2CErrorACK::default_instance_,
+      MsgG2CErrorACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2CErrorACK, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2CErrorACK, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MsgG2CErrorACK));
+  MsgG2CErrorACK_enResult_descriptor_ = MsgG2CErrorACK_descriptor_->enum_type(0);
 }
 
 namespace {
@@ -57,6 +77,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     MsgG2CLoginMacACK_descriptor_, &MsgG2CLoginMacACK::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MsgG2CErrorACK_descriptor_, &MsgG2CErrorACK::default_instance());
 }
 
 }  // namespace
@@ -64,6 +86,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void protobuf_ShutdownFile_MessageG2C_2eproto() {
   delete MsgG2CLoginMacACK::default_instance_;
   delete MsgG2CLoginMacACK_reflection_;
+  delete MsgG2CErrorACK::default_instance_;
+  delete MsgG2CErrorACK_reflection_;
 }
 
 void protobuf_AddDesc_MessageG2C_2eproto() {
@@ -75,11 +99,16 @@ void protobuf_AddDesc_MessageG2C_2eproto() {
   ::protobuf_AddDesc_MsgHead_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\020MessageG2C.proto\032\rMsgHead.proto\"$\n\021Msg"
-    "G2CLoginMacACK\022\017\n\007account\030\001 \002(\003", 71);
+    "G2CLoginMacACK\022\017\n\007account\030\001 \002(\003\"f\n\016MsgG2"
+    "CErrorACK\022$\n\002en\030\001 \002(\0162\030.MsgG2CErrorACK.e"
+    "nResult\".\n\010enResult\022\r\n\tLG_UNKNOW\020\000\022\023\n\017LG"
+    "_ALREADYLOGIN\020\001", 175);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageG2C.proto", &protobuf_RegisterTypes);
   MsgG2CLoginMacACK::default_instance_ = new MsgG2CLoginMacACK();
+  MsgG2CErrorACK::default_instance_ = new MsgG2CErrorACK();
   MsgG2CLoginMacACK::default_instance_->InitAsDefaultInstance();
+  MsgG2CErrorACK::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_MessageG2C_2eproto);
 }
 
@@ -295,6 +324,241 @@ void MsgG2CLoginMacACK::Swap(MsgG2CLoginMacACK* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = MsgG2CLoginMacACK_descriptor_;
   metadata.reflection = MsgG2CLoginMacACK_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+const ::google::protobuf::EnumDescriptor* MsgG2CErrorACK_enResult_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgG2CErrorACK_enResult_descriptor_;
+}
+bool MsgG2CErrorACK_enResult_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#ifndef _MSC_VER
+const MsgG2CErrorACK_enResult MsgG2CErrorACK::LG_UNKNOW;
+const MsgG2CErrorACK_enResult MsgG2CErrorACK::LG_ALREADYLOGIN;
+const MsgG2CErrorACK_enResult MsgG2CErrorACK::enResult_MIN;
+const MsgG2CErrorACK_enResult MsgG2CErrorACK::enResult_MAX;
+const int MsgG2CErrorACK::enResult_ARRAYSIZE;
+#endif  // _MSC_VER
+#ifndef _MSC_VER
+const int MsgG2CErrorACK::kEnFieldNumber;
+#endif  // !_MSC_VER
+
+MsgG2CErrorACK::MsgG2CErrorACK()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MsgG2CErrorACK::InitAsDefaultInstance() {
+}
+
+MsgG2CErrorACK::MsgG2CErrorACK(const MsgG2CErrorACK& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MsgG2CErrorACK::SharedCtor() {
+  _cached_size_ = 0;
+  en_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgG2CErrorACK::~MsgG2CErrorACK() {
+  SharedDtor();
+}
+
+void MsgG2CErrorACK::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgG2CErrorACK::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgG2CErrorACK::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgG2CErrorACK_descriptor_;
+}
+
+const MsgG2CErrorACK& MsgG2CErrorACK::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_MessageG2C_2eproto();  return *default_instance_;
+}
+
+MsgG2CErrorACK* MsgG2CErrorACK::default_instance_ = NULL;
+
+MsgG2CErrorACK* MsgG2CErrorACK::New() const {
+  return new MsgG2CErrorACK;
+}
+
+void MsgG2CErrorACK::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    en_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MsgG2CErrorACK::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required .MsgG2CErrorACK.enResult en = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::MsgG2CErrorACK_enResult_IsValid(value)) {
+            set_en(static_cast< ::MsgG2CErrorACK_enResult >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(1, value);
+          }
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void MsgG2CErrorACK::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required .MsgG2CErrorACK.enResult en = 1;
+  if (has_en()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->en(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MsgG2CErrorACK::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required .MsgG2CErrorACK.enResult en = 1;
+  if (has_en()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->en(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MsgG2CErrorACK::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required .MsgG2CErrorACK.enResult en = 1;
+    if (has_en()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->en());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgG2CErrorACK::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MsgG2CErrorACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgG2CErrorACK*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgG2CErrorACK::MergeFrom(const MsgG2CErrorACK& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_en()) {
+      set_en(from.en());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MsgG2CErrorACK::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgG2CErrorACK::CopyFrom(const MsgG2CErrorACK& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgG2CErrorACK::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  
+  return true;
+}
+
+void MsgG2CErrorACK::Swap(MsgG2CErrorACK* other) {
+  if (other != this) {
+    std::swap(en_, other->en_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MsgG2CErrorACK::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgG2CErrorACK_descriptor_;
+  metadata.reflection = MsgG2CErrorACK_reflection_;
   return metadata;
 }
 

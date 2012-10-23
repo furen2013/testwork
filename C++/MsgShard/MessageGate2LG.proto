@@ -1,0 +1,10 @@
+import "MsgHead.proto";    
+message MsgGate2LGLoginReq
+{	
+	required int64 id = 1;
+	required string mac = 2;
+}
+
+
+
+

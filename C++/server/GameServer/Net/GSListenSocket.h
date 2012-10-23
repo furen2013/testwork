@@ -3,6 +3,7 @@
 #define GSLISTENSOCKET_H
 
 #include "../../new_common/Source/net/tcpserver.h"
+#include "../../../Common/share/Singleton.h"
 #include <map>
 #include <boost/thread.hpp>
 class CGTSocket;

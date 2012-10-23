@@ -2,7 +2,7 @@
 #include "GSListenSocket.h"
 #include "GSocket.h"
 
-
+initialiseSingleton(CGSListenSocket);
 CGSListenSocket::CGSListenSocket(void) :tcp_server(1)
 {
 }

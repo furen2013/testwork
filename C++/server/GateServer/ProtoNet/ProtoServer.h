@@ -20,6 +20,7 @@ public:
 	void Run();
 	void _HookSignals();
 	void _UnhookSignals();
+	bool connectLG();
 	static void _OnSignal(int s);
 
 protected:

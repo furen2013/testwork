@@ -3,6 +3,7 @@
 #include <signal.h>
 #include "MyNetGlobleObj.h"
 #include "CListenProtoSocket.h"
+#include "GProtoSocket.h"
 
 
 #include "../../new_common/Source/new_common.h"
@@ -11,6 +12,8 @@
 #include "../Common/Platform/ServiceWin32.h"
 extern int m_ServiceStatus;
 #endif
+
+extern CGProtoSocket* p2LoginSocket;
 volatile bool CProtoServer::m_stopEvent = false;
 zip_compress_strategy impcs;
 initialiseSingleton(CProtoServer);
@@ -32,6 +35,8 @@ bool CProtoServer::Init()
 	m_timers[PROTO_UPDATE_RECONN].SetInterval(4000);
 	m_timers[PROTO_UPDATE_MSG].SetInterval(0);
 	m_timers[PROTO_UPDATE_DEBUG].SetInterval( 1*30*1000 );
+
+
 
 	///- Catch termination signals
 	_HookSignals();
@@ -118,6 +123,8 @@ bool CProtoServer::Init()
 	}
 	CCListenProtoSocket::getSingleton().set_limit_mode( true );
 	MyLog::log->notice("Start Listen Client on port[%u]", 95501);
+
+	connectLG();
 
 //	if(!ConnectCS()) return false;
 //	if(!ConnectDB()) return false;
@@ -241,4 +248,15 @@ void CProtoServer::_UnhookSignals()
 #else
 	signal(SIGQUIT, 0);
 #endif
+}
+
+bool CProtoServer::connectLG()
+{
+	if (!p2LoginSocket)
+	{
+		p2LoginSocket = new CGProtoSocket(*MyNetGlobleObj::get_io_service());
+		p2LoginSocket->setServerName("LoginServerName");
+	}
+	p2LoginSocket->connect("127.0.0.1", 1091);
+	return true;
 }

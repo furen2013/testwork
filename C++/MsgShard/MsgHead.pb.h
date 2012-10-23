@@ -39,11 +39,19 @@ enum MsgType {
   C2Gate_MsgLoginMacReq = 3,
   C2Gate_END = 998,
   G2C_Begin = 999,
-  G2C_LoginMacACK = 1000
+  G2C_LoginMacACK = 1000,
+  G2C_MsgG2CErrorACK = 1001,
+  G2C_End = 2000,
+  Gate2LG_Begin = 2001,
+  Gate2LG_MsgGate2LGLoginReq = 2002,
+  Gate2LG_End = 3000,
+  LG2Gate_Begin = 3001,
+  LG2Gate_MsgLG2GateLoginACK = 3002,
+  LG2Gate_End = 4000
 };
 bool MsgType_IsValid(int value);
 const MsgType MsgType_MIN = C2Gate_MsgNull;
-const MsgType MsgType_MAX = G2C_LoginMacACK;
+const MsgType MsgType_MAX = LG2Gate_End;
 const int MsgType_ARRAYSIZE = MsgType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* MsgType_descriptor();

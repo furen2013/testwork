@@ -4,3 +4,13 @@ message MsgG2CLoginMacACK
 	required int64 account = 1;
 }
 
+message MsgG2CErrorACK
+{	
+	enum enResult
+	{
+		LG_UNKNOW				 = 0;
+		LG_ALREADYLOGIN			 = 1;
+	}
+	required enResult en = 1;
+
+}

@@ -68,16 +68,16 @@ void Tcp_ProtoSession::send_message(MsgType type, google::protobuf::Message* msg
 	msgBody->SerializeToArray(msg->data + headsize + head, bodysize);
 	_send_message(msg);
 
-	unsigned short checksize =  *((unsigned short*)msg->data);
-	unsigned short checkheadsize = *((unsigned short*)msg->data + mark);
+	//unsigned short checksize =  *((unsigned short*)msg->data);
+	//unsigned short checkheadsize = *((unsigned short*)msg->data + mark);
 
-	MsgHead Head2;
-	Head2.ParseFromArray(msg->data + head , headsize);
-	int newsize = Head2.msgsize();
-	MsgType Type = Head2.type();
+	//MsgHead Head2;
+	//Head2.ParseFromArray(msg->data + head , headsize);
+	//int newsize = Head2.msgsize();
+	//MsgType Type = Head2.type();
 
-	int n  = 0;
-	n ++;
+	//int n  = 0;
+	//n ++;
 
 }
 

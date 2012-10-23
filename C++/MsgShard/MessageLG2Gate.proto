@@ -1,0 +1,16 @@
+import "MsgHead.proto";    
+message MsgLG2GateLoginACK
+{	
+	enum enResult
+	{
+		LG_OK				 = 0;
+		LG_ERROR			 = 1;
+	}
+
+	required int64			id = 1;
+	required enResult		result = 2;
+}
+
+
+
+

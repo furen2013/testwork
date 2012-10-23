@@ -2,6 +2,7 @@
 #ifndef LOGINGATELISTENER_H
 #define LOGINGATELISTENER_H
 #include "../../../new_common/Source/net/tcpserver.h"
+#include "../../../Common/share/Singleton.h"
 
 
 #include <map>

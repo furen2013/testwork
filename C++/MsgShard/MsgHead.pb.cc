@@ -77,11 +77,16 @@ void protobuf_AddDesc_MsgHead_2eproto() {
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\rMsgHead.proto\"2\n\007MsgHead\022\026\n\004Type\030\001 \002(\016"
-    "2\010.MsgType\022\017\n\007msgSize\030\002 \002(\005*\246\001\n\007MsgType\022"
+    "2\010.MsgType\022\017\n\007msgSize\030\002 \002(\005*\333\002\n\007MsgType\022"
     "\022\n\016C2Gate_MsgNull\020\000\022\026\n\022C2Gate_MsgLoginRe"
     "q\020\001\022\035\n\031C2Gate_MsgCreateAcountReq\020\002\022\031\n\025C2"
     "Gate_MsgLoginMacReq\020\003\022\017\n\nC2Gate_END\020\346\007\022\016"
-    "\n\tG2C_Begin\020\347\007\022\024\n\017G2C_LoginMacACK\020\350\007", 236);
+    "\n\tG2C_Begin\020\347\007\022\024\n\017G2C_LoginMacACK\020\350\007\022\027\n\022"
+    "G2C_MsgG2CErrorACK\020\351\007\022\014\n\007G2C_End\020\320\017\022\022\n\rG"
+    "ate2LG_Begin\020\321\017\022\037\n\032Gate2LG_MsgGate2LGLog"
+    "inReq\020\322\017\022\020\n\013Gate2LG_End\020\270\027\022\022\n\rLG2Gate_Be"
+    "gin\020\271\027\022\037\n\032LG2Gate_MsgLG2GateLoginACK\020\272\027\022"
+    "\020\n\013LG2Gate_End\020\240\037", 417);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MsgHead.proto", &protobuf_RegisterTypes);
   MsgHead::default_instance_ = new MsgHead();
@@ -109,6 +114,14 @@ bool MsgType_IsValid(int value) {
     case 998:
     case 999:
     case 1000:
+    case 1001:
+    case 2000:
+    case 2001:
+    case 2002:
+    case 3000:
+    case 3001:
+    case 3002:
+    case 4000:
       return true;
     default:
       return false;

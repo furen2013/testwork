@@ -15,11 +15,14 @@ public:
 
 	void AddAcceptedSocket(CCProtoSocket* pSocket);
 	void RemoveAcceptedSocket(CCProtoSocket* pSocket);
+	
 	void SendToGateSevers(const char* szBuf, int iLen);
 	void KickAllClients();
 private:
 	boost::mutex m_mutex;
 	map<DWORD, CCProtoSocket*> m_mapAccpetedSockets;
+	map<DWORD, CCProtoSocket*> m_mapLoginSockets;
+
 };
 #define ProtoListen CCListenProtoSocket::getSingleton()
 

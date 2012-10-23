@@ -1,8 +1,9 @@
 #include "StdAfx.h"
 #include "LoginGateListener.h"
 #include "MyNetGlobleObj.h"
+#include "LoginGateSocket.h"
 
-initialiseSingleton(CLoginGateListener)
+initialiseSingleton(CLoginGateListener);
 CLoginGateListener::CLoginGateListener(void): tcp_server( 1 )
 {
 }

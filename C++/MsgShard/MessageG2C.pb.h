@@ -32,7 +32,27 @@ void protobuf_AssignDesc_MessageG2C_2eproto();
 void protobuf_ShutdownFile_MessageG2C_2eproto();
 
 class MsgG2CLoginMacACK;
+class MsgG2CErrorACK;
 
+enum MsgG2CErrorACK_enResult {
+  MsgG2CErrorACK_enResult_LG_UNKNOW = 0,
+  MsgG2CErrorACK_enResult_LG_ALREADYLOGIN = 1
+};
+bool MsgG2CErrorACK_enResult_IsValid(int value);
+const MsgG2CErrorACK_enResult MsgG2CErrorACK_enResult_enResult_MIN = MsgG2CErrorACK_enResult_LG_UNKNOW;
+const MsgG2CErrorACK_enResult MsgG2CErrorACK_enResult_enResult_MAX = MsgG2CErrorACK_enResult_LG_ALREADYLOGIN;
+const int MsgG2CErrorACK_enResult_enResult_ARRAYSIZE = MsgG2CErrorACK_enResult_enResult_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* MsgG2CErrorACK_enResult_descriptor();
+inline const ::std::string& MsgG2CErrorACK_enResult_Name(MsgG2CErrorACK_enResult value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    MsgG2CErrorACK_enResult_descriptor(), value);
+}
+inline bool MsgG2CErrorACK_enResult_Parse(
+    const ::std::string& name, MsgG2CErrorACK_enResult* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<MsgG2CErrorACK_enResult>(
+    MsgG2CErrorACK_enResult_descriptor(), name, value);
+}
 // ===================================================================
 
 class MsgG2CLoginMacACK : public ::google::protobuf::Message {
@@ -115,6 +135,112 @@ class MsgG2CLoginMacACK : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static MsgG2CLoginMacACK* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class MsgG2CErrorACK : public ::google::protobuf::Message {
+ public:
+  MsgG2CErrorACK();
+  virtual ~MsgG2CErrorACK();
+  
+  MsgG2CErrorACK(const MsgG2CErrorACK& from);
+  
+  inline MsgG2CErrorACK& operator=(const MsgG2CErrorACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgG2CErrorACK& default_instance();
+  
+  void Swap(MsgG2CErrorACK* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgG2CErrorACK* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgG2CErrorACK& from);
+  void MergeFrom(const MsgG2CErrorACK& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  typedef MsgG2CErrorACK_enResult enResult;
+  static const enResult LG_UNKNOW = MsgG2CErrorACK_enResult_LG_UNKNOW;
+  static const enResult LG_ALREADYLOGIN = MsgG2CErrorACK_enResult_LG_ALREADYLOGIN;
+  static inline bool enResult_IsValid(int value) {
+    return MsgG2CErrorACK_enResult_IsValid(value);
+  }
+  static const enResult enResult_MIN =
+    MsgG2CErrorACK_enResult_enResult_MIN;
+  static const enResult enResult_MAX =
+    MsgG2CErrorACK_enResult_enResult_MAX;
+  static const int enResult_ARRAYSIZE =
+    MsgG2CErrorACK_enResult_enResult_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  enResult_descriptor() {
+    return MsgG2CErrorACK_enResult_descriptor();
+  }
+  static inline const ::std::string& enResult_Name(enResult value) {
+    return MsgG2CErrorACK_enResult_Name(value);
+  }
+  static inline bool enResult_Parse(const ::std::string& name,
+      enResult* value) {
+    return MsgG2CErrorACK_enResult_Parse(name, value);
+  }
+  
+  // accessors -------------------------------------------------------
+  
+  // required .MsgG2CErrorACK.enResult en = 1;
+  inline bool has_en() const;
+  inline void clear_en();
+  static const int kEnFieldNumber = 1;
+  inline ::MsgG2CErrorACK_enResult en() const;
+  inline void set_en(::MsgG2CErrorACK_enResult value);
+  
+  // @@protoc_insertion_point(class_scope:MsgG2CErrorACK)
+ private:
+  inline void set_has_en();
+  inline void clear_has_en();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  int en_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageG2C_2eproto();
+  friend void protobuf_AssignDesc_MessageG2C_2eproto();
+  friend void protobuf_ShutdownFile_MessageG2C_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgG2CErrorACK* default_instance_;
+};
 // ===================================================================
 
 
@@ -144,6 +270,33 @@ inline void MsgG2CLoginMacACK::set_account(::google::protobuf::int64 value) {
   account_ = value;
 }
 
+// -------------------------------------------------------------------
+
+// MsgG2CErrorACK
+
+// required .MsgG2CErrorACK.enResult en = 1;
+inline bool MsgG2CErrorACK::has_en() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgG2CErrorACK::set_has_en() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgG2CErrorACK::clear_has_en() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgG2CErrorACK::clear_en() {
+  en_ = 0;
+  clear_has_en();
+}
+inline ::MsgG2CErrorACK_enResult MsgG2CErrorACK::en() const {
+  return static_cast< ::MsgG2CErrorACK_enResult >(en_);
+}
+inline void MsgG2CErrorACK::set_en(::MsgG2CErrorACK_enResult value) {
+  GOOGLE_DCHECK(::MsgG2CErrorACK_enResult_IsValid(value));
+  set_has_en();
+  en_ = value;
+}
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -151,6 +304,10 @@ inline void MsgG2CLoginMacACK::set_account(::google::protobuf::int64 value) {
 namespace google {
 namespace protobuf {
 
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::MsgG2CErrorACK_enResult>() {
+  return ::MsgG2CErrorACK_enResult_descriptor();
+}
 
 }  // namespace google
 }  // namespace protobuf
