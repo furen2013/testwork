@@ -67,7 +67,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>
       </OutputFile>
       <AdditionalLibraryDirectories>E:\MyCode\GitHub\MyPhoneWork\C++\D_LIB;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>

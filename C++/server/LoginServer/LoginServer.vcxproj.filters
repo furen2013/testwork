@@ -39,6 +39,12 @@
     <ClInclude Include="Net\ProtoLoginServer.h">
       <Filter>Net</Filter>
     </ClInclude>
+    <ClInclude Include="LoginUserManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginUser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -58,6 +64,12 @@
     </ClCompile>
     <ClCompile Include="Net\ProtoLoginServer.cpp">
       <Filter>Net</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginUserManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginUser.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
