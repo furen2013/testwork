@@ -2,7 +2,7 @@
 #ifndef PROTOLOGINSERVER_H
 #define PROTOLOGINSERVER_H
 #include "../../../Common/share/Singleton.h"
-#include "../../../Common/Platform/Timer.h"
+//#include "../../../Common/Platform/Timer.h"
 
 class CProtoLoginServer : public Singleton<CProtoLoginServer>
 {
@@ -31,4 +31,5 @@ protected:
 	IntervalTimer m_timers[UPDATE_COUNT];
 };
 
+#define CLGSERVER CProtoLoginServer::getSingleton()
 #endif

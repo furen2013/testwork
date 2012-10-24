@@ -1,12 +1,18 @@
 #include "StdAfx.h"
+#include <signal.h>
 #include "ProtoLoginServer.h"
 #include "../../../../new_common/Source/log4cpp-1.0/MyLog.h"
+#include "../../../../new_common/Source/compression/zlib/ZlibCompressionStrategy.h"
 #include "../../../Common/Platform/SystemConfig.h"
 #include "../../../Common/share/Config/Config.h"
+#include "LoginGateListener.h"
+#include "MyNetGlobleObj.h"
 #ifdef WIN32
 extern int m_ServiceStatus;
 #endif
 initialiseSingleton(CProtoLoginServer);
+volatile bool CProtoLoginServer::m_stopEvent = false;
+zip_compress_strategy impcs;
 CProtoLoginServer::CProtoLoginServer(void)
 {
 }
@@ -19,8 +25,116 @@ CProtoLoginServer::~CProtoLoginServer(void)
 
 void CProtoLoginServer::_HookSignals()
 {
-
+	signal(SIGINT, _OnSignal);
+	signal(SIGTERM, _OnSignal);
+	signal(SIGABRT, _OnSignal);
+#ifdef _WIN32
+	signal(SIGBREAK, _OnSignal);
+#else
+	signal(SIGQUIT, _OnSignal);
+#endif
 }
+
+void CProtoLoginServer::_UnhookSignals()
+{
+	signal(SIGINT, 0);
+	signal(SIGTERM, 0);
+	signal(SIGABRT, 0);
+#ifdef _WIN32
+	signal(SIGBREAK, 0);
+#else
+	signal(SIGQUIT, 0);
+#endif
+}
+void CProtoLoginServer::_OnSignal(int s)
+{
+	switch (s)
+	{
+	case SIGINT:
+	case SIGTERM:
+	case SIGABRT:
+#ifdef _WIN32
+	case SIGBREAK:
+#else
+	case SIGQUIT:
+#endif
+		m_stopEvent = true;
+		break;
+	}
+
+	signal(s, _OnSignal);
+}
+
+void CProtoLoginServer::Run()
+{
+	MyLog::log->info("========================Sunyou Start!========================");
+	uint32 realCurrTime, realPrevTime;
+	realCurrTime = realPrevTime = getMSTime();
+
+	///- Wait for termination signal
+	while (!m_stopEvent)
+	{
+		if (realPrevTime > realCurrTime)
+			realPrevTime = 0;
+
+		realCurrTime = getMSTime();
+		//if( UNIXTIME != realCurrTime )
+		{
+			UNIXTIME = time(NULL);
+			g_localTime = *localtime(&UNIXTIME);
+		}
+
+#ifdef WIN32
+		if (m_ServiceStatus == 0) m_stopEvent = true;
+		while (m_ServiceStatus == 2) Sleep(1000);
+#endif
+		///- Update the different timers
+		for(int i = 0; i < UPDATE_COUNT; i++)
+			if(m_timers[i].GetCurrent()>=0)
+				m_timers[i].Update( realCurrTime - realPrevTime );
+			else m_timers[i].SetCurrent(0);
+
+			if (m_timers[UPDATE_RECONN].Passed())
+			{
+				//ÖØÁ¬
+				m_timers[UPDATE_RECONN].Reset();
+			}
+
+			if( m_timers[UPDATE_MSG].Passed() )
+			{
+				m_timers[UPDATE_MSG].Reset();
+				//for( int i = 0; i < 4; ++i )
+				//	g_gssocket[i]->run_no_wait();
+				//sCSSocket.run_no_wait();
+				//sDBSocket.run_no_wait();
+				LGLISTENER.run_no_wait();
+				//sCLS.run_no_wait();
+			}
+
+			//sCParser.m_nTimePass += realCurrTime - realPrevTime;
+			//sGSParser.m_nTimePass += realCurrTime - realPrevTime;
+			if( m_timers[UPDATE_DEBUG].Passed() )
+			{
+				m_timers[UPDATE_DEBUG].Reset();
+				if( g_fpLogConnection )
+					fflush( g_fpLogConnection );
+				//MyLog::log->debug("Recv C MsgSize[%d]..............SizePerS[%2d%]\n       Recv GS MsgSize[%d]..............SizePerS[%2d%]", sCParser.m_nMsgSize, sCParser.m_nMsgSize*1000/sCParser.m_nTimePass, sGSParser.m_nMsgSize, sGSParser.m_nMsgSize*1000/sGSParser.m_nTimePass);
+
+				//MyLog::log->notice( "asio thread alive count = %d", get_asio_thread_alive_count() );
+			}
+			realCurrTime = getMSTime();
+
+			if( realCurrTime - realPrevTime < 5/*sGTConfig.m_nFrameTick*/ )
+			{
+				Sleep( 5/*sGTConfig.m_nFrameTick*/ + realPrevTime - realCurrTime );
+			}
+
+			realPrevTime = realCurrTime;
+	}
+
+	MyLog::log->info("========================Sunyou Stop!========================");
+}
+
 bool CProtoLoginServer::Init()
 {
 	MyLog::log->info( "Sunyou Login daemon %s", _FULLVERSION );
@@ -93,6 +207,29 @@ bool CProtoLoginServer::Init()
 //	net_global::init_net_service( 32, 5, &cs, true, 9000 );
 //#endif
 //
+
+#ifdef _WIN32
+	MyNetGlobleObj::init_net_service( 2, 5, &impcs, true, 100 );
+#else
+	MyNetGlobleObj::init_net_service( 32, 5, &impcs, true, 9000 );
+#endif
+	int HeadLen = sizeof(unsigned short);
+	MyNetGlobleObj::InitMsg(HeadLen, 0);
+
+
+
+#ifdef _WIN32
+	if( !LGLISTENER.create( 95502, 50, 2 ) )
+#else
+	if( !LGLISTENER.create( 95502, sGTConfig.m_nPlayerLimit, 16 ) )
+#endif
+	{
+		MyLog::log->error("Start Listen Client on port[%u]", 95502);
+		return false;
+	}
+	LGLISTENER.set_limit_mode( true );
+	MyLog::log->notice("Start Listen Client on port[%u]", 95502);
+
 
 	return true;
 }

@@ -1,6 +1,6 @@
 #ifndef MANGOS_TIMER_H
 #define MANGOS_TIMER_H
-
+#pragma once
 #include "CompilerDefs.h"
 
 #if PLATFORM == PLATFORM_WINDOWS
