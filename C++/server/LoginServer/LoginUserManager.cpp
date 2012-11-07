@@ -1,5 +1,7 @@
 #include "StdAfx.h"
 #include "LoginUserManager.h"
+#include "UserStorage.h"
+#include "LoginUser.h"
 initialiseSingleton(LoginUserManager);
 
 LoginUserManager::LoginUserManager(void)
@@ -11,7 +13,49 @@ LoginUserManager::~LoginUserManager(void)
 {
 }
 
-unsigned long LoginUserManager::lh_strhash(char *c)
+bool LoginUserManager::isAlreadyLogin(unsigned long account)
+{
+	boost::mutex::scoped_lock lock(m_mutex);
+	MAPLOGINUSER::iterator it = m_mapLoginUser.find(account);
+	if (it != m_mapLoginUser.end())
+	{
+		return true;
+	}
+	return false;
+
+}
+
+unsigned long LoginUserManager::tryLogin(const char* mac)
+{
+	unsigned long account = lh_strhash(mac);
+	if (CUserStorage::getSingleton().GetUserInfo(account) == NULL)
+	{
+		tgUserInfo_t* info = new tgUserInfo_t();
+		info->account = account;
+		info->mac = mac;
+		CUserStorage::getSingleton().addUser(info);
+	}
+	bool b = false;
+	{
+		boost::mutex::scoped_lock lock(m_mutex);
+		MAPLOGINUSER::iterator it = m_mapLoginUser.find(account);
+		if (it == m_mapLoginUser.end())
+		{
+			b = true;
+			CLoginUser* LoginUser = new CLoginUser();
+			LoginUser->setmac(mac);
+			LoginUser->setAccount(account);
+			m_mapLoginUser.insert(MAPLOGINUSER::value_type(account, LoginUser));
+
+		}
+	}
+	if (b)
+	{
+		return account;
+	}
+	return 0;
+}
+unsigned long LoginUserManager::lh_strhash(const char *c)
 {
 	unsigned long ret=0; 
 	long n; 

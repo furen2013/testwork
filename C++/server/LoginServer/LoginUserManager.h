@@ -11,10 +11,15 @@ class LoginUserManager : public Singleton<LoginUserManager>
 public:
 	LoginUserManager(void);
 	virtual ~LoginUserManager(void);
-	unsigned long lh_strhash(char *str); 
+	unsigned long lh_strhash(const char *str);
+	bool isAlreadyLogin(unsigned long account);
+	unsigned long tryLogin(const char* mac);
+
 	
 public:
-	std::map<unsigned long, CLoginUser*> m_mapLoginUser;
+	typedef std::map<unsigned long, CLoginUser*> MAPLOGINUSER;
+	MAPLOGINUSER m_mapLoginUser;
+	boost::mutex m_mutex;
 
 
 };

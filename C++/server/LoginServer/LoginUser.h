@@ -10,9 +10,12 @@ public:
 	virtual ~CLoginUser(void);
 public:
 	void setmac(const char* sz);
+	void setAccount(unsigned long account);
+	inline const char*getmac(){return m_mac.c_str();}
+	inline unsigned long getAccount(){return m_account;}
 protected:
 	std::string m_mac;
-	long m_account;
+	unsigned long m_account;
 };
 
 #endif

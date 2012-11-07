@@ -109,12 +109,12 @@ class MsgG2CLoginMacACK : public ::google::protobuf::Message {
   
   // accessors -------------------------------------------------------
   
-  // required int64 account = 1;
+  // required uint64 account = 1;
   inline bool has_account() const;
   inline void clear_account();
   static const int kAccountFieldNumber = 1;
-  inline ::google::protobuf::int64 account() const;
-  inline void set_account(::google::protobuf::int64 value);
+  inline ::google::protobuf::uint64 account() const;
+  inline void set_account(::google::protobuf::uint64 value);
   
   // @@protoc_insertion_point(class_scope:MsgG2CLoginMacACK)
  private:
@@ -123,7 +123,7 @@ class MsgG2CLoginMacACK : public ::google::protobuf::Message {
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
-  ::google::protobuf::int64 account_;
+  ::google::protobuf::uint64 account_;
   
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -248,7 +248,7 @@ class MsgG2CErrorACK : public ::google::protobuf::Message {
 
 // MsgG2CLoginMacACK
 
-// required int64 account = 1;
+// required uint64 account = 1;
 inline bool MsgG2CLoginMacACK::has_account() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -259,13 +259,13 @@ inline void MsgG2CLoginMacACK::clear_has_account() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void MsgG2CLoginMacACK::clear_account() {
-  account_ = GOOGLE_LONGLONG(0);
+  account_ = GOOGLE_ULONGLONG(0);
   clear_has_account();
 }
-inline ::google::protobuf::int64 MsgG2CLoginMacACK::account() const {
+inline ::google::protobuf::uint64 MsgG2CLoginMacACK::account() const {
   return account_;
 }
-inline void MsgG2CLoginMacACK::set_account(::google::protobuf::int64 value) {
+inline void MsgG2CLoginMacACK::set_account(::google::protobuf::uint64 value) {
   set_has_account();
   account_ = value;
 }

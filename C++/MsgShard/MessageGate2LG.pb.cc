@@ -76,7 +76,7 @@ void protobuf_AddDesc_MessageGate2LG_2eproto() {
   ::protobuf_AddDesc_MsgHead_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\024MessageGate2LG.proto\032\rMsgHead.proto\"-\n"
-    "\022MsgGate2LGLoginReq\022\n\n\002id\030\001 \002(\003\022\013\n\003mac\030\002"
+    "\022MsgGate2LGLoginReq\022\n\n\002id\030\001 \002(\004\022\013\n\003mac\030\002"
     " \002(\t", 84);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageGate2LG.proto", &protobuf_RegisterTypes);
@@ -116,7 +116,7 @@ MsgGate2LGLoginReq::MsgGate2LGLoginReq(const MsgGate2LGLoginReq& from)
 
 void MsgGate2LGLoginReq::SharedCtor() {
   _cached_size_ = 0;
-  id_ = GOOGLE_LONGLONG(0);
+  id_ = GOOGLE_ULONGLONG(0);
   mac_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -155,7 +155,7 @@ MsgGate2LGLoginReq* MsgGate2LGLoginReq::New() const {
 
 void MsgGate2LGLoginReq::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = GOOGLE_LONGLONG(0);
+    id_ = GOOGLE_ULONGLONG(0);
     if (has_mac()) {
       if (mac_ != &::google::protobuf::internal::kEmptyString) {
         mac_->clear();
@@ -172,12 +172,12 @@ bool MsgGate2LGLoginReq::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int64 id = 1;
+      // required uint64 id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &id_)));
           set_has_id();
         } else {
@@ -222,9 +222,9 @@ bool MsgGate2LGLoginReq::MergePartialFromCodedStream(
 
 void MsgGate2LGLoginReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required int64 id = 1;
+  // required uint64 id = 1;
   if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->id(), output);
   }
   
   // required string mac = 2;
@@ -244,9 +244,9 @@ void MsgGate2LGLoginReq::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* MsgGate2LGLoginReq::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required int64 id = 1;
+  // required uint64 id = 1;
   if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->id(), target);
   }
   
   // required string mac = 2;
@@ -270,10 +270,10 @@ int MsgGate2LGLoginReq::ByteSize() const {
   int total_size = 0;
   
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required int64 id = 1;
+    // required uint64 id = 1;
     if (has_id()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
           this->id());
     }
     

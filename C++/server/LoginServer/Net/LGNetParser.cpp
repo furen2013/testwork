@@ -2,6 +2,9 @@
 #include "LGNetParser.h"
 #include "MessageGate2LG.pb.h"
 #include "MessageLG2Gate.pb.h"
+#include "LoginGateSocket.h"
+#include "../LoginUserManager.h"
+#include "../UserStorage.h"
 initialiseSingleton(CLGNetParser);
 CLGNetParser::CLGNetParser(void)
 {
@@ -26,12 +29,19 @@ void CLGNetParser::ParseMessage(message_t& msg, CLoginGateSocket* pSocket)
 		{
 			MsgGate2LGLoginReq Msg;
 			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
-
-			//if ok
+			unsigned long account = LUM.tryLogin(Msg.mac().c_str());
 			MsgLG2GateLoginACK MsgAck;
-			//MsgAck.set_id()
+			MsgAck.set_id(Msg.id());
+			MsgAck.set_account(account);
+			MsgAck.set_result(MsgLG2GateLoginACK_enResult_LG_OK);
+			pSocket->send_message(LG2Gate_MsgLG2GateLoginACK,&MsgAck);
+
 		}
 		break;
+	default:
+		{
+			MyLog::log->warn("unknown msg gate 2 lg");
+		}
 
 	}
 }

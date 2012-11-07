@@ -99,7 +99,7 @@ void protobuf_AddDesc_MessageG2C_2eproto() {
   ::protobuf_AddDesc_MsgHead_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\020MessageG2C.proto\032\rMsgHead.proto\"$\n\021Msg"
-    "G2CLoginMacACK\022\017\n\007account\030\001 \002(\003\"f\n\016MsgG2"
+    "G2CLoginMacACK\022\017\n\007account\030\001 \002(\004\"f\n\016MsgG2"
     "CErrorACK\022$\n\002en\030\001 \002(\0162\030.MsgG2CErrorACK.e"
     "nResult\".\n\010enResult\022\r\n\tLG_UNKNOW\020\000\022\023\n\017LG"
     "_ALREADYLOGIN\020\001", 175);
@@ -142,7 +142,7 @@ MsgG2CLoginMacACK::MsgG2CLoginMacACK(const MsgG2CLoginMacACK& from)
 
 void MsgG2CLoginMacACK::SharedCtor() {
   _cached_size_ = 0;
-  account_ = GOOGLE_LONGLONG(0);
+  account_ = GOOGLE_ULONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -177,7 +177,7 @@ MsgG2CLoginMacACK* MsgG2CLoginMacACK::New() const {
 
 void MsgG2CLoginMacACK::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    account_ = GOOGLE_LONGLONG(0);
+    account_ = GOOGLE_ULONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -189,12 +189,12 @@ bool MsgG2CLoginMacACK::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int64 account = 1;
+      // required uint64 account = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &account_)));
           set_has_account();
         } else {
@@ -222,9 +222,9 @@ bool MsgG2CLoginMacACK::MergePartialFromCodedStream(
 
 void MsgG2CLoginMacACK::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required int64 account = 1;
+  // required uint64 account = 1;
   if (has_account()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->account(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->account(), output);
   }
   
   if (!unknown_fields().empty()) {
@@ -235,9 +235,9 @@ void MsgG2CLoginMacACK::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* MsgG2CLoginMacACK::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required int64 account = 1;
+  // required uint64 account = 1;
   if (has_account()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->account(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->account(), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -251,10 +251,10 @@ int MsgG2CLoginMacACK::ByteSize() const {
   int total_size = 0;
   
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required int64 account = 1;
+    // required uint64 account = 1;
     if (has_account()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
           this->account());
     }
     

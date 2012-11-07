@@ -145,6 +145,7 @@ copy ..\..\intermediate\Server\$(ProjectName)\$(Configuration)\*.pdb ..\..\Bin\S
     <ClCompile Include="ProtoNet\CProtoSocket.cpp" />
     <ClCompile Include="ProtoNet\GateParser.cpp" />
     <ClCompile Include="ProtoNet\GProtoSocket.cpp" />
+    <ClCompile Include="ProtoNet\LG2GateParser.cpp" />
     <ClCompile Include="ProtoNet\ProtoServer.cpp" />
     <ClCompile Include="Server.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -190,6 +191,7 @@ copy ..\..\intermediate\Server\$(ProjectName)\$(Configuration)\*.pdb ..\..\Bin\S
     <ClInclude Include="ProtoNet\CProtoSocket.h" />
     <ClInclude Include="ProtoNet\GateParser.h" />
     <ClInclude Include="ProtoNet\GProtoSocket.h" />
+    <ClInclude Include="ProtoNet\LG2GateParser.h" />
     <ClInclude Include="ProtoNet\ProtoServer.h" />
     <ClInclude Include="Server.h" />
     <ClInclude Include="stdafx.h" />

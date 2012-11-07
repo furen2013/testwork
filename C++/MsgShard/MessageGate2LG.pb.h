@@ -89,12 +89,12 @@ class MsgGate2LGLoginReq : public ::google::protobuf::Message {
   
   // accessors -------------------------------------------------------
   
-  // required int64 id = 1;
+  // required uint64 id = 1;
   inline bool has_id() const;
   inline void clear_id();
   static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  inline ::google::protobuf::uint64 id() const;
+  inline void set_id(::google::protobuf::uint64 value);
   
   // required string mac = 2;
   inline bool has_mac() const;
@@ -116,7 +116,7 @@ class MsgGate2LGLoginReq : public ::google::protobuf::Message {
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
-  ::google::protobuf::int64 id_;
+  ::google::protobuf::uint64 id_;
   ::std::string* mac_;
   
   mutable int _cached_size_;
@@ -136,7 +136,7 @@ class MsgGate2LGLoginReq : public ::google::protobuf::Message {
 
 // MsgGate2LGLoginReq
 
-// required int64 id = 1;
+// required uint64 id = 1;
 inline bool MsgGate2LGLoginReq::has_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -147,13 +147,13 @@ inline void MsgGate2LGLoginReq::clear_has_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void MsgGate2LGLoginReq::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
+  id_ = GOOGLE_ULONGLONG(0);
   clear_has_id();
 }
-inline ::google::protobuf::int64 MsgGate2LGLoginReq::id() const {
+inline ::google::protobuf::uint64 MsgGate2LGLoginReq::id() const {
   return id_;
 }
-inline void MsgGate2LGLoginReq::set_id(::google::protobuf::int64 value) {
+inline void MsgGate2LGLoginReq::set_id(::google::protobuf::uint64 value) {
   set_has_id();
   id_ = value;
 }

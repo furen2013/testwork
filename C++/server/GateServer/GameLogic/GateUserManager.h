@@ -15,9 +15,15 @@ public:
 	void AddClient(CCProtoSocket* pProtoSocket);
 	void DelClient(DWORD dw);
 
+	bool Add2LoginClient(CCProtoSocket* p);
+	bool DelFromLoginClient(DWORD dw);
+	CCProtoSocket* GetClient(DWORD dw);
+	CCProtoSocket* GetLoginClient(DWORD dw);
+
 
 protected:
 	MAPPROTOSOCKET m_clients;
+	MAPPROTOSOCKET m_LoginClients;
 	boost::mutex m_mutex;
 
 };

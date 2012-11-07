@@ -64,6 +64,9 @@
     <ClCompile Include="ProtoNet\GateParser.cpp">
       <Filter>ProtoNet</Filter>
     </ClCompile>
+    <ClCompile Include="ProtoNet\LG2GateParser.cpp">
+      <Filter>ProtoNet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h">
@@ -109,6 +112,9 @@
       <Filter>GameLogic</Filter>
     </ClInclude>
     <ClInclude Include="ProtoNet\GateParser.h">
+      <Filter>ProtoNet</Filter>
+    </ClInclude>
+    <ClInclude Include="ProtoNet\LG2GateParser.h">
       <Filter>ProtoNet</Filter>
     </ClInclude>
   </ItemGroup>

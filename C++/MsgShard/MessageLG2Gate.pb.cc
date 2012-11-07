@@ -30,8 +30,9 @@ void protobuf_AssignDesc_MessageLG2Gate_2eproto() {
       "MessageLG2Gate.proto");
   GOOGLE_CHECK(file != NULL);
   MsgLG2GateLoginACK_descriptor_ = file->message_type(0);
-  static const int MsgLG2GateLoginACK_offsets_[2] = {
+  static const int MsgLG2GateLoginACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLG2GateLoginACK, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLG2GateLoginACK, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLG2GateLoginACK, result_),
   };
   MsgLG2GateLoginACK_reflection_ =
@@ -77,10 +78,11 @@ void protobuf_AddDesc_MessageLG2Gate_2eproto() {
 
   ::protobuf_AddDesc_MsgHead_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\024MessageLG2Gate.proto\032\rMsgHead.proto\"s\n"
-    "\022MsgLG2GateLoginACK\022\n\n\002id\030\001 \002(\003\022,\n\006resul"
-    "t\030\002 \002(\0162\034.MsgLG2GateLoginACK.enResult\"#\n"
-    "\010enResult\022\t\n\005LG_OK\020\000\022\014\n\010LG_ERROR\020\001", 154);
+    "\n\024MessageLG2Gate.proto\032\rMsgHead.proto\"\204\001"
+    "\n\022MsgLG2GateLoginACK\022\n\n\002id\030\001 \002(\004\022\017\n\007acco"
+    "unt\030\002 \002(\004\022,\n\006result\030\003 \002(\0162\034.MsgLG2GateLo"
+    "ginACK.enResult\"#\n\010enResult\022\t\n\005LG_OK\020\000\022\014"
+    "\n\010LG_ERROR\020\001", 172);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageLG2Gate.proto", &protobuf_RegisterTypes);
   MsgLG2GateLoginACK::default_instance_ = new MsgLG2GateLoginACK();
@@ -121,6 +123,7 @@ const int MsgLG2GateLoginACK::enResult_ARRAYSIZE;
 #endif  // _MSC_VER
 #ifndef _MSC_VER
 const int MsgLG2GateLoginACK::kIdFieldNumber;
+const int MsgLG2GateLoginACK::kAccountFieldNumber;
 const int MsgLG2GateLoginACK::kResultFieldNumber;
 #endif  // !_MSC_VER
 
@@ -140,7 +143,8 @@ MsgLG2GateLoginACK::MsgLG2GateLoginACK(const MsgLG2GateLoginACK& from)
 
 void MsgLG2GateLoginACK::SharedCtor() {
   _cached_size_ = 0;
-  id_ = GOOGLE_LONGLONG(0);
+  id_ = GOOGLE_ULONGLONG(0);
+  account_ = GOOGLE_ULONGLONG(0);
   result_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -176,7 +180,8 @@ MsgLG2GateLoginACK* MsgLG2GateLoginACK::New() const {
 
 void MsgLG2GateLoginACK::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = GOOGLE_LONGLONG(0);
+    id_ = GOOGLE_ULONGLONG(0);
+    account_ = GOOGLE_ULONGLONG(0);
     result_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -189,23 +194,39 @@ bool MsgLG2GateLoginACK::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int64 id = 1;
+      // required uint64 id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &id_)));
           set_has_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_result;
+        if (input->ExpectTag(16)) goto parse_account;
         break;
       }
       
-      // required .MsgLG2GateLoginACK.enResult result = 2;
+      // required uint64 account = 2;
       case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_account:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &account_)));
+          set_has_account();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_result;
+        break;
+      }
+      
+      // required .MsgLG2GateLoginACK.enResult result = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_result:
@@ -216,7 +237,7 @@ bool MsgLG2GateLoginACK::MergePartialFromCodedStream(
           if (::MsgLG2GateLoginACK_enResult_IsValid(value)) {
             set_result(static_cast< ::MsgLG2GateLoginACK_enResult >(value));
           } else {
-            mutable_unknown_fields()->AddVarint(2, value);
+            mutable_unknown_fields()->AddVarint(3, value);
           }
         } else {
           goto handle_uninterpreted;
@@ -243,15 +264,20 @@ bool MsgLG2GateLoginACK::MergePartialFromCodedStream(
 
 void MsgLG2GateLoginACK::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required int64 id = 1;
+  // required uint64 id = 1;
   if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->id(), output);
   }
   
-  // required .MsgLG2GateLoginACK.enResult result = 2;
+  // required uint64 account = 2;
+  if (has_account()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->account(), output);
+  }
+  
+  // required .MsgLG2GateLoginACK.enResult result = 3;
   if (has_result()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      2, this->result(), output);
+      3, this->result(), output);
   }
   
   if (!unknown_fields().empty()) {
@@ -262,15 +288,20 @@ void MsgLG2GateLoginACK::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* MsgLG2GateLoginACK::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required int64 id = 1;
+  // required uint64 id = 1;
   if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->id(), target);
   }
   
-  // required .MsgLG2GateLoginACK.enResult result = 2;
+  // required uint64 account = 2;
+  if (has_account()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->account(), target);
+  }
+  
+  // required .MsgLG2GateLoginACK.enResult result = 3;
   if (has_result()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      2, this->result(), target);
+      3, this->result(), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -284,14 +315,21 @@ int MsgLG2GateLoginACK::ByteSize() const {
   int total_size = 0;
   
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required int64 id = 1;
+    // required uint64 id = 1;
     if (has_id()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
           this->id());
     }
     
-    // required .MsgLG2GateLoginACK.enResult result = 2;
+    // required uint64 account = 2;
+    if (has_account()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->account());
+    }
+    
+    // required .MsgLG2GateLoginACK.enResult result = 3;
     if (has_result()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->result());
@@ -327,6 +365,9 @@ void MsgLG2GateLoginACK::MergeFrom(const MsgLG2GateLoginACK& from) {
     if (from.has_id()) {
       set_id(from.id());
     }
+    if (from.has_account()) {
+      set_account(from.account());
+    }
     if (from.has_result()) {
       set_result(from.result());
     }
@@ -347,7 +388,7 @@ void MsgLG2GateLoginACK::CopyFrom(const MsgLG2GateLoginACK& from) {
 }
 
 bool MsgLG2GateLoginACK::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
   
   return true;
 }
@@ -355,6 +396,7 @@ bool MsgLG2GateLoginACK::IsInitialized() const {
 void MsgLG2GateLoginACK::Swap(MsgLG2GateLoginACK* other) {
   if (other != this) {
     std::swap(id_, other->id_);
+    std::swap(account_, other->account_);
     std::swap(result_, other->result_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);

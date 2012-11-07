@@ -132,17 +132,24 @@ class MsgLG2GateLoginACK : public ::google::protobuf::Message {
   
   // accessors -------------------------------------------------------
   
-  // required int64 id = 1;
+  // required uint64 id = 1;
   inline bool has_id() const;
   inline void clear_id();
   static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  inline ::google::protobuf::uint64 id() const;
+  inline void set_id(::google::protobuf::uint64 value);
   
-  // required .MsgLG2GateLoginACK.enResult result = 2;
+  // required uint64 account = 2;
+  inline bool has_account() const;
+  inline void clear_account();
+  static const int kAccountFieldNumber = 2;
+  inline ::google::protobuf::uint64 account() const;
+  inline void set_account(::google::protobuf::uint64 value);
+  
+  // required .MsgLG2GateLoginACK.enResult result = 3;
   inline bool has_result() const;
   inline void clear_result();
-  static const int kResultFieldNumber = 2;
+  static const int kResultFieldNumber = 3;
   inline ::MsgLG2GateLoginACK_enResult result() const;
   inline void set_result(::MsgLG2GateLoginACK_enResult value);
   
@@ -150,16 +157,19 @@ class MsgLG2GateLoginACK : public ::google::protobuf::Message {
  private:
   inline void set_has_id();
   inline void clear_has_id();
+  inline void set_has_account();
+  inline void clear_has_account();
   inline void set_has_result();
   inline void clear_has_result();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
-  ::google::protobuf::int64 id_;
+  ::google::protobuf::uint64 id_;
+  ::google::protobuf::uint64 account_;
   int result_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
   
   friend void  protobuf_AddDesc_MessageLG2Gate_2eproto();
   friend void protobuf_AssignDesc_MessageLG2Gate_2eproto();
@@ -175,7 +185,7 @@ class MsgLG2GateLoginACK : public ::google::protobuf::Message {
 
 // MsgLG2GateLoginACK
 
-// required int64 id = 1;
+// required uint64 id = 1;
 inline bool MsgLG2GateLoginACK::has_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -186,26 +196,48 @@ inline void MsgLG2GateLoginACK::clear_has_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void MsgLG2GateLoginACK::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
+  id_ = GOOGLE_ULONGLONG(0);
   clear_has_id();
 }
-inline ::google::protobuf::int64 MsgLG2GateLoginACK::id() const {
+inline ::google::protobuf::uint64 MsgLG2GateLoginACK::id() const {
   return id_;
 }
-inline void MsgLG2GateLoginACK::set_id(::google::protobuf::int64 value) {
+inline void MsgLG2GateLoginACK::set_id(::google::protobuf::uint64 value) {
   set_has_id();
   id_ = value;
 }
 
-// required .MsgLG2GateLoginACK.enResult result = 2;
-inline bool MsgLG2GateLoginACK::has_result() const {
+// required uint64 account = 2;
+inline bool MsgLG2GateLoginACK::has_account() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void MsgLG2GateLoginACK::set_has_result() {
+inline void MsgLG2GateLoginACK::set_has_account() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void MsgLG2GateLoginACK::clear_has_result() {
+inline void MsgLG2GateLoginACK::clear_has_account() {
   _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgLG2GateLoginACK::clear_account() {
+  account_ = GOOGLE_ULONGLONG(0);
+  clear_has_account();
+}
+inline ::google::protobuf::uint64 MsgLG2GateLoginACK::account() const {
+  return account_;
+}
+inline void MsgLG2GateLoginACK::set_account(::google::protobuf::uint64 value) {
+  set_has_account();
+  account_ = value;
+}
+
+// required .MsgLG2GateLoginACK.enResult result = 3;
+inline bool MsgLG2GateLoginACK::has_result() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgLG2GateLoginACK::set_has_result() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgLG2GateLoginACK::clear_has_result() {
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void MsgLG2GateLoginACK::clear_result() {
   result_ = 0;

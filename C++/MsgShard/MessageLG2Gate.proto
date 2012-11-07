@@ -7,8 +7,9 @@ message MsgLG2GateLoginACK
 		LG_ERROR			 = 1;
 	}
 
-	required int64			id = 1;
-	required enResult		result = 2;
+	required uint64			id = 1;
+	required uint64         account = 2; 
+	required enResult		result = 3;
 }
 
 

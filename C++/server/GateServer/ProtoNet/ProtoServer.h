@@ -1,4 +1,7 @@
 #pragma once
+#ifndef CPROTOSERVER_H
+#define CPROTOSERVER_H
+
 using namespace std;
 enum
 {
@@ -29,3 +32,4 @@ protected:
 };
 
 #define sProtoServer CProtoServer::getSingleton()
+#endif

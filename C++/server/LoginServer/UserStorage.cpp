@@ -3,8 +3,10 @@
 #include "share/Database/Database.h"
 
 Database* phoneDatabase = NULL; 
+initialiseSingleton(CUserStorage);
 CUserStorage::CUserStorage(void)
 {
+	Init();
 }
 
 
@@ -20,6 +22,8 @@ bool CUserStorage::Init()
 		MyLog::log->error("Login Server can not connect mysql");
 		return false;
 	}
+	LoadAll();
+	return true;
 }
 
 void CUserStorage::addUser(tgUserInfo_t* p)
@@ -96,7 +100,7 @@ void CUserStorage::LoadAll()
 			p->mac = f[1].GetString();
 			p->password = f[2].GetString();
 			p->mail = f[3].GetString();
-			m_storageUser.insert(std::map<long, tgUserInfo_t*>::value_type(p->account,p))
+			m_storageUser.insert(std::map<long, tgUserInfo_t*>::value_type(p->account,p));
 		}
 		while( qr->NextRow() );
 
