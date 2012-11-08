@@ -62,7 +62,9 @@ int _tmain(int argc, _TCHAR* argv[])
 			break;
 		case 2:
 			{
-
+				MsgC2GateLoginMacReq message;
+				message.set_mac("1212232u1o1");
+				protoSocket->send_message(C2Gate_MsgLoginMacReq, & message);
 			}
 			break;
 		}

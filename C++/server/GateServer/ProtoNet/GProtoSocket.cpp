@@ -2,7 +2,7 @@
 #include "GProtoSocket.h"
 #include "MyNetGlobleObj.h"
 #include "GateParser.h"
-
+#include "LG2GateParser.h"
 CGProtoSocket* p2LoginSocket = NULL;
 
 
@@ -42,8 +42,10 @@ void CGProtoSocket::on_connect_failed( boost::system::error_code error )
 	m_isreconnect = true;
 }
 
-void CGProtoSocket::proc_message( const message_t& msg )
+void CGProtoSocket::proc_message(const message_t& msg )
 {
+
+	CLG2GateParser::getSingleton().ParseMessage(msg, this);
 	//GATEPARSER.ParseMessage(msg,this);
 		
 	//unsigned short sI = *((unsigned short*)msg.data);
