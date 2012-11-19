@@ -20,4 +20,12 @@ void CClientMsgParser::proc_message(const message_t& msg, CProtoSocket* p)
 	MsgHead Msghead;
 	Msghead.ParseFromArray(msg.data + mark, headsize);
 	unsigned short msgBodyBegin = mark + headsize;
+	switch(Msghead.type())
+	{
+	case G2C_LoginMacACK:
+		{
+
+		}
+		break;
+	}
 }
