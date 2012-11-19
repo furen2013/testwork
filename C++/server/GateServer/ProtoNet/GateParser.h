@@ -9,7 +9,7 @@ class CGateParser : public Singleton<CGateParser>
 public:
 	CGateParser(void);
 	virtual ~CGateParser(void);
-	void ParseMessage(message_t& msg, CCProtoSocket* pSocket);
+	void ParseMessage(const message_t& msg, CCProtoSocket* pSocket);
 };
 
 #define GATEPARSER CGateParser::getSingleton()

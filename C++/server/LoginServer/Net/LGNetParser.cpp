@@ -15,7 +15,7 @@ CLGNetParser::~CLGNetParser(void)
 {
 }
 
-void CLGNetParser::ParseMessage(message_t& msg, CLoginGateSocket* pSocket)
+void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 {
 	unsigned short totalsize = *((unsigned short*)msg.data);
 	unsigned short headsize = *((unsigned short*)msg.data + 1);

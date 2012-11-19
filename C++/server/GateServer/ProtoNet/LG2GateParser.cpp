@@ -2,6 +2,7 @@
 #include "LG2GateParser.h"
 #include "MsgHead.pb.h"
 #include "MessageLG2Gate.pb.h"
+#include "MessageG2C.pb.h"
 #include "CProtoSocket.h"
 #include "MessageG2C.pb.h"
 #include "../GameLogic/GateUserManager.h"
@@ -59,6 +60,25 @@ void CLG2GateParser::ParseMessage(const message_t& msg,const CGProtoSocket* pSoc
 			else
 			{
 				MyLog::log->warn("error socket [%d]", Msg.id());
+
+				//sUserMgr.GetClient(Msg.id());
+				CCProtoSocket* p = GUManager.GetClient((DWORD)pSocket);
+				if (p)
+				{
+					p->setAccountID(Msg.account());
+					MyLog::log->notice("account %ld is login", p->GetAccountID());
+					GUManager.Add2LoginClient(p);
+					
+					MsgG2CLoginMacACK MessageACK;
+					MessageACK.set_account(Msg.account());
+					p->send_message(G2C_LoginMacACK, &MessageACK);
+					
+				}
+				else
+				{
+					MyLog::log->warn("unknown LG2Gate_MsgLG2GateLoginACK");
+				}
+				
 			}
 
 			//unsigned long account = LUM.tryLogin(Msg.mac().c_str());

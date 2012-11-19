@@ -33,6 +33,9 @@
     <ClInclude Include="ProtoNet\NetServer.h">
       <Filter>ProtoNet</Filter>
     </ClInclude>
+    <ClInclude Include="ProtoNet\ClientMsgParser.h">
+      <Filter>ProtoNet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -45,6 +48,9 @@
       <Filter>ProtoNet</Filter>
     </ClCompile>
     <ClCompile Include="ProtoNet\NetServer.cpp">
+      <Filter>ProtoNet</Filter>
+    </ClCompile>
+    <ClCompile Include="ProtoNet\ClientMsgParser.cpp">
       <Filter>ProtoNet</Filter>
     </ClCompile>
   </ItemGroup>

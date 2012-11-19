@@ -257,6 +257,6 @@ bool CProtoServer::connectLG()
 		p2LoginSocket = new CGProtoSocket(*MyNetGlobleObj::get_io_service());
 		p2LoginSocket->setServerName("LoginServerName");
 	}
-	p2LoginSocket->connect("127.0.0.1", 1091);
+	p2LoginSocket->connect("127.0.0.1", 95502);
 	return true;
 }
