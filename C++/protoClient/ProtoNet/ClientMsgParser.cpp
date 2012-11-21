@@ -1,6 +1,8 @@
 #include "StdAfx.h"
 #include "ClientMsgParser.h"
 #include "MsgHead.pb.h"
+#include "MessageG2C.pb.h"
+#include "../../new_common/Source/log4cpp-1.0/MyLog.h"
 initialiseSingleton(CClientMsgParser);
 
 CClientMsgParser::CClientMsgParser(void)
@@ -24,8 +26,26 @@ void CClientMsgParser::proc_message(const message_t& msg, CProtoSocket* p)
 	{
 	case G2C_LoginMacACK:
 		{
+			MsgG2CLoginMacACK Msg;
+			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+			MyLog::log->notice("MsgG2CLoginMacACK receive account[%l]", Msg.account());
 
 		}
 		break;
+	case G2C_MsgG2CErrorACK:
+		{
+			MsgG2CErrorACK Msg;
+			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+			switch(Msg.en())
+			{
+			case MsgG2CErrorACK_enResult_LG_ALREADYLOGIN:
+				{
+					MyLog::log->notice("you are already login");
+				}
+				break;
+			}
+		}
+		break;
+
 	}
 }

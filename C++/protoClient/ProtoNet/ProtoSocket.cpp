@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "ProtoSocket.h"
 #include "../new_common/Source/log4cpp-1.0/MyLog.h"
+#include "ClientMsgParser.h"
 #include "MessageG2C.pb.h"
 
 
@@ -35,33 +36,34 @@ void CProtoSocket::on_connect()
 
 void CProtoSocket::on_connect_failed( boost::system::error_code error )
 {
-	//MyLog::log->error( "connect center server failed, error message:%s", error.message().c_str() );
+	MyLog::log->error( "connect gate server failed, error message:%s", error.message().c_str() );
 
 	m_isreconnect = true;
 }
 
 void CProtoSocket::proc_message( const message_t& msg )
 {
-	unsigned short totalsize = *((unsigned short*)msg.data);
-	unsigned short headsize = *((unsigned short*)msg.data + 1);
-	unsigned short mark = 2 * sizeof(unsigned short);
-	MsgHead Msghead;
-	Msghead.ParseFromArray(msg.data + mark, headsize);
-	unsigned short msgBodyBegin = mark + headsize;
-	switch(Msghead.type())
-	{
-	case G2C_LoginMacACK:
-		{
-			MsgG2CLoginMacACK Msg;
-			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
-		}
-		break;
-	default:
-		{
-			MyLog::log->warn("unknown message %d", (int)Msghead.type());
-		}
-	}
-	//sCSParser.ParsePacket( this, (char*)msg.data, msg.len );
+	CClientMsgParser::getSingleton().proc_message(msg, this);
+	//unsigned short totalsize = *((unsigned short*)msg.data);
+	//unsigned short headsize = *((unsigned short*)msg.data + 1);
+	//unsigned short mark = 2 * sizeof(unsigned short);
+	//MsgHead Msghead;
+	//Msghead.ParseFromArray(msg.data + mark, headsize);
+	//unsigned short msgBodyBegin = mark + headsize;
+	//switch(Msghead.type())
+	//{
+	//case G2C_LoginMacACK:
+	//	{
+	//		MsgG2CLoginMacACK Msg;
+	//		Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+	//	}
+	//	break;
+	//default:
+	//	{
+	//		MyLog::log->warn("unknown message %d", (int)Msghead.type());
+	//	}
+	//}
+	////sCSParser.ParsePacket( this, (char*)msg.data, msg.len );
 }
 
 

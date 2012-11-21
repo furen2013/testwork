@@ -35,6 +35,7 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 			MsgAck.set_account(account);
 			MsgAck.set_result(MsgLG2GateLoginACK_enResult_LG_OK);
 			pSocket->send_message(LG2Gate_MsgLG2GateLoginACK,&MsgAck);
+			MyLog::log->notice("send_message MsgLG2GateLoginACK account[%l]", account);
 
 		}
 		break;
