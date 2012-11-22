@@ -11,7 +11,7 @@ public:
 	CLGNetParser(void);
 	~CLGNetParser(void);
 public:
-	void ParseMessage(message_t& msg, CLoginGateSocket* pSocket);
+	void ParseMessage(const message_t& msg, CLoginGateSocket* pSocket);
 };
 
 #define CLGPARSER CLGNetParser::getSingleton()

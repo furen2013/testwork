@@ -178,6 +178,10 @@ void CProtoServer::Run()
 				//sCSSocket.run_no_wait();
 				//sDBSocket.run_no_wait();
 				CCListenProtoSocket::getSingleton().run_no_wait();
+				if (p2LoginSocket != NULL)
+				{
+					p2LoginSocket->run_no_wait();
+				}
 				//sCLS.run_no_wait();
 			}
 
@@ -257,6 +261,6 @@ bool CProtoServer::connectLG()
 		p2LoginSocket = new CGProtoSocket(*MyNetGlobleObj::get_io_service());
 		p2LoginSocket->setServerName("LoginServerName");
 	}
-	p2LoginSocket->connect("127.0.0.1", 1091);
+	p2LoginSocket->connect("127.0.0.1", 95502);
 	return true;
 }

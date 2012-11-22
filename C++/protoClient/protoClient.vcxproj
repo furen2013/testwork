@@ -80,6 +80,7 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ProtoNet\ClientMsgParser.h" />
     <ClInclude Include="ProtoNet\NetServer.h" />
     <ClInclude Include="ProtoNet\ProtoSocket.h" />
     <ClInclude Include="stdafx.h" />
@@ -87,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="protoClient.cpp" />
+    <ClCompile Include="ProtoNet\ClientMsgParser.cpp" />
     <ClCompile Include="ProtoNet\NetServer.cpp" />
     <ClCompile Include="ProtoNet\ProtoSocket.cpp" />
     <ClCompile Include="stdafx.cpp">

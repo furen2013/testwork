@@ -17,7 +17,7 @@ CUserStorage::~CUserStorage(void)
 bool CUserStorage::Init()
 {
 	phoneDatabase = Database::CreateDatabaseInterface(1);
-	if (!phoneDatabase->Initialize("127.0.0.1", 3306, "root", "", "phone", 5, 16384))
+	if (!phoneDatabase->Initialize("127.0.0.1", 3306, "root", "7283933", "phone", 5, 16384))
 	{
 		MyLog::log->error("Login Server can not connect mysql");
 		return false;
@@ -56,7 +56,7 @@ void CUserStorage::addUser(tgUserInfo_t* p)
 
 	m_storageUser.insert(std::map<long, tgUserInfo_t*>::value_type(p->account, p));
 
-	phoneDatabase->WaitExecute( "insert into `account` (`account`, `mac`, `Password`, `Mail`) values("I64FMTD", '%s', '%s', '%s')", 
+	phoneDatabase->WaitExecute( "insert into `account` (`account`, `mac`, `Password`, `Mail`) values('%ld', '%s', '%s', '%s')", 
 		p->account, p->mac.c_str()
 		, p->password.c_str(), p->mail.c_str() );
 }

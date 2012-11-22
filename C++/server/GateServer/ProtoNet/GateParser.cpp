@@ -16,7 +16,7 @@ CGateParser::~CGateParser(void)
 {
 }
 
-void CGateParser::ParseMessage(message_t& msg, CCProtoSocket* pSocket)
+void CGateParser::ParseMessage(const message_t& msg, CCProtoSocket* pSocket)
 {
 	unsigned short totalsize = *((unsigned short*)msg.data);
 	unsigned short headsize = *((unsigned short*)msg.data + 1);

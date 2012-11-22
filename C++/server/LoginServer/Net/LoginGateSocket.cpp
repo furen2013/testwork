@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include "LoginGateSocket.h"
+#include "LGNetParser.h"
 #include "../../../../new_common/Source/log4cpp-1.0/MyLog.h"
 
 
@@ -30,6 +31,7 @@ void CLoginGateSocket::on_accept( tcp_server* p )
 }
 void CLoginGateSocket::proc_message( const message_t& msg )
 {
+	CLGPARSER.ParseMessage(msg, this);
 	//Tcp_ProtoSession::proc_message(msg);
 }
 void CLoginGateSocket::run()

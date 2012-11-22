@@ -2,7 +2,9 @@
 #include "CProtoSocket.h"
 #include "tcpserver.h"
 #include "CListenProtoSocket.h"
-
+#include "../GameLogic/GateUserManager.h"
+#include "MessageC2Gate.pb.h"
+#include "GateParser.h"
 static uint32 accept_count = 0;
 
 CCProtoSocket::CCProtoSocket(boost::asio::io_service& is) :  Tcp_ProtoSession( is ),
@@ -37,6 +39,7 @@ void CCProtoSocket::on_close( const boost::system::error_code& error )
 	MyLog::log->debug( "accept count:[%d]", --accept_count );
 	MyLog::log->debug("error message[%s]" , error.message().c_str());
 	ProtoListen.RemoveAcceptedSocket(this);
+	GUManager.DelClient(DWORD(this));
 }
 void CCProtoSocket::on_accept( tcp_server* p )
 {
@@ -46,34 +49,17 @@ void CCProtoSocket::on_accept( tcp_server* p )
 	m_dwIP = this->get_remote_address_ui();
 	m_iPort = this->get_remote_port();
 	MyLog::log->info( "client Connection[%s] Accepted", m_strIP.c_str() );
-	CCListenProtoSocket::getSingleton().AddAcceptedSocket(this);
+	
 	MyLog::log->debug( "accept count:[%d]", ++accept_count );
 
+	GUManager.AddClient(this);
 	Tcp_ProtoSession::on_accept(p);
 	ProtoListen.AddAcceptedSocket(this);
 }
 void CCProtoSocket::proc_message( const message_t& msg )
 {
-	unsigned short sI = *((unsigned short*)msg.data);
-	unsigned short sII = *((unsigned short*)msg.data + 1);
-	MyLog::log->debug("accept message size [%d] headsize[%d]", sI, sII);
-	MsgHead head;
-	head.ParseFromArray(msg.data + 2 * sizeof(unsigned short), sII);
-	int nSize = head.msgsize();
-	switch(head.type())
-	{
-	case MsgType::C2Gate_MsgLoginReq:
-		{
 
-		}
-		break;
-	case MsgType::C2Gate_MsgCreateAcountReq:
-		{
-
-		}
-		break;
-	}
-	//msg.data 
+	GATEPARSER.ParseMessage(msg, this);
 }
 void CCProtoSocket::run()
 {

@@ -58,13 +58,15 @@ int _tmain(int argc, _TCHAR* argv[])
 				message.set_id("1002");
 				message.set_password("1003");
 				protoSocket->send_message(C2Gate_MsgLoginReq,&message);
+				MyLog::log->debug("send message[MsgC2GateLoginReq]");
 			}
 			break;
 		case 2:
 			{
 				MsgC2GateLoginMacReq message;
-				message.set_mac("1212232u1o1");
-				protoSocket->send_message(C2Gate_MsgLoginMacReq, & message);
+				message.set_mac("12120");
+				protoSocket->send_message(C2Gate_MsgLoginMacReq, &message);
+				MyLog::log->debug("send message[MsgC2GateLoginMacReq]");
 			}
 			break;
 		}
