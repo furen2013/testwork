@@ -44,6 +44,7 @@ enum MsgType {
   G2C_End = 2000,
   Gate2LG_Begin = 2001,
   Gate2LG_MsgGate2LGLoginReq = 2002,
+  Gate2LG_MsgGate2LGClientDisconnect = 2003,
   Gate2LG_End = 3000,
   LG2Gate_Begin = 3001,
   LG2Gate_MsgLG2GateLoginACK = 3002,

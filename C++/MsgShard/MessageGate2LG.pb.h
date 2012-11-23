@@ -32,6 +32,7 @@ void protobuf_AssignDesc_MessageGate2LG_2eproto();
 void protobuf_ShutdownFile_MessageGate2LG_2eproto();
 
 class MsgGate2LGLoginReq;
+class MsgGate2LGClientDisconnect;
 
 // ===================================================================
 
@@ -129,6 +130,88 @@ class MsgGate2LGLoginReq : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static MsgGate2LGLoginReq* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class MsgGate2LGClientDisconnect : public ::google::protobuf::Message {
+ public:
+  MsgGate2LGClientDisconnect();
+  virtual ~MsgGate2LGClientDisconnect();
+  
+  MsgGate2LGClientDisconnect(const MsgGate2LGClientDisconnect& from);
+  
+  inline MsgGate2LGClientDisconnect& operator=(const MsgGate2LGClientDisconnect& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgGate2LGClientDisconnect& default_instance();
+  
+  void Swap(MsgGate2LGClientDisconnect* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgGate2LGClientDisconnect* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgGate2LGClientDisconnect& from);
+  void MergeFrom(const MsgGate2LGClientDisconnect& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required uint64 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 id() const;
+  inline void set_id(::google::protobuf::uint64 value);
+  
+  // @@protoc_insertion_point(class_scope:MsgGate2LGClientDisconnect)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::uint64 id_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageGate2LG_2eproto();
+  friend void protobuf_AssignDesc_MessageGate2LG_2eproto();
+  friend void protobuf_ShutdownFile_MessageGate2LG_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgGate2LGClientDisconnect* default_instance_;
+};
 // ===================================================================
 
 
@@ -214,6 +297,32 @@ inline ::std::string* MsgGate2LGLoginReq::release_mac() {
     mac_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
+}
+
+// -------------------------------------------------------------------
+
+// MsgGate2LGClientDisconnect
+
+// required uint64 id = 1;
+inline bool MsgGate2LGClientDisconnect::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgGate2LGClientDisconnect::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgGate2LGClientDisconnect::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgGate2LGClientDisconnect::clear_id() {
+  id_ = GOOGLE_ULONGLONG(0);
+  clear_has_id();
+}
+inline ::google::protobuf::uint64 MsgGate2LGClientDisconnect::id() const {
+  return id_;
+}
+inline void MsgGate2LGClientDisconnect::set_id(::google::protobuf::uint64 value) {
+  set_has_id();
+  id_ = value;
 }
 
 

@@ -59,6 +59,20 @@ void GateUserManager::DelClient(DWORD dw)
 {
 	boost::mutex::scoped_lock lock(m_mutex);
 	MAPPROTOSOCKET::iterator it = m_clients.find(dw);
+
+	CCProtoSocket * p = it->second;
+	if (p->GetAccountID() != 0)
+	{
+		MAPPROTOSOCKET::iterator itlogin = m_LoginClients.find(p->GetAccountID());
+		if (itlogin != m_LoginClients.end())
+		{
+			m_LoginClients.erase(itlogin);
+		}
+		else
+		{
+			MyLog::log->warn("unknown warning the user is not login when it login out");
+		}
+	}
 	if (it != m_clients.end())
 	{
 		m_clients.erase(it);
