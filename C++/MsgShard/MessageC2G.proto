@@ -18,3 +18,9 @@ message MsgC2GateLoginMacReq
 	required string Mac = 1;
 }
 
+message MsgBindMailReq
+{
+	required string Mac = 1;
+	required string name = 2;
+	required string password = 3;
+}

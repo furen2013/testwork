@@ -25,6 +25,20 @@ bool LoginUserManager::isAlreadyLogin(unsigned long account)
 
 }
 
+
+bool LoginUserManager::tryLoginOut(unsigned long account)
+{
+	boost::mutex::scoped_lock lock(m_mutex);
+	MAPLOGINUSER::iterator it = m_mapLoginUser.find(account);
+	if (it != m_mapLoginUser.end())
+	{
+		delete it->second;
+		m_mapLoginUser.erase(it);
+		return true;
+	}
+	return false;
+}
+
 unsigned long LoginUserManager::tryLogin(const char* mac)
 {
 	unsigned long account = lh_strhash(mac);

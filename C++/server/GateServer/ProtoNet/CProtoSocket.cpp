@@ -32,14 +32,17 @@ void CCProtoSocket::reset()
 void CCProtoSocket::on_close( const boost::system::error_code& error )
 {
 	//MyLog::log->info("disconnected transid:[%d] accountid:[%d] error[%s] onlinetime[%d]s", m_dwSessionID, m_nAccountID, error.message().c_str(), (uint32)UNIXTIME - m_LoginTime );
-
+	GUManager.DelClient(DWORD(this));
+	
+	ProtoListen.RemoveAcceptedSocket(this);
 	Tcp_ProtoSession::on_close( error );
 	//m_StartTime = -1;
 
 	MyLog::log->debug( "accept count:[%d]", --accept_count );
 	MyLog::log->debug("error message[%s]" , error.message().c_str());
-	ProtoListen.RemoveAcceptedSocket(this);
-	GUManager.DelClient(DWORD(this));
+	
+
+	
 }
 void CCProtoSocket::on_accept( tcp_server* p )
 {

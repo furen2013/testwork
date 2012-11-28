@@ -22,9 +22,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
-    <None Include="MessageC2Gate.proto">
-      <Filter>资源文件</Filter>
-    </None>
     <None Include="MessageG2C.proto">
       <Filter>资源文件</Filter>
     </None>
@@ -35,6 +32,9 @@
       <Filter>资源文件</Filter>
     </None>
     <None Include="MessageLG2Gate.proto">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="MessageC2G.proto">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>
