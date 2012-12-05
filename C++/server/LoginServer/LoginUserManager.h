@@ -13,8 +13,11 @@ public:
 	virtual ~LoginUserManager(void);
 	unsigned long lh_strhash(const char *str);
 	bool isAlreadyLogin(unsigned long account);
+	bool isAlreadyLogin(const char* mac);
 	bool tryLoginOut(unsigned long account);
 	unsigned long tryLogin(const char* mac);
+private:
+	CLoginUser* GetLoginUser(const char* mac);
 
 	
 public:

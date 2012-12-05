@@ -44,7 +44,16 @@ void CLG2GateParser::ParseMessage(const message_t& msg,const CGProtoSocket* pSoc
 				}
 				else
 				{
+					CCProtoSocket*pSocket = GUManager.GetLoginClient(Msg.account());
+					if (pSocket)
+					{
+						GUManager.DelFromLoginClient(pSocket->GetAccountID());
+						pSocket->close();
+					}
+					else
+					{
 
+					}
 					pProtoSocket->setAccountID(Msg.account());
 					if (GUManager.Add2LoginClient(pProtoSocket))
 					{
