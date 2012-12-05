@@ -4,6 +4,7 @@
 #include "MessageLG2Gate.pb.h"
 #include "LoginGateSocket.h"
 #include "../LoginUserManager.h"
+#include "../LoginUser.h"
 #include "../UserStorage.h"
 initialiseSingleton(CLGNetParser);
 CLGNetParser::CLGNetParser(void)
@@ -29,7 +30,20 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 		{
 			MsgGate2LGLoginReq Msg;
 			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
-			unsigned long account = LUM.tryLogin(Msg.mac().c_str());
+			unsigned long account = 0;
+			CLoginUser* pLoginUser = LUM.GetLoginUser(Msg.mac().c_str());
+			unsigned long account = 0;
+			if (pLoginUser != NULL)
+			{
+				//already login 
+				account = pLoginUser->getAccount();
+			}
+			else
+			{
+				account = LUM.tryLogin(Msg.mac().c_str());
+			}
+
+
 			MsgLG2GateLoginACK MsgAck;
 			MsgAck.set_id(Msg.id());
 			MsgAck.set_account(account);
@@ -39,6 +53,26 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 
 		}
 		break;
+	case Gate2LG_MsgGate2LGClientDisconnect:
+		{
+			MsgGate2LGClientDisconnect Msg;
+			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+			if (Msg.id() == 0)
+			{
+				MyLog::log->warn("unkown client disconnect account[%l]", Msg.id());
+			}
+			else
+			{
+				if (LUM.tryLoginOut(Msg.id()))
+				{
+					MyLog::log->notice("client disconnent account [%l]", Msg.id());
+				}
+				else
+				{
+					MyLog::log->warn("login out account[%l] is not login in", Msg.id());
+				}
+			}
+		}
 	default:
 		{
 			MyLog::log->warn("unknown msg gate 2 lg");

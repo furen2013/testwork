@@ -13,6 +13,12 @@ LoginUserManager::~LoginUserManager(void)
 {
 }
 
+bool LoginUserManager::isAlreadyLogin(const char* mac)
+{
+	unsigned long account = lh_strhash(mac);
+	return isAlreadyLogin(account);
+}
+
 bool LoginUserManager::isAlreadyLogin(unsigned long account)
 {
 	boost::mutex::scoped_lock lock(m_mutex);
@@ -25,8 +31,39 @@ bool LoginUserManager::isAlreadyLogin(unsigned long account)
 
 }
 
+
+bool LoginUserManager::tryLoginOut(unsigned long account)
+{
+
+	boost::mutex::scoped_lock lock(m_mutex);
+	MAPLOGINUSER::iterator it = m_mapLoginUser.find(account);
+	if (it != m_mapLoginUser.end())
+	{
+		delete it->second;
+		m_mapLoginUser.erase(it);
+		return true;
+	}
+	return false;
+}
+
+CLoginUser* LoginUserManager::GetLoginUser(const char* mac)
+{
+	CLoginUser* p = NULL;
+	{
+		boost::mutex::scoped_lock lock(m_mutex);
+		unsigned long account = lh_strhash(mac);
+		MAPLOGINUSER::iterator it = m_mapLoginUser.find(account);
+		if (it != m_mapLoginUser.end())
+		{
+			p = it->second;
+		}
+	}
+	return p;
+}
+
 unsigned long LoginUserManager::tryLogin(const char* mac)
 {
+
 	unsigned long account = lh_strhash(mac);
 	if (CUserStorage::getSingleton().GetUserInfo(account) == NULL)
 	{

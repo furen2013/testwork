@@ -1,6 +1,9 @@
 #include "StdAfx.h"
 #include "GateUserManager.h"
 #include "../ProtoNet/CProtoSocket.h"
+#include "MessageGate2LG.pb.h"
+#include "../ProtoNet/GProtoSocket.h"
+extern CGProtoSocket* p2LoginSocket;
 initialiseSingleton(GateUserManager);
 
 GateUserManager::GateUserManager(void)
@@ -66,7 +69,11 @@ void GateUserManager::DelClient(DWORD dw)
 		MAPPROTOSOCKET::iterator itlogin = m_LoginClients.find(p->GetAccountID());
 		if (itlogin != m_LoginClients.end())
 		{
+			MsgGate2LGClientDisconnect Msg;
+			Msg.set_id(p->GetAccountID());
+			p2LoginSocket->send_message(Gate2LG_MsgGate2LGClientDisconnect, &Msg);
 			m_LoginClients.erase(itlogin);
+			MyLog::log->notice("send msg to gate for login out account[%l]", Msg.id());
 		}
 		else
 		{

@@ -97,7 +97,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="MessageC2Gate.proto" />
+    <None Include="MessageC2G.proto" />
     <None Include="MessageG2C.proto" />
     <None Include="MessageGate2LG.proto" />
     <None Include="MessageLG2Gate.proto" />
