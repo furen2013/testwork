@@ -32,7 +32,7 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
 			unsigned long account = 0;
 			CLoginUser* pLoginUser = LUM.GetLoginUser(Msg.mac().c_str());
-			unsigned long account = 0;
+
 			if (pLoginUser != NULL)
 			{
 				//already login 
