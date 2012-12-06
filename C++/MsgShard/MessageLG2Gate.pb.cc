@@ -19,6 +19,10 @@ const ::google::protobuf::Descriptor* MsgLG2GateLoginACK_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgLG2GateLoginACK_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* MsgLG2GateLoginACK_enResult_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* MsgLG2GateBindMailACK_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgLG2GateBindMailACK_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* MsgLG2GateBindMailACK_enResult_descriptor_ = NULL;
 
 }  // namespace
 
@@ -47,6 +51,23 @@ void protobuf_AssignDesc_MessageLG2Gate_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MsgLG2GateLoginACK));
   MsgLG2GateLoginACK_enResult_descriptor_ = MsgLG2GateLoginACK_descriptor_->enum_type(0);
+  MsgLG2GateBindMailACK_descriptor_ = file->message_type(1);
+  static const int MsgLG2GateBindMailACK_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLG2GateBindMailACK, account_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLG2GateBindMailACK, result_),
+  };
+  MsgLG2GateBindMailACK_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MsgLG2GateBindMailACK_descriptor_,
+      MsgLG2GateBindMailACK::default_instance_,
+      MsgLG2GateBindMailACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLG2GateBindMailACK, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLG2GateBindMailACK, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MsgLG2GateBindMailACK));
+  MsgLG2GateBindMailACK_enResult_descriptor_ = MsgLG2GateBindMailACK_descriptor_->enum_type(0);
 }
 
 namespace {
@@ -61,6 +82,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     MsgLG2GateLoginACK_descriptor_, &MsgLG2GateLoginACK::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MsgLG2GateBindMailACK_descriptor_, &MsgLG2GateBindMailACK::default_instance());
 }
 
 }  // namespace
@@ -68,6 +91,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void protobuf_ShutdownFile_MessageLG2Gate_2eproto() {
   delete MsgLG2GateLoginACK::default_instance_;
   delete MsgLG2GateLoginACK_reflection_;
+  delete MsgLG2GateBindMailACK::default_instance_;
+  delete MsgLG2GateBindMailACK_reflection_;
 }
 
 void protobuf_AddDesc_MessageLG2Gate_2eproto() {
@@ -82,11 +107,18 @@ void protobuf_AddDesc_MessageLG2Gate_2eproto() {
     "\n\022MsgLG2GateLoginACK\022\n\n\002id\030\001 \002(\004\022\017\n\007acco"
     "unt\030\002 \002(\004\022,\n\006result\030\003 \002(\0162\034.MsgLG2GateLo"
     "ginACK.enResult\"#\n\010enResult\022\t\n\005LG_OK\020\000\022\014"
-    "\n\010LG_ERROR\020\001", 172);
+    "\n\010LG_ERROR\020\001\"\321\001\n\025MsgLG2GateBindMailACK\022\017"
+    "\n\007account\030\002 \002(\004\022/\n\006result\030\003 \002(\0162\037.MsgLG2"
+    "GateBindMailACK.enResult\"v\n\010enResult\022\t\n\005"
+    "LG_OK\020\000\022\024\n\020LG_ERRORNOTLOGIN\020\001\022\033\n\027LG_ERRO"
+    "R_MAIL_IS_BINDED\020\002\022\036\n\032LG_ERROR_ACCOUNT_I"
+    "S_BINDED\020\003\022\014\n\010LG_ERROR\020\004", 384);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageLG2Gate.proto", &protobuf_RegisterTypes);
   MsgLG2GateLoginACK::default_instance_ = new MsgLG2GateLoginACK();
+  MsgLG2GateBindMailACK::default_instance_ = new MsgLG2GateBindMailACK();
   MsgLG2GateLoginACK::default_instance_->InitAsDefaultInstance();
+  MsgLG2GateBindMailACK::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_MessageLG2Gate_2eproto);
 }
 
@@ -409,6 +441,287 @@ void MsgLG2GateLoginACK::Swap(MsgLG2GateLoginACK* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = MsgLG2GateLoginACK_descriptor_;
   metadata.reflection = MsgLG2GateLoginACK_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+const ::google::protobuf::EnumDescriptor* MsgLG2GateBindMailACK_enResult_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgLG2GateBindMailACK_enResult_descriptor_;
+}
+bool MsgLG2GateBindMailACK_enResult_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#ifndef _MSC_VER
+const MsgLG2GateBindMailACK_enResult MsgLG2GateBindMailACK::LG_OK;
+const MsgLG2GateBindMailACK_enResult MsgLG2GateBindMailACK::LG_ERRORNOTLOGIN;
+const MsgLG2GateBindMailACK_enResult MsgLG2GateBindMailACK::LG_ERROR_MAIL_IS_BINDED;
+const MsgLG2GateBindMailACK_enResult MsgLG2GateBindMailACK::LG_ERROR_ACCOUNT_IS_BINDED;
+const MsgLG2GateBindMailACK_enResult MsgLG2GateBindMailACK::LG_ERROR;
+const MsgLG2GateBindMailACK_enResult MsgLG2GateBindMailACK::enResult_MIN;
+const MsgLG2GateBindMailACK_enResult MsgLG2GateBindMailACK::enResult_MAX;
+const int MsgLG2GateBindMailACK::enResult_ARRAYSIZE;
+#endif  // _MSC_VER
+#ifndef _MSC_VER
+const int MsgLG2GateBindMailACK::kAccountFieldNumber;
+const int MsgLG2GateBindMailACK::kResultFieldNumber;
+#endif  // !_MSC_VER
+
+MsgLG2GateBindMailACK::MsgLG2GateBindMailACK()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MsgLG2GateBindMailACK::InitAsDefaultInstance() {
+}
+
+MsgLG2GateBindMailACK::MsgLG2GateBindMailACK(const MsgLG2GateBindMailACK& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MsgLG2GateBindMailACK::SharedCtor() {
+  _cached_size_ = 0;
+  account_ = GOOGLE_ULONGLONG(0);
+  result_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgLG2GateBindMailACK::~MsgLG2GateBindMailACK() {
+  SharedDtor();
+}
+
+void MsgLG2GateBindMailACK::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgLG2GateBindMailACK::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgLG2GateBindMailACK::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgLG2GateBindMailACK_descriptor_;
+}
+
+const MsgLG2GateBindMailACK& MsgLG2GateBindMailACK::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_MessageLG2Gate_2eproto();  return *default_instance_;
+}
+
+MsgLG2GateBindMailACK* MsgLG2GateBindMailACK::default_instance_ = NULL;
+
+MsgLG2GateBindMailACK* MsgLG2GateBindMailACK::New() const {
+  return new MsgLG2GateBindMailACK;
+}
+
+void MsgLG2GateBindMailACK::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    account_ = GOOGLE_ULONGLONG(0);
+    result_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MsgLG2GateBindMailACK::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint64 account = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &account_)));
+          set_has_account();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_result;
+        break;
+      }
+      
+      // required .MsgLG2GateBindMailACK.enResult result = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_result:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::MsgLG2GateBindMailACK_enResult_IsValid(value)) {
+            set_result(static_cast< ::MsgLG2GateBindMailACK_enResult >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(3, value);
+          }
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void MsgLG2GateBindMailACK::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required uint64 account = 2;
+  if (has_account()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->account(), output);
+  }
+  
+  // required .MsgLG2GateBindMailACK.enResult result = 3;
+  if (has_result()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      3, this->result(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MsgLG2GateBindMailACK::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required uint64 account = 2;
+  if (has_account()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->account(), target);
+  }
+  
+  // required .MsgLG2GateBindMailACK.enResult result = 3;
+  if (has_result()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      3, this->result(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MsgLG2GateBindMailACK::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint64 account = 2;
+    if (has_account()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->account());
+    }
+    
+    // required .MsgLG2GateBindMailACK.enResult result = 3;
+    if (has_result()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->result());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgLG2GateBindMailACK::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MsgLG2GateBindMailACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgLG2GateBindMailACK*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgLG2GateBindMailACK::MergeFrom(const MsgLG2GateBindMailACK& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_account()) {
+      set_account(from.account());
+    }
+    if (from.has_result()) {
+      set_result(from.result());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MsgLG2GateBindMailACK::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgLG2GateBindMailACK::CopyFrom(const MsgLG2GateBindMailACK& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgLG2GateBindMailACK::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  
+  return true;
+}
+
+void MsgLG2GateBindMailACK::Swap(MsgLG2GateBindMailACK* other) {
+  if (other != this) {
+    std::swap(account_, other->account_);
+    std::swap(result_, other->result_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MsgLG2GateBindMailACK::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgLG2GateBindMailACK_descriptor_;
+  metadata.reflection = MsgLG2GateBindMailACK_reflection_;
   return metadata;
 }
 

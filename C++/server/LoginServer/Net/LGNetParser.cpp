@@ -2,6 +2,7 @@
 #include "LGNetParser.h"
 #include "MessageGate2LG.pb.h"
 #include "MessageLG2Gate.pb.h"
+#include "MessageC2G.pb.h"
 #include "LoginGateSocket.h"
 #include "../LoginUserManager.h"
 #include "../LoginUser.h"
@@ -73,6 +74,26 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 				}
 			}
 		}
+	case C2Gate_MsgBindMailReq:
+		{
+			MsgBindMailReq Msg;
+			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+			MsgLG2GateBindMailACK MsgACK;
+			if (LUM.isAlreadyLogin(Msg.account()) == false)
+			{
+				MsgACK.set_account(Msg.account());
+				MsgACK.set_result(MsgLG2GateBindMailACK_enResult_LG_ERRORNOTLOGIN);
+			}
+			else
+			{
+				CLoginUser* pUser = LUM.GetLoginUser(Msg.account());
+				if (pUser->getAccount())
+				{
+				}
+			}
+			
+		}
+		break;
 	default:
 		{
 			MyLog::log->warn("unknown msg gate 2 lg");

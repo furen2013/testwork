@@ -53,10 +53,10 @@ public:
 	virtual void handle_read_header( const boost::system::error_code& error );
 	virtual void handle_read_body( const boost::system::error_code& error );
 	virtual void handle_write( const boost::system::error_code& error, int size, int block_idx );
-
+	void _send_message( message_t* msg );
 protected:
 	virtual call_back_mgr* _get_cb_mgr();
-	void _send_message( message_t* msg );
+	
 	virtual void _write_message();
 	virtual void _Read_Other();
 	virtual void _read_next_message();

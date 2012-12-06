@@ -46,12 +46,12 @@ bool LoginUserManager::tryLoginOut(unsigned long account)
 	return false;
 }
 
-CLoginUser* LoginUserManager::GetLoginUser(const char* mac)
+CLoginUser* LoginUserManager::GetLoginUser(unsigned long account)
 {
 	CLoginUser* p = NULL;
 	{
 		boost::mutex::scoped_lock lock(m_mutex);
-		unsigned long account = lh_strhash(mac);
+
 		MAPLOGINUSER::iterator it = m_mapLoginUser.find(account);
 		if (it != m_mapLoginUser.end())
 		{
@@ -59,6 +59,12 @@ CLoginUser* LoginUserManager::GetLoginUser(const char* mac)
 		}
 	}
 	return p;
+}
+
+CLoginUser* LoginUserManager::GetLoginUser(const char* mac)
+{
+	unsigned long account = lh_strhash(mac);
+	return GetLoginUser(account);
 }
 
 unsigned long LoginUserManager::tryLogin(const char* mac)

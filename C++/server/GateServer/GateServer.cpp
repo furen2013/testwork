@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "MessageC2Gate.pb.h"
+#include "MessageC2G.pb.h"
 #include "iostream"
 #include "../../../MsgShard/MsgHead.pb.h"
 #include "ProtoNet/CListenProtoSocket.h"

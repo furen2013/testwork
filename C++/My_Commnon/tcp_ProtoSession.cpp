@@ -2,7 +2,7 @@
 #include "tcp_ProtoSession.h"
 #include "MyNetGlobleObj.h"
 #include "tcpserver.h"
-#include "MessageC2Gate.pb.h"
+#include "MessageC2G.pb.h"
 
 
 Tcp_ProtoSession::Tcp_ProtoSession( boost::asio::io_service& is ) :tcp_basesession(is)

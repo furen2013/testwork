@@ -13,5 +13,20 @@ message MsgLG2GateLoginACK
 }
 
 
+message MsgLG2GateBindMailACK
+{	
+	enum enResult
+	{
+		LG_OK				       = 0;
+		LG_ERRORNOTLOGIN	       = 1;
+		LG_ERROR_MAIL_IS_BINDED    = 2;
+		LG_ERROR_ACCOUNT_IS_BINDED = 3;
+		LG_ERROR			       = 4;
+	}
+	required uint64         account = 2; 
+	required enResult		result = 3;
+}
+
+
 
 

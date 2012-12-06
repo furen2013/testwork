@@ -10,6 +10,7 @@ message MsgG2CErrorACK
 	{
 		LG_UNKNOW				 = 0;
 		LG_ALREADYLOGIN			 = 1;
+		LG_YOUARENOTLOGIN		 = 2;
 	}
 	required enResult en = 1;
 

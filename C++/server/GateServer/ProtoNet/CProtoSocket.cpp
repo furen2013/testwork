@@ -3,7 +3,7 @@
 #include "tcpserver.h"
 #include "CListenProtoSocket.h"
 #include "../GameLogic/GateUserManager.h"
-#include "MessageC2Gate.pb.h"
+#include "MessageC2G.pb.h"
 #include "GateParser.h"
 static uint32 accept_count = 0;
 

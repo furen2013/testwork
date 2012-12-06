@@ -20,7 +20,7 @@ message MsgC2GateLoginMacReq
 
 message MsgBindMailReq
 {
-	required string Mac = 1;
+	required uint64 account = 1;
 	required string name = 2;
 	required string password = 3;
 }

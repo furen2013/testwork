@@ -36,11 +36,12 @@ class MsgG2CErrorACK;
 
 enum MsgG2CErrorACK_enResult {
   MsgG2CErrorACK_enResult_LG_UNKNOW = 0,
-  MsgG2CErrorACK_enResult_LG_ALREADYLOGIN = 1
+  MsgG2CErrorACK_enResult_LG_ALREADYLOGIN = 1,
+  MsgG2CErrorACK_enResult_LG_YOUARENOTLOGIN = 2
 };
 bool MsgG2CErrorACK_enResult_IsValid(int value);
 const MsgG2CErrorACK_enResult MsgG2CErrorACK_enResult_enResult_MIN = MsgG2CErrorACK_enResult_LG_UNKNOW;
-const MsgG2CErrorACK_enResult MsgG2CErrorACK_enResult_enResult_MAX = MsgG2CErrorACK_enResult_LG_ALREADYLOGIN;
+const MsgG2CErrorACK_enResult MsgG2CErrorACK_enResult_enResult_MAX = MsgG2CErrorACK_enResult_LG_YOUARENOTLOGIN;
 const int MsgG2CErrorACK_enResult_enResult_ARRAYSIZE = MsgG2CErrorACK_enResult_enResult_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* MsgG2CErrorACK_enResult_descriptor();
@@ -192,6 +193,7 @@ class MsgG2CErrorACK : public ::google::protobuf::Message {
   typedef MsgG2CErrorACK_enResult enResult;
   static const enResult LG_UNKNOW = MsgG2CErrorACK_enResult_LG_UNKNOW;
   static const enResult LG_ALREADYLOGIN = MsgG2CErrorACK_enResult_LG_ALREADYLOGIN;
+  static const enResult LG_YOUARENOTLOGIN = MsgG2CErrorACK_enResult_LG_YOUARENOTLOGIN;
   static inline bool enResult_IsValid(int value) {
     return MsgG2CErrorACK_enResult_IsValid(value);
   }

@@ -39,9 +39,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MessageC2Gate.pb.cc">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="MsgHead.pb.cc">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -54,11 +51,11 @@
     <ClCompile Include="MessageGate2LG.pb.cc">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="MessageC2G.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MessageC2Gate.pb.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="MsgHead.pb.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -72,6 +69,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="MessageLG2Gate.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageC2G.pb.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

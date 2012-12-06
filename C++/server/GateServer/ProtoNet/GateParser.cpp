@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "GateParser.h"
 #include "GProtoSocket.h"
-#include "MessageC2Gate.pb.h"
+#include "MessageC2G.pb.h"
 #include "CProtoSocket.h"
 #include "MessageG2C.pb.h"
 #include "MessageGate2LG.pb.h"
@@ -52,6 +52,33 @@ void CGateParser::ParseMessage(const message_t& msg, CCProtoSocket* pSocket)
 
 			}
 			
+		}
+		break;
+	case C2Gate_MsgBindMailReq:
+		{
+			if (pSocket->GetAccountID() == 0)
+			{
+				MsgG2CErrorACK MsgErrorACK;
+				MsgErrorACK.set_en(MsgG2CErrorACK_enResult_LG_YOUARENOTLOGIN);
+				pSocket->send_message(G2C_MsgG2CErrorACK,&MsgErrorACK);
+
+			}
+			else
+			{
+				MsgBindMailReq Msg;
+				Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+				if (pSocket->GetAccountID() != Msg.account())
+				{
+					MsgG2CErrorACK MsgErrorACK;
+					MsgErrorACK.set_en(MsgG2CErrorACK_enResult_LG_UNKNOW);
+					pSocket->send_message(G2C_MsgG2CErrorACK,&MsgErrorACK);
+
+				}
+				else
+				{
+					p2LoginSocket->_send_message(msg);
+				}
+			}
 		}
 		break;
 	}

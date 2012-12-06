@@ -99,10 +99,10 @@ void protobuf_AddDesc_MessageG2C_2eproto() {
   ::protobuf_AddDesc_MsgHead_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\020MessageG2C.proto\032\rMsgHead.proto\"$\n\021Msg"
-    "G2CLoginMacACK\022\017\n\007account\030\001 \002(\004\"f\n\016MsgG2"
+    "G2CLoginMacACK\022\017\n\007account\030\001 \002(\004\"}\n\016MsgG2"
     "CErrorACK\022$\n\002en\030\001 \002(\0162\030.MsgG2CErrorACK.e"
-    "nResult\".\n\010enResult\022\r\n\tLG_UNKNOW\020\000\022\023\n\017LG"
-    "_ALREADYLOGIN\020\001", 175);
+    "nResult\"E\n\010enResult\022\r\n\tLG_UNKNOW\020\000\022\023\n\017LG"
+    "_ALREADYLOGIN\020\001\022\025\n\021LG_YOUARENOTLOGIN\020\002", 198);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageG2C.proto", &protobuf_RegisterTypes);
   MsgG2CLoginMacACK::default_instance_ = new MsgG2CLoginMacACK();
@@ -338,6 +338,7 @@ bool MsgG2CErrorACK_enResult_IsValid(int value) {
   switch(value) {
     case 0:
     case 1:
+    case 2:
       return true;
     default:
       return false;
@@ -347,6 +348,7 @@ bool MsgG2CErrorACK_enResult_IsValid(int value) {
 #ifndef _MSC_VER
 const MsgG2CErrorACK_enResult MsgG2CErrorACK::LG_UNKNOW;
 const MsgG2CErrorACK_enResult MsgG2CErrorACK::LG_ALREADYLOGIN;
+const MsgG2CErrorACK_enResult MsgG2CErrorACK::LG_YOUARENOTLOGIN;
 const MsgG2CErrorACK_enResult MsgG2CErrorACK::enResult_MIN;
 const MsgG2CErrorACK_enResult MsgG2CErrorACK::enResult_MAX;
 const int MsgG2CErrorACK::enResult_ARRAYSIZE;

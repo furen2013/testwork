@@ -105,14 +105,14 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MessageC2Gate.pb.cc" />
+    <ClCompile Include="MessageC2G.pb.cc" />
     <ClCompile Include="MessageG2C.pb.cc" />
     <ClCompile Include="MessageGate2LG.pb.cc" />
     <ClCompile Include="MessageLG2Gate.pb.cc" />
     <ClCompile Include="MsgHead.pb.cc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MessageC2Gate.pb.h" />
+    <ClInclude Include="MessageC2G.pb.h" />
     <ClInclude Include="MessageG2C.pb.h" />
     <ClInclude Include="MessageGate2LG.pb.h" />
     <ClInclude Include="MessageLG2Gate.pb.h" />

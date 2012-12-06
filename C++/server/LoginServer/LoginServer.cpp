@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-#include "MessageC2Gate.pb.h"
+#include "MessageC2G.pb.h"
 #include "iostream"
 #include "../../../MsgShard/MsgHead.pb.h"
 #include "../../../new_common/Source/log4cpp-1.0/MyLog.h"

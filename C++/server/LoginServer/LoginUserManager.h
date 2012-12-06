@@ -17,6 +17,7 @@ public:
 	bool tryLoginOut(unsigned long account);
 	unsigned long tryLogin(const char* mac);
 	CLoginUser* GetLoginUser(const char* mac);
+	CLoginUser* GetLoginUser(unsigned long account);
 
 	
 public:

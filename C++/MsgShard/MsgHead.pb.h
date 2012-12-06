@@ -37,6 +37,7 @@ enum MsgType {
   C2Gate_MsgLoginReq = 1,
   C2Gate_MsgCreateAcountReq = 2,
   C2Gate_MsgLoginMacReq = 3,
+  C2Gate_MsgBindMailReq = 4,
   C2Gate_END = 998,
   G2C_Begin = 999,
   G2C_LoginMacACK = 1000,
@@ -48,6 +49,7 @@ enum MsgType {
   Gate2LG_End = 3000,
   LG2Gate_Begin = 3001,
   LG2Gate_MsgLG2GateLoginACK = 3002,
+  LG2C_MsgBindMailACK = 3003,
   LG2Gate_End = 4000
 };
 bool MsgType_IsValid(int value);
