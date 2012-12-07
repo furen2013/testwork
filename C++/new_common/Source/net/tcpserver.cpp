@@ -238,6 +238,16 @@ message_t* net_global::get_message( unsigned short size )
 	}
 }
 
+message_t* net_global::messageclone(const message_t& p)
+{
+	message_t* pNew = get_message(p.len);
+	memcpy(pNew->data, p.data, p.len);
+	pNew->from = p.from;
+	return pNew;
+}
+
+
+
 void net_global::free_message( message_t* p )
 {
 	if( s_msg_pool )

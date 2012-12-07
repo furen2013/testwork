@@ -399,16 +399,16 @@ class MsgBindMailReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 account() const;
   inline void set_account(::google::protobuf::uint64 value);
   
-  // required string name = 2;
-  inline bool has_name() const;
-  inline void clear_name();
-  static const int kNameFieldNumber = 2;
-  inline const ::std::string& name() const;
-  inline void set_name(const ::std::string& value);
-  inline void set_name(const char* value);
-  inline void set_name(const char* value, size_t size);
-  inline ::std::string* mutable_name();
-  inline ::std::string* release_name();
+  // required string mac = 2;
+  inline bool has_mac() const;
+  inline void clear_mac();
+  static const int kMacFieldNumber = 2;
+  inline const ::std::string& mac() const;
+  inline void set_mac(const ::std::string& value);
+  inline void set_mac(const char* value);
+  inline void set_mac(const char* value, size_t size);
+  inline ::std::string* mutable_mac();
+  inline ::std::string* release_mac();
   
   // required string password = 3;
   inline bool has_password() const;
@@ -421,23 +421,37 @@ class MsgBindMailReq : public ::google::protobuf::Message {
   inline ::std::string* mutable_password();
   inline ::std::string* release_password();
   
+  // required string mail = 4;
+  inline bool has_mail() const;
+  inline void clear_mail();
+  static const int kMailFieldNumber = 4;
+  inline const ::std::string& mail() const;
+  inline void set_mail(const ::std::string& value);
+  inline void set_mail(const char* value);
+  inline void set_mail(const char* value, size_t size);
+  inline ::std::string* mutable_mail();
+  inline ::std::string* release_mail();
+  
   // @@protoc_insertion_point(class_scope:MsgBindMailReq)
  private:
   inline void set_has_account();
   inline void clear_has_account();
-  inline void set_has_name();
-  inline void clear_has_name();
+  inline void set_has_mac();
+  inline void clear_has_mac();
   inline void set_has_password();
   inline void clear_has_password();
+  inline void set_has_mail();
+  inline void clear_has_mail();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   ::google::protobuf::uint64 account_;
-  ::std::string* name_;
+  ::std::string* mac_;
   ::std::string* password_;
+  ::std::string* mail_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
   
   friend void  protobuf_AddDesc_MessageC2G_2eproto();
   friend void protobuf_AssignDesc_MessageC2G_2eproto();
@@ -835,60 +849,60 @@ inline void MsgBindMailReq::set_account(::google::protobuf::uint64 value) {
   account_ = value;
 }
 
-// required string name = 2;
-inline bool MsgBindMailReq::has_name() const {
+// required string mac = 2;
+inline bool MsgBindMailReq::has_mac() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void MsgBindMailReq::set_has_name() {
+inline void MsgBindMailReq::set_has_mac() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void MsgBindMailReq::clear_has_name() {
+inline void MsgBindMailReq::clear_has_mac() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void MsgBindMailReq::clear_name() {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    name_->clear();
+inline void MsgBindMailReq::clear_mac() {
+  if (mac_ != &::google::protobuf::internal::kEmptyString) {
+    mac_->clear();
   }
-  clear_has_name();
+  clear_has_mac();
 }
-inline const ::std::string& MsgBindMailReq::name() const {
-  return *name_;
+inline const ::std::string& MsgBindMailReq::mac() const {
+  return *mac_;
 }
-inline void MsgBindMailReq::set_name(const ::std::string& value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void MsgBindMailReq::set_mac(const ::std::string& value) {
+  set_has_mac();
+  if (mac_ == &::google::protobuf::internal::kEmptyString) {
+    mac_ = new ::std::string;
   }
-  name_->assign(value);
+  mac_->assign(value);
 }
-inline void MsgBindMailReq::set_name(const char* value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void MsgBindMailReq::set_mac(const char* value) {
+  set_has_mac();
+  if (mac_ == &::google::protobuf::internal::kEmptyString) {
+    mac_ = new ::std::string;
   }
-  name_->assign(value);
+  mac_->assign(value);
 }
-inline void MsgBindMailReq::set_name(const char* value, size_t size) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void MsgBindMailReq::set_mac(const char* value, size_t size) {
+  set_has_mac();
+  if (mac_ == &::google::protobuf::internal::kEmptyString) {
+    mac_ = new ::std::string;
   }
-  name_->assign(reinterpret_cast<const char*>(value), size);
+  mac_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* MsgBindMailReq::mutable_name() {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline ::std::string* MsgBindMailReq::mutable_mac() {
+  set_has_mac();
+  if (mac_ == &::google::protobuf::internal::kEmptyString) {
+    mac_ = new ::std::string;
   }
-  return name_;
+  return mac_;
 }
-inline ::std::string* MsgBindMailReq::release_name() {
-  clear_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* MsgBindMailReq::release_mac() {
+  clear_has_mac();
+  if (mac_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = name_;
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = mac_;
+    mac_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
@@ -947,6 +961,64 @@ inline ::std::string* MsgBindMailReq::release_password() {
   } else {
     ::std::string* temp = password_;
     password_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// required string mail = 4;
+inline bool MsgBindMailReq::has_mail() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MsgBindMailReq::set_has_mail() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MsgBindMailReq::clear_has_mail() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MsgBindMailReq::clear_mail() {
+  if (mail_ != &::google::protobuf::internal::kEmptyString) {
+    mail_->clear();
+  }
+  clear_has_mail();
+}
+inline const ::std::string& MsgBindMailReq::mail() const {
+  return *mail_;
+}
+inline void MsgBindMailReq::set_mail(const ::std::string& value) {
+  set_has_mail();
+  if (mail_ == &::google::protobuf::internal::kEmptyString) {
+    mail_ = new ::std::string;
+  }
+  mail_->assign(value);
+}
+inline void MsgBindMailReq::set_mail(const char* value) {
+  set_has_mail();
+  if (mail_ == &::google::protobuf::internal::kEmptyString) {
+    mail_ = new ::std::string;
+  }
+  mail_->assign(value);
+}
+inline void MsgBindMailReq::set_mail(const char* value, size_t size) {
+  set_has_mail();
+  if (mail_ == &::google::protobuf::internal::kEmptyString) {
+    mail_ = new ::std::string;
+  }
+  mail_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* MsgBindMailReq::mutable_mail() {
+  set_has_mail();
+  if (mail_ == &::google::protobuf::internal::kEmptyString) {
+    mail_ = new ::std::string;
+  }
+  return mail_;
+}
+inline ::std::string* MsgBindMailReq::release_mail() {
+  clear_has_mail();
+  if (mail_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = mail_;
+    mail_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }

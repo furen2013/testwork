@@ -58,6 +58,7 @@ struct net_global
 	static void set_compress_strategy( compress_strategy* imp );
 	static void init_net_service( int thread_count, int proc_interval, compress_strategy* cs_imp, bool need_max_speed, int msg_pool_size );
 	static message_t* get_message( unsigned short size );
+	static message_t* messageclone(const message_t& p);
 	static void free_message( message_t* p );
 	static boost::uint32_t get_message_pool_used();
 	static void free_net_service();

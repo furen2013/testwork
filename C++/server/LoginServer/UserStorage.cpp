@@ -26,6 +26,29 @@ bool CUserStorage::Init()
 	return true;
 }
 
+bool CUserStorage::UpdateUser(long account)
+{
+	tgUserInfo_t* p = NULL;
+	bool breturn = false;
+	{
+		
+		boost::mutex::scoped_lock lock(m_mutex);
+		std::map<long, tgUserInfo_t*>::iterator it = m_storageUser.find(account);
+		if (it != m_storageUser.end())
+		{
+			p = it->second;
+			breturn = true;
+		}
+	}
+	if(breturn == true&&p)
+	{
+		phoneDatabase->WaitExecute( "update account set mac='%s',Password='%s',Mail='%s' where account=ld%",p->mac.c_str(),
+			p->password.c_str(), p->mail.c_str(),p->account );
+	}
+	return breturn;
+
+}
+
 void CUserStorage::addUser(tgUserInfo_t* p)
 {
 	if(p->mac.empty() || p->account == 0)

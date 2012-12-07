@@ -319,6 +319,15 @@ bool in_duration( unsigned int t, unsigned char hstart, unsigned char hend )
 	return ( p->tm_hour >= hstart && p->tm_hour < hend );
 }
 
+bool is_empty_string(const char* sz)
+{
+	if (sz == NULL || sz == "")
+	{
+		return true;
+	}
+	return false;
+}
+
 bool is_valid_string( const std::string& str )
 {
 	int len = str.length();

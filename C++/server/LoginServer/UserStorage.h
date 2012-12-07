@@ -23,6 +23,7 @@ public:
 	void Clear();
 	tgUserInfo_t* GetUserInfo(long account);
 	void addUser(tgUserInfo_t* p);
+	bool UpdateUser(long account);
 
 protected:
 	std::map<long, tgUserInfo_t*> m_storageUser;

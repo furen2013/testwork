@@ -86,10 +86,11 @@ void protobuf_AssignDesc_MessageC2G_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MsgC2GateLoginMacReq));
   MsgBindMailReq_descriptor_ = file->message_type(3);
-  static const int MsgBindMailReq_offsets_[3] = {
+  static const int MsgBindMailReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgBindMailReq, account_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgBindMailReq, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgBindMailReq, mac_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgBindMailReq, password_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgBindMailReq, mail_),
   };
   MsgBindMailReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -149,9 +150,9 @@ void protobuf_AddDesc_MessageC2G_2eproto() {
     "C2GateLoginReq\022\n\n\002id\030\001 \002(\t\022\020\n\010password\030\002"
     " \002(\t\"F\n\030MsgC2GateCreateAcountReq\022\n\n\002id\030\001"
     " \002(\t\022\014\n\004name\030\002 \002(\t\022\020\n\010password\030\003 \002(\t\"#\n\024"
-    "MsgC2GateLoginMacReq\022\013\n\003Mac\030\001 \002(\t\"A\n\016Msg"
-    "BindMailReq\022\017\n\007account\030\001 \002(\004\022\014\n\004name\030\002 \002"
-    "(\t\022\020\n\010password\030\003 \002(\t", 260);
+    "MsgC2GateLoginMacReq\022\013\n\003Mac\030\001 \002(\t\"N\n\016Msg"
+    "BindMailReq\022\017\n\007account\030\001 \002(\004\022\013\n\003mac\030\002 \002("
+    "\t\022\020\n\010password\030\003 \002(\t\022\014\n\004mail\030\004 \002(\t", 273);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageC2G.proto", &protobuf_RegisterTypes);
   MsgC2GateLoginReq::default_instance_ = new MsgC2GateLoginReq();
@@ -1023,8 +1024,9 @@ void MsgC2GateLoginMacReq::Swap(MsgC2GateLoginMacReq* other) {
 
 #ifndef _MSC_VER
 const int MsgBindMailReq::kAccountFieldNumber;
-const int MsgBindMailReq::kNameFieldNumber;
+const int MsgBindMailReq::kMacFieldNumber;
 const int MsgBindMailReq::kPasswordFieldNumber;
+const int MsgBindMailReq::kMailFieldNumber;
 #endif  // !_MSC_VER
 
 MsgBindMailReq::MsgBindMailReq()
@@ -1044,8 +1046,9 @@ MsgBindMailReq::MsgBindMailReq(const MsgBindMailReq& from)
 void MsgBindMailReq::SharedCtor() {
   _cached_size_ = 0;
   account_ = GOOGLE_ULONGLONG(0);
-  name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  mac_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   password_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  mail_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1054,11 +1057,14 @@ MsgBindMailReq::~MsgBindMailReq() {
 }
 
 void MsgBindMailReq::SharedDtor() {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    delete name_;
+  if (mac_ != &::google::protobuf::internal::kEmptyString) {
+    delete mac_;
   }
   if (password_ != &::google::protobuf::internal::kEmptyString) {
     delete password_;
+  }
+  if (mail_ != &::google::protobuf::internal::kEmptyString) {
+    delete mail_;
   }
   if (this != default_instance_) {
   }
@@ -1087,14 +1093,19 @@ MsgBindMailReq* MsgBindMailReq::New() const {
 void MsgBindMailReq::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     account_ = GOOGLE_ULONGLONG(0);
-    if (has_name()) {
-      if (name_ != &::google::protobuf::internal::kEmptyString) {
-        name_->clear();
+    if (has_mac()) {
+      if (mac_ != &::google::protobuf::internal::kEmptyString) {
+        mac_->clear();
       }
     }
     if (has_password()) {
       if (password_ != &::google::protobuf::internal::kEmptyString) {
         password_->clear();
+      }
+    }
+    if (has_mail()) {
+      if (mail_ != &::google::protobuf::internal::kEmptyString) {
+        mail_->clear();
       }
     }
   }
@@ -1119,19 +1130,19 @@ bool MsgBindMailReq::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_name;
+        if (input->ExpectTag(18)) goto parse_mac;
         break;
       }
       
-      // required string name = 2;
+      // required string mac = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_name:
+         parse_mac:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_name()));
+                input, this->mutable_mac()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->name().data(), this->name().length(),
+            this->mac().data(), this->mac().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
@@ -1149,6 +1160,23 @@ bool MsgBindMailReq::MergePartialFromCodedStream(
                 input, this->mutable_password()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
             this->password().data(), this->password().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_mail;
+        break;
+      }
+      
+      // required string mail = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_mail:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_mail()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->mail().data(), this->mail().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
@@ -1180,13 +1208,13 @@ void MsgBindMailReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->account(), output);
   }
   
-  // required string name = 2;
-  if (has_name()) {
+  // required string mac = 2;
+  if (has_mac()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->name().data(), this->name().length(),
+      this->mac().data(), this->mac().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->name(), output);
+      2, this->mac(), output);
   }
   
   // required string password = 3;
@@ -1196,6 +1224,15 @@ void MsgBindMailReq::SerializeWithCachedSizes(
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       3, this->password(), output);
+  }
+  
+  // required string mail = 4;
+  if (has_mail()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mail().data(), this->mail().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      4, this->mail(), output);
   }
   
   if (!unknown_fields().empty()) {
@@ -1211,14 +1248,14 @@ void MsgBindMailReq::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->account(), target);
   }
   
-  // required string name = 2;
-  if (has_name()) {
+  // required string mac = 2;
+  if (has_mac()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->name().data(), this->name().length(),
+      this->mac().data(), this->mac().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->name(), target);
+        2, this->mac(), target);
   }
   
   // required string password = 3;
@@ -1229,6 +1266,16 @@ void MsgBindMailReq::SerializeWithCachedSizes(
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->password(), target);
+  }
+  
+  // required string mail = 4;
+  if (has_mail()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mail().data(), this->mail().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->mail(), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -1249,11 +1296,11 @@ int MsgBindMailReq::ByteSize() const {
           this->account());
     }
     
-    // required string name = 2;
-    if (has_name()) {
+    // required string mac = 2;
+    if (has_mac()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->name());
+          this->mac());
     }
     
     // required string password = 3;
@@ -1261,6 +1308,13 @@ int MsgBindMailReq::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->password());
+    }
+    
+    // required string mail = 4;
+    if (has_mail()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->mail());
     }
     
   }
@@ -1293,11 +1347,14 @@ void MsgBindMailReq::MergeFrom(const MsgBindMailReq& from) {
     if (from.has_account()) {
       set_account(from.account());
     }
-    if (from.has_name()) {
-      set_name(from.name());
+    if (from.has_mac()) {
+      set_mac(from.mac());
     }
     if (from.has_password()) {
       set_password(from.password());
+    }
+    if (from.has_mail()) {
+      set_mail(from.mail());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -1316,7 +1373,7 @@ void MsgBindMailReq::CopyFrom(const MsgBindMailReq& from) {
 }
 
 bool MsgBindMailReq::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
   
   return true;
 }
@@ -1324,8 +1381,9 @@ bool MsgBindMailReq::IsInitialized() const {
 void MsgBindMailReq::Swap(MsgBindMailReq* other) {
   if (other != this) {
     std::swap(account_, other->account_);
-    std::swap(name_, other->name_);
+    std::swap(mac_, other->mac_);
     std::swap(password_, other->password_);
+    std::swap(mail_, other->mail_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

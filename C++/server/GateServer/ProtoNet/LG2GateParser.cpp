@@ -99,7 +99,17 @@ void CLG2GateParser::ParseMessage(const message_t& msg,const CGProtoSocket* pSoc
 		break;
 	default:
 		{
-			MyLog::log->warn("unknown msg gate 2 lg");
+			CCProtoSocket* pProtoSocket = GUManager.GetClient(Msghead.account());
+			if (pProtoSocket)
+			{
+				message_t* pNew = MyNetGlobleObj::messageclone(msg);
+				pProtoSocket->_send_message(pNew);
+			}
+			else
+			{
+				MyLog->log->warn("not found socket");
+			}
+
 		}
 
 	}

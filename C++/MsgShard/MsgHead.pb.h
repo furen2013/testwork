@@ -137,20 +137,30 @@ class MsgHead : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 msgsize() const;
   inline void set_msgsize(::google::protobuf::int32 value);
   
+  // required uint64 account = 3;
+  inline bool has_account() const;
+  inline void clear_account();
+  static const int kAccountFieldNumber = 3;
+  inline ::google::protobuf::uint64 account() const;
+  inline void set_account(::google::protobuf::uint64 value);
+  
   // @@protoc_insertion_point(class_scope:MsgHead)
  private:
   inline void set_has_type();
   inline void clear_has_type();
   inline void set_has_msgsize();
   inline void clear_has_msgsize();
+  inline void set_has_account();
+  inline void clear_has_account();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   int type_;
   ::google::protobuf::int32 msgsize_;
+  ::google::protobuf::uint64 account_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
   
   friend void  protobuf_AddDesc_MsgHead_2eproto();
   friend void protobuf_AssignDesc_MsgHead_2eproto();
@@ -209,6 +219,28 @@ inline ::google::protobuf::int32 MsgHead::msgsize() const {
 inline void MsgHead::set_msgsize(::google::protobuf::int32 value) {
   set_has_msgsize();
   msgsize_ = value;
+}
+
+// required uint64 account = 3;
+inline bool MsgHead::has_account() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgHead::set_has_account() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgHead::clear_has_account() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgHead::clear_account() {
+  account_ = GOOGLE_ULONGLONG(0);
+  clear_has_account();
+}
+inline ::google::protobuf::uint64 MsgHead::account() const {
+  return account_;
+}
+inline void MsgHead::set_account(::google::protobuf::uint64 value) {
+  set_has_account();
+  account_ = value;
 }
 
 

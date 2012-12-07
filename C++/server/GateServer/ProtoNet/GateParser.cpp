@@ -44,6 +44,7 @@ void CGateParser::ParseMessage(const message_t& msg, CCProtoSocket* pSocket)
 					MsgGate2LGLoginReq Msg;
 					Msg.set_mac(MsgLoginMac.mac());
 					Msg.set_id((DWORD)pSocket);
+					
 					if (p2LoginSocket)
 					{
 						p2LoginSocket->send_message(Gate2LG_MsgGate2LGLoginReq, &Msg);
@@ -76,7 +77,8 @@ void CGateParser::ParseMessage(const message_t& msg, CCProtoSocket* pSocket)
 				}
 				else
 				{
-					p2LoginSocket->_send_message(msg);
+					message_t* pNew = MyNetGlobleObj::messageclone(msg);
+					p2LoginSocket->_send_message(pNew);
 				}
 			}
 		}

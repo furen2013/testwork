@@ -217,6 +217,8 @@ bool in_duration( unsigned int t, unsigned char hstart, unsigned char hend );
 
 bool is_valid_string( const std::string& str );
 
+bool is_empty_string(const char* sz);
+
 
 struct memory_leak_monitor
 {

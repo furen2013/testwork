@@ -67,13 +67,73 @@ CLoginUser* LoginUserManager::GetLoginUser(const char* mac)
 	return GetLoginUser(account);
 }
 
+enBindMail LoginUserManager::bindMail(unsigned long account, const char* mail, const char* password, const char* mac)
+{
+	if (account == 0)
+	{
+		return BindMail_Error_Unknown;
+	}
+	if (is_empty_string(mail))
+	{
+		return BindMail_EmptyMail;
+	}
+	if (is_empty_string(password))
+	{
+		return BindMail_EmptyPassword;
+	}
+	if (is_empty_string(mac))
+	{
+		return BindMail_EmptyMac;
+	}
+	CLoginUser* pUser = NULL;
+	enBindMail en = BindMail_Error_Unknown;
+	{
+
+		CLoginUser* pTempUser = NULL;
+		boost::mutex::scoped_lock lock(m_mutex);
+		MAPLOGINUSER::iterator it = m_mapLoginUser.begin();
+		for (; it != m_mapLoginUser.end(); ++ it)
+		{
+			if (it->first == account)
+			{
+				pUser = it->second;
+			}
+			pTempUser = it->second;
+			if (pTempUser->m_Info&&pTempUser->m_Info->mail.compare(mail)==0)
+			{
+				en = BindMail_MailAlreadyBinded;
+				break;;
+			}
+		}
+		if (en == BindMail_Error_Unknown)
+		{
+			pUser->m_Info->mac = mac;
+			pUser->m_Info->mail = mail;
+			pUser->m_Info->password = password;
+		}
+
+	}
+	
+	if (pUser&&pUser->m_Info&&en == BindMail_Error_Unknown)
+	{
+		if (CUserStorage::getSingleton().UpdateUser(pUser->m_Info->account))
+		{
+			en = BindMail_OK;
+		}
+	}
+	
+	return en;
+
+}
+
 unsigned long LoginUserManager::tryLogin(const char* mac)
 {
 
 	unsigned long account = lh_strhash(mac);
-	if (CUserStorage::getSingleton().GetUserInfo(account) == NULL)
+	tgUserInfo_t* info = CUserStorage::getSingleton().GetUserInfo(account);
+	if (info == NULL)
 	{
-		tgUserInfo_t* info = new tgUserInfo_t();
+		info = new tgUserInfo_t();
 		info->account = account;
 		info->mac = mac;
 		CUserStorage::getSingleton().addUser(info);
@@ -86,8 +146,7 @@ unsigned long LoginUserManager::tryLogin(const char* mac)
 		{
 			b = true;
 			CLoginUser* LoginUser = new CLoginUser();
-			LoginUser->setmac(mac);
-			LoginUser->setAccount(account);
+			LoginUser->setInfo(info);
 			m_mapLoginUser.insert(MAPLOGINUSER::value_type(account, LoginUser));
 
 		}

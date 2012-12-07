@@ -37,7 +37,7 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 			if (pLoginUser != NULL)
 			{
 				//already login 
-				account = pLoginUser->getAccount();
+				account = pLoginUser->m_Info->account;
 			}
 			else
 			{
@@ -79,17 +79,42 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 			MsgBindMailReq Msg;
 			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
 			MsgLG2GateBindMailACK MsgACK;
+			MsgACK.set_account(Msg.account());
+			MyLog::log->notice("recive bind mail request account[%l] mail[%s] password[%s] mac[%s]", 
+				Msg.account(), Msg.mail(), Msg.password(),Msg.mac());
 			if (LUM.isAlreadyLogin(Msg.account()) == false)
 			{
-				MsgACK.set_account(Msg.account());
 				MsgACK.set_result(MsgLG2GateBindMailACK_enResult_LG_ERRORNOTLOGIN);
 			}
 			else
 			{
 				CLoginUser* pUser = LUM.GetLoginUser(Msg.account());
-				if (pUser->getAccount())
+				enBindMail en = LUM.bindMail(Msg.account(), Msg.mail().c_str(), Msg.password().c_str(), Msg.mac().c_str());
+				switch(en)
 				{
+				case BindMail_MailAlreadyBinded:
+					{
+						MsgACK.set_result(MsgLG2GateBindMailACK_enResult_LG_ERROR_MAIL_IS_BINDED);
+						MyLog::log->notice("account[%l] mail[%s] password[%s] mac[%s] account is already binded", 
+							Msg.account(), Msg.mail(), Msg.password(),Msg.mac());
+					}
+					break;
+				case BindMail_OK:
+					{
+						MsgACK.set_result(MsgLG2GateBindMailACK_enResult_LG_OK);
+						MyLog::log->notice("account[%l] mail[%s] password[%s] mac[%s] account bind mail ok", 
+							Msg.account(), Msg.mail(), Msg.password(),Msg.mac());
+					}
+					break;
+				default:
+					{
+						MyLog::log->notice("account[%l] mail[%s] password[%s] mac[%s] account other error", 
+							Msg.account(), Msg.mail(), Msg.password(),Msg.mac());
+						MsgACK.set_result(MsgLG2GateBindMailACK_enResult_LG_ERROR);
+					}
+
 				}
+				pSocket->send_message(LG2C_MsgBindMailACK,&MsgACK);
 			}
 			
 		}
