@@ -48,11 +48,12 @@ void Tcp_ProtoSession::_Read_Other()
 
 
 
-void Tcp_ProtoSession::send_message(MsgType type, google::protobuf::Message* msgBody)
+void Tcp_ProtoSession::send_message(MsgType type, google::protobuf::Message* msgBody, unsigned long account)
 {
 	MsgHead msgHead;
 	msgHead.set_type(type);
 	msgHead.set_msgsize(msgBody->ByteSize());
+	msgHead.set_account(account);
 	size_t headsize = msgHead.ByteSize();
 	size_t bodysize = msgBody->ByteSize();
 	size_t mark = sizeof(unsigned short);

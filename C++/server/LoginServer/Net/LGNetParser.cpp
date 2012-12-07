@@ -114,7 +114,7 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 					}
 
 				}
-				pSocket->send_message(LG2C_MsgBindMailACK,&MsgACK);
+				pSocket->send_message(LG2C_MsgBindMailACK,&MsgACK, Msghead.account());
 			}
 			
 		}

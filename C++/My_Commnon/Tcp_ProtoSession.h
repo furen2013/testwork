@@ -12,7 +12,7 @@ public:
 	virtual ~Tcp_ProtoSession(void);
 public:
 	virtual void send_message( const void* data, unsigned short len );
-	void send_message(MsgType type , google::protobuf::Message* msg);
+	void send_message(MsgType type , google::protobuf::Message* msg, unsigned long account = 0);
 
 protected:
 	virtual void _Read_Other();

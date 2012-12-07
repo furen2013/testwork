@@ -10,7 +10,7 @@
 #include "../new_common/Source/log4cpp-1.0/MyLog.h"
 #include <boost/thread.hpp>   
 #include <iostream>  
-#include "MessageC2Gate.pb.h"
+#include "MessageC2G.pb.h"
 
 #ifdef WIN32
 #include "../server/Common/Platform/ServiceWin32.h"
