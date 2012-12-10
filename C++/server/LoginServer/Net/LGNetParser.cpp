@@ -89,17 +89,17 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 			else
 			{
 				CLoginUser* pUser = LUM.GetLoginUser(Msg.account());
-				enBindMail en = LUM.bindMail(Msg.account(), Msg.mail().c_str(), Msg.password().c_str(), Msg.mac().c_str());
+				enBindResult en = LUM.bindMail(Msg.account(), Msg.mail().c_str(), Msg.password().c_str(), Msg.mac().c_str());
 				switch(en)
 				{
-				case BindMail_MailAlreadyBinded:
+				case BindResultMailAlreadyBinded:
 					{
 						MsgACK.set_result(MsgLG2GateBindMailACK_enResult_LG_ERROR_MAIL_IS_BINDED);
 						MyLog::log->notice("account[%l] mail[%s] password[%s] mac[%s] account is already binded", 
 							Msg.account(), Msg.mail(), Msg.password(),Msg.mac());
 					}
 					break;
-				case BindMail_OK:
+				case BindResultOK:
 					{
 						MsgACK.set_result(MsgLG2GateBindMailACK_enResult_LG_OK);
 						MyLog::log->notice("account[%l] mail[%s] password[%s] mac[%s] account bind mail ok", 

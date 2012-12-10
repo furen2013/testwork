@@ -6,6 +6,7 @@
 #include "CProtoSocket.h"
 #include "MessageG2C.pb.h"
 #include "../GameLogic/GateUserManager.h"
+#include "MyNetGlobleObj.h"
 
 initialiseSingleton(CLG2GateParser);
 CLG2GateParser::CLG2GateParser(void)
@@ -107,7 +108,7 @@ void CLG2GateParser::ParseMessage(const message_t& msg,const CGProtoSocket* pSoc
 			}
 			else
 			{
-				MyLog->log->warn("not found socket");
+				MyLog::log->warn("not found socket");
 			}
 
 		}

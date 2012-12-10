@@ -25,3 +25,19 @@ message MsgBindMailReq
 	required string password = 3;
 	required string mail = 4;
 }
+
+message MsgUnBindMailReq
+{
+	required uint64 account = 1;
+	required string mac = 2;
+	required string password = 3;
+	required string mail = 4;
+}
+
+message MsgBindMacReq
+{
+	required uint64 account = 1;
+	required string mac = 2;
+	required string password = 3;
+	required string mail = 4;
+}

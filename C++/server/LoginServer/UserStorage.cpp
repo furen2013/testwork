@@ -26,6 +26,27 @@ bool CUserStorage::Init()
 	return true;
 }
 
+bool CUserStorage::UpdateMac(long account)
+{
+	tgUserInfo_t* p = NULL;
+	bool breturn = false;
+	{
+
+		boost::mutex::scoped_lock lock(m_mutex);
+		std::map<long, tgUserInfo_t*>::iterator it = m_storageUser.find(account);
+		if (it != m_storageUser.end())
+		{
+			p = it->second;
+			breturn = true;
+		}
+	}
+	if(breturn == true&&p)
+	{
+		phoneDatabase->WaitExecute( "update account set mac='%s' where account=ld%",p->mac.c_str(),p->account );
+	}
+	return breturn;
+}
+
 bool CUserStorage::UpdateUser(long account)
 {
 	tgUserInfo_t* p = NULL;
@@ -97,6 +118,22 @@ void CUserStorage::Clear()
 	m_storageUser.clear();
 }
 
+tgUserInfo_t* CUserStorage::GetUserInfoByMac(const char* szMac)
+{
+	boost::mutex::scoped_lock lock(m_mutex);
+	std::map<long, tgUserInfo_t*>::iterator it = m_storageUser.begin();
+	for (; it != m_storageUser.end(); ++ it)
+	{
+		tgUserInfo_t* p = it->second;
+		if (p->mac.compare(szMac)==0)
+		{
+			return p;
+		}
+	}
+
+	return NULL;
+}
+
 tgUserInfo_t* CUserStorage::GetUserInfo(long account)
 {
 	boost::mutex::scoped_lock lock(m_mutex);
@@ -107,6 +144,7 @@ tgUserInfo_t* CUserStorage::GetUserInfo(long account)
 	}
 	return NULL;
 }
+
 
 void CUserStorage::LoadAll()
 {

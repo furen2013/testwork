@@ -22,8 +22,10 @@ public:
 	void LoadAll();
 	void Clear();
 	tgUserInfo_t* GetUserInfo(long account);
+	tgUserInfo_t* GetUserInfoByMac(const char* szMac);
 	void addUser(tgUserInfo_t* p);
 	bool UpdateUser(long account);
+	bool UpdateMac(long account);
 
 protected:
 	std::map<long, tgUserInfo_t*> m_storageUser;

@@ -5,16 +5,23 @@
 #include "../../../Common/share/Singleton.h"
 #include <boost/thread.hpp>
 class CLoginUser;
-enum enBindMail
+enum enBindResult
 {
-	BindMail_OK,
-	BindMail_Error_Unknown,
-	BindMail_MailAlreadyBinded,
-	BindMail_NotFoundAccount,
-	BindMail_EmptyMac,
-	BindMail_EmptyPassword,
-	BindMail_EmptyMail,
+	BindResultOK,
+	BindResultError_Unknown,
+	BindResultMailAlreadyBinded,
+	BindResultMacAlreadyBinded,
+	BindResultNotFoundAccount,
+	BindResultEmptyMac,
+	BindResultEmptyPassword,
+	BindResultEmptyMail,
+	BindResultErrorPassword,
+	BindResultErrorMac,
+	BindResultErrorMail,
+	BindResultNotFoundUser,
 };
+
+struct tgUserInfo_t;
 
 class LoginUserManager : public Singleton<LoginUserManager>
 {
@@ -25,11 +32,17 @@ public:
 	bool isAlreadyLogin(unsigned long account);
 	bool isAlreadyLogin(const char* mac);
 	bool tryLoginOut(unsigned long account);
-	enBindMail bindMail(unsigned long account, const char* mail, const char* password, const char* mac);
+	enBindResult bindMail(unsigned long account, const char* mail, const char* password, const char* mac);
+	enBindResult UnbindMac(unsigned long account, const char* mail, const char* password, const char* mac);
+	enBindResult bindMac(unsigned long account, const char* mail, const char* password, const char* mac);
 	unsigned long tryLogin(const char* mac);
 	CLoginUser* GetLoginUser(const char* mac);
 	CLoginUser* GetLoginUser(unsigned long account);
 
+private:
+	enBindResult checkBindArgument(unsigned long account, const char* mail, const char* password, const char* mac);
+	enBindResult checkUserInfo(tgUserInfo_t* pInfo, const char* mail, const char* password, const char* mac);
+	enBindResult checkUserInfo(tgUserInfo_t* pInfo, const char* mail, const char* password);
 	
 public:
 	typedef std::map<unsigned long, CLoginUser*> MAPLOGINUSER;
