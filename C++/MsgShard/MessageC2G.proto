@@ -26,7 +26,7 @@ message MsgBindMailReq
 	required string mail = 4;
 }
 
-message MsgUnBindMailReq
+message MsgUnbindMacReq
 {
 	required uint64 account = 1;
 	required string mac = 2;

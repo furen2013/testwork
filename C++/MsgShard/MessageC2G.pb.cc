@@ -27,6 +27,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MsgBindMailReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgBindMailReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgUnbindMacReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgUnbindMacReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgBindMacReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgBindMacReq_reflection_ = NULL;
 
 }  // namespace
 
@@ -103,6 +109,42 @@ void protobuf_AssignDesc_MessageC2G_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MsgBindMailReq));
+  MsgUnbindMacReq_descriptor_ = file->message_type(4);
+  static const int MsgUnbindMacReq_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgUnbindMacReq, account_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgUnbindMacReq, mac_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgUnbindMacReq, password_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgUnbindMacReq, mail_),
+  };
+  MsgUnbindMacReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MsgUnbindMacReq_descriptor_,
+      MsgUnbindMacReq::default_instance_,
+      MsgUnbindMacReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgUnbindMacReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgUnbindMacReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MsgUnbindMacReq));
+  MsgBindMacReq_descriptor_ = file->message_type(5);
+  static const int MsgBindMacReq_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgBindMacReq, account_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgBindMacReq, mac_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgBindMacReq, password_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgBindMacReq, mail_),
+  };
+  MsgBindMacReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MsgBindMacReq_descriptor_,
+      MsgBindMacReq::default_instance_,
+      MsgBindMacReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgBindMacReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgBindMacReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MsgBindMacReq));
 }
 
 namespace {
@@ -123,6 +165,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     MsgC2GateLoginMacReq_descriptor_, &MsgC2GateLoginMacReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     MsgBindMailReq_descriptor_, &MsgBindMailReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MsgUnbindMacReq_descriptor_, &MsgUnbindMacReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MsgBindMacReq_descriptor_, &MsgBindMacReq::default_instance());
 }
 
 }  // namespace
@@ -136,6 +182,10 @@ void protobuf_ShutdownFile_MessageC2G_2eproto() {
   delete MsgC2GateLoginMacReq_reflection_;
   delete MsgBindMailReq::default_instance_;
   delete MsgBindMailReq_reflection_;
+  delete MsgUnbindMacReq::default_instance_;
+  delete MsgUnbindMacReq_reflection_;
+  delete MsgBindMacReq::default_instance_;
+  delete MsgBindMacReq_reflection_;
 }
 
 void protobuf_AddDesc_MessageC2G_2eproto() {
@@ -152,17 +202,25 @@ void protobuf_AddDesc_MessageC2G_2eproto() {
     " \002(\t\022\014\n\004name\030\002 \002(\t\022\020\n\010password\030\003 \002(\t\"#\n\024"
     "MsgC2GateLoginMacReq\022\013\n\003Mac\030\001 \002(\t\"N\n\016Msg"
     "BindMailReq\022\017\n\007account\030\001 \002(\004\022\013\n\003mac\030\002 \002("
-    "\t\022\020\n\010password\030\003 \002(\t\022\014\n\004mail\030\004 \002(\t", 273);
+    "\t\022\020\n\010password\030\003 \002(\t\022\014\n\004mail\030\004 \002(\t\"O\n\017Msg"
+    "UnbindMacReq\022\017\n\007account\030\001 \002(\004\022\013\n\003mac\030\002 \002"
+    "(\t\022\020\n\010password\030\003 \002(\t\022\014\n\004mail\030\004 \002(\t\"M\n\rMs"
+    "gBindMacReq\022\017\n\007account\030\001 \002(\004\022\013\n\003mac\030\002 \002("
+    "\t\022\020\n\010password\030\003 \002(\t\022\014\n\004mail\030\004 \002(\t", 433);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageC2G.proto", &protobuf_RegisterTypes);
   MsgC2GateLoginReq::default_instance_ = new MsgC2GateLoginReq();
   MsgC2GateCreateAcountReq::default_instance_ = new MsgC2GateCreateAcountReq();
   MsgC2GateLoginMacReq::default_instance_ = new MsgC2GateLoginMacReq();
   MsgBindMailReq::default_instance_ = new MsgBindMailReq();
+  MsgUnbindMacReq::default_instance_ = new MsgUnbindMacReq();
+  MsgBindMacReq::default_instance_ = new MsgBindMacReq();
   MsgC2GateLoginReq::default_instance_->InitAsDefaultInstance();
   MsgC2GateCreateAcountReq::default_instance_->InitAsDefaultInstance();
   MsgC2GateLoginMacReq::default_instance_->InitAsDefaultInstance();
   MsgBindMailReq::default_instance_->InitAsDefaultInstance();
+  MsgUnbindMacReq::default_instance_->InitAsDefaultInstance();
+  MsgBindMacReq::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_MessageC2G_2eproto);
 }
 
@@ -1395,6 +1453,764 @@ void MsgBindMailReq::Swap(MsgBindMailReq* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = MsgBindMailReq_descriptor_;
   metadata.reflection = MsgBindMailReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgUnbindMacReq::kAccountFieldNumber;
+const int MsgUnbindMacReq::kMacFieldNumber;
+const int MsgUnbindMacReq::kPasswordFieldNumber;
+const int MsgUnbindMacReq::kMailFieldNumber;
+#endif  // !_MSC_VER
+
+MsgUnbindMacReq::MsgUnbindMacReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MsgUnbindMacReq::InitAsDefaultInstance() {
+}
+
+MsgUnbindMacReq::MsgUnbindMacReq(const MsgUnbindMacReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MsgUnbindMacReq::SharedCtor() {
+  _cached_size_ = 0;
+  account_ = GOOGLE_ULONGLONG(0);
+  mac_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  password_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  mail_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgUnbindMacReq::~MsgUnbindMacReq() {
+  SharedDtor();
+}
+
+void MsgUnbindMacReq::SharedDtor() {
+  if (mac_ != &::google::protobuf::internal::kEmptyString) {
+    delete mac_;
+  }
+  if (password_ != &::google::protobuf::internal::kEmptyString) {
+    delete password_;
+  }
+  if (mail_ != &::google::protobuf::internal::kEmptyString) {
+    delete mail_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void MsgUnbindMacReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgUnbindMacReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgUnbindMacReq_descriptor_;
+}
+
+const MsgUnbindMacReq& MsgUnbindMacReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_MessageC2G_2eproto();  return *default_instance_;
+}
+
+MsgUnbindMacReq* MsgUnbindMacReq::default_instance_ = NULL;
+
+MsgUnbindMacReq* MsgUnbindMacReq::New() const {
+  return new MsgUnbindMacReq;
+}
+
+void MsgUnbindMacReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    account_ = GOOGLE_ULONGLONG(0);
+    if (has_mac()) {
+      if (mac_ != &::google::protobuf::internal::kEmptyString) {
+        mac_->clear();
+      }
+    }
+    if (has_password()) {
+      if (password_ != &::google::protobuf::internal::kEmptyString) {
+        password_->clear();
+      }
+    }
+    if (has_mail()) {
+      if (mail_ != &::google::protobuf::internal::kEmptyString) {
+        mail_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MsgUnbindMacReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint64 account = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &account_)));
+          set_has_account();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_mac;
+        break;
+      }
+      
+      // required string mac = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_mac:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_mac()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->mac().data(), this->mac().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_password;
+        break;
+      }
+      
+      // required string password = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_password:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_password()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->password().data(), this->password().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_mail;
+        break;
+      }
+      
+      // required string mail = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_mail:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_mail()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->mail().data(), this->mail().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void MsgUnbindMacReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required uint64 account = 1;
+  if (has_account()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->account(), output);
+  }
+  
+  // required string mac = 2;
+  if (has_mac()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mac().data(), this->mac().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->mac(), output);
+  }
+  
+  // required string password = 3;
+  if (has_password()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->password().data(), this->password().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->password(), output);
+  }
+  
+  // required string mail = 4;
+  if (has_mail()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mail().data(), this->mail().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      4, this->mail(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MsgUnbindMacReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required uint64 account = 1;
+  if (has_account()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->account(), target);
+  }
+  
+  // required string mac = 2;
+  if (has_mac()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mac().data(), this->mac().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->mac(), target);
+  }
+  
+  // required string password = 3;
+  if (has_password()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->password().data(), this->password().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->password(), target);
+  }
+  
+  // required string mail = 4;
+  if (has_mail()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mail().data(), this->mail().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->mail(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MsgUnbindMacReq::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint64 account = 1;
+    if (has_account()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->account());
+    }
+    
+    // required string mac = 2;
+    if (has_mac()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->mac());
+    }
+    
+    // required string password = 3;
+    if (has_password()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->password());
+    }
+    
+    // required string mail = 4;
+    if (has_mail()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->mail());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgUnbindMacReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MsgUnbindMacReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgUnbindMacReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgUnbindMacReq::MergeFrom(const MsgUnbindMacReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_account()) {
+      set_account(from.account());
+    }
+    if (from.has_mac()) {
+      set_mac(from.mac());
+    }
+    if (from.has_password()) {
+      set_password(from.password());
+    }
+    if (from.has_mail()) {
+      set_mail(from.mail());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MsgUnbindMacReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgUnbindMacReq::CopyFrom(const MsgUnbindMacReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgUnbindMacReq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+  
+  return true;
+}
+
+void MsgUnbindMacReq::Swap(MsgUnbindMacReq* other) {
+  if (other != this) {
+    std::swap(account_, other->account_);
+    std::swap(mac_, other->mac_);
+    std::swap(password_, other->password_);
+    std::swap(mail_, other->mail_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MsgUnbindMacReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgUnbindMacReq_descriptor_;
+  metadata.reflection = MsgUnbindMacReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgBindMacReq::kAccountFieldNumber;
+const int MsgBindMacReq::kMacFieldNumber;
+const int MsgBindMacReq::kPasswordFieldNumber;
+const int MsgBindMacReq::kMailFieldNumber;
+#endif  // !_MSC_VER
+
+MsgBindMacReq::MsgBindMacReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MsgBindMacReq::InitAsDefaultInstance() {
+}
+
+MsgBindMacReq::MsgBindMacReq(const MsgBindMacReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MsgBindMacReq::SharedCtor() {
+  _cached_size_ = 0;
+  account_ = GOOGLE_ULONGLONG(0);
+  mac_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  password_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  mail_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgBindMacReq::~MsgBindMacReq() {
+  SharedDtor();
+}
+
+void MsgBindMacReq::SharedDtor() {
+  if (mac_ != &::google::protobuf::internal::kEmptyString) {
+    delete mac_;
+  }
+  if (password_ != &::google::protobuf::internal::kEmptyString) {
+    delete password_;
+  }
+  if (mail_ != &::google::protobuf::internal::kEmptyString) {
+    delete mail_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void MsgBindMacReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgBindMacReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgBindMacReq_descriptor_;
+}
+
+const MsgBindMacReq& MsgBindMacReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_MessageC2G_2eproto();  return *default_instance_;
+}
+
+MsgBindMacReq* MsgBindMacReq::default_instance_ = NULL;
+
+MsgBindMacReq* MsgBindMacReq::New() const {
+  return new MsgBindMacReq;
+}
+
+void MsgBindMacReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    account_ = GOOGLE_ULONGLONG(0);
+    if (has_mac()) {
+      if (mac_ != &::google::protobuf::internal::kEmptyString) {
+        mac_->clear();
+      }
+    }
+    if (has_password()) {
+      if (password_ != &::google::protobuf::internal::kEmptyString) {
+        password_->clear();
+      }
+    }
+    if (has_mail()) {
+      if (mail_ != &::google::protobuf::internal::kEmptyString) {
+        mail_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MsgBindMacReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint64 account = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &account_)));
+          set_has_account();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_mac;
+        break;
+      }
+      
+      // required string mac = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_mac:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_mac()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->mac().data(), this->mac().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_password;
+        break;
+      }
+      
+      // required string password = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_password:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_password()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->password().data(), this->password().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_mail;
+        break;
+      }
+      
+      // required string mail = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_mail:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_mail()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->mail().data(), this->mail().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void MsgBindMacReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required uint64 account = 1;
+  if (has_account()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->account(), output);
+  }
+  
+  // required string mac = 2;
+  if (has_mac()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mac().data(), this->mac().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->mac(), output);
+  }
+  
+  // required string password = 3;
+  if (has_password()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->password().data(), this->password().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->password(), output);
+  }
+  
+  // required string mail = 4;
+  if (has_mail()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mail().data(), this->mail().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      4, this->mail(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MsgBindMacReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required uint64 account = 1;
+  if (has_account()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->account(), target);
+  }
+  
+  // required string mac = 2;
+  if (has_mac()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mac().data(), this->mac().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->mac(), target);
+  }
+  
+  // required string password = 3;
+  if (has_password()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->password().data(), this->password().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->password(), target);
+  }
+  
+  // required string mail = 4;
+  if (has_mail()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mail().data(), this->mail().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->mail(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MsgBindMacReq::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint64 account = 1;
+    if (has_account()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->account());
+    }
+    
+    // required string mac = 2;
+    if (has_mac()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->mac());
+    }
+    
+    // required string password = 3;
+    if (has_password()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->password());
+    }
+    
+    // required string mail = 4;
+    if (has_mail()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->mail());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgBindMacReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MsgBindMacReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgBindMacReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgBindMacReq::MergeFrom(const MsgBindMacReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_account()) {
+      set_account(from.account());
+    }
+    if (from.has_mac()) {
+      set_mac(from.mac());
+    }
+    if (from.has_password()) {
+      set_password(from.password());
+    }
+    if (from.has_mail()) {
+      set_mail(from.mail());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MsgBindMacReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgBindMacReq::CopyFrom(const MsgBindMacReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgBindMacReq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+  
+  return true;
+}
+
+void MsgBindMacReq::Swap(MsgBindMacReq* other) {
+  if (other != this) {
+    std::swap(account_, other->account_);
+    std::swap(mac_, other->mac_);
+    std::swap(password_, other->password_);
+    std::swap(mail_, other->mail_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MsgBindMacReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgBindMacReq_descriptor_;
+  metadata.reflection = MsgBindMacReq_reflection_;
   return metadata;
 }
 

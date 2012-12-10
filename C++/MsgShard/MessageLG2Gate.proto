@@ -12,19 +12,31 @@ message MsgLG2GateLoginACK
 	required enResult		result = 3;
 }
 
-
-message MsgLG2GateBindMailACK
+enum enMsgBindResult
+{
+	BindResultError_Unknown = 0;
+	BindResultMailAlreadyBinded = 1;
+	BindResultMacAlreadyBinded = 2;
+	BindResultNotFoundAccount = 3;
+	BindResultEmptyMac = 4;
+	BindResultEmptyPassword = 5;
+	BindResultEmptyMail = 6;
+	BindResultErrorPassword = 7;
+	BindResultErrorMac = 8;
+	BindResultErrorMail = 9;
+	BindResultNotFoundUser = 10;
+}
+enum enBindTypeLogic
+{
+   TypeBindLogic_BindMail = 0;
+   TypeBindLogic_UnbindMac = 1;
+   TypeBindLogic_BindMac = 2;
+}
+message MsgLG2GateBindACK
 {	
-	enum enResult
-	{
-		LG_OK				       = 0;
-		LG_ERRORNOTLOGIN	       = 1;
-		LG_ERROR_MAIL_IS_BINDED    = 2;
-		LG_ERROR_ACCOUNT_IS_BINDED = 3;
-		LG_ERROR			       = 4;
-	}
-	required uint64         account = 2; 
-	required enResult		result = 3;
+	required uint64                 account = 1; 
+	required enMsgBindResult		result = 2;
+	required enBindTypeLogic        enType = 3;
 }
 
 

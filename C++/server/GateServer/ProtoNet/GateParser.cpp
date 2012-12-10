@@ -56,6 +56,8 @@ void CGateParser::ParseMessage(const message_t& msg, CCProtoSocket* pSocket)
 		}
 		break;
 	case C2Gate_MsgBindMailReq:
+	case C2Gate_MsgUnbindMailReq:
+	case C2Gate_MsgBindMacReq:
 		{
 			if (pSocket->GetAccountID() == 0)
 			{
@@ -83,6 +85,7 @@ void CGateParser::ParseMessage(const message_t& msg, CCProtoSocket* pSocket)
 			}
 		}
 		break;
+
 	}
 	//unsigned short sII = *((unsigned short*)msg.data + sizeof(unsigned short));
 

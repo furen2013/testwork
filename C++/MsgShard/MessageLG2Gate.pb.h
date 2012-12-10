@@ -32,7 +32,7 @@ void protobuf_AssignDesc_MessageLG2Gate_2eproto();
 void protobuf_ShutdownFile_MessageLG2Gate_2eproto();
 
 class MsgLG2GateLoginACK;
-class MsgLG2GateBindMailACK;
+class MsgLG2GateBindACK;
 
 enum MsgLG2GateLoginACK_enResult {
   MsgLG2GateLoginACK_enResult_LG_OK = 0,
@@ -53,27 +53,53 @@ inline bool MsgLG2GateLoginACK_enResult_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<MsgLG2GateLoginACK_enResult>(
     MsgLG2GateLoginACK_enResult_descriptor(), name, value);
 }
-enum MsgLG2GateBindMailACK_enResult {
-  MsgLG2GateBindMailACK_enResult_LG_OK = 0,
-  MsgLG2GateBindMailACK_enResult_LG_ERRORNOTLOGIN = 1,
-  MsgLG2GateBindMailACK_enResult_LG_ERROR_MAIL_IS_BINDED = 2,
-  MsgLG2GateBindMailACK_enResult_LG_ERROR_ACCOUNT_IS_BINDED = 3,
-  MsgLG2GateBindMailACK_enResult_LG_ERROR = 4
+enum enMsgBindResult {
+  BindResultError_Unknown = 0,
+  BindResultMailAlreadyBinded = 1,
+  BindResultMacAlreadyBinded = 2,
+  BindResultNotFoundAccount = 3,
+  BindResultEmptyMac = 4,
+  BindResultEmptyPassword = 5,
+  BindResultEmptyMail = 6,
+  BindResultErrorPassword = 7,
+  BindResultErrorMac = 8,
+  BindResultErrorMail = 9,
+  BindResultNotFoundUser = 10
 };
-bool MsgLG2GateBindMailACK_enResult_IsValid(int value);
-const MsgLG2GateBindMailACK_enResult MsgLG2GateBindMailACK_enResult_enResult_MIN = MsgLG2GateBindMailACK_enResult_LG_OK;
-const MsgLG2GateBindMailACK_enResult MsgLG2GateBindMailACK_enResult_enResult_MAX = MsgLG2GateBindMailACK_enResult_LG_ERROR;
-const int MsgLG2GateBindMailACK_enResult_enResult_ARRAYSIZE = MsgLG2GateBindMailACK_enResult_enResult_MAX + 1;
+bool enMsgBindResult_IsValid(int value);
+const enMsgBindResult enMsgBindResult_MIN = BindResultError_Unknown;
+const enMsgBindResult enMsgBindResult_MAX = BindResultNotFoundUser;
+const int enMsgBindResult_ARRAYSIZE = enMsgBindResult_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* MsgLG2GateBindMailACK_enResult_descriptor();
-inline const ::std::string& MsgLG2GateBindMailACK_enResult_Name(MsgLG2GateBindMailACK_enResult value) {
+const ::google::protobuf::EnumDescriptor* enMsgBindResult_descriptor();
+inline const ::std::string& enMsgBindResult_Name(enMsgBindResult value) {
   return ::google::protobuf::internal::NameOfEnum(
-    MsgLG2GateBindMailACK_enResult_descriptor(), value);
+    enMsgBindResult_descriptor(), value);
 }
-inline bool MsgLG2GateBindMailACK_enResult_Parse(
-    const ::std::string& name, MsgLG2GateBindMailACK_enResult* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<MsgLG2GateBindMailACK_enResult>(
-    MsgLG2GateBindMailACK_enResult_descriptor(), name, value);
+inline bool enMsgBindResult_Parse(
+    const ::std::string& name, enMsgBindResult* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<enMsgBindResult>(
+    enMsgBindResult_descriptor(), name, value);
+}
+enum enBindTypeLogic {
+  TypeBindLogic_BindMail = 0,
+  TypeBindLogic_UnbindMac = 1,
+  TypeBindLogic_BindMac = 2
+};
+bool enBindTypeLogic_IsValid(int value);
+const enBindTypeLogic enBindTypeLogic_MIN = TypeBindLogic_BindMail;
+const enBindTypeLogic enBindTypeLogic_MAX = TypeBindLogic_BindMac;
+const int enBindTypeLogic_ARRAYSIZE = enBindTypeLogic_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* enBindTypeLogic_descriptor();
+inline const ::std::string& enBindTypeLogic_Name(enBindTypeLogic value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    enBindTypeLogic_descriptor(), value);
+}
+inline bool enBindTypeLogic_Parse(
+    const ::std::string& name, enBindTypeLogic* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<enBindTypeLogic>(
+    enBindTypeLogic_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -203,14 +229,14 @@ class MsgLG2GateLoginACK : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class MsgLG2GateBindMailACK : public ::google::protobuf::Message {
+class MsgLG2GateBindACK : public ::google::protobuf::Message {
  public:
-  MsgLG2GateBindMailACK();
-  virtual ~MsgLG2GateBindMailACK();
+  MsgLG2GateBindACK();
+  virtual ~MsgLG2GateBindACK();
   
-  MsgLG2GateBindMailACK(const MsgLG2GateBindMailACK& from);
+  MsgLG2GateBindACK(const MsgLG2GateBindACK& from);
   
-  inline MsgLG2GateBindMailACK& operator=(const MsgLG2GateBindMailACK& from) {
+  inline MsgLG2GateBindACK& operator=(const MsgLG2GateBindACK& from) {
     CopyFrom(from);
     return *this;
   }
@@ -224,17 +250,17 @@ class MsgLG2GateBindMailACK : public ::google::protobuf::Message {
   }
   
   static const ::google::protobuf::Descriptor* descriptor();
-  static const MsgLG2GateBindMailACK& default_instance();
+  static const MsgLG2GateBindACK& default_instance();
   
-  void Swap(MsgLG2GateBindMailACK* other);
+  void Swap(MsgLG2GateBindACK* other);
   
   // implements Message ----------------------------------------------
   
-  MsgLG2GateBindMailACK* New() const;
+  MsgLG2GateBindACK* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const MsgLG2GateBindMailACK& from);
-  void MergeFrom(const MsgLG2GateBindMailACK& from);
+  void CopyFrom(const MsgLG2GateBindACK& from);
+  void MergeFrom(const MsgLG2GateBindACK& from);
   void Clear();
   bool IsInitialized() const;
   
@@ -255,70 +281,53 @@ class MsgLG2GateBindMailACK : public ::google::protobuf::Message {
   
   // nested types ----------------------------------------------------
   
-  typedef MsgLG2GateBindMailACK_enResult enResult;
-  static const enResult LG_OK = MsgLG2GateBindMailACK_enResult_LG_OK;
-  static const enResult LG_ERRORNOTLOGIN = MsgLG2GateBindMailACK_enResult_LG_ERRORNOTLOGIN;
-  static const enResult LG_ERROR_MAIL_IS_BINDED = MsgLG2GateBindMailACK_enResult_LG_ERROR_MAIL_IS_BINDED;
-  static const enResult LG_ERROR_ACCOUNT_IS_BINDED = MsgLG2GateBindMailACK_enResult_LG_ERROR_ACCOUNT_IS_BINDED;
-  static const enResult LG_ERROR = MsgLG2GateBindMailACK_enResult_LG_ERROR;
-  static inline bool enResult_IsValid(int value) {
-    return MsgLG2GateBindMailACK_enResult_IsValid(value);
-  }
-  static const enResult enResult_MIN =
-    MsgLG2GateBindMailACK_enResult_enResult_MIN;
-  static const enResult enResult_MAX =
-    MsgLG2GateBindMailACK_enResult_enResult_MAX;
-  static const int enResult_ARRAYSIZE =
-    MsgLG2GateBindMailACK_enResult_enResult_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  enResult_descriptor() {
-    return MsgLG2GateBindMailACK_enResult_descriptor();
-  }
-  static inline const ::std::string& enResult_Name(enResult value) {
-    return MsgLG2GateBindMailACK_enResult_Name(value);
-  }
-  static inline bool enResult_Parse(const ::std::string& name,
-      enResult* value) {
-    return MsgLG2GateBindMailACK_enResult_Parse(name, value);
-  }
-  
   // accessors -------------------------------------------------------
   
-  // required uint64 account = 2;
+  // required uint64 account = 1;
   inline bool has_account() const;
   inline void clear_account();
-  static const int kAccountFieldNumber = 2;
+  static const int kAccountFieldNumber = 1;
   inline ::google::protobuf::uint64 account() const;
   inline void set_account(::google::protobuf::uint64 value);
   
-  // required .MsgLG2GateBindMailACK.enResult result = 3;
+  // required .enMsgBindResult result = 2;
   inline bool has_result() const;
   inline void clear_result();
-  static const int kResultFieldNumber = 3;
-  inline ::MsgLG2GateBindMailACK_enResult result() const;
-  inline void set_result(::MsgLG2GateBindMailACK_enResult value);
+  static const int kResultFieldNumber = 2;
+  inline enMsgBindResult result() const;
+  inline void set_result(enMsgBindResult value);
   
-  // @@protoc_insertion_point(class_scope:MsgLG2GateBindMailACK)
+  // required .enBindTypeLogic enType = 3;
+  inline bool has_entype() const;
+  inline void clear_entype();
+  static const int kEnTypeFieldNumber = 3;
+  inline enBindTypeLogic entype() const;
+  inline void set_entype(enBindTypeLogic value);
+  
+  // @@protoc_insertion_point(class_scope:MsgLG2GateBindACK)
  private:
   inline void set_has_account();
   inline void clear_has_account();
   inline void set_has_result();
   inline void clear_has_result();
+  inline void set_has_entype();
+  inline void clear_has_entype();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   ::google::protobuf::uint64 account_;
   int result_;
+  int entype_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
   
   friend void  protobuf_AddDesc_MessageLG2Gate_2eproto();
   friend void protobuf_AssignDesc_MessageLG2Gate_2eproto();
   friend void protobuf_ShutdownFile_MessageLG2Gate_2eproto();
   
   void InitAsDefaultInstance();
-  static MsgLG2GateBindMailACK* default_instance_;
+  static MsgLG2GateBindACK* default_instance_;
 };
 // ===================================================================
 
@@ -396,51 +405,74 @@ inline void MsgLG2GateLoginACK::set_result(::MsgLG2GateLoginACK_enResult value) 
 
 // -------------------------------------------------------------------
 
-// MsgLG2GateBindMailACK
+// MsgLG2GateBindACK
 
-// required uint64 account = 2;
-inline bool MsgLG2GateBindMailACK::has_account() const {
+// required uint64 account = 1;
+inline bool MsgLG2GateBindACK::has_account() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void MsgLG2GateBindMailACK::set_has_account() {
+inline void MsgLG2GateBindACK::set_has_account() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void MsgLG2GateBindMailACK::clear_has_account() {
+inline void MsgLG2GateBindACK::clear_has_account() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void MsgLG2GateBindMailACK::clear_account() {
+inline void MsgLG2GateBindACK::clear_account() {
   account_ = GOOGLE_ULONGLONG(0);
   clear_has_account();
 }
-inline ::google::protobuf::uint64 MsgLG2GateBindMailACK::account() const {
+inline ::google::protobuf::uint64 MsgLG2GateBindACK::account() const {
   return account_;
 }
-inline void MsgLG2GateBindMailACK::set_account(::google::protobuf::uint64 value) {
+inline void MsgLG2GateBindACK::set_account(::google::protobuf::uint64 value) {
   set_has_account();
   account_ = value;
 }
 
-// required .MsgLG2GateBindMailACK.enResult result = 3;
-inline bool MsgLG2GateBindMailACK::has_result() const {
+// required .enMsgBindResult result = 2;
+inline bool MsgLG2GateBindACK::has_result() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void MsgLG2GateBindMailACK::set_has_result() {
+inline void MsgLG2GateBindACK::set_has_result() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void MsgLG2GateBindMailACK::clear_has_result() {
+inline void MsgLG2GateBindACK::clear_has_result() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void MsgLG2GateBindMailACK::clear_result() {
+inline void MsgLG2GateBindACK::clear_result() {
   result_ = 0;
   clear_has_result();
 }
-inline ::MsgLG2GateBindMailACK_enResult MsgLG2GateBindMailACK::result() const {
-  return static_cast< ::MsgLG2GateBindMailACK_enResult >(result_);
+inline enMsgBindResult MsgLG2GateBindACK::result() const {
+  return static_cast< enMsgBindResult >(result_);
 }
-inline void MsgLG2GateBindMailACK::set_result(::MsgLG2GateBindMailACK_enResult value) {
-  GOOGLE_DCHECK(::MsgLG2GateBindMailACK_enResult_IsValid(value));
+inline void MsgLG2GateBindACK::set_result(enMsgBindResult value) {
+  GOOGLE_DCHECK(enMsgBindResult_IsValid(value));
   set_has_result();
   result_ = value;
+}
+
+// required .enBindTypeLogic enType = 3;
+inline bool MsgLG2GateBindACK::has_entype() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgLG2GateBindACK::set_has_entype() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgLG2GateBindACK::clear_has_entype() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgLG2GateBindACK::clear_entype() {
+  entype_ = 0;
+  clear_has_entype();
+}
+inline enBindTypeLogic MsgLG2GateBindACK::entype() const {
+  return static_cast< enBindTypeLogic >(entype_);
+}
+inline void MsgLG2GateBindACK::set_entype(enBindTypeLogic value) {
+  GOOGLE_DCHECK(enBindTypeLogic_IsValid(value));
+  set_has_entype();
+  entype_ = value;
 }
 
 
@@ -455,8 +487,12 @@ inline const EnumDescriptor* GetEnumDescriptor< ::MsgLG2GateLoginACK_enResult>()
   return ::MsgLG2GateLoginACK_enResult_descriptor();
 }
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::MsgLG2GateBindMailACK_enResult>() {
-  return ::MsgLG2GateBindMailACK_enResult_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< enMsgBindResult>() {
+  return enMsgBindResult_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< enBindTypeLogic>() {
+  return enBindTypeLogic_descriptor();
 }
 
 }  // namespace google

@@ -38,6 +38,8 @@ enum MsgType {
   C2Gate_MsgCreateAcountReq = 2,
   C2Gate_MsgLoginMacReq = 3,
   C2Gate_MsgBindMailReq = 4,
+  C2Gate_MsgUnbindMacReq = 5,
+  C2Gate_MsgBindMacReq = 6,
   C2Gate_END = 998,
   G2C_Begin = 999,
   G2C_LoginMacACK = 1000,
