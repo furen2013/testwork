@@ -37,6 +37,7 @@ class MsgC2GateLoginMacReq;
 class MsgBindMailReq;
 class MsgUnbindMacReq;
 class MsgBindMacReq;
+class MsgMailLoginReq;
 
 // ===================================================================
 
@@ -709,6 +710,106 @@ class MsgBindMacReq : public ::google::protobuf::Message {
   
   void InitAsDefaultInstance();
   static MsgBindMacReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgMailLoginReq : public ::google::protobuf::Message {
+ public:
+  MsgMailLoginReq();
+  virtual ~MsgMailLoginReq();
+  
+  MsgMailLoginReq(const MsgMailLoginReq& from);
+  
+  inline MsgMailLoginReq& operator=(const MsgMailLoginReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgMailLoginReq& default_instance();
+  
+  void Swap(MsgMailLoginReq* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgMailLoginReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgMailLoginReq& from);
+  void MergeFrom(const MsgMailLoginReq& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required string password = 1;
+  inline bool has_password() const;
+  inline void clear_password();
+  static const int kPasswordFieldNumber = 1;
+  inline const ::std::string& password() const;
+  inline void set_password(const ::std::string& value);
+  inline void set_password(const char* value);
+  inline void set_password(const char* value, size_t size);
+  inline ::std::string* mutable_password();
+  inline ::std::string* release_password();
+  
+  // required string mail = 2;
+  inline bool has_mail() const;
+  inline void clear_mail();
+  static const int kMailFieldNumber = 2;
+  inline const ::std::string& mail() const;
+  inline void set_mail(const ::std::string& value);
+  inline void set_mail(const char* value);
+  inline void set_mail(const char* value, size_t size);
+  inline ::std::string* mutable_mail();
+  inline ::std::string* release_mail();
+  
+  // @@protoc_insertion_point(class_scope:MsgMailLoginReq)
+ private:
+  inline void set_has_password();
+  inline void clear_has_password();
+  inline void set_has_mail();
+  inline void clear_has_mail();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::std::string* password_;
+  ::std::string* mail_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageC2G_2eproto();
+  friend void protobuf_AssignDesc_MessageC2G_2eproto();
+  friend void protobuf_ShutdownFile_MessageC2G_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgMailLoginReq* default_instance_;
 };
 // ===================================================================
 
@@ -1663,6 +1764,126 @@ inline ::std::string* MsgBindMacReq::mutable_mail() {
   return mail_;
 }
 inline ::std::string* MsgBindMacReq::release_mail() {
+  clear_has_mail();
+  if (mail_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = mail_;
+    mail_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// -------------------------------------------------------------------
+
+// MsgMailLoginReq
+
+// required string password = 1;
+inline bool MsgMailLoginReq::has_password() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgMailLoginReq::set_has_password() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgMailLoginReq::clear_has_password() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgMailLoginReq::clear_password() {
+  if (password_ != &::google::protobuf::internal::kEmptyString) {
+    password_->clear();
+  }
+  clear_has_password();
+}
+inline const ::std::string& MsgMailLoginReq::password() const {
+  return *password_;
+}
+inline void MsgMailLoginReq::set_password(const ::std::string& value) {
+  set_has_password();
+  if (password_ == &::google::protobuf::internal::kEmptyString) {
+    password_ = new ::std::string;
+  }
+  password_->assign(value);
+}
+inline void MsgMailLoginReq::set_password(const char* value) {
+  set_has_password();
+  if (password_ == &::google::protobuf::internal::kEmptyString) {
+    password_ = new ::std::string;
+  }
+  password_->assign(value);
+}
+inline void MsgMailLoginReq::set_password(const char* value, size_t size) {
+  set_has_password();
+  if (password_ == &::google::protobuf::internal::kEmptyString) {
+    password_ = new ::std::string;
+  }
+  password_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* MsgMailLoginReq::mutable_password() {
+  set_has_password();
+  if (password_ == &::google::protobuf::internal::kEmptyString) {
+    password_ = new ::std::string;
+  }
+  return password_;
+}
+inline ::std::string* MsgMailLoginReq::release_password() {
+  clear_has_password();
+  if (password_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = password_;
+    password_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// required string mail = 2;
+inline bool MsgMailLoginReq::has_mail() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgMailLoginReq::set_has_mail() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgMailLoginReq::clear_has_mail() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgMailLoginReq::clear_mail() {
+  if (mail_ != &::google::protobuf::internal::kEmptyString) {
+    mail_->clear();
+  }
+  clear_has_mail();
+}
+inline const ::std::string& MsgMailLoginReq::mail() const {
+  return *mail_;
+}
+inline void MsgMailLoginReq::set_mail(const ::std::string& value) {
+  set_has_mail();
+  if (mail_ == &::google::protobuf::internal::kEmptyString) {
+    mail_ = new ::std::string;
+  }
+  mail_->assign(value);
+}
+inline void MsgMailLoginReq::set_mail(const char* value) {
+  set_has_mail();
+  if (mail_ == &::google::protobuf::internal::kEmptyString) {
+    mail_ = new ::std::string;
+  }
+  mail_->assign(value);
+}
+inline void MsgMailLoginReq::set_mail(const char* value, size_t size) {
+  set_has_mail();
+  if (mail_ == &::google::protobuf::internal::kEmptyString) {
+    mail_ = new ::std::string;
+  }
+  mail_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* MsgMailLoginReq::mutable_mail() {
+  set_has_mail();
+  if (mail_ == &::google::protobuf::internal::kEmptyString) {
+    mail_ = new ::std::string;
+  }
+  return mail_;
+}
+inline ::std::string* MsgMailLoginReq::release_mail() {
   clear_has_mail();
   if (mail_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;

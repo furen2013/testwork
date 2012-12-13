@@ -23,6 +23,21 @@ enum enBindResult
 
 struct tgUserInfo_t;
 
+enum enLoginMailResult
+{	
+	LoginMailResult_OK,
+	LoginMailResult_EmptyMail,
+	LoginMailResult_EmptryPassword,
+	LoginMailResult_NotFoundMail,
+	LoginMailResult_ErrorPassword,
+	LoginMailResult_ErrorAlreadyLogin,
+};
+struct tgLoginMail
+{
+	enLoginMailResult en;
+	unsigned long account;
+};
+
 class LoginUserManager : public Singleton<LoginUserManager>
 {
 public:
@@ -32,6 +47,7 @@ public:
 	bool isAlreadyLogin(unsigned long account);
 	bool isAlreadyLogin(const char* mac);
 	bool tryLoginOut(unsigned long account);
+	tgLoginMail tryLogin(const char* mail, const char* password);
 	enBindResult bindMail(unsigned long account, const char* mail, const char* password, const char* mac);
 	enBindResult UnbindMac(unsigned long account, const char* mail, const char* password, const char* mac);
 	enBindResult bindMac(unsigned long account, const char* mail, const char* password, const char* mac);

@@ -16,8 +16,11 @@ LoginUserManager::~LoginUserManager(void)
 
 bool LoginUserManager::isAlreadyLogin(const char* mac)
 {
-	unsigned long account = lh_strhash(mac);
-	return isAlreadyLogin(account);
+	if (GetLoginUser(mac))
+	{
+		return true;
+	}
+	return false;
 }
 
 bool LoginUserManager::isAlreadyLogin(unsigned long account)
@@ -64,8 +67,22 @@ CLoginUser* LoginUserManager::GetLoginUser(unsigned long account)
 
 CLoginUser* LoginUserManager::GetLoginUser(const char* mac)
 {
-	unsigned long account = lh_strhash(mac);
-	return GetLoginUser(account);
+	CLoginUser* pUser = NULL;
+	CLoginUser* pTempUser = NULL;
+	{
+		boost::mutex::scoped_lock lock(m_mutex);
+		MAPLOGINUSER::iterator it = m_mapLoginUser.begin();
+		for (; it != m_mapLoginUser.end(); ++ it)
+		{
+			pTempUser = (CLoginUser*)it->second;
+			if (pTempUser->m_Info&&pTempUser->m_Info->mac.compare(mac) == 0)
+			{
+				pUser = pTempUser;
+				break;;
+			}
+		}
+	}
+	return pUser;
 }
 
 enBindResult LoginUserManager::UnbindMac(unsigned long account, const char* mail, const char* password, const char* mac)
@@ -198,6 +215,35 @@ enBindResult LoginUserManager::checkBindArgument(unsigned long account, const ch
 	return BindResultOK;
 }
 
+tgLoginMail LoginUserManager::tryLogin(const char* mail, const char* password)
+{
+	tgLoginMail tg;
+	tg.en =  LoginMailResult_OK;
+	tg.account = 0;
+	{
+		CLoginUser* pUser = NULL;
+		boost::mutex::scoped_lock lock(m_mutex);
+		MAPLOGINUSER::iterator it = m_mapLoginUser.begin();
+		for (; it != m_mapLoginUser.end(); it ++)
+		{
+			pUser = it->second;
+			if (pUser->m_Info&&pUser->m_Info->mail.compare(mail) == 0)
+			{
+				tg.en = enLoginMailResult::LoginMailResult_ErrorAlreadyLogin;
+				break;
+			}
+		}
+
+		if (tg.en == LoginMailResult_OK)
+		{
+
+		}
+
+	}
+	
+
+	return tg;
+}
 enBindResult LoginUserManager::bindMail(unsigned long account, const char* mail, const char* password, const char* mac)
 {
 	enBindResult en = checkBindArgument(account, mail, password, mac);

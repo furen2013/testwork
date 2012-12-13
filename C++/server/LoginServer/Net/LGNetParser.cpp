@@ -20,21 +20,73 @@ CLGNetParser::~CLGNetParser(void)
 
 enMsgBindResult CLGNetParser::ParseBindMsg(enBindResult en, unsigned long account, const char* mail, const char* password, const char* mac)
 {
+	enMsgBindResult enReturn = BindMsgResult_OK;
 	switch(en)
 	{
 	case BindResultMailAlreadyBinded:
 		{
-			
-			MyLog::log->notice("account[%l] mail[%s] password[%s] mac[%s] account is already binded", account, mail,
+			MyLog::log->notice("account[%l] mail[%s] password[%s] mac[%s] mail is already binded", account, mail,
 				password,mac);
+			enReturn = BindMsgResultMacAlreadyBinded;
 		}
 		break;
+	case BindResultEmptyMac:
+		{
+			MyLog::log->notice("account[%l] mail[%s] password[%s] mac[%s] mac is empty", account, mail,
+				password,mac);
+			enReturn = BindMsgResultEmptyMac;
+		}
+		break;
+	case BindResultEmptyMail:
+		{
+			MyLog::log->notice("account[%l] mail[%s] password[%s] mac[%s] mail is empty", account, mail,
+				password,mac);
+			enReturn = BindMsgResultEmptyMail;
+		}
+		break;
+	case BindResultErrorMac:
+		{
+			MyLog::log->notice("account[%l] mail[%s] password[%s] mac[%s] mac is wrong", account, mail,
+				password,mac);
+			enReturn = BindMsgResultErrorMac;
+		}
+		break;
+	case BindResultErrorMail:
+		{
+			MyLog::log->notice("account[%l] mail[%s] password[%s] mac[%s] mail is wrong", account, mail,
+				password,mac);
+			enReturn = BindMsgResultErrorMail;
+		}
+		break;
+	case BindResultMacAlreadyBinded:
+		{
+			MyLog::log->notice("account[%l] mail[%s] password[%s] mac[%s] mac is already binded", account, mail,
+				password,mac);
+			enReturn = BindMsgResultMacAlreadyBinded;
+		}
+		break;
+	case BindResultNotFoundUser:
+		{
+			MyLog::log->notice("account[%l] mail[%s] password[%s] mac[%s] mac not found user", account, mail,
+				password,mac);
+			enReturn = BindMsgResultNotFoundUser;
+		}
+		break;
+	case BindResultOK:
+		{
+			MyLog::log->notice("account[%l] mail[%s] password[%s] mac[%s] bind type excute ok", account, mail,
+				password,mac);
+			enReturn = BindMsgResult_OK;
+		}
 	default:
 		{
 			MyLog::log->notice("account[%l] mail[%s] password[%s] mac[%s] account other error", 
-				Msg.account(), Msg.mail(), Msg.password(),Msg.mac());
-			MsgACK.set_result(MsgLG2GateBindMailACK_enResult_LG_ERROR);
+				account, mail, password,mac);
+			enReturn = BindMsgResultError_Unknown;
+			
 		}
+	}
+	return enReturn;
 }
 
 
@@ -48,6 +100,13 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 	unsigned short msgBodyBegin = mark + headsize;
 	switch(Msghead.type())
 	{
+	case Gate2LG_MsgGate2LGLoginMailReq:
+		{
+			MsgGate2LGMailLoginReq Msg;
+			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+
+		}
+		break;
 	case Gate2LG_MsgGate2LGLoginReq:
 		{
 			MsgGate2LGLoginReq Msg;
@@ -58,7 +117,7 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 			if (pLoginUser != NULL)
 			{
 				//already login 
-				account = pLoginUser->m_Info->account;
+				//account = pLoginUser->m_Info->account;
 			}
 			else
 			{
@@ -95,27 +154,29 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 				}
 			}
 		}
+		break;
 	case C2Gate_MsgBindMailReq:
 		{
 			MsgBindMailReq Msg;
 			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
 			MsgLG2GateBindACK MsgACK;
 			MsgACK.set_account(Msg.account());
+			MsgACK.set_entype(TypeBindLogic_BindMail);
 			MyLog::log->notice("recive bind mail request account[%l] mail[%s] password[%s] mac[%s]", 
 				Msg.account(), Msg.mail(), Msg.password(),Msg.mac());
 			if (LUM.isAlreadyLogin(Msg.account()) == false)
 			{
-				MsgACK.set_result(MsgLG2GateBindMailACK_enResult_LG_ERRORNOTLOGIN);
+				MsgACK.set_result(BindMsgResultNotFoundAccount);
 			}
 			else
 			{
 				CLoginUser* pUser = LUM.GetLoginUser(Msg.account());
 				enBindResult en = LUM.bindMail(Msg.account(), Msg.mail().c_str(), Msg.password().c_str(), Msg.mac().c_str());
-
-
-				}
-				pSocket->send_message(LG2C_MsgBindMailACK,&MsgACK, Msghead.account());
+				enMsgBindResult enMsg = ParseBindMsg(en,Msg.account(), Msg.mail().c_str(), Msg.password().c_str(), Msg.mac().c_str());
+				MsgACK.set_result(enMsg);
+				
 			}
+			pSocket->send_message(LG2C_MsgBindMailACK,&MsgACK, Msghead.account());
 			
 		}
 		break;
@@ -123,32 +184,38 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 		{
 			MsgUnbindMacReq Msg;
 			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
-			enBindResult en = LUM.UnbindMac(Msg.account(), Msg.mail().c_str(),Msg.password().c_str(), Msg.mac().c_str());
-			switch(en)
-			{
-			case 	BindResultError_Unknown:
-			case	BindResultMailAlreadyBinded:
-			case	BindResultMacAlreadyBinded:
-			case	BindResultNotFoundAccount:
-			case	BindResultEmptyMac:
-			case	BindResultEmptyPassword:
-			case	BindResultEmptyMail:
-			case	BindResultErrorPassword:
-			case	BindResultErrorMac:
-			case	BindResultErrorMail:
-			case	BindResultNotFoundUser:
-			}
-		}
-		break;
-	case  C2Gate_MsgBindMacReq:
-		{
+			MsgLG2GateBindACK MsgACK;
+			MsgACK.set_account(Msg.account());
+			MsgACK.set_entype(TypeBindLogic_UnbindMac);
 
+			MyLog::log->notice("recive unbind mac request account[%l] mail[%s] password[%s] mac[%s]", 
+				Msg.account(), Msg.mail(), Msg.password(),Msg.mac());
+			enBindResult en = LUM.UnbindMac(Msg.account(), Msg.mail().c_str(),Msg.password().c_str(), Msg.mac().c_str());
+			enMsgBindResult enMsg = ParseBindMsg(en,Msg.account(), Msg.mail().c_str(), Msg.password().c_str(), Msg.mac().c_str());
+			MsgACK.set_result(enMsg);
+			pSocket->send_message(LG2C_MsgBindMailACK,&MsgACK, Msghead.account());
 		}
 		break;
+	case C2Gate_MsgBindMacReq:
+		{
+			MsgBindMacReq Msg;
+			MsgLG2GateBindACK MsgACK;
+			MsgACK.set_entype(TypeBindLogic_BindMac);
+			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+			MsgACK.set_account(Msg.account());
+
+			MyLog::log->notice("recive bind mac request account[%l] mail[%s] password[%s] mac[%s]", 
+				Msg.account(), Msg.mail(), Msg.password(),Msg.mac());
+			enBindResult en = LUM.bindMac(Msg.account(), Msg.mail().c_str(),Msg.password().c_str(), Msg.mac().c_str());
+			enMsgBindResult enMsg = ParseBindMsg(en,Msg.account(), Msg.mail().c_str(), Msg.password().c_str(), Msg.mac().c_str());
+			MsgACK.set_result(enMsg);
+			pSocket->send_message(LG2C_MsgBindMailACK,&MsgACK, Msghead.account());
+		}
 	default:
 		{
 			MyLog::log->warn("unknown msg gate 2 lg");
 		}
+		break;
 
 	}
 }

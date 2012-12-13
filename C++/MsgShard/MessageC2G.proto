@@ -41,3 +41,10 @@ message MsgBindMacReq
 	required string password = 3;
 	required string mail = 4;
 }
+
+message MsgMailLoginReq
+{
+	required string password = 1;
+	required string mail = 2;
+
+}

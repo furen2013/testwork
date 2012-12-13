@@ -3,6 +3,7 @@
 #define GATEUSERMANAGER_H
 #include <map>
 #include <boost/thread.hpp>
+#include "Singleton.h"
 class CCProtoSocket;
 typedef std::map<DWORD, CCProtoSocket*> MAPPROTOSOCKET;
 

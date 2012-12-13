@@ -5,6 +5,14 @@ message MsgGate2LGLoginReq
 	required string mac = 2;
 }
 
+message MsgGate2LGMailLoginReq
+{
+	required uint64 id = 1;
+	required string mail = 2;
+	required string password = 3;
+}
+
+
 message MsgGate2LGClientDisconnect
 {
 	required uint64 id = 1;

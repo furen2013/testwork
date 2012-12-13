@@ -33,6 +33,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MsgBindMacReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgBindMacReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgMailLoginReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgMailLoginReq_reflection_ = NULL;
 
 }  // namespace
 
@@ -145,6 +148,22 @@ void protobuf_AssignDesc_MessageC2G_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MsgBindMacReq));
+  MsgMailLoginReq_descriptor_ = file->message_type(6);
+  static const int MsgMailLoginReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgMailLoginReq, password_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgMailLoginReq, mail_),
+  };
+  MsgMailLoginReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MsgMailLoginReq_descriptor_,
+      MsgMailLoginReq::default_instance_,
+      MsgMailLoginReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgMailLoginReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgMailLoginReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MsgMailLoginReq));
 }
 
 namespace {
@@ -169,6 +188,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     MsgUnbindMacReq_descriptor_, &MsgUnbindMacReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     MsgBindMacReq_descriptor_, &MsgBindMacReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MsgMailLoginReq_descriptor_, &MsgMailLoginReq::default_instance());
 }
 
 }  // namespace
@@ -186,6 +207,8 @@ void protobuf_ShutdownFile_MessageC2G_2eproto() {
   delete MsgUnbindMacReq_reflection_;
   delete MsgBindMacReq::default_instance_;
   delete MsgBindMacReq_reflection_;
+  delete MsgMailLoginReq::default_instance_;
+  delete MsgMailLoginReq_reflection_;
 }
 
 void protobuf_AddDesc_MessageC2G_2eproto() {
@@ -206,7 +229,9 @@ void protobuf_AddDesc_MessageC2G_2eproto() {
     "UnbindMacReq\022\017\n\007account\030\001 \002(\004\022\013\n\003mac\030\002 \002"
     "(\t\022\020\n\010password\030\003 \002(\t\022\014\n\004mail\030\004 \002(\t\"M\n\rMs"
     "gBindMacReq\022\017\n\007account\030\001 \002(\004\022\013\n\003mac\030\002 \002("
-    "\t\022\020\n\010password\030\003 \002(\t\022\014\n\004mail\030\004 \002(\t", 433);
+    "\t\022\020\n\010password\030\003 \002(\t\022\014\n\004mail\030\004 \002(\t\"1\n\017Msg"
+    "MailLoginReq\022\020\n\010password\030\001 \002(\t\022\014\n\004mail\030\002"
+    " \002(\t", 484);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageC2G.proto", &protobuf_RegisterTypes);
   MsgC2GateLoginReq::default_instance_ = new MsgC2GateLoginReq();
@@ -215,12 +240,14 @@ void protobuf_AddDesc_MessageC2G_2eproto() {
   MsgBindMailReq::default_instance_ = new MsgBindMailReq();
   MsgUnbindMacReq::default_instance_ = new MsgUnbindMacReq();
   MsgBindMacReq::default_instance_ = new MsgBindMacReq();
+  MsgMailLoginReq::default_instance_ = new MsgMailLoginReq();
   MsgC2GateLoginReq::default_instance_->InitAsDefaultInstance();
   MsgC2GateCreateAcountReq::default_instance_->InitAsDefaultInstance();
   MsgC2GateLoginMacReq::default_instance_->InitAsDefaultInstance();
   MsgBindMailReq::default_instance_->InitAsDefaultInstance();
   MsgUnbindMacReq::default_instance_->InitAsDefaultInstance();
   MsgBindMacReq::default_instance_->InitAsDefaultInstance();
+  MsgMailLoginReq::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_MessageC2G_2eproto);
 }
 
@@ -2211,6 +2238,288 @@ void MsgBindMacReq::Swap(MsgBindMacReq* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = MsgBindMacReq_descriptor_;
   metadata.reflection = MsgBindMacReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgMailLoginReq::kPasswordFieldNumber;
+const int MsgMailLoginReq::kMailFieldNumber;
+#endif  // !_MSC_VER
+
+MsgMailLoginReq::MsgMailLoginReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MsgMailLoginReq::InitAsDefaultInstance() {
+}
+
+MsgMailLoginReq::MsgMailLoginReq(const MsgMailLoginReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MsgMailLoginReq::SharedCtor() {
+  _cached_size_ = 0;
+  password_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  mail_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgMailLoginReq::~MsgMailLoginReq() {
+  SharedDtor();
+}
+
+void MsgMailLoginReq::SharedDtor() {
+  if (password_ != &::google::protobuf::internal::kEmptyString) {
+    delete password_;
+  }
+  if (mail_ != &::google::protobuf::internal::kEmptyString) {
+    delete mail_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void MsgMailLoginReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgMailLoginReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgMailLoginReq_descriptor_;
+}
+
+const MsgMailLoginReq& MsgMailLoginReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_MessageC2G_2eproto();  return *default_instance_;
+}
+
+MsgMailLoginReq* MsgMailLoginReq::default_instance_ = NULL;
+
+MsgMailLoginReq* MsgMailLoginReq::New() const {
+  return new MsgMailLoginReq;
+}
+
+void MsgMailLoginReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_password()) {
+      if (password_ != &::google::protobuf::internal::kEmptyString) {
+        password_->clear();
+      }
+    }
+    if (has_mail()) {
+      if (mail_ != &::google::protobuf::internal::kEmptyString) {
+        mail_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MsgMailLoginReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string password = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_password()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->password().data(), this->password().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_mail;
+        break;
+      }
+      
+      // required string mail = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_mail:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_mail()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->mail().data(), this->mail().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void MsgMailLoginReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required string password = 1;
+  if (has_password()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->password().data(), this->password().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->password(), output);
+  }
+  
+  // required string mail = 2;
+  if (has_mail()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mail().data(), this->mail().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->mail(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MsgMailLoginReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required string password = 1;
+  if (has_password()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->password().data(), this->password().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->password(), target);
+  }
+  
+  // required string mail = 2;
+  if (has_mail()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mail().data(), this->mail().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->mail(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MsgMailLoginReq::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required string password = 1;
+    if (has_password()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->password());
+    }
+    
+    // required string mail = 2;
+    if (has_mail()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->mail());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgMailLoginReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MsgMailLoginReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgMailLoginReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgMailLoginReq::MergeFrom(const MsgMailLoginReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_password()) {
+      set_password(from.password());
+    }
+    if (from.has_mail()) {
+      set_mail(from.mail());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MsgMailLoginReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgMailLoginReq::CopyFrom(const MsgMailLoginReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgMailLoginReq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  
+  return true;
+}
+
+void MsgMailLoginReq::Swap(MsgMailLoginReq* other) {
+  if (other != this) {
+    std::swap(password_, other->password_);
+    std::swap(mail_, other->mail_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MsgMailLoginReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgMailLoginReq_descriptor_;
+  metadata.reflection = MsgMailLoginReq_reflection_;
   return metadata;
 }
 
