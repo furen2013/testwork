@@ -76,33 +76,33 @@ void CUserStorage::addUser(tgUserInfo_t* p)
 	{
 		return;
 	}
-	boost::mutex::scoped_lock lock(m_mutex);
-	std::map<long, tgUserInfo_t*>::iterator it = m_storageUser.begin();
-	for (; it != m_storageUser.end(); ++ it)
+	bool b = true;
 	{
-		tgUserInfo_t* temp = it->second;
-		if (temp->account == p->account)
+		
+		boost::mutex::scoped_lock lock(m_mutex);
+		std::map<long, tgUserInfo_t*>::iterator it = m_storageUser.begin();
+		for (; it != m_storageUser.end(); ++ it)
 		{
-			return;
+			tgUserInfo_t* temp = it->second;
+			if (temp->account == p->account || temp->mac == p->mac || (temp->mail.empty()&&p->mail == temp->mail))
+			{
+				b = false;
+				break;
+			}
 		}
 
-		if (temp->mac == p->mac)
+		if (b)
 		{
-			return;
-		}
+			m_storageUser.insert(std::map<long, tgUserInfo_t*>::value_type(p->account, p));
 
-		if (temp->mail.empty()&&p->mail == temp->mail)
-		{
-			return;
-		}
+			phoneDatabase->WaitExecute( "insert into `account` (`account`, `mac`, `Password`, `Mail`) values('%ld', '%s', '%s', '%s')", 
+				p->account, p->mac.c_str()
+				, p->password.c_str(), p->mail.c_str() );
 
+		}
+		
 	}
 
-	m_storageUser.insert(std::map<long, tgUserInfo_t*>::value_type(p->account, p));
-
-	phoneDatabase->WaitExecute( "insert into `account` (`account`, `mac`, `Password`, `Mail`) values('%ld', '%s', '%s', '%s')", 
-		p->account, p->mac.c_str()
-		, p->password.c_str(), p->mail.c_str() );
 }
 
 void CUserStorage::Clear()
@@ -118,20 +118,46 @@ void CUserStorage::Clear()
 	m_storageUser.clear();
 }
 
+tgUserInfo_t* CUserStorage::GetUserInfoByMail(const char* Mail)
+{
+	tgUserInfo_t* pTemp = NULL;
+	{
+		boost::mutex::scoped_lock lock(m_mutex);
+		std::map<long, tgUserInfo_t*>::iterator it = m_storageUser.begin();
+		for (; it != m_storageUser.end(); ++ it)
+		{
+			tgUserInfo_t* p = it->second;
+			if (p->mail.compare(Mail)==0)
+			{
+				pTemp = p;
+				break;
+			}
+		}
+
+	}
+
+	return pTemp;
+}
+
 tgUserInfo_t* CUserStorage::GetUserInfoByMac(const char* szMac)
 {
-	boost::mutex::scoped_lock lock(m_mutex);
-	std::map<long, tgUserInfo_t*>::iterator it = m_storageUser.begin();
-	for (; it != m_storageUser.end(); ++ it)
+	tgUserInfo_t* pTemp = NULL;
 	{
-		tgUserInfo_t* p = it->second;
-		if (p->mac.compare(szMac)==0)
+		boost::mutex::scoped_lock lock(m_mutex);
+		std::map<long, tgUserInfo_t*>::iterator it = m_storageUser.begin();
+		for (; it != m_storageUser.end(); ++ it)
 		{
-			return p;
+			tgUserInfo_t* p = it->second;
+			if (p->mac.compare(szMac)==0)
+			{
+				pTemp = p;
+				break;
+			}
 		}
 	}
 
-	return NULL;
+
+	return pTemp;
 }
 
 tgUserInfo_t* CUserStorage::GetUserInfo(long account)

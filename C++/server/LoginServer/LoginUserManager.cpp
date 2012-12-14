@@ -229,14 +229,33 @@ tgLoginMail LoginUserManager::tryLogin(const char* mail, const char* password)
 			pUser = it->second;
 			if (pUser->m_Info&&pUser->m_Info->mail.compare(mail) == 0)
 			{
-				tg.en = enLoginMailResult::LoginMailResult_ErrorAlreadyLogin;
+				tg.en = LoginMailResult_ErrorAlreadyLogin;
 				break;
 			}
 		}
 
 		if (tg.en == LoginMailResult_OK)
 		{
-
+			tgUserInfo_t* info = CUserStorage::getSingleton().GetUserInfoByMail(mail);
+			if (info == NULL)
+			{
+				tg.en = LoginMailResult_NotFoundMail;
+			}
+			else
+			{
+				if (info->password.compare(MD5Hash::_make_md5_pwd(password)) == 0)
+				{
+					tg.en = LoginMailResult_OK;
+					tg.account = info->account;
+					CLoginUser* LoginUser = new CLoginUser();
+					LoginUser->setInfo(info);
+					m_mapLoginUser.insert(MAPLOGINUSER::value_type(info->account, LoginUser));
+				}
+				else
+				{
+					tg.en = LoginMailResult_ErrorPassword;
+				}
+			}
 		}
 
 	}

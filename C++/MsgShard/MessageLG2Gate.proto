@@ -7,6 +7,7 @@ message MsgLG2GateLoginACK
 		LG_ERROR			 = 1;
 		LG_ERRORPASSWORD     = 2;
 		LG_NOTFOUNDMAIL		 = 3;
+		LG_ALREADYLOGIN      = 4;
 	}
 
 	required uint64			id = 1;

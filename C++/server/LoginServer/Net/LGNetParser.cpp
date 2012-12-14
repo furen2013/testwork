@@ -104,7 +104,36 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 		{
 			MsgGate2LGMailLoginReq Msg;
 			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+			MyLog::log->notice("recive mail login request mail[%s] password[%s]", Msg.mail().c_str(), Msg.password().c_str());
+			tgLoginMail tg = LUM.tryLogin(Msg.mail().c_str(), Msg.password().c_str());
+			MsgLG2GateLoginACK MsgACK;
+			switch(tg.en)
+			{
+			case LoginMailResult_ErrorAlreadyLogin:
+				{
+					MsgACK.set_result(MsgLG2GateLoginACK_enResult_LG_ALREADYLOGIN);
+				}
+				break;
+			case LoginMailResult_NotFoundMail:
+				{
+					MsgACK.set_result(MsgLG2GateLoginACK_enResult_LG_NOTFOUNDMAIL);
+				}
+				break;
+			case LoginMailResult_ErrorPassword:
+				{
+					MsgACK.set_result(MsgLG2GateLoginACK_enResult_LG_ERRORPASSWORD);
+				}
+				break;
+			case MsgLG2GateLoginACK_enResult_LG_OK:
+				{
+					MsgACK.set_result(MsgLG2GateLoginACK_enResult_LG_OK);
+				}
+				break;
+			}
 
+			MyLog::log->notice("send mail login ACK account[%l]",MsgACK.account());
+			MsgACK.set_account(tg.account);
+			pSocket->send_message(LG2Gate_MsgLG2GateLoginACK,&MsgACK);
 		}
 		break;
 	case Gate2LG_MsgGate2LGLoginReq:
@@ -125,11 +154,11 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 			}
 
 
-			MsgLG2GateLoginACK MsgAck;
-			MsgAck.set_id(Msg.id());
-			MsgAck.set_account(account);
-			MsgAck.set_result(MsgLG2GateLoginACK_enResult_LG_OK);
-			pSocket->send_message(LG2Gate_MsgLG2GateLoginACK,&MsgAck);
+			MsgLG2GateLoginACK MsgACK;
+			MsgACK.set_id(Msg.id());
+			MsgACK.set_account(account);
+			MsgACK.set_result(MsgLG2GateLoginACK_enResult_LG_OK);
+			pSocket->send_message(LG2Gate_MsgLG2GateLoginACK,&MsgACK);
 			MyLog::log->notice("send_message MsgLG2GateLoginACK account[%l]", account);
 
 		}

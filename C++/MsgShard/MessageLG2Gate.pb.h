@@ -38,11 +38,12 @@ enum MsgLG2GateLoginACK_enResult {
   MsgLG2GateLoginACK_enResult_LG_OK = 0,
   MsgLG2GateLoginACK_enResult_LG_ERROR = 1,
   MsgLG2GateLoginACK_enResult_LG_ERRORPASSWORD = 2,
-  MsgLG2GateLoginACK_enResult_LG_NOTFOUNDMAIL = 3
+  MsgLG2GateLoginACK_enResult_LG_NOTFOUNDMAIL = 3,
+  MsgLG2GateLoginACK_enResult_LG_ALREADYLOGIN = 4
 };
 bool MsgLG2GateLoginACK_enResult_IsValid(int value);
 const MsgLG2GateLoginACK_enResult MsgLG2GateLoginACK_enResult_enResult_MIN = MsgLG2GateLoginACK_enResult_LG_OK;
-const MsgLG2GateLoginACK_enResult MsgLG2GateLoginACK_enResult_enResult_MAX = MsgLG2GateLoginACK_enResult_LG_NOTFOUNDMAIL;
+const MsgLG2GateLoginACK_enResult MsgLG2GateLoginACK_enResult_enResult_MAX = MsgLG2GateLoginACK_enResult_LG_ALREADYLOGIN;
 const int MsgLG2GateLoginACK_enResult_enResult_ARRAYSIZE = MsgLG2GateLoginACK_enResult_enResult_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* MsgLG2GateLoginACK_enResult_descriptor();
@@ -163,6 +164,7 @@ class MsgLG2GateLoginACK : public ::google::protobuf::Message {
   static const enResult LG_ERROR = MsgLG2GateLoginACK_enResult_LG_ERROR;
   static const enResult LG_ERRORPASSWORD = MsgLG2GateLoginACK_enResult_LG_ERRORPASSWORD;
   static const enResult LG_NOTFOUNDMAIL = MsgLG2GateLoginACK_enResult_LG_NOTFOUNDMAIL;
+  static const enResult LG_ALREADYLOGIN = MsgLG2GateLoginACK_enResult_LG_ALREADYLOGIN;
   static inline bool enResult_IsValid(int value) {
     return MsgLG2GateLoginACK_enResult_IsValid(value);
   }
