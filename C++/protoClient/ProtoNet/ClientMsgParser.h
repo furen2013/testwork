@@ -9,6 +9,8 @@ public:
 	~CClientMsgParser(void);
 public:
 	void proc_message(const message_t& msg, CProtoSocket* p);
+public:
+	unsigned long account;
 };
 
 

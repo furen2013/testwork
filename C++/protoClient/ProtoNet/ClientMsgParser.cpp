@@ -28,7 +28,8 @@ void CClientMsgParser::proc_message(const message_t& msg, CProtoSocket* p)
 		{
 			MsgG2CLoginMacACK Msg;
 			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
-			MyLog::log->notice("MsgG2CLoginMacACK receive account[%l]", Msg.account());
+			MyLog::log->notice("MsgG2CLoginMacACK receive account[%lu]", Msg.account());
+			account = Msg.account();
 
 		}
 		break;
@@ -36,6 +37,7 @@ void CClientMsgParser::proc_message(const message_t& msg, CProtoSocket* p)
 		{
 			MsgG2CErrorACK Msg;
 			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+			MyLog::log->notice("recive message [MsgG2CErrorACK] ");
 			switch(Msg.en())
 			{
 			case MsgG2CErrorACK_enResult_LG_ALREADYLOGIN:
@@ -44,6 +46,14 @@ void CClientMsgParser::proc_message(const message_t& msg, CProtoSocket* p)
 				}
 				break;
 			}
+		}
+		break;
+	case LG2C_MsgBindMailACK:
+		{
+			MsgLG2GateBindACK Msg;
+			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+			MyLog::log->notice("recive message [LG2C_MsgBindMailACK]");
+
 		}
 		break;
 

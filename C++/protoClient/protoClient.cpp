@@ -4,7 +4,7 @@
 #include "stdafx.h"
 
 #include "ProtoNet/ProtoSocket.h"
-
+#include "ProtoNet/ClientMsgParser.h"
 
 #include "../new_common/Source/new_common.h"
 #include "../new_common/Source/log4cpp-1.0/MyLog.h"
@@ -31,9 +31,11 @@ void thread()
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-
+	unsigned long ac = 77201;
+	char sz[512];
+	sprintf(sz, "%ld", ac);
 	MyLog::Init();
-
+	MyLog::log->notice("%ld", ac);
 #ifdef _WIN32
 	MyNetGlobleObj::init_net_service( 2, 5, &impcs, true, 100 );
 #else
@@ -67,6 +69,17 @@ int _tmain(int argc, _TCHAR* argv[])
 				message.set_mac("12120");
 				protoSocket->send_message(C2Gate_MsgLoginMacReq, &message);
 				MyLog::log->debug("send message[MsgC2GateLoginMacReq]");
+			}
+			break;
+		case 3:
+			{
+				MsgBindMailReq message;
+				message.set_account(CClientMsgParser::getSingleton().account);
+				message.set_mail("kk@1.com");
+				message.set_mac("12120");
+				message.set_password("c2010");
+				MyLog::log->debug("send message[MsgBindMailReq]");
+				protoSocket->send_message(C2Gate_MsgBindMailReq, &message,CClientMsgParser::getSingleton().account);
 			}
 			break;
 		}

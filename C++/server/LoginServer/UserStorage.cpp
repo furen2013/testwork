@@ -63,7 +63,7 @@ bool CUserStorage::UpdateUser(long account)
 	}
 	if(breturn == true&&p)
 	{
-		phoneDatabase->WaitExecute( "update account set mac='%s',Password='%s',Mail='%s' where account=ld%",p->mac.c_str(),
+		phoneDatabase->WaitExecute( "update account set mac='%s',Password='%s',Mail='%s' where account=%lu",p->mac.c_str(),
 			p->password.c_str(), p->mail.c_str(),p->account );
 	}
 	return breturn;
@@ -100,7 +100,7 @@ void CUserStorage::addUser(tgUserInfo_t* p)
 
 	m_storageUser.insert(std::map<long, tgUserInfo_t*>::value_type(p->account, p));
 
-	phoneDatabase->WaitExecute( "insert into `account` (`account`, `mac`, `Password`, `Mail`) values('%ld', '%s', '%s', '%s')", 
+	phoneDatabase->WaitExecute( "insert into `account` (`account`, `mac`, `Password`, `Mail`) values('%lu', '%s', '%s', '%s')", 
 		p->account, p->mac.c_str()
 		, p->password.c_str(), p->mail.c_str() );
 }
