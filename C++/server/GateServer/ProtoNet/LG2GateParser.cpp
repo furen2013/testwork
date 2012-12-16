@@ -48,7 +48,8 @@ void CLG2GateParser::ParseMessage(const message_t& msg,const CGProtoSocket* pSoc
 					CCProtoSocket*pSocket = GUManager.GetLoginClient(Msg.account());
 					if (pSocket)
 					{
-						//GUManager.DelFromLoginClient(pSocket->GetAccountID());
+						//GUManager.DelFrom3
+						//LoginClient(pSocket->GetAccountID());
 						GUManager.DelClient((DWORD)pSocket);
 						pSocket->close();
 					}
@@ -100,7 +101,7 @@ void CLG2GateParser::ParseMessage(const message_t& msg,const CGProtoSocket* pSoc
 		break;
 	default:
 		{
-			CCProtoSocket* pProtoSocket = GUManager.GetClient(Msghead.account());
+			CCProtoSocket* pProtoSocket = GUManager.GetLoginClient(Msghead.account());
 			if (pProtoSocket)
 			{
 				message_t* pNew = MyNetGlobleObj::messageclone(msg);

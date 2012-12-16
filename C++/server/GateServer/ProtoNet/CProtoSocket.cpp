@@ -27,6 +27,7 @@ void CCProtoSocket::reset()
 	m_nMsgSize = 0 ;
 	m_nMsgCleanTime = 0;
 	m_bAuthSuccess =  false;
+	m_nAccountID = 0;
 	Tcp_ProtoSession::reset();
 }
 void CCProtoSocket::on_close( const boost::system::error_code& error )

@@ -2,6 +2,7 @@
 #include "ClientMsgParser.h"
 #include "MsgHead.pb.h"
 #include "MessageG2C.pb.h"
+#include "MessageLG2Gate.pb.h"
 #include "../../new_common/Source/log4cpp-1.0/MyLog.h"
 initialiseSingleton(CClientMsgParser);
 
@@ -28,7 +29,8 @@ void CClientMsgParser::proc_message(const message_t& msg, CProtoSocket* p)
 		{
 			MsgG2CLoginMacACK Msg;
 			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
-			MyLog::log->notice("MsgG2CLoginMacACK receive account[%l]", Msg.account());
+			MyLog::log->notice("MsgG2CLoginMacACK receive account[%lu]", Msg.account());
+			account = Msg.account();
 
 		}
 		break;
@@ -36,6 +38,7 @@ void CClientMsgParser::proc_message(const message_t& msg, CProtoSocket* p)
 		{
 			MsgG2CErrorACK Msg;
 			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+			MyLog::log->notice("recive message [MsgG2CErrorACK] ");
 			switch(Msg.en())
 			{
 			case MsgG2CErrorACK_enResult_LG_ALREADYLOGIN:
@@ -46,6 +49,32 @@ void CClientMsgParser::proc_message(const message_t& msg, CProtoSocket* p)
 			}
 		}
 		break;
+	case LG2C_MsgBindMailACK:
+		{
+			MsgLG2GateBindACK Msg;
+			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+			switch(Msg.entype())
+			{
+			case TypeBindLogic_BindMail:
+				{
+					MyLog::log->notice("recive message [LG2C_MsgBindMailACK_TypeBindLogic_BindMail]");
+				}
+				break;
+			case TypeBindLogic_UnbindMac:
+				{
+					MyLog::log->notice("recive message [LG2C_MsgBindMailACK_TypeBindLogic_UnbindMac]");
+				}
+				break;
+			case TypeBindLogic_BindMac:
+				{
+					MyLog::log->notice("recive message [LG2C_MsgBindMailACK_TypeBindLogic_BindMac]");
+				}
+				break;
+			}
 
+			
+
+		}
+		break;
 	}
 }

@@ -23,6 +23,7 @@ public:
 	void Clear();
 	tgUserInfo_t* GetUserInfo(long account);
 	tgUserInfo_t* GetUserInfoByMac(const char* szMac);
+	tgUserInfo_t* GetUserInfoByMail(const char* Mail);
 	void addUser(tgUserInfo_t* p);
 	bool UpdateUser(long account);
 	bool UpdateMac(long account);

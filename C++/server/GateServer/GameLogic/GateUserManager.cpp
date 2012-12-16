@@ -73,7 +73,7 @@ void GateUserManager::DelClient(DWORD dw)
 			Msg.set_id(p->GetAccountID());
 			p2LoginSocket->send_message(Gate2LG_MsgGate2LGClientDisconnect, &Msg);
 			m_LoginClients.erase(itlogin);
-			MyLog::log->notice("send msg to gate for login out account[%l]", Msg.id());
+			MyLog::log->notice("send msg to gate for login out account[%lu]", Msg.id());
 		}
 		else
 		{
