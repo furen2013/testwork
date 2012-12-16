@@ -106,27 +106,27 @@ void protobuf_AddDesc_MessageLG2Gate_2eproto() {
 
   ::protobuf_AddDesc_MsgHead_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\024MessageLG2Gate.proto\032\rMsgHead.proto\"\257\001"
+    "\n\024MessageLG2Gate.proto\032\rMsgHead.proto\"\304\001"
     "\n\022MsgLG2GateLoginACK\022\n\n\002id\030\001 \002(\004\022\017\n\007acco"
     "unt\030\002 \002(\004\022,\n\006result\030\003 \002(\0162\034.MsgLG2GateLo"
-    "ginACK.enResult\"N\n\010enResult\022\t\n\005LG_OK\020\000\022\014"
+    "ginACK.enResult\"c\n\010enResult\022\t\n\005LG_OK\020\000\022\014"
     "\n\010LG_ERROR\020\001\022\024\n\020LG_ERRORPASSWORD\020\002\022\023\n\017LG"
-    "_NOTFOUNDMAIL\020\003\"h\n\021MsgLG2GateBindACK\022\017\n\007"
-    "account\030\001 \002(\004\022 \n\006result\030\002 \002(\0162\020.enMsgBin"
-    "dResult\022 \n\006enType\030\003 \002(\0162\020.enBindTypeLogi"
-    "c*\375\002\n\017enMsgBindResult\022\024\n\020BindMsgResult_O"
-    "K\020\000\022\"\n\036BindMsgResultMailAlreadyBinded\020\001\022"
-    "!\n\035BindMsgResultMacAlreadyBinded\020\002\022 \n\034Bi"
-    "ndMsgResultNotFoundAccount\020\003\022\031\n\025BindMsgR"
-    "esultEmptyMac\020\004\022\036\n\032BindMsgResultEmptyPas"
-    "sword\020\005\022\032\n\026BindMsgResultEmptyMail\020\006\022\036\n\032B"
-    "indMsgResultErrorPassword\020\007\022\031\n\025BindMsgRe"
-    "sultErrorMac\020\010\022\032\n\026BindMsgResultErrorMail"
-    "\020\t\022\035\n\031BindMsgResultNotFoundUser\020\n\022\036\n\032Bin"
-    "dMsgResultError_Unknown\020\013*e\n\017enBindTypeL"
-    "ogic\022\032\n\026TypeBindLogic_BindMail\020\000\022\033\n\027Type"
-    "BindLogic_UnbindMac\020\001\022\031\n\025TypeBindLogic_B"
-    "indMac\020\002", 808);
+    "_NOTFOUNDMAIL\020\003\022\023\n\017LG_ALREADYLOGIN\020\004\"h\n\021"
+    "MsgLG2GateBindACK\022\017\n\007account\030\001 \002(\004\022 \n\006re"
+    "sult\030\002 \002(\0162\020.enMsgBindResult\022 \n\006enType\030\003"
+    " \002(\0162\020.enBindTypeLogic*\375\002\n\017enMsgBindResu"
+    "lt\022\024\n\020BindMsgResult_OK\020\000\022\"\n\036BindMsgResul"
+    "tMailAlreadyBinded\020\001\022!\n\035BindMsgResultMac"
+    "AlreadyBinded\020\002\022 \n\034BindMsgResultNotFound"
+    "Account\020\003\022\031\n\025BindMsgResultEmptyMac\020\004\022\036\n\032"
+    "BindMsgResultEmptyPassword\020\005\022\032\n\026BindMsgR"
+    "esultEmptyMail\020\006\022\036\n\032BindMsgResultErrorPa"
+    "ssword\020\007\022\031\n\025BindMsgResultErrorMac\020\010\022\032\n\026B"
+    "indMsgResultErrorMail\020\t\022\035\n\031BindMsgResult"
+    "NotFoundUser\020\n\022\036\n\032BindMsgResultError_Unk"
+    "nown\020\013*e\n\017enBindTypeLogic\022\032\n\026TypeBindLog"
+    "ic_BindMail\020\000\022\033\n\027TypeBindLogic_UnbindMac"
+    "\020\001\022\031\n\025TypeBindLogic_BindMac\020\002", 829);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageLG2Gate.proto", &protobuf_RegisterTypes);
   MsgLG2GateLoginACK::default_instance_ = new MsgLG2GateLoginACK();
@@ -195,6 +195,7 @@ bool MsgLG2GateLoginACK_enResult_IsValid(int value) {
     case 1:
     case 2:
     case 3:
+    case 4:
       return true;
     default:
       return false;
@@ -206,6 +207,7 @@ const MsgLG2GateLoginACK_enResult MsgLG2GateLoginACK::LG_OK;
 const MsgLG2GateLoginACK_enResult MsgLG2GateLoginACK::LG_ERROR;
 const MsgLG2GateLoginACK_enResult MsgLG2GateLoginACK::LG_ERRORPASSWORD;
 const MsgLG2GateLoginACK_enResult MsgLG2GateLoginACK::LG_NOTFOUNDMAIL;
+const MsgLG2GateLoginACK_enResult MsgLG2GateLoginACK::LG_ALREADYLOGIN;
 const MsgLG2GateLoginACK_enResult MsgLG2GateLoginACK::enResult_MIN;
 const MsgLG2GateLoginACK_enResult MsgLG2GateLoginACK::enResult_MAX;
 const int MsgLG2GateLoginACK::enResult_ARRAYSIZE;
