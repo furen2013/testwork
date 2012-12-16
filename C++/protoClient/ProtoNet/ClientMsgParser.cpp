@@ -53,6 +53,7 @@ void CClientMsgParser::proc_message(const message_t& msg, CProtoSocket* p)
 		{
 			MsgLG2GateBindACK Msg;
 			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+<<<<<<< HEAD
 			switch(Msg.entype())
 			{
 			case TypeBindLogic_BindMail:
@@ -73,6 +74,12 @@ void CClientMsgParser::proc_message(const message_t& msg, CProtoSocket* p)
 			}
 
 			
+=======
+			MyLog::log->notice("recive message [LG2C_MsgBindMailACK]");
+
+		}
+		break;
+>>>>>>> 42bd530629e1b62a1575785118f886403f068e5e
 
 		}
 		break;
