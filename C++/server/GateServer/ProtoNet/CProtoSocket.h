@@ -14,8 +14,11 @@ public:
 	virtual void on_accept( tcp_server* p );
 	virtual void proc_message( const message_t& msg );
 	virtual void run();
-	inline unsigned long GetAccountID(){return m_nAccountID;}
+	inline DWORD GetAccountID(){return m_nAccountID;}
 	inline void setAccountID(unsigned long account){m_nAccountID = account;}
+	inline void setSessionID(unsigned long sessionID){m_sessionID = sessionID;}
+	inline DWORD GetSessionID(){return m_sessionID;}
+
 protected:
 	uint32 m_nMsgSize;
 	uint32 m_nMsgCleanTime;
@@ -24,6 +27,7 @@ protected:
 	uint32 m_ping_count;
 	uint32 m_accept_time;
 	unsigned long	m_nAccountID;
+	DWORD   m_sessionID;
 	bool m_is_valid_connection;
 
 

@@ -13,6 +13,7 @@ CCProtoSocket::CCProtoSocket(boost::asio::io_service& is) :  Tcp_ProtoSession( i
 	m_accept_time = 0;
 	m_is_valid_connection = true;
 	m_nAccountID = 0;
+	m_sessionID = 0;
 }
 
 
@@ -28,6 +29,7 @@ void CCProtoSocket::reset()
 	m_nMsgCleanTime = 0;
 	m_bAuthSuccess =  false;
 	m_nAccountID = 0;
+	m_sessionID = 0;
 	Tcp_ProtoSession::reset();
 }
 void CCProtoSocket::on_close( const boost::system::error_code& error )

@@ -93,17 +93,18 @@ enMsgBindResult CLGNetParser::ParseBindMsg(enBindResult en, unsigned long accoun
 void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 {
 	unsigned short totalsize = *((unsigned short*)msg.data);
-	unsigned short headsize = *((unsigned short*)msg.data + 1);
-	unsigned short mark = 2 * sizeof(unsigned short);
+	////unsigned short headsize = *((unsigned short*)msg.data + 1);
+	unsigned short mark = sizeof(unsigned short);
 	MsgHead Msghead;
-	Msghead.ParseFromArray(msg.data + mark, headsize);
-	unsigned short msgBodyBegin = mark + headsize;
+	Msghead.ParseFromArray(msg.data + mark, totalsize);
+	////unsigned short msgBodyBegin = mark + headsize;
 	switch(Msghead.type())
 	{
 	case Gate2LG_MsgGate2LGLoginMailReq:
 		{
 			MsgGate2LGMailLoginReq Msg;
-			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+			//Msg.ParseFromString(Msghead.body());
+			Msg.ParseFromString(Msghead.body());
 
 			MyLog::log->notice("recive mail login request mail[%s] password[%s]", Msg.mail().c_str(), Msg.password().c_str());
 			tgLoginMail tg = LUM.tryLogin(Msg.mail().c_str(), Msg.password().c_str());
@@ -141,7 +142,7 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 	case Gate2LG_MsgGate2LGLoginReq:
 		{
 			MsgGate2LGLoginReq Msg;
-			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+			Msg.ParseFromString(Msghead.body());
 			unsigned long account = 0;
 			CLoginUser* pLoginUser = LUM.GetLoginUser(Msg.mac().c_str());
 
@@ -168,7 +169,7 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 	case Gate2LG_MsgGate2LGClientDisconnect:
 		{
 			MsgGate2LGClientDisconnect Msg;
-			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+			Msg.ParseFromString(Msghead.body());
 			if (Msg.id() == 0)
 			{
 				MyLog::log->warn("unkown client disconnect account[%lu]", Msg.id());
@@ -189,7 +190,7 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 	case C2Gate_MsgBindMailReq:
 		{
 			MsgBindMailReq Msg;
-			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+			Msg.ParseFromString(Msghead.body());
 			MsgLG2GateBindACK MsgACK;
 			MsgACK.set_account(Msg.account());
 			MsgACK.set_entype(TypeBindLogic_BindMail);
@@ -214,7 +215,7 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 	case C2Gate_MsgUnbindMacReq:
 		{
 			MsgUnbindMacReq Msg;
-			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+			Msg.ParseFromString(Msghead.body());
 			MsgLG2GateBindACK MsgACK;
 			MsgACK.set_account(Msg.account());
 			MsgACK.set_entype(TypeBindLogic_UnbindMac);
@@ -232,7 +233,7 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 			MsgBindMacReq Msg;
 			MsgLG2GateBindACK MsgACK;
 			MsgACK.set_entype(TypeBindLogic_BindMac);
-			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+			Msg.ParseFromString(Msghead.body());
 			MsgACK.set_account(Msg.account());
 
 			MyLog::log->notice("recive bind mac request account[%lu] mail[%s] password[%s] mac[%s]", 

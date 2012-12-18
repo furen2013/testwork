@@ -21,17 +21,17 @@ CLG2GateParser::~CLG2GateParser(void)
 void CLG2GateParser::ParseMessage(const message_t& msg,const CGProtoSocket* pSocket)
 {
 	unsigned short totalsize = *((unsigned short*)msg.data);
-	unsigned short headsize = *((unsigned short*)msg.data + 1);
-	unsigned short mark = 2 * sizeof(unsigned short);
+	//unsigned short headsize = *((unsigned short*)msg.data + 1);
+	unsigned short mark = sizeof(unsigned short);
 	MsgHead Msghead;
-	Msghead.ParseFromArray(msg.data + mark, headsize);
-	unsigned short msgBodyBegin = mark + headsize;
+	Msghead.ParseFromArray(msg.data + mark, totalsize);
+	//unsigned short msgBodyBegin = mark + headsize;
 	switch(Msghead.type())
 	{
 	case LG2Gate_MsgLG2GateLoginACK:
 		{
 			MsgLG2GateLoginACK Msg;
-			Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+			Msg.ParseFromString(Msghead.body());
 
 			MsgG2CLoginMacACK MsgAck;
 			CCProtoSocket* pProtoSocket = GUManager.GetClient(Msg.id());
@@ -104,8 +104,8 @@ void CLG2GateParser::ParseMessage(const message_t& msg,const CGProtoSocket* pSoc
 			CCProtoSocket* pProtoSocket = GUManager.GetLoginClient(Msghead.account());
 			if (pProtoSocket)
 			{
-				message_t* pNew = MyNetGlobleObj::messageclone(msg);
-				pProtoSocket->_send_message(pNew);
+				//message_t* pNew = MyNetGlobleObj::messageclone(msg);
+				pProtoSocket->_send_message(&Msghead);
 			}
 			else
 			{

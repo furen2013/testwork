@@ -46,7 +46,20 @@ void Tcp_ProtoSession::_Read_Other()
 	_read_next_message();
 }
 
-
+void Tcp_ProtoSession::send_message(MsgHead* msgHead)
+{
+	size_t headsize = msgHead->ByteSize();
+	size_t mark = sizeof(unsigned short);
+	size_t head = mark;
+	size_t si = headsize + head;
+	//mark = headsize + bodysize;
+	message_t* msg = MyNetGlobleObj::get_message(si);
+	*((unsigned short*)msg->data) = headsize;
+	msg->len = si;
+	msg->from = this;
+	msgHead->SerializeToArray(msg->data + head , headsize);
+	_send_message(msg);
+}
 
 void Tcp_ProtoSession::send_message(MsgType type, google::protobuf::Message* msgBody, unsigned long account)
 {
@@ -54,20 +67,23 @@ void Tcp_ProtoSession::send_message(MsgType type, google::protobuf::Message* msg
 	msgHead.set_type(type);
 	msgHead.set_msgsize(msgBody->ByteSize());
 	msgHead.set_account(account);
-	size_t headsize = msgHead.ByteSize();
-	size_t bodysize = msgBody->ByteSize();
-	size_t mark = sizeof(unsigned short);
-	size_t head = mark * 2;
-	size_t si = headsize + bodysize + head;
-	//mark = headsize + bodysize;
-	message_t* msg = MyNetGlobleObj::get_message(si);
-	*((unsigned short*)msg->data) = headsize + bodysize + mark;
-	*((unsigned short*)msg->data + 1) = headsize;
-	msg->len = si;
-	msg->from = this;
-	msgHead.SerializeToArray(msg->data + head , headsize);
-	msgBody->SerializeToArray(msg->data + headsize + head, bodysize);
-	_send_message(msg);
+	std::string strTemp;
+	msgBody->SerializeToString(&strTemp);
+	msgHead.set_body(strTemp);
+	send_message(&msgHead);
+	//msgHead.set_body(msgBody->SerializeToArray());
+
+	//size_t headsize = msgHead.ByteSize();
+	//size_t mark = sizeof(unsigned short);
+	//size_t head = mark;
+	//size_t si = headsize + head;
+	////mark = headsize + bodysize;
+	//message_t* msg = MyNetGlobleObj::get_message(si);
+	//*((unsigned short*)msg->data) = headsize;
+	//msg->len = si;
+	//msg->from = this;
+	//msgHead.SerializeToArray(msg->data + head , headsize);
+	//_send_message(msg);
 
 	//unsigned short checksize =  *((unsigned short*)msg->data);
 	//unsigned short checkheadsize = *((unsigned short*)msg->data + mark);

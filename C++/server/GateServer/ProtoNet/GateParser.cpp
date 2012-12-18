@@ -20,18 +20,18 @@ CGateParser::~CGateParser(void)
 void CGateParser::ParseMessage(const message_t& msg, CCProtoSocket* pSocket)
 {
 	unsigned short totalsize = *((unsigned short*)msg.data);
-	unsigned short headsize = *((unsigned short*)msg.data + 1);
-	unsigned short mark = 2 * sizeof(unsigned short);
+	//unsigned short headsize = *((unsigned short*)msg.data + 1);
+	unsigned short mark = sizeof(unsigned short);
 	MsgHead Msghead;
-	Msghead.ParseFromArray(msg.data + mark, headsize);
-	unsigned short msgBodyBegin = mark + headsize;
+	Msghead.ParseFromArray(msg.data + mark, totalsize);
+	//unsigned short msgBodyBegin = mark + headsize;
 	switch(Msghead.type())
 	{
 	case C2Gate_MsgMailLoginReq:
 		{
 			DWORD ID = (DWORD)pSocket;
 			MsgMailLoginReq MsgRecive;
-			MsgRecive.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+			MsgRecive.ParseFromString(Msghead.body());
 			MyLog::log->notice("recive login mail request mail[%s] password[%s]", MsgRecive.mail(),MsgRecive.password());
 			if (GUManager.GetClient(ID))
 			{
@@ -73,12 +73,12 @@ void CGateParser::ParseMessage(const message_t& msg, CCProtoSocket* pSocket)
 			else
 			{
 				MsgC2GateLoginMacReq MsgLoginMac;
-				MsgLoginMac.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+				MsgLoginMac.ParseFromString(Msghead.body());
 				if (MsgLoginMac.has_mac())
 				{
 					MsgGate2LGLoginReq Msg;
 					Msg.set_mac(MsgLoginMac.mac());
-					Msg.set_id((DWORD)pSocket);
+					Msg.set_id(pSocket->GetSessionID());
 					
 					if (p2LoginSocket)
 					{
@@ -104,7 +104,7 @@ void CGateParser::ParseMessage(const message_t& msg, CCProtoSocket* pSocket)
 			else
 			{
 				MsgBindMailReq Msg;
-				Msg.ParseFromArray(msg.data + msgBodyBegin, Msghead.msgsize());
+				Msg.ParseFromString(Msghead.body());
 				if (pSocket->GetAccountID() != Msg.account())
 				{
 					MsgG2CErrorACK MsgErrorACK;
@@ -114,8 +114,9 @@ void CGateParser::ParseMessage(const message_t& msg, CCProtoSocket* pSocket)
 				}
 				else
 				{
-					message_t* pNew = MyNetGlobleObj::messageclone(msg);
-					p2LoginSocket->_send_message(pNew);
+					Msghead.set_account(pSocket->GetSessionID());
+					p2LoginSocket->send_message(&Msghead);
+					//p2LoginSocket->_send_message(pNew);
 				}
 			}
 		}

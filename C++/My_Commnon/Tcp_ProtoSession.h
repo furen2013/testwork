@@ -13,6 +13,7 @@ public:
 public:
 	virtual void send_message( const void* data, unsigned short len );
 	void send_message(MsgType type , google::protobuf::Message* msg, unsigned long account = 0);
+	void send_message(MsgHead* msg);
 
 protected:
 	virtual void _Read_Other();

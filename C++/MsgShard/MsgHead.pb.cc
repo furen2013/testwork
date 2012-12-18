@@ -30,10 +30,11 @@ void protobuf_AssignDesc_MsgHead_2eproto() {
       "MsgHead.proto");
   GOOGLE_CHECK(file != NULL);
   MsgHead_descriptor_ = file->message_type(0);
-  static const int MsgHead_offsets_[3] = {
+  static const int MsgHead_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHead, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHead, msgsize_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHead, account_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHead, body_),
   };
   MsgHead_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -77,23 +78,23 @@ void protobuf_AddDesc_MsgHead_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rMsgHead.proto\"C\n\007MsgHead\022\026\n\004Type\030\001 \002(\016"
+    "\n\rMsgHead.proto\"Q\n\007MsgHead\022\026\n\004Type\030\001 \002(\016"
     "2\010.MsgType\022\017\n\007msgSize\030\002 \002(\005\022\017\n\007account\030\003"
-    " \002(\004*\260\004\n\007MsgType\022\022\n\016C2Gate_MsgNull\020\000\022\026\n\022"
-    "C2Gate_MsgLoginReq\020\001\022\035\n\031C2Gate_MsgCreate"
-    "AcountReq\020\002\022\031\n\025C2Gate_MsgLoginMacReq\020\003\022\031"
-    "\n\025C2Gate_MsgBindMailReq\020\004\022\032\n\026C2Gate_MsgU"
-    "nbindMacReq\020\005\022\030\n\024C2Gate_MsgBindMacReq\020\006\022"
-    "\032\n\026C2Gate_MsgMailLoginReq\020\007\022\017\n\nC2Gate_EN"
-    "D\020\346\007\022\016\n\tG2C_Begin\020\347\007\022\024\n\017G2C_LoginMacACK\020"
-    "\350\007\022\027\n\022G2C_MsgG2CErrorACK\020\351\007\022\014\n\007G2C_End\020\320"
-    "\017\022\022\n\rGate2LG_Begin\020\321\017\022\037\n\032Gate2LG_MsgGate"
-    "2LGLoginReq\020\322\017\022\'\n\"Gate2LG_MsgGate2LGClie"
-    "ntDisconnect\020\323\017\022#\n\036Gate2LG_MsgGate2LGLog"
-    "inMailReq\020\324\017\022\020\n\013Gate2LG_End\020\270\027\022\022\n\rLG2Gat"
-    "e_Begin\020\271\027\022\037\n\032LG2Gate_MsgLG2GateLoginACK"
-    "\020\272\027\022\030\n\023LG2C_MsgBindMailACK\020\273\027\022\020\n\013LG2Gate"
-    "_End\020\240\037", 647);
+    " \002(\004\022\014\n\004body\030\004 \002(\014*\260\004\n\007MsgType\022\022\n\016C2Gate"
+    "_MsgNull\020\000\022\026\n\022C2Gate_MsgLoginReq\020\001\022\035\n\031C2"
+    "Gate_MsgCreateAcountReq\020\002\022\031\n\025C2Gate_MsgL"
+    "oginMacReq\020\003\022\031\n\025C2Gate_MsgBindMailReq\020\004\022"
+    "\032\n\026C2Gate_MsgUnbindMacReq\020\005\022\030\n\024C2Gate_Ms"
+    "gBindMacReq\020\006\022\032\n\026C2Gate_MsgMailLoginReq\020"
+    "\007\022\017\n\nC2Gate_END\020\346\007\022\016\n\tG2C_Begin\020\347\007\022\024\n\017G2"
+    "C_LoginMacACK\020\350\007\022\027\n\022G2C_MsgG2CErrorACK\020\351"
+    "\007\022\014\n\007G2C_End\020\320\017\022\022\n\rGate2LG_Begin\020\321\017\022\037\n\032G"
+    "ate2LG_MsgGate2LGLoginReq\020\322\017\022\'\n\"Gate2LG_"
+    "MsgGate2LGClientDisconnect\020\323\017\022#\n\036Gate2LG"
+    "_MsgGate2LGLoginMailReq\020\324\017\022\020\n\013Gate2LG_En"
+    "d\020\270\027\022\022\n\rLG2Gate_Begin\020\271\027\022\037\n\032LG2Gate_MsgL"
+    "G2GateLoginACK\020\272\027\022\030\n\023LG2C_MsgBindMailACK"
+    "\020\273\027\022\020\n\013LG2Gate_End\020\240\037", 661);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MsgHead.proto", &protobuf_RegisterTypes);
   MsgHead::default_instance_ = new MsgHead();
@@ -149,6 +150,7 @@ bool MsgType_IsValid(int value) {
 const int MsgHead::kTypeFieldNumber;
 const int MsgHead::kMsgSizeFieldNumber;
 const int MsgHead::kAccountFieldNumber;
+const int MsgHead::kBodyFieldNumber;
 #endif  // !_MSC_VER
 
 MsgHead::MsgHead()
@@ -170,6 +172,7 @@ void MsgHead::SharedCtor() {
   type_ = 0;
   msgsize_ = 0;
   account_ = GOOGLE_ULONGLONG(0);
+  body_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -178,6 +181,9 @@ MsgHead::~MsgHead() {
 }
 
 void MsgHead::SharedDtor() {
+  if (body_ != &::google::protobuf::internal::kEmptyString) {
+    delete body_;
+  }
   if (this != default_instance_) {
   }
 }
@@ -207,6 +213,11 @@ void MsgHead::Clear() {
     type_ = 0;
     msgsize_ = 0;
     account_ = GOOGLE_ULONGLONG(0);
+    if (has_body()) {
+      if (body_ != &::google::protobuf::internal::kEmptyString) {
+        body_->clear();
+      }
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -266,6 +277,20 @@ bool MsgHead::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(34)) goto parse_body;
+        break;
+      }
+      
+      // required bytes body = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_body:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_body()));
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -304,6 +329,12 @@ void MsgHead::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->account(), output);
   }
   
+  // required bytes body = 4;
+  if (has_body()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytes(
+      4, this->body(), output);
+  }
+  
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -326,6 +357,13 @@ void MsgHead::SerializeWithCachedSizes(
   // required uint64 account = 3;
   if (has_account()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->account(), target);
+  }
+  
+  // required bytes body = 4;
+  if (has_body()) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        4, this->body(), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -357,6 +395,13 @@ int MsgHead::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt64Size(
           this->account());
+    }
+    
+    // required bytes body = 4;
+    if (has_body()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->body());
     }
     
   }
@@ -395,6 +440,9 @@ void MsgHead::MergeFrom(const MsgHead& from) {
     if (from.has_account()) {
       set_account(from.account());
     }
+    if (from.has_body()) {
+      set_body(from.body());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -412,7 +460,7 @@ void MsgHead::CopyFrom(const MsgHead& from) {
 }
 
 bool MsgHead::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
   
   return true;
 }
@@ -422,6 +470,7 @@ void MsgHead::Swap(MsgHead* other) {
     std::swap(type_, other->type_);
     std::swap(msgsize_, other->msgsize_);
     std::swap(account_, other->account_);
+    std::swap(body_, other->body_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

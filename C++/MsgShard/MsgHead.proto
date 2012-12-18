@@ -34,4 +34,5 @@ message MsgHead
   required MsgType Type = 1;
   required int32 msgSize = 2;
   required uint64 account = 3;	
+  required bytes body = 4;
 }

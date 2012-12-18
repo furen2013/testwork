@@ -148,6 +148,17 @@ class MsgHead : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 account() const;
   inline void set_account(::google::protobuf::uint64 value);
   
+  // required bytes body = 4;
+  inline bool has_body() const;
+  inline void clear_body();
+  static const int kBodyFieldNumber = 4;
+  inline const ::std::string& body() const;
+  inline void set_body(const ::std::string& value);
+  inline void set_body(const char* value);
+  inline void set_body(const void* value, size_t size);
+  inline ::std::string* mutable_body();
+  inline ::std::string* release_body();
+  
   // @@protoc_insertion_point(class_scope:MsgHead)
  private:
   inline void set_has_type();
@@ -156,15 +167,18 @@ class MsgHead : public ::google::protobuf::Message {
   inline void clear_has_msgsize();
   inline void set_has_account();
   inline void clear_has_account();
+  inline void set_has_body();
+  inline void clear_has_body();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   int type_;
   ::google::protobuf::int32 msgsize_;
   ::google::protobuf::uint64 account_;
+  ::std::string* body_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
   
   friend void  protobuf_AddDesc_MsgHead_2eproto();
   friend void protobuf_AssignDesc_MsgHead_2eproto();
@@ -245,6 +259,64 @@ inline ::google::protobuf::uint64 MsgHead::account() const {
 inline void MsgHead::set_account(::google::protobuf::uint64 value) {
   set_has_account();
   account_ = value;
+}
+
+// required bytes body = 4;
+inline bool MsgHead::has_body() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MsgHead::set_has_body() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MsgHead::clear_has_body() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MsgHead::clear_body() {
+  if (body_ != &::google::protobuf::internal::kEmptyString) {
+    body_->clear();
+  }
+  clear_has_body();
+}
+inline const ::std::string& MsgHead::body() const {
+  return *body_;
+}
+inline void MsgHead::set_body(const ::std::string& value) {
+  set_has_body();
+  if (body_ == &::google::protobuf::internal::kEmptyString) {
+    body_ = new ::std::string;
+  }
+  body_->assign(value);
+}
+inline void MsgHead::set_body(const char* value) {
+  set_has_body();
+  if (body_ == &::google::protobuf::internal::kEmptyString) {
+    body_ = new ::std::string;
+  }
+  body_->assign(value);
+}
+inline void MsgHead::set_body(const void* value, size_t size) {
+  set_has_body();
+  if (body_ == &::google::protobuf::internal::kEmptyString) {
+    body_ = new ::std::string;
+  }
+  body_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* MsgHead::mutable_body() {
+  set_has_body();
+  if (body_ == &::google::protobuf::internal::kEmptyString) {
+    body_ = new ::std::string;
+  }
+  return body_;
+}
+inline ::std::string* MsgHead::release_body() {
+  clear_has_body();
+  if (body_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = body_;
+    body_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
 }
 
 

@@ -18,7 +18,9 @@ GateUserManager::~GateUserManager(void)
 void GateUserManager::AddClient(CCProtoSocket* pProtoSocket)
 {
 	boost::mutex::scoped_lock lock( m_mutex );
+	pProtoSocket->setSessionID((DWORD)pProtoSocket);
 	m_clients[(DWORD)pProtoSocket] = pProtoSocket;
+	
 }
 
 bool GateUserManager::DelFromLoginClient(DWORD dw)
