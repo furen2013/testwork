@@ -101,11 +101,11 @@ void CLG2GateParser::ParseMessage(const message_t& msg,const CGProtoSocket* pSoc
 		break;
 	default:
 		{
-			CCProtoSocket* pProtoSocket = GUManager.GetLoginClient(Msghead.account());
+			CCProtoSocket* pProtoSocket = GUManager.GetClient(Msghead.account());
 			if (pProtoSocket)
 			{
 				//message_t* pNew = MyNetGlobleObj::messageclone(msg);
-				pProtoSocket->_send_message(&Msghead);
+				pProtoSocket->send_message(&Msghead);
 			}
 			else
 			{

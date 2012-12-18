@@ -82,6 +82,30 @@ int _tmain(int argc, _TCHAR* argv[])
 				protoSocket->send_message(C2Gate_MsgBindMailReq, &message,CClientMsgParser::getSingleton().account);
 			}
 			break;
+		case 4:
+			{
+				MsgUnbindMacReq message;
+				message.set_account(CClientMsgParser::getSingleton().account);
+				message.set_mail("kk@1.com");
+				message.set_mac("12120");
+				message.set_password("c2010");
+				MyLog::log->debug("send message[MsgUnbindMacReq]");
+				protoSocket->send_message(C2Gate_MsgUnbindMacReq, &message,CClientMsgParser::getSingleton().account);
+			}
+			break;
+		case 5:
+			{
+				MsgMailLoginReq message;
+				message.set_mail("kk@1.com");
+				message.set_password("c2010");
+				MyLog::log->debug("send message[MsgMailLoginReq]");
+			}
+			break;
+		case 6:
+			{
+
+			}
+			break;
 		}
 	}
 	
