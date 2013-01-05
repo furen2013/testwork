@@ -50,10 +50,12 @@ enum MsgType {
   Gate2LG_MsgGate2LGLoginReq = 2002,
   Gate2LG_MsgGate2LGClientDisconnect = 2003,
   Gate2LG_MsgGate2LGLoginMailReq = 2004,
+  Gate2LG_MsgGate2LGLoginUserInfoList = 2005,
   Gate2LG_End = 3000,
   LG2Gate_Begin = 3001,
   LG2Gate_MsgLG2GateLoginACK = 3002,
   LG2C_MsgBindMailACK = 3003,
+  LG2Gate_MsgLG2GateReqLoginUserList = 3004,
   LG2Gate_End = 4000
 };
 bool MsgType_IsValid(int value);

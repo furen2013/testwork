@@ -20,6 +20,7 @@ public:
 
 protected:
 	std::string serverName;
+	bool firstconnect;
 };
 
 #endif

@@ -22,6 +22,9 @@ const ::google::protobuf::EnumDescriptor* MsgLG2GateLoginACK_enResult_descriptor
 const ::google::protobuf::Descriptor* MsgLG2GateBindACK_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgLG2GateBindACK_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgLG2GateReqLoginUserList_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgLG2GateReqLoginUserList_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* enMsgBindResult_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* enBindTypeLogic_descriptor_ = NULL;
 
@@ -69,6 +72,20 @@ void protobuf_AssignDesc_MessageLG2Gate_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MsgLG2GateBindACK));
+  MsgLG2GateReqLoginUserList_descriptor_ = file->message_type(2);
+  static const int MsgLG2GateReqLoginUserList_offsets_[1] = {
+  };
+  MsgLG2GateReqLoginUserList_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MsgLG2GateReqLoginUserList_descriptor_,
+      MsgLG2GateReqLoginUserList::default_instance_,
+      MsgLG2GateReqLoginUserList_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLG2GateReqLoginUserList, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLG2GateReqLoginUserList, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MsgLG2GateReqLoginUserList));
   enMsgBindResult_descriptor_ = file->enum_type(0);
   enBindTypeLogic_descriptor_ = file->enum_type(1);
 }
@@ -87,6 +104,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     MsgLG2GateLoginACK_descriptor_, &MsgLG2GateLoginACK::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     MsgLG2GateBindACK_descriptor_, &MsgLG2GateBindACK::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MsgLG2GateReqLoginUserList_descriptor_, &MsgLG2GateReqLoginUserList::default_instance());
 }
 
 }  // namespace
@@ -96,6 +115,8 @@ void protobuf_ShutdownFile_MessageLG2Gate_2eproto() {
   delete MsgLG2GateLoginACK_reflection_;
   delete MsgLG2GateBindACK::default_instance_;
   delete MsgLG2GateBindACK_reflection_;
+  delete MsgLG2GateReqLoginUserList::default_instance_;
+  delete MsgLG2GateReqLoginUserList_reflection_;
 }
 
 void protobuf_AddDesc_MessageLG2Gate_2eproto() {
@@ -114,25 +135,28 @@ void protobuf_AddDesc_MessageLG2Gate_2eproto() {
     "_NOTFOUNDMAIL\020\003\022\023\n\017LG_ALREADYLOGIN\020\004\"h\n\021"
     "MsgLG2GateBindACK\022\017\n\007account\030\001 \002(\004\022 \n\006re"
     "sult\030\002 \002(\0162\020.enMsgBindResult\022 \n\006enType\030\003"
-    " \002(\0162\020.enBindTypeLogic*\375\002\n\017enMsgBindResu"
-    "lt\022\024\n\020BindMsgResult_OK\020\000\022\"\n\036BindMsgResul"
-    "tMailAlreadyBinded\020\001\022!\n\035BindMsgResultMac"
-    "AlreadyBinded\020\002\022 \n\034BindMsgResultNotFound"
-    "Account\020\003\022\031\n\025BindMsgResultEmptyMac\020\004\022\036\n\032"
-    "BindMsgResultEmptyPassword\020\005\022\032\n\026BindMsgR"
-    "esultEmptyMail\020\006\022\036\n\032BindMsgResultErrorPa"
-    "ssword\020\007\022\031\n\025BindMsgResultErrorMac\020\010\022\032\n\026B"
-    "indMsgResultErrorMail\020\t\022\035\n\031BindMsgResult"
-    "NotFoundUser\020\n\022\036\n\032BindMsgResultError_Unk"
-    "nown\020\013*e\n\017enBindTypeLogic\022\032\n\026TypeBindLog"
-    "ic_BindMail\020\000\022\033\n\027TypeBindLogic_UnbindMac"
-    "\020\001\022\031\n\025TypeBindLogic_BindMac\020\002", 829);
+    " \002(\0162\020.enBindTypeLogic\"\034\n\032MsgLG2GateReqL"
+    "oginUserList*\375\002\n\017enMsgBindResult\022\024\n\020Bind"
+    "MsgResult_OK\020\000\022\"\n\036BindMsgResultMailAlrea"
+    "dyBinded\020\001\022!\n\035BindMsgResultMacAlreadyBin"
+    "ded\020\002\022 \n\034BindMsgResultNotFoundAccount\020\003\022"
+    "\031\n\025BindMsgResultEmptyMac\020\004\022\036\n\032BindMsgRes"
+    "ultEmptyPassword\020\005\022\032\n\026BindMsgResultEmpty"
+    "Mail\020\006\022\036\n\032BindMsgResultErrorPassword\020\007\022\031"
+    "\n\025BindMsgResultErrorMac\020\010\022\032\n\026BindMsgResu"
+    "ltErrorMail\020\t\022\035\n\031BindMsgResultNotFoundUs"
+    "er\020\n\022\036\n\032BindMsgResultError_Unknown\020\013*e\n\017"
+    "enBindTypeLogic\022\032\n\026TypeBindLogic_BindMai"
+    "l\020\000\022\033\n\027TypeBindLogic_UnbindMac\020\001\022\031\n\025Type"
+    "BindLogic_BindMac\020\002", 859);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageLG2Gate.proto", &protobuf_RegisterTypes);
   MsgLG2GateLoginACK::default_instance_ = new MsgLG2GateLoginACK();
   MsgLG2GateBindACK::default_instance_ = new MsgLG2GateBindACK();
+  MsgLG2GateReqLoginUserList::default_instance_ = new MsgLG2GateReqLoginUserList();
   MsgLG2GateLoginACK::default_instance_->InitAsDefaultInstance();
   MsgLG2GateBindACK::default_instance_->InitAsDefaultInstance();
+  MsgLG2GateReqLoginUserList::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_MessageLG2Gate_2eproto);
 }
 
@@ -800,6 +824,161 @@ void MsgLG2GateBindACK::Swap(MsgLG2GateBindACK* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = MsgLG2GateBindACK_descriptor_;
   metadata.reflection = MsgLG2GateBindACK_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+#endif  // !_MSC_VER
+
+MsgLG2GateReqLoginUserList::MsgLG2GateReqLoginUserList()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MsgLG2GateReqLoginUserList::InitAsDefaultInstance() {
+}
+
+MsgLG2GateReqLoginUserList::MsgLG2GateReqLoginUserList(const MsgLG2GateReqLoginUserList& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MsgLG2GateReqLoginUserList::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgLG2GateReqLoginUserList::~MsgLG2GateReqLoginUserList() {
+  SharedDtor();
+}
+
+void MsgLG2GateReqLoginUserList::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgLG2GateReqLoginUserList::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgLG2GateReqLoginUserList::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgLG2GateReqLoginUserList_descriptor_;
+}
+
+const MsgLG2GateReqLoginUserList& MsgLG2GateReqLoginUserList::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_MessageLG2Gate_2eproto();  return *default_instance_;
+}
+
+MsgLG2GateReqLoginUserList* MsgLG2GateReqLoginUserList::default_instance_ = NULL;
+
+MsgLG2GateReqLoginUserList* MsgLG2GateReqLoginUserList::New() const {
+  return new MsgLG2GateReqLoginUserList;
+}
+
+void MsgLG2GateReqLoginUserList::Clear() {
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MsgLG2GateReqLoginUserList::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      return true;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, mutable_unknown_fields()));
+  }
+  return true;
+#undef DO_
+}
+
+void MsgLG2GateReqLoginUserList::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MsgLG2GateReqLoginUserList::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MsgLG2GateReqLoginUserList::ByteSize() const {
+  int total_size = 0;
+  
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgLG2GateReqLoginUserList::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MsgLG2GateReqLoginUserList* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgLG2GateReqLoginUserList*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgLG2GateReqLoginUserList::MergeFrom(const MsgLG2GateReqLoginUserList& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MsgLG2GateReqLoginUserList::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgLG2GateReqLoginUserList::CopyFrom(const MsgLG2GateReqLoginUserList& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgLG2GateReqLoginUserList::IsInitialized() const {
+  
+  return true;
+}
+
+void MsgLG2GateReqLoginUserList::Swap(MsgLG2GateReqLoginUserList* other) {
+  if (other != this) {
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MsgLG2GateReqLoginUserList::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgLG2GateReqLoginUserList_descriptor_;
+  metadata.reflection = MsgLG2GateReqLoginUserList_reflection_;
   return metadata;
 }
 

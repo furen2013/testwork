@@ -33,6 +33,7 @@ void protobuf_ShutdownFile_MessageLG2Gate_2eproto();
 
 class MsgLG2GateLoginACK;
 class MsgLG2GateBindACK;
+class MsgLG2GateReqLoginUserList;
 
 enum MsgLG2GateLoginACK_enResult {
   MsgLG2GateLoginACK_enResult_LG_OK = 0,
@@ -336,6 +337,78 @@ class MsgLG2GateBindACK : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static MsgLG2GateBindACK* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class MsgLG2GateReqLoginUserList : public ::google::protobuf::Message {
+ public:
+  MsgLG2GateReqLoginUserList();
+  virtual ~MsgLG2GateReqLoginUserList();
+  
+  MsgLG2GateReqLoginUserList(const MsgLG2GateReqLoginUserList& from);
+  
+  inline MsgLG2GateReqLoginUserList& operator=(const MsgLG2GateReqLoginUserList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgLG2GateReqLoginUserList& default_instance();
+  
+  void Swap(MsgLG2GateReqLoginUserList* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgLG2GateReqLoginUserList* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgLG2GateReqLoginUserList& from);
+  void MergeFrom(const MsgLG2GateReqLoginUserList& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // @@protoc_insertion_point(class_scope:MsgLG2GateReqLoginUserList)
+ private:
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  
+  friend void  protobuf_AddDesc_MessageLG2Gate_2eproto();
+  friend void protobuf_AssignDesc_MessageLG2Gate_2eproto();
+  friend void protobuf_ShutdownFile_MessageLG2Gate_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgLG2GateReqLoginUserList* default_instance_;
+};
 // ===================================================================
 
 
@@ -481,6 +554,10 @@ inline void MsgLG2GateBindACK::set_entype(enBindTypeLogic value) {
   set_has_entype();
   entype_ = value;
 }
+
+// -------------------------------------------------------------------
+
+// MsgLG2GateReqLoginUserList
 
 
 // @@protoc_insertion_point(namespace_scope)

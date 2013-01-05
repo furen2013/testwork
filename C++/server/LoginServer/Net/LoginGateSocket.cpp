@@ -2,10 +2,11 @@
 #include "LoginGateSocket.h"
 #include "LGNetParser.h"
 #include "../../../../new_common/Source/log4cpp-1.0/MyLog.h"
+#include "MessageLG2Gate.pb.h"
 
 
 CLoginGateSocket::CLoginGateSocket(boost::asio::io_service& is):
-Tcp_ProtoSession(is)
+Tcp_ProtoSession(is),firstAccept(true)
 {
 }
 
@@ -28,6 +29,13 @@ void CLoginGateSocket::on_accept( tcp_server* p )
 	//LGLISTENER.addSocket(this);
 	MyLog::log->info( "A GT Connection[%s] Accepted", m_strIP.c_str() );
 	Tcp_ProtoSession::on_accept(p);
+
+	if (firstAccept)
+	{
+		MsgLG2GateReqLoginUserList message;
+		this->send_message(LG2Gate_MsgLG2GateReqLoginUserList, &message);
+		firstAccept = false;
+	}
 }
 void CLoginGateSocket::proc_message( const message_t& msg )
 {

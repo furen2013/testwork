@@ -37,30 +37,7 @@ void usage(const char *prog)
 
 int main(int argc, char **argv)
 {
-	//size_t mysize = 0;
-	//MsgHead msgHead;
-	////msgHead.SetCachedSize(20);
-	//mysize = msgHead.ByteSize();
-	//msgHead.set_msgsize(10000);
-	//msgHead.set_type(MsgType::C2Gate_MsgNull);
-	//mysize = msgHead.ByteSize();
-	//mysize = sizeof(_tagPakHead);
-	//mysize = msgHead.GetCachedSize();
-	//int n = 0;
-	//n ++;
 
-
-	//MsgC2GateLoginReq MsgC2G;
-	//MsgC2G.set_id("111111");
-	//MsgC2G.set_password("12121211");
-
-	//char* pByte = new char[MsgC2G.ByteSize()];
-	//size_t size_n = MsgC2G.ByteSize();
-	//MsgC2G.SerializeToArray(pByte, size_n);
-
-	//MsgC2GateLoginReq NewMsgC2G;
-	////size_n = NewMsgC2G.ByteSize();
-	//NewMsgC2G.ParseFromArray(pByte, size_n);
 	
 	MyLog::Init();
 

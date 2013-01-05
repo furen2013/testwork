@@ -7,7 +7,9 @@
 #include "MessageG2C.pb.h"
 #include "../GameLogic/GateUserManager.h"
 #include "MyNetGlobleObj.h"
-
+#include "MessageGate2LG.pb.h"
+#include "GProtoSocket.h"
+extern CGProtoSocket* p2LoginSocket;
 initialiseSingleton(CLG2GateParser);
 CLG2GateParser::CLG2GateParser(void)
 {
@@ -28,6 +30,24 @@ void CLG2GateParser::ParseMessage(const message_t& msg,const CGProtoSocket* pSoc
 	//unsigned short msgBodyBegin = mark + headsize;
 	switch(Msghead.type())
 	{
+	case LG2Gate_MsgLG2GateReqLoginUserList:
+		{
+			MsgGate2LGLoginUserInfoList MsgACK;
+			std::vector<unsigned long> vcAccount;
+			GUManager.GetLoginClientList(vcAccount);
+			std::vector<unsigned long>::iterator it = vcAccount.begin();
+			unsigned long account = 0;
+			for (; it != vcAccount.end(); ++ it)
+			{
+				account = (*it);
+				tgLoginUserInfo* pInfo = MsgACK.add_listloginuser();
+				pInfo->set_account(account);
+			}
+			p2LoginSocket->send_message(Gate2LG_MsgGate2LGLoginUserInfoList, &MsgACK );
+			//GUManager.
+			
+		}
+		break;
 	case LG2Gate_MsgLG2GateLoginACK:
 		{
 			MsgLG2GateLoginACK Msg;

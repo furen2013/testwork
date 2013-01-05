@@ -18,4 +18,12 @@ message MsgGate2LGClientDisconnect
 	required uint64 id = 1;
 }
 
+message MsgGate2LGLoginUserInfoList
+{
+	repeated tgLoginUserInfo listLoginUser = 1;
+}
 
+message tgLoginUserInfo
+{
+	required uint64 account = 1;
+}

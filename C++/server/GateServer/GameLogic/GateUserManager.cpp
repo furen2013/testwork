@@ -88,6 +88,17 @@ void GateUserManager::DelClient(DWORD dw)
 	}
 }
 
+void GateUserManager::GetLoginClientList(std::vector<unsigned long>& vc)
+{
+	boost::mutex::scoped_lock lock(m_mutex);
+	MAPPROTOSOCKET::iterator it = m_LoginClients.begin();
+	CCProtoSocket* Temp;
+	for (; it != m_LoginClients.end(); ++ it)
+	{
+		Temp = it->second;
+		vc.push_back(Temp->GetAccountID());
+	}
+}
 
 CCProtoSocket* GateUserManager::GetClient(DWORD dw)
 {

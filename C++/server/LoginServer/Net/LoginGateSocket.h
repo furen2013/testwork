@@ -16,6 +16,7 @@ protected:
 	std::string m_strIP;
 	DWORD  m_dwIP;
 	int m_iPort;
+	bool firstAccept;
 };
 
 #endif

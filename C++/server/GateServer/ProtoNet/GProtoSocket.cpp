@@ -6,8 +6,9 @@
 CGProtoSocket* p2LoginSocket = NULL;
 
 
-CGProtoSocket::CGProtoSocket(boost::asio::io_service& is):tcp_ProtoClient(*MyNetGlobleObj::get_io_service() )
+CGProtoSocket::CGProtoSocket(boost::asio::io_service& is):tcp_ProtoClient(*MyNetGlobleObj::get_io_service() ),firstconnect(true)
 {
+
 }
 
 
@@ -24,12 +25,12 @@ void CGProtoSocket::on_close( const boost::system::error_code& error )
 
 void CGProtoSocket::on_connect()
 {
-	MyLog::log->info( "%s is connected",serverName.c_str());
-	/*
-	string strPacket = CCSPacketBuilder::BuildGateInfoReqPkg();
-	PostSend(strPacket.c_str(), strPacket.size());
-	*/
-	//sServer.OnConnectedCS( this->get_remote_address_string() );
+	MyLog::log->info( "%s is connected remote address : %s",serverName.c_str(), get_remote_address_string().c_str());
+
+	if (firstconnect = true)
+	{
+		firstconnect = false;
+	}
 	tcp_ProtoClient::on_connect();
 
 	m_isreconnect = true;

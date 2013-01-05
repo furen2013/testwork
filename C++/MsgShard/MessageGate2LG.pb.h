@@ -34,6 +34,8 @@ void protobuf_ShutdownFile_MessageGate2LG_2eproto();
 class MsgGate2LGLoginReq;
 class MsgGate2LGMailLoginReq;
 class MsgGate2LGClientDisconnect;
+class MsgGate2LGLoginUserInfoList;
+class tgLoginUserInfo;
 
 // ===================================================================
 
@@ -323,6 +325,173 @@ class MsgGate2LGClientDisconnect : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static MsgGate2LGClientDisconnect* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class MsgGate2LGLoginUserInfoList : public ::google::protobuf::Message {
+ public:
+  MsgGate2LGLoginUserInfoList();
+  virtual ~MsgGate2LGLoginUserInfoList();
+  
+  MsgGate2LGLoginUserInfoList(const MsgGate2LGLoginUserInfoList& from);
+  
+  inline MsgGate2LGLoginUserInfoList& operator=(const MsgGate2LGLoginUserInfoList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgGate2LGLoginUserInfoList& default_instance();
+  
+  void Swap(MsgGate2LGLoginUserInfoList* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgGate2LGLoginUserInfoList* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgGate2LGLoginUserInfoList& from);
+  void MergeFrom(const MsgGate2LGLoginUserInfoList& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // repeated .tgLoginUserInfo listLoginUser = 1;
+  inline int listloginuser_size() const;
+  inline void clear_listloginuser();
+  static const int kListLoginUserFieldNumber = 1;
+  inline const ::tgLoginUserInfo& listloginuser(int index) const;
+  inline ::tgLoginUserInfo* mutable_listloginuser(int index);
+  inline ::tgLoginUserInfo* add_listloginuser();
+  inline const ::google::protobuf::RepeatedPtrField< ::tgLoginUserInfo >&
+      listloginuser() const;
+  inline ::google::protobuf::RepeatedPtrField< ::tgLoginUserInfo >*
+      mutable_listloginuser();
+  
+  // @@protoc_insertion_point(class_scope:MsgGate2LGLoginUserInfoList)
+ private:
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::RepeatedPtrField< ::tgLoginUserInfo > listloginuser_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageGate2LG_2eproto();
+  friend void protobuf_AssignDesc_MessageGate2LG_2eproto();
+  friend void protobuf_ShutdownFile_MessageGate2LG_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgGate2LGLoginUserInfoList* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class tgLoginUserInfo : public ::google::protobuf::Message {
+ public:
+  tgLoginUserInfo();
+  virtual ~tgLoginUserInfo();
+  
+  tgLoginUserInfo(const tgLoginUserInfo& from);
+  
+  inline tgLoginUserInfo& operator=(const tgLoginUserInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const tgLoginUserInfo& default_instance();
+  
+  void Swap(tgLoginUserInfo* other);
+  
+  // implements Message ----------------------------------------------
+  
+  tgLoginUserInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const tgLoginUserInfo& from);
+  void MergeFrom(const tgLoginUserInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required uint64 account = 1;
+  inline bool has_account() const;
+  inline void clear_account();
+  static const int kAccountFieldNumber = 1;
+  inline ::google::protobuf::uint64 account() const;
+  inline void set_account(::google::protobuf::uint64 value);
+  
+  // @@protoc_insertion_point(class_scope:tgLoginUserInfo)
+ private:
+  inline void set_has_account();
+  inline void clear_has_account();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::uint64 account_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageGate2LG_2eproto();
+  friend void protobuf_AssignDesc_MessageGate2LG_2eproto();
+  friend void protobuf_ShutdownFile_MessageGate2LG_2eproto();
+  
+  void InitAsDefaultInstance();
+  static tgLoginUserInfo* default_instance_;
+};
 // ===================================================================
 
 
@@ -576,6 +745,61 @@ inline ::google::protobuf::uint64 MsgGate2LGClientDisconnect::id() const {
 inline void MsgGate2LGClientDisconnect::set_id(::google::protobuf::uint64 value) {
   set_has_id();
   id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MsgGate2LGLoginUserInfoList
+
+// repeated .tgLoginUserInfo listLoginUser = 1;
+inline int MsgGate2LGLoginUserInfoList::listloginuser_size() const {
+  return listloginuser_.size();
+}
+inline void MsgGate2LGLoginUserInfoList::clear_listloginuser() {
+  listloginuser_.Clear();
+}
+inline const ::tgLoginUserInfo& MsgGate2LGLoginUserInfoList::listloginuser(int index) const {
+  return listloginuser_.Get(index);
+}
+inline ::tgLoginUserInfo* MsgGate2LGLoginUserInfoList::mutable_listloginuser(int index) {
+  return listloginuser_.Mutable(index);
+}
+inline ::tgLoginUserInfo* MsgGate2LGLoginUserInfoList::add_listloginuser() {
+  return listloginuser_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::tgLoginUserInfo >&
+MsgGate2LGLoginUserInfoList::listloginuser() const {
+  return listloginuser_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::tgLoginUserInfo >*
+MsgGate2LGLoginUserInfoList::mutable_listloginuser() {
+  return &listloginuser_;
+}
+
+// -------------------------------------------------------------------
+
+// tgLoginUserInfo
+
+// required uint64 account = 1;
+inline bool tgLoginUserInfo::has_account() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void tgLoginUserInfo::set_has_account() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void tgLoginUserInfo::clear_has_account() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void tgLoginUserInfo::clear_account() {
+  account_ = GOOGLE_ULONGLONG(0);
+  clear_has_account();
+}
+inline ::google::protobuf::uint64 tgLoginUserInfo::account() const {
+  return account_;
+}
+inline void tgLoginUserInfo::set_account(::google::protobuf::uint64 value) {
+  set_has_account();
+  account_ = value;
 }
 
 

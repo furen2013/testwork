@@ -3,6 +3,8 @@
 #define GATEUSERMANAGER_H
 #include <map>
 #include <boost/thread.hpp>
+#include <iostream>
+#include <list>
 #include "Singleton.h"
 class CCProtoSocket;
 typedef std::map<DWORD, CCProtoSocket*> MAPPROTOSOCKET;
@@ -18,6 +20,7 @@ public:
 
 	bool Add2LoginClient(CCProtoSocket* p);
 	bool DelFromLoginClient(DWORD dw);
+	void GetLoginClientList(std::vector<unsigned long>& vc);
 	CCProtoSocket* GetClient(DWORD dw);
 	CCProtoSocket* GetLoginClient(DWORD dw);
 

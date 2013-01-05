@@ -43,6 +43,9 @@ message MsgLG2GateBindACK
 	required enBindTypeLogic        enType = 3;
 }
 
+message MsgLG2GateReqLoginUserList
+{
 
+}
 
 

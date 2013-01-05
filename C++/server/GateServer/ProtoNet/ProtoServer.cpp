@@ -82,9 +82,9 @@ bool CProtoServer::Init()
 		if(Prio)
 		{
 			if(SetPriorityClass(hProcess,HIGH_PRIORITY_CLASS))
-				MyLog::log->info("sunyougt process priority class set to HIGH");
+				MyLog::log->info("my server gt process priority class set to HIGH");
 			else
-				MyLog::log->error("ERROR: Can't set sunyougt process priority class.");
+				MyLog::log->error("ERROR: Can't set my server gt process priority class.");
 			MyLog::log->info("");
 		}
 	}
@@ -137,7 +137,7 @@ bool CProtoServer::Init()
 
 void CProtoServer::Run()
 {
-	MyLog::log->info("========================Sunyou Start!========================");
+	MyLog::log->info("========================my server Start!========================");
 	uint32 realCurrTime, realPrevTime;
 	realCurrTime = realPrevTime = getMSTime();
 
@@ -172,7 +172,7 @@ void CProtoServer::Run()
 
 			if( m_timers[PROTO_UPDATE_MSG].Passed() )
 			{
-				m_timers[UPDATE_MSG].Reset();
+				m_timers[PROTO_UPDATE_MSG].Reset();
 				//for( int i = 0; i < 4; ++i )
 				//	g_gssocket[i]->run_no_wait();
 				//sCSSocket.run_no_wait();
@@ -206,7 +206,7 @@ void CProtoServer::Run()
 			realPrevTime = realCurrTime;
 	}
 
-	MyLog::log->info("========================Sunyou Stop!========================");
+	MyLog::log->info("========================my gt Stop!========================");
 }
 
 void CProtoServer::_OnSignal(int s)
