@@ -95,7 +95,7 @@ void CLG2GateParser::ParseMessage(const message_t& msg,const CGProtoSocket* pSoc
 				if (p)
 				{
 					p->setAccountID(Msg.account());
-					MyLog::log->notice("account %ld is login", p->GetAccountID());
+					MyLog::log->notice("account %ld is  login", p->GetAccountID());
 					GUManager.Add2LoginClient(p);
 					
 					MsgG2CLoginMacACK MessageACK;
