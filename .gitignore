@@ -1,4 +1,18 @@
 #################
+## MyWork
+#################
+*.exe
+CommonD.lib
+MsgShardD.lib
+MsgShardLibD.lib
+My_CommnonD.lib
+new_commonD.lib
+WS2_32.Lib
+*.filters
+*.user
+*.XML
+*.suo
+#################
 ## Eclipse
 #################
 
