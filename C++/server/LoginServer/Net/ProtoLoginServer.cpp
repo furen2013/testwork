@@ -67,7 +67,7 @@ void CProtoLoginServer::_OnSignal(int s)
 
 void CProtoLoginServer::Run()
 {
-	MyLog::log->info("========================Sunyou Start!========================");
+	MyLog::log->info("========================phone Start!========================");
 	uint32 realCurrTime, realPrevTime;
 	realCurrTime = realPrevTime = getMSTime();
 
@@ -132,12 +132,12 @@ void CProtoLoginServer::Run()
 			realPrevTime = realCurrTime;
 	}
 
-	MyLog::log->info("========================Sunyou Stop!========================");
+	MyLog::log->info("========================phone Stop!========================");
 }
 
 bool CProtoLoginServer::Init()
 {
-	MyLog::log->info( "Sunyou Login daemon %s", _FULLVERSION );
+	MyLog::log->info( "phone Login daemon %s", _FULLVERSION );
 	MyLog::log->info( "<Ctrl-C> to stop.\n\n" );
 	m_timers[UPDATE_RECONN].SetInterval(4000);
 	m_timers[UPDATE_MSG].SetInterval(0);
@@ -167,7 +167,7 @@ bool CProtoLoginServer::Init()
 
 				if(!curAff )
 				{
-					MyLog::log->error("Processors marked in UseProcessors bitmask (hex) %x not accessible for sunyougt. Accessible processors bitmask (hex): %x",Aff,appAff);
+					MyLog::log->error("Processors marked in UseProcessors bitmask (hex) %x not accessible for phonegt. Accessible processors bitmask (hex): %x",Aff,appAff);
 				}
 				else
 				{
@@ -186,9 +186,9 @@ bool CProtoLoginServer::Init()
 		if(Prio)
 		{
 			if(SetPriorityClass(hProcess,HIGH_PRIORITY_CLASS))
-				MyLog::log->info("sunyougt process priority class set to HIGH");
+				MyLog::log->info("phonegt process priority class set to HIGH");
 			else
-				MyLog::log->error("ERROR: Can't set sunyougt process priority class.");
+				MyLog::log->error("ERROR: Can't set phonegt process priority class.");
 			MyLog::log->info("");
 		}
 	}

@@ -12,9 +12,9 @@
 //#include "ProtoNet/ProtoServer.h"
 #ifdef WIN32
 #include "../Common/Platform/ServiceWin32.h"
-char serviceName[] = "Sunyou lg";
-char serviceLongName[] = "Sunyou lg service";
-char serviceDescription[] = "Sunyou lg Network Server";
+char serviceName[] = "phone lg";
+char serviceLongName[] = "phone lg service";
+char serviceDescription[] = "phone lg Network Server";
 /*
 * -1 - not in service mode
 *  0 - stopped

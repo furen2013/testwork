@@ -23,7 +23,7 @@ volatile bool CServer::m_stopEvent = false;
 initialiseSingleton(CServer);
 bool CServer::Init()
 {
-	MyLog::log->info( "Sunyou GT daemon %s", _FULLVERSION );
+	MyLog::log->info( "phone GT daemon %s", _FULLVERSION );
 	MyLog::log->info( "<Ctrl-C> to stop.\n\n" );
 
 	m_timers[UPDATE_RECONN].SetInterval(4000);
@@ -55,7 +55,7 @@ bool CServer::Init()
 
 				if(!curAff )
 				{
-					MyLog::log->error("Processors marked in UseProcessors bitmask (hex) %x not accessible for sunyougt. Accessible processors bitmask (hex): %x",Aff,appAff);
+					MyLog::log->error("Processors marked in UseProcessors bitmask (hex) %x not accessible for phone gt. Accessible processors bitmask (hex): %x",Aff,appAff);
 				}
 				else
 				{
@@ -74,9 +74,9 @@ bool CServer::Init()
 		if(Prio)
 		{
 			if(SetPriorityClass(hProcess,HIGH_PRIORITY_CLASS))
-				MyLog::log->info("sunyougt process priority class set to HIGH");
+				MyLog::log->info("phone gt process priority class set to HIGH");
 			else
-				MyLog::log->error("ERROR: Can't set sunyougt process priority class.");
+				MyLog::log->error("ERROR: Can't set phone gt process priority class.");
 			MyLog::log->info("");
 		}
 	}
@@ -118,13 +118,13 @@ bool CServer::Init()
 	if(!ConnectDB()) return false;
 	if(!ConnectGS()) return false;
 
-	MyLog::log->info("========================Sunyou LS Init OK!========================");
+	MyLog::log->info("========================phone gate Init OK!========================");
 
 	return true;
 }
 void CServer::Run()
 {
-	MyLog::log->info("========================Sunyou Start!========================");
+	MyLog::log->info("========================phone Start!========================");
 	uint32 realCurrTime, realPrevTime;
 	realCurrTime = realPrevTime = getMSTime();
 
@@ -188,7 +188,7 @@ void CServer::Run()
 			realPrevTime = realCurrTime;
 	}
 
-	MyLog::log->info("========================Sunyou Stop!========================");
+	MyLog::log->info("========================phone Stop!========================");
 
 	Release();
 }

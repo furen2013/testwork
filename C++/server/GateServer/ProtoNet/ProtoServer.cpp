@@ -63,7 +63,7 @@ bool CProtoServer::Init()
 
 				if(!curAff )
 				{
-					MyLog::log->error("Processors marked in UseProcessors bitmask (hex) %x not accessible for sunyougt. Accessible processors bitmask (hex): %x",Aff,appAff);
+					MyLog::log->error("Processors marked in UseProcessors bitmask (hex) %x not accessible for phonegt. Accessible processors bitmask (hex): %x",Aff,appAff);
 				}
 				else
 				{
@@ -82,9 +82,15 @@ bool CProtoServer::Init()
 		if(Prio)
 		{
 			if(SetPriorityClass(hProcess,HIGH_PRIORITY_CLASS))
+<<<<<<< HEAD
 				MyLog::log->info("my server gt process priority class set to HIGH");
 			else
 				MyLog::log->error("ERROR: Can't set my server gt process priority class.");
+=======
+				MyLog::log->info("phonegt process priority class set to HIGH");
+			else
+				MyLog::log->error("ERROR: Can't set phonegt process priority class.");
+>>>>>>> commit modify log
 			MyLog::log->info("");
 		}
 	}
@@ -130,14 +136,18 @@ bool CProtoServer::Init()
 //	if(!ConnectDB()) return false;
 //	if(!ConnectGS()) return false;
 //
-//	MyLog::log->info("========================Sunyou LS Init OK!========================");
+//	MyLog::log->info("========================phone LS Init OK!========================");
 
 	return true;
 }
 
 void CProtoServer::Run()
 {
+<<<<<<< HEAD
 	MyLog::log->info("========================my server Start!========================");
+=======
+	MyLog::log->info("========================phone Start!========================");
+>>>>>>> commit modify log
 	uint32 realCurrTime, realPrevTime;
 	realCurrTime = realPrevTime = getMSTime();
 
@@ -206,7 +216,11 @@ void CProtoServer::Run()
 			realPrevTime = realCurrTime;
 	}
 
+<<<<<<< HEAD
 	MyLog::log->info("========================my gt Stop!========================");
+=======
+	MyLog::log->info("========================phone Stop!========================");
+>>>>>>> commit modify log
 }
 
 void CProtoServer::_OnSignal(int s)
