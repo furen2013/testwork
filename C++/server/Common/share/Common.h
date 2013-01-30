@@ -1,8 +1,10 @@
 #ifndef COMMON_H
 #define COMMON_H
 
-#include "../../../SDBase/Public/TypeDef.h"
-#include "../../../SDBase/Protocol/PacketDef.h"
+#include "TypeDef.h"
+#include "PacketDef.h"
+#include "Timer.h"
+#include "Singleton.h"
 #ifdef _WIN32
 #pragma warning(disable:4996)
 #define _CRT_SECURE_NO_DEPRECATE 1

@@ -1,7 +1,7 @@
 #ifndef SUNYOU_DEFINE_H
 #define SUNYOU_DEFINE_H
 
-#include "../../SDBase/Public/TypeDef.h"
+#include "../../share/TypeDef.h"
 #include "CompilerDefs.h"
 #include <sys/types.h>
 

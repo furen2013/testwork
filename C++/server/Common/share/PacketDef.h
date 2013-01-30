@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Public/TypeDef.h"
+#include "TypeDef.h"
 
 
 //消息号分类

@@ -20,9 +20,6 @@
     <Filter Include="tinyxml">
       <UniqueIdentifier>{bdd9a7fb-b8a2-4680-a0cc-83c71c071d70}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Protocol">
-      <UniqueIdentifier>{264b1d7d-e57a-42c9-863b-5d9cbed5bca0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="share">
       <UniqueIdentifier>{a6d04fc0-3235-4a85-b86c-69f2b4cb15c4}</UniqueIdentifier>
     </Filter>
@@ -105,9 +102,6 @@
     </ClCompile>
     <ClCompile Include="tinyxml\tinyxmlparser.cpp">
       <Filter>tinyxml</Filter>
-    </ClCompile>
-    <ClCompile Include="Protocol\PacketDef.Cpp">
-      <Filter>Protocol</Filter>
     </ClCompile>
     <ClCompile Include="share\ServiceWin32.cpp">
       <Filter>share</Filter>
@@ -366,51 +360,6 @@
     <ClInclude Include="tinyxml\tinyxml.h">
       <Filter>tinyxml</Filter>
     </ClInclude>
-    <ClInclude Include="Protocol\AC2Client.h">
-      <Filter>Protocol</Filter>
-    </ClInclude>
-    <ClInclude Include="Protocol\Client2AC.h">
-      <Filter>Protocol</Filter>
-    </ClInclude>
-    <ClInclude Include="Protocol\CS2GT.h">
-      <Filter>Protocol</Filter>
-    </ClInclude>
-    <ClInclude Include="Protocol\CS2LS.h">
-      <Filter>Protocol</Filter>
-    </ClInclude>
-    <ClInclude Include="Protocol\DB2GS.h">
-      <Filter>Protocol</Filter>
-    </ClInclude>
-    <ClInclude Include="Protocol\DB2GT.h">
-      <Filter>Protocol</Filter>
-    </ClInclude>
-    <ClInclude Include="Protocol\GS2DB.h">
-      <Filter>Protocol</Filter>
-    </ClInclude>
-    <ClInclude Include="Protocol\GS2GT.h">
-      <Filter>Protocol</Filter>
-    </ClInclude>
-    <ClInclude Include="Protocol\GS2MS.h">
-      <Filter>Protocol</Filter>
-    </ClInclude>
-    <ClInclude Include="Protocol\GT2CS.h">
-      <Filter>Protocol</Filter>
-    </ClInclude>
-    <ClInclude Include="Protocol\GT2DB.h">
-      <Filter>Protocol</Filter>
-    </ClInclude>
-    <ClInclude Include="Protocol\GT2GS.h">
-      <Filter>Protocol</Filter>
-    </ClInclude>
-    <ClInclude Include="Protocol\LS2CS.h">
-      <Filter>Protocol</Filter>
-    </ClInclude>
-    <ClInclude Include="Protocol\MS2GS.h">
-      <Filter>Protocol</Filter>
-    </ClInclude>
-    <ClInclude Include="Protocol\PacketDef.h">
-      <Filter>Protocol</Filter>
-    </ClInclude>
     <ClInclude Include="share\Common.h">
       <Filter>share</Filter>
     </ClInclude>
@@ -611,6 +560,15 @@
     </ClInclude>
     <ClInclude Include="mongoose\mongoose.h">
       <Filter>webserver</Filter>
+    </ClInclude>
+    <ClInclude Include="share\TypeDef.h">
+      <Filter>share</Filter>
+    </ClInclude>
+    <ClInclude Include="share\PacketDef.h">
+      <Filter>share</Filter>
+    </ClInclude>
+    <ClInclude Include="share\ByteBuffer.h">
+      <Filter>share</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

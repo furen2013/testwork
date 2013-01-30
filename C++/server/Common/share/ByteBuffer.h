@@ -3,7 +3,7 @@
 
 #include "TypeDef.h"
 #include "assert.h"
-#include "../Protocol/PacketDef.h"
+#include "PacketDef.h"
 class ByteBuffer
 {
     public:

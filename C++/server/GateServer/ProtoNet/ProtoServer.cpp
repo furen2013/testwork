@@ -82,16 +82,9 @@ bool CProtoServer::Init()
 		if(Prio)
 		{
 			if(SetPriorityClass(hProcess,HIGH_PRIORITY_CLASS))
-<<<<<<< HEAD
-				MyLog::log->info("my server gt process priority class set to HIGH");
-			else
-				MyLog::log->error("ERROR: Can't set my server gt process priority class.");
-=======
 				MyLog::log->info("phonegt process priority class set to HIGH");
 			else
 				MyLog::log->error("ERROR: Can't set phonegt process priority class.");
->>>>>>> commit modify log
-			MyLog::log->info("");
 		}
 	}
 #endif
@@ -143,12 +136,10 @@ bool CProtoServer::Init()
 
 void CProtoServer::Run()
 {
-<<<<<<< HEAD
-	MyLog::log->info("========================my server Start!========================");
-=======
+
 	MyLog::log->info("========================phone Start!========================");
->>>>>>> commit modify log
-	uint32 realCurrTime, realPrevTime;
+	uint32 realCurrTime;
+	uint32 realPrevTime;
 	realCurrTime = realPrevTime = getMSTime();
 
 	///- Wait for termination signal
@@ -216,11 +207,8 @@ void CProtoServer::Run()
 			realPrevTime = realCurrTime;
 	}
 
-<<<<<<< HEAD
 	MyLog::log->info("========================my gt Stop!========================");
-=======
-	MyLog::log->info("========================phone Stop!========================");
->>>>>>> commit modify log
+
 }
 
 void CProtoServer::_OnSignal(int s)

@@ -1,5 +1,5 @@
 #include "MersenneTwister.h"
-#include "../../SDBase/Public/Timer.h"
+#include "Timer.h"
 #define NUMBER_OF_GENERATORS 5
 Mutex * m_locks[NUMBER_OF_GENERATORS];
 CRandomMersenne * m_generators[NUMBER_OF_GENERATORS];

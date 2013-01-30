@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "Config.h"
 initialiseSingleton(CGTConfig);
 bool CGTConfig::Load()
 {

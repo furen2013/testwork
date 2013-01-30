@@ -13,8 +13,10 @@ using namespace std;
 
 #define _ACTIVITY_PROTOCOL
 
-#include "../../SDBase/Public/TypeDef.h"
-#include "../../SDBase/Public/Timer.h"
+//#include "../../SDBase/Public/TypeDef.h"
+//#include "../../SDBase/Public/Timer.h"
+#include "../Common/share/Common.h"
+//#include "../Common/share/PacketDef.h"
 
 #include "../Common/Platform/SystemConfig.h"
 #include "../Common/Platform/Util.h"
@@ -24,11 +26,11 @@ using namespace std;
 #include "svn_revision.h"
 #include "Config/Config.h"
 
-
-#include "Server.h"
-
-#include "Config.h"
-#include "UserManager.h"
+//
+//#include "Server.h"
+//
+//#include "Config.h"
+//#include "UserManager.h"
 
 #include "../../new_common/Source/net/tcpclient.h"
 #include "../../new_common/Source/log4cpp-1.0/MyLog.h"

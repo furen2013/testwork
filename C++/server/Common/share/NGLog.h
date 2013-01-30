@@ -1,6 +1,6 @@
 #ifndef NGLOG_H
 #define NGLOG_H
-#include "../../SDBase/Public/Timer.h"
+#include "Timer.h"
 
 class WorldPacket;
 class WorldSession;

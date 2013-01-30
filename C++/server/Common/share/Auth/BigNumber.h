@@ -3,7 +3,7 @@
 #define _AUTH_BIGNUMBER_H
 
 #include "Common.h"
-#include "../../SDBase/Public/ByteBuffer.h"
+#include "../ByteBuffer.h"
 
 //#include "openssl/bn.h"
 struct bignum_st;

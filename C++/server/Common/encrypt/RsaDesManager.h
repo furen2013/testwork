@@ -1,5 +1,5 @@
 #pragma once
-#include "../../../SDBase/Public/TypeDef.h"
+#include "TypeDef.h"
 #include "../openssl-0.9.8b/inc32/openssl/rsa.h"
 #include "../openssl-0.9.8b/inc32/openssl/des.h"
 #include <string>
