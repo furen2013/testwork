@@ -129,12 +129,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 	MyLog::log->info("Using configuration file %s.", cfg_file);
 
-	if (!CLGSERVER.Init())
+	if (!CGS.Init())
 	{
 		return -1;
 	}
 
-	CLGSERVER.Run();
+	CGS.Run();
 
 	//if(!sServer.Init())
 	//{

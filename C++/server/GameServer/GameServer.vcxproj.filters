@@ -36,12 +36,12 @@
     <ClInclude Include="NetParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameServer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Net\GSListenSocket.cpp">
@@ -51,6 +51,12 @@
       <Filter>Net</Filter>
     </ClCompile>
     <ClCompile Include="NetParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
