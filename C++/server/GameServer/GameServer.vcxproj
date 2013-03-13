@@ -83,6 +83,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameServer.h" />
+    <ClInclude Include="logic\farm\FarmLogic.h" />
+    <ClInclude Include="logic\farm\PloughCell.h" />
     <ClInclude Include="NetParser.h" />
     <ClInclude Include="Net\GSListenSocket.h" />
     <ClInclude Include="Net\GSocket.h" />
@@ -91,6 +93,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameServer.cpp" />
+    <ClCompile Include="logic\farm\FarmLogic.cpp" />
+    <ClCompile Include="logic\farm\PloughCell.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NetParser.cpp" />
     <ClCompile Include="Net\GSListenSocket.cpp" />

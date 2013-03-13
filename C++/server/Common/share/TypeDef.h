@@ -1,6 +1,8 @@
 #ifndef TYPE_DEFINE_HEAD_
 #define TYPE_DEFINE_HEAD_
 
+#ifndef BASEDATA
+#define BASEDATA
 #ifndef _WIN32
 typedef long long __int64;
 typedef long long int64;
@@ -59,6 +61,8 @@ typedef unsigned __int32 uint32;
 typedef unsigned __int16 uint16;
 typedef unsigned __int8 uint8;
 #endif
+#endif
+
 const int INVALID_ID		= 0xFFFFFFFF;
 #define SY_INVALID_OBJID   0
 #include <list>

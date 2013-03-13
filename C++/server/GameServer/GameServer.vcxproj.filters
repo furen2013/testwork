@@ -16,6 +16,12 @@
     <Filter Include="Net">
       <UniqueIdentifier>{304ed142-fbc7-466a-b5f2-741ff01d12ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="logic">
+      <UniqueIdentifier>{ac6d0e78-3e75-41a4-aac9-51daeed18944}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic\farm">
+      <UniqueIdentifier>{b254cbb6-488f-45d8-90ab-5686825ae7d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -39,6 +45,12 @@
     <ClInclude Include="GameServer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="logic\farm\FarmLogic.h">
+      <Filter>logic\farm</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\farm\PloughCell.h">
+      <Filter>logic\farm</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -58,6 +70,12 @@
     </ClCompile>
     <ClCompile Include="GameServer.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\farm\FarmLogic.cpp">
+      <Filter>logic\farm</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\farm\PloughCell.cpp">
+      <Filter>logic\farm</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -637,4 +637,13 @@ static unsigned int MakeIP(const char * str)
 	return res;
 }
 
+#include "Threading/Threading.h"
+
+#include "Threading/AtomicULong.h"
+#include "Threading/AtomicFloat.h"
+#include "Threading/AtomicCounter.h"
+#include "Threading/AtomicBoolean.h"
+#include "Threading/ConditionVariable.h"
+#include "TypeDef.h"
+
 #endif

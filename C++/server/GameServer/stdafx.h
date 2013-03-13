@@ -14,6 +14,7 @@
 #include "../Common/Platform/SystemConfig.h"
 #include "../Common/Platform/Util.h"
 #include "../Common/share/Common.h"
+
 #include "stdio.h"
 #include "stdlib.h"
 #include "svn_revision.h"

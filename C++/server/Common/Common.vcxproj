@@ -100,6 +100,13 @@ copy ..\..\intermediate\Server\$(ProjectName)\$(Configuration)\*.Lib ..\..\Serve
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Com\EventMgr.cpp" />
+    <ClCompile Include="Com\UtilityClock.cpp" />
+    <ClCompile Include="share\Threading\AtomicBoolean.cpp" />
+    <ClCompile Include="share\Threading\AtomicCounter.cpp" />
+    <ClCompile Include="share\Threading\AtomicFloat.cpp" />
+    <ClCompile Include="share\Threading\AtomicULong.cpp" />
+    <ClCompile Include="share\Threading\ConditionVariable.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -346,6 +353,8 @@ copy ..\..\intermediate\Server\$(ProjectName)\$(Configuration)\*.Lib ..\..\Serve
     <ClCompile Include="mongoose\mongoose.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Com\EventMgr.h" />
+    <ClInclude Include="Com\UtilityClock.h" />
     <ClInclude Include="Platform\Base.h" />
     <ClInclude Include="Platform\Common.h" />
     <ClInclude Include="Platform\CompilerDefs.h" />
@@ -366,6 +375,11 @@ copy ..\..\intermediate\Server\$(ProjectName)\$(Configuration)\*.Lib ..\..\Serve
     <ClInclude Include="Platform\WheatyExceptionReport.h" />
     <ClInclude Include="share\ByteBuffer.h" />
     <ClInclude Include="share\PacketDef.h" />
+    <ClInclude Include="share\Threading\AtomicBoolean.h" />
+    <ClInclude Include="share\Threading\AtomicCounter.h" />
+    <ClInclude Include="share\Threading\AtomicFloat.h" />
+    <ClInclude Include="share\Threading\AtomicULong.h" />
+    <ClInclude Include="share\Threading\ConditionVariable.h" />
     <ClInclude Include="share\TypeDef.h" />
     <ClInclude Include="Stream\FileStream.h" />
     <ClInclude Include="Stream\Stream.h" />
