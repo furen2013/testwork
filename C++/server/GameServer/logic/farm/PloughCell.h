@@ -1,6 +1,7 @@
 #pragma once
 #ifndef PLOUGHCELL_H
 #define PLOUGHCELL_H
+#include "EventableObject.h"
 enum growstate
 {
 	growstate_seeding,
@@ -8,7 +9,7 @@ enum growstate
 	growstate_grown,
 	growstate_max
 };
-class PloughCell
+class PloughCell : public EventableObject
 {
 public:
 	PloughCell();

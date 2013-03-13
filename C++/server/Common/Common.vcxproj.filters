@@ -301,6 +301,9 @@
     <ClCompile Include="share\Threading\ConditionVariable.cpp">
       <Filter>share\Threading</Filter>
     </ClCompile>
+    <ClCompile Include="Com\EventableObject.cpp">
+      <Filter>Com</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Platform\Base.h">
@@ -611,6 +614,9 @@
     </ClInclude>
     <ClInclude Include="share\Threading\ConditionVariable.h">
       <Filter>share\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="Com\EventableObject.h">
+      <Filter>Com</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
