@@ -51,6 +51,9 @@
     <ClInclude Include="logic\farm\PloughCell.h">
       <Filter>logic\farm</Filter>
     </ClInclude>
+    <ClInclude Include="FarmManager.h">
+      <Filter>logic\farm</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -75,6 +78,9 @@
       <Filter>logic\farm</Filter>
     </ClCompile>
     <ClCompile Include="logic\farm\PloughCell.cpp">
+      <Filter>logic\farm</Filter>
+    </ClCompile>
+    <ClCompile Include="FarmManager.cpp">
       <Filter>logic\farm</Filter>
     </ClCompile>
   </ItemGroup>

@@ -37,6 +37,12 @@
     <None Include="MessageC2G.proto">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="MessageFarmC2G.proto">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="MessageFarmG2C.proto">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MsgHead.pb.cc">

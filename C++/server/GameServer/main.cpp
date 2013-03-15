@@ -24,7 +24,10 @@ int m_ServiceStatus = -1;
 
 
 FILE* g_fpLogConnection = NULL;
+void OnCrash(bool Terminate)
+{
 
+}
 
 /// Print out the usage string for this program on the console.
 void usage(const char *prog)

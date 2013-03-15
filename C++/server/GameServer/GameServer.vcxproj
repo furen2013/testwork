@@ -82,6 +82,7 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FarmManager.h" />
     <ClInclude Include="GameServer.h" />
     <ClInclude Include="logic\farm\FarmLogic.h" />
     <ClInclude Include="logic\farm\PloughCell.h" />
@@ -92,6 +93,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FarmManager.cpp" />
     <ClCompile Include="GameServer.cpp" />
     <ClCompile Include="logic\farm\FarmLogic.cpp" />
     <ClCompile Include="logic\farm\PloughCell.cpp" />

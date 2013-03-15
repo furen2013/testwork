@@ -1,0 +1,9 @@
+import "MsgHead.proto";    
+message MsgC2GApllyForFarmStatusReq
+{	
+	
+}
+message MsgC2GApplyForWateringFarmCell
+{
+	required int32 CellId = 1;
+}

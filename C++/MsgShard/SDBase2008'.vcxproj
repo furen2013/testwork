@@ -98,6 +98,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="MessageC2G.proto" />
+    <None Include="MessageFarmC2G.proto" />
+    <None Include="MessageFarmG2C.proto" />
     <None Include="MessageG2C.proto" />
     <None Include="MessageGate2LG.proto" />
     <None Include="MessageLG2Gate.proto" />
