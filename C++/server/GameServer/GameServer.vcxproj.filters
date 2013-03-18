@@ -22,6 +22,9 @@
     <Filter Include="logic\farm">
       <UniqueIdentifier>{b254cbb6-488f-45d8-90ab-5686825ae7d8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="logic\technology">
+      <UniqueIdentifier>{48364617-8fde-4cd9-838d-9ff38031f2fa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -54,6 +57,12 @@
     <ClInclude Include="FarmManager.h">
       <Filter>logic\farm</Filter>
     </ClInclude>
+    <ClInclude Include="logic\technology\TechnologyManager.h">
+      <Filter>logic\technology</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\technology\Technology.h">
+      <Filter>logic\technology</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -82,6 +91,12 @@
     </ClCompile>
     <ClCompile Include="FarmManager.cpp">
       <Filter>logic\farm</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\technology\TechnologyManager.cpp">
+      <Filter>logic\technology</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\technology\Technology.cpp">
+      <Filter>logic\technology</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

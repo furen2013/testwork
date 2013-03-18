@@ -86,6 +86,8 @@
     <ClInclude Include="GameServer.h" />
     <ClInclude Include="logic\farm\FarmLogic.h" />
     <ClInclude Include="logic\farm\PloughCell.h" />
+    <ClInclude Include="logic\technology\Technology.h" />
+    <ClInclude Include="logic\technology\TechnologyManager.h" />
     <ClInclude Include="NetParser.h" />
     <ClInclude Include="Net\GSListenSocket.h" />
     <ClInclude Include="Net\GSocket.h" />
@@ -97,6 +99,8 @@
     <ClCompile Include="GameServer.cpp" />
     <ClCompile Include="logic\farm\FarmLogic.cpp" />
     <ClCompile Include="logic\farm\PloughCell.cpp" />
+    <ClCompile Include="logic\technology\Technology.cpp" />
+    <ClCompile Include="logic\technology\TechnologyManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NetParser.cpp" />
     <ClCompile Include="Net\GSListenSocket.cpp" />

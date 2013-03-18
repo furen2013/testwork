@@ -9,7 +9,7 @@
 
 #include <stdio.h>
 #include <tchar.h>
-
+#include "TypeDef.h"
 
 #include "../Common/Platform/SystemConfig.h"
 #include "../Common/Platform/Util.h"
