@@ -1,8 +1,9 @@
 #pragma once
 #ifndef FARMMANAGER_H
 #define FARMMANAGER_H
+#include "TypeDef.h"
 class FarmLogic;
-typedef map<DWORD account, FarmLogic*> FARMS;
+typedef map<DWORD, FarmLogic*> FARMS;
 class FarmManager
 {
 public:
