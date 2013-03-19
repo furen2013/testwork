@@ -1,6 +1,22 @@
 #pragma once
 #ifndef	TECHNOLOGYMANAGER_H
 #define TECHNOLOGYMANAGER_H
+#include "TypeDef.h"
+
+enum enTechResult
+{
+	TechResult_OK,
+	TechResult_NotFoundUser,
+	TechResult_LevelNotOpen,
+	TechResult_NotHaveReqTech,
+	TechResult_NotHaveTechLevel,
+	TechResult_NotHaveTech,
+	TechResult_NotHaveOwnerTechValue,
+	TechResult_AlreadyOpenTechLevel,
+	TechResult_Max
+};
+
+
 class Technology;
 
 struct reqtech
@@ -35,17 +51,6 @@ struct techLevelconf
 class TechnologyManager
 {
 public:
-	enum enAddTechResult
-	{
-		AddTechResult_OK,
-		AddTechResult_NotFoundUser,
-		AddTechResult_LevelNotOpen,
-		AddTechResult_NotHaveReqTech,
-		AddTechResult_NotHaveTechLevel,
-		AddTechResult_NotHaveTech,
-		AddTechResult_NotHaveOwnerTechValue,
-		AddTechResult_Max
-	};
 public:
 	typedef map<int,techLevelconf*> maptechLevelconf;
 	typedef map<DWORD, Technology*> maptechnology;
@@ -53,7 +58,11 @@ public:
 	TechnologyManager();
 	~TechnologyManager();
 	bool Load();
-	enAddTechResult IsCanAddTechCount(DWORD account, int level, int id, int count = 1);
+	enTechResult AddTechCount(DWORD account, int level, int id, int count = 1);
+	enTechResult OpenTechLevel(DWORD account, int level);
+protected:
+	const techLevelconf* FindTechConfLevel(int level);
+
 protected:
 	maptechLevelconf  techLevelconfs;
 	maptechnology technologys;

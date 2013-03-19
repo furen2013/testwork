@@ -8,8 +8,10 @@
 #include "../GameLogic/GateUserManager.h"
 #include "MyNetGlobleObj.h"
 #include "MessageGate2LG.pb.h"
+#include "MessageGate2GS.pb.h"
 #include "GProtoSocket.h"
 extern CGProtoSocket* p2LoginSocket;
+extern CGProtoSocket* p2GameServerSocket;
 initialiseSingleton(CLG2GateParser);
 CLG2GateParser::CLG2GateParser(void)
 {
@@ -52,7 +54,7 @@ void CLG2GateParser::ParseMessage(const message_t& msg,const CGProtoSocket* pSoc
 		{
 			MsgLG2GateLoginACK Msg;
 			Msg.ParseFromString(Msghead.body());
-
+			MsgGate2GSLoginReq Msg2GS;
 			MsgG2CLoginMacACK MsgAck;
 			CCProtoSocket* pProtoSocket = GUManager.GetClient(Msg.id());
 			if (pProtoSocket)
@@ -61,7 +63,7 @@ void CLG2GateParser::ParseMessage(const message_t& msg,const CGProtoSocket* pSoc
 				if (Msg.account() == 0)
 				{
 					MsgAck.set_account(0);
-
+					pProtoSocket->send_message(G2C_LoginMacACK, &MsgAck);
 				}
 				else
 				{
@@ -77,37 +79,23 @@ void CLG2GateParser::ParseMessage(const message_t& msg,const CGProtoSocket* pSoc
 					pProtoSocket->setAccountID(Msg.account());
 					if (GUManager.Add2LoginClient(pProtoSocket))
 					{
-						MsgAck.set_account(pProtoSocket->GetAccountID());
+						MsgGate2GSLoginReq req;
+						req.set_account(Msg.account());
+						p2GameServerSocket->send_message(Gate2LG_MsgGate2LGLoginReq, &req);
 					}
 					else
 					{
+
 						MsgAck.set_account(0);
+						pProtoSocket->send_message(G2C_LoginMacACK, &MsgAck);
 					}
 				}
-				pProtoSocket->send_message(G2C_LoginMacACK, &MsgAck);
+				
 			}
 			else
 			{
 				MyLog::log->warn("error socket [%d]", Msg.id());
 
-				//sUserMgr.GetClient(Msg.id());
-				CCProtoSocket* p = GUManager.GetClient((DWORD)pSocket);
-				if (p)
-				{
-					p->setAccountID(Msg.account());
-					MyLog::log->notice("account %ld is  login", p->GetAccountID());
-					GUManager.Add2LoginClient(p);
-					
-					MsgG2CLoginMacACK MessageACK;
-					MessageACK.set_account(Msg.account());
-					p->send_message(G2C_LoginMacACK, &MessageACK);
-					
-				}
-				else
-				{
-					MyLog::log->warn("unknown LG2Gate_MsgLG2GateLoginACK");
-				}
-				
 			}
 
 			//unsigned long account = LUM.tryLogin(Msg.mac().c_str());

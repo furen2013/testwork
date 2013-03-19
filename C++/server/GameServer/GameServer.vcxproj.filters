@@ -63,6 +63,18 @@
     <ClInclude Include="logic\technology\Technology.h">
       <Filter>logic\technology</Filter>
     </ClInclude>
+    <ClInclude Include="Net\NetSession.h">
+      <Filter>Net</Filter>
+    </ClInclude>
+    <ClInclude Include="Net\NetSessionManager.h">
+      <Filter>Net</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\Unit.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\Player.h">
+      <Filter>logic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -97,6 +109,18 @@
     </ClCompile>
     <ClCompile Include="logic\technology\Technology.cpp">
       <Filter>logic\technology</Filter>
+    </ClCompile>
+    <ClCompile Include="Net\NetSession.cpp">
+      <Filter>Net</Filter>
+    </ClCompile>
+    <ClCompile Include="Net\NetSessionManager.cpp">
+      <Filter>Net</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\Unit.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\Player.cpp">
+      <Filter>logic</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

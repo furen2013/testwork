@@ -14,6 +14,7 @@ extern int m_ServiceStatus;
 #endif
 
 extern CGProtoSocket* p2LoginSocket;
+extern CGProtoSocket* p2GameServerSocket;
 volatile bool CProtoServer::m_stopEvent = false;
 zip_compress_strategy impcs;
 initialiseSingleton(CProtoServer);
@@ -125,6 +126,7 @@ bool CProtoServer::Init()
 	MyLog::log->notice("Start Listen Client on port[%u]", 95501);
 
 	connectLG();
+	connectGS();
 
 //	if(!ConnectCS()) return false;
 //	if(!ConnectDB()) return false;
@@ -185,6 +187,11 @@ void CProtoServer::Run()
 				{
 					p2LoginSocket->run_no_wait();
 				}
+				if (p2GameServerSocket != NULL)
+				{
+					p2GameServerSocket->run_no_wait();
+				}
+				
 				//sCLS.run_no_wait();
 			}
 
@@ -266,5 +273,16 @@ bool CProtoServer::connectLG()
 		p2LoginSocket->setServerName("LoginServerName");
 	}
 	p2LoginSocket->connect("127.0.0.1", 95502);
+	return true;
+}
+
+bool CProtoServer::connectGS()
+{
+	if (!p2LoginSocket)
+	{
+		p2LoginSocket = new CGProtoSocket(*MyNetGlobleObj::get_io_service());
+		p2LoginSocket->setServerName("GameServerName");
+	}
+	p2LoginSocket->connect("127.0.0.1", 95503);	
 	return true;
 }

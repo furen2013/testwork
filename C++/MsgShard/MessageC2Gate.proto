@@ -1,0 +1,50 @@
+import "MsgHead.proto";    
+message MsgC2GateLoginReq
+{	
+	required string id = 1;
+	required string password = 2;
+}
+
+
+message MsgC2GateCreateAcountReq
+{	
+	required string id = 1;
+	required string name = 2;
+	required string password = 3;
+}
+
+message MsgC2GateLoginMacReq
+{
+	required string Mac = 1;
+}
+
+message MsgBindMailReq
+{
+	required uint64 account = 1;
+	required string mac = 2;
+	required string password = 3;
+	required string mail = 4;
+}
+
+message MsgUnbindMacReq
+{
+	required uint64 account = 1;
+	required string mac = 2;
+	required string password = 3;
+	required string mail = 4;
+}
+
+message MsgBindMacReq
+{
+	required uint64 account = 1;
+	required string mac = 2;
+	required string password = 3;
+	required string mail = 4;
+}
+
+message MsgMailLoginReq
+{
+	required string password = 1;
+	required string mail = 2;
+
+}

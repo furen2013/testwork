@@ -86,11 +86,15 @@
     <ClInclude Include="GameServer.h" />
     <ClInclude Include="logic\farm\FarmLogic.h" />
     <ClInclude Include="logic\farm\PloughCell.h" />
+    <ClInclude Include="logic\Player.h" />
     <ClInclude Include="logic\technology\Technology.h" />
     <ClInclude Include="logic\technology\TechnologyManager.h" />
+    <ClInclude Include="logic\Unit.h" />
     <ClInclude Include="NetParser.h" />
     <ClInclude Include="Net\GSListenSocket.h" />
     <ClInclude Include="Net\GSocket.h" />
+    <ClInclude Include="Net\NetSession.h" />
+    <ClInclude Include="Net\NetSessionManager.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -99,12 +103,16 @@
     <ClCompile Include="GameServer.cpp" />
     <ClCompile Include="logic\farm\FarmLogic.cpp" />
     <ClCompile Include="logic\farm\PloughCell.cpp" />
+    <ClCompile Include="logic\Player.cpp" />
     <ClCompile Include="logic\technology\Technology.cpp" />
     <ClCompile Include="logic\technology\TechnologyManager.cpp" />
+    <ClCompile Include="logic\Unit.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NetParser.cpp" />
     <ClCompile Include="Net\GSListenSocket.cpp" />
     <ClCompile Include="Net\GSocket.cpp" />
+    <ClCompile Include="Net\NetSession.cpp" />
+    <ClCompile Include="Net\NetSessionManager.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

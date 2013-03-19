@@ -12,12 +12,8 @@
 using namespace std;
 
 #define _ACTIVITY_PROTOCOL
-
-//#include "../../SDBase/Public/TypeDef.h"
-//#include "../../SDBase/Public/Timer.h"
+#include "TypeDef.h"
 #include "../Common/share/Common.h"
-//#include "../Common/share/PacketDef.h"
-
 #include "../Common/Platform/SystemConfig.h"
 #include "../Common/Platform/Util.h"
 

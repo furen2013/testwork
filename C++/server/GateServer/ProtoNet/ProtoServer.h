@@ -24,6 +24,7 @@ public:
 	void _HookSignals();
 	void _UnhookSignals();
 	bool connectLG();
+	bool connectGS();
 	static void _OnSignal(int s);
 
 protected:

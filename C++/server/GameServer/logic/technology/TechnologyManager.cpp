@@ -16,21 +16,58 @@ bool TechnologyManager::Load()
 	return true;
 }
 
-TechnologyManager::enAddTechResult TechnologyManager::IsCanAddTechCount(DWORD account, int level, int id, int count /* = 1 */)
+enTechResult TechnologyManager::OpenTechLevel(DWORD account, int level)
 {
-	enAddTechResult en = AddTechResult_OK;
-	maptechLevelconf::iterator it = techLevelconfs.find(level);
-	if (it == techLevelconfs.end())
+	enTechResult en = TechResult_OK;
+	const techLevelconf* pconf = FindTechConfLevel(level);
+	if (pconf == NULL)
 	{
-		en = AddTechResult_NotHaveTechLevel;
+		en = TechResult_NotHaveTechLevel;
 	}
 	else
 	{
-		techLevelconf* pconf =  it->second;
-		techLevelconf::maptechinfo::iterator itconf = pconf->techinfos.find(id);
+		maptechnology::iterator ittechnology = technologys.find(account);
+		if (ittechnology == technologys.end())
+		{
+			en =  TechResult_NotFoundUser;
+		}
+		else
+		{
+			Technology* pTechnology = ittechnology->second;
+			if (!pTechnology->openTechLevel(level))
+			{
+				en = TechResult_AlreadyOpenTechLevel;
+			}
+			
+		}
+	}
+	return en;
+}
+
+const techLevelconf* TechnologyManager::FindTechConfLevel(int level)
+{
+	maptechLevelconf::iterator it = techLevelconfs.find(level);
+	if (it == techLevelconfs.end())
+	{
+		return NULL;
+	}
+	return it->second;
+}
+enTechResult TechnologyManager::AddTechCount(DWORD account, int level, int id, int count /* = 1 */)
+{
+	enTechResult en = TechResult_OK;
+	const techLevelconf* pconf = FindTechConfLevel(level);
+	
+	if (pconf == NULL)
+	{
+		en = TechResult_NotHaveTechLevel;
+	}
+	else
+	{
+		techLevelconf::maptechinfo::const_iterator itconf = pconf->techinfos.find(id);
 		if (itconf == pconf->techinfos.end())
 		{
-			en = AddTechResult_NotHaveTech;
+			en = TechResult_NotHaveTech;
 		}
 		else
 		{
@@ -38,31 +75,12 @@ TechnologyManager::enAddTechResult TechnologyManager::IsCanAddTechCount(DWORD ac
 			maptechnology::iterator ittechnology = technologys.find(account);
 			if (ittechnology == technologys.end())
 			{
-				en =  AddTechResult_NotFoundUser;
+				en =  TechResult_NotFoundUser;
 			}
 			else
 			{
-				Technology* pTechnology = ittechnology->second;
-				if (pTechnology->GetTechValue() < count)
-				{
-
-				}
-				else
-				{
-					techconf::vcreqtechs::iterator ittechs = ptechconf->reqtechs.begin();
-					for (; ittechs != ptechconf->reqtechs.end(); ++ ittechs)
-					{
-
-						reqtech* preqtech = (*ittechs);
-						if (pTechnology->GetTechCount(level, preqtech->id) < preqtech->reqcount)
-						{
-							en = AddTechResult_NotHaveReqTech;
-							break;
-						}
-					}
-				}
-
-				
+				Technology* p = ittechnology->second;
+				en = p->addTech(level, id,count, ptechconf);;
 			}
 		}
 	}

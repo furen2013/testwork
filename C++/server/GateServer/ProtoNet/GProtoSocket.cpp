@@ -4,6 +4,7 @@
 #include "GateParser.h"
 #include "LG2GateParser.h"
 CGProtoSocket* p2LoginSocket = NULL;
+CGProtoSocket* p2GameServerSocket = NULL;
 
 
 CGProtoSocket::CGProtoSocket(boost::asio::io_service& is):tcp_ProtoClient(*MyNetGlobleObj::get_io_service() ),firstconnect(true)
