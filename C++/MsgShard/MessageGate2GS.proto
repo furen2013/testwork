@@ -1,5 +1,0 @@
-import "MsgHead.proto";    
-message MsgGate2GSLoginReq
-{
-	required uint64 account = 1;
-}

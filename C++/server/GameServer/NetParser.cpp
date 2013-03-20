@@ -1,6 +1,8 @@
 #include "StdAfx.h"
 #include "NetParser.h"
 #include "MessageGate2GS.pb.h"
+#include "Net/NetSessionManager.h"
+#include "Net/NetSession.h"
 
 initialiseSingleton(NetParser);
 NetParser::NetParser(void)
@@ -25,7 +27,11 @@ void NetParser::ParseMessage(const message_t& msg, CGTSocket* pSocket)
 		{
 			MsgGate2GSLoginReq Msg;
 			Msg.ParseFromString(Msghead.body());
-
+			//数据库装在回调
+			NetSession* p = NetSessionManager::getSingleton().FindSession(Msg.account());
+			if (p == NULL)
+			{
+			}
 		}
 	}
 }

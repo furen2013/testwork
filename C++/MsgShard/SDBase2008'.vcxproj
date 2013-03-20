@@ -97,28 +97,35 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="MessageC2Gate.proto" />
-    <None Include="MessageGate2GS.proto" />
-    <None Include="MessageFarmG2C.proto" />
-    <None Include="MessageG2C.proto" />
-    <None Include="MessageGate2LG.proto" />
-    <None Include="MessageLG2Gate.proto" />
-    <None Include="MsgHead.proto" />
+    <None Include="proto\MessageC2Gate.proto" />
+    <None Include="proto\MessageFarmG2C.proto" />
+    <None Include="proto\MessageG2C.proto" />
+    <None Include="proto\MessageGate2GS.proto" />
+    <None Include="proto\MessageGate2LG.proto" />
+    <None Include="proto\MessageGS2Gate.proto" />
+    <None Include="proto\MessageLG2Gate.proto" />
+    <None Include="proto\MsgHead.proto" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MessageC2G.pb.cc" />
+    <ClCompile Include="MessageC2Gate.pb.cc" />
+    <ClCompile Include="MessageFarmG2C.pb.cc" />
     <ClCompile Include="MessageG2C.pb.cc" />
     <ClCompile Include="MessageGate2GS.pb.cc" />
     <ClCompile Include="MessageGate2LG.pb.cc" />
+    <ClCompile Include="MessageGS2Gate.pb.cc" />
     <ClCompile Include="MessageLG2Gate.pb.cc" />
     <ClCompile Include="MsgHead.pb.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MessageC2G.pb.h" />
+    <ClInclude Include="MessageC2Gate.pb.h" />
+    <ClInclude Include="MessageFarmG2C.pb.h" />
     <ClInclude Include="MessageG2C.pb.h" />
     <ClInclude Include="MessageGate2GS.pb.h" />
     <ClInclude Include="MessageGate2LG.pb.h" />
+    <ClInclude Include="MessageGS2Gate.pb.h" />
     <ClInclude Include="MessageLG2Gate.pb.h" />
     <ClInclude Include="MsgHead.pb.h" />
     <ClInclude Include="TypeDef.h" />
