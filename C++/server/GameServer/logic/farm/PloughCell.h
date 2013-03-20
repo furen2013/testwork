@@ -16,6 +16,8 @@ public:
 	PloughCell();
 	~PloughCell();
 public:
+	bool LoadFromString(string sz);
+	
 	void BecomeYoung();
 	void BecomeGrown();
 	void BecomeSeeding();

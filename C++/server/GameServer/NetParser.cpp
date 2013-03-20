@@ -3,6 +3,7 @@
 #include "MessageGate2GS.pb.h"
 #include "Net/NetSessionManager.h"
 #include "Net/NetSession.h"
+#include "logic/farm/FarmManager.h"
 
 initialiseSingleton(NetParser);
 NetParser::NetParser(void)
@@ -31,6 +32,16 @@ void NetParser::ParseMessage(const message_t& msg, CGTSocket* pSocket)
 			NetSession* p = NetSessionManager::getSingleton().FindSession(Msg.account());
 			if (p == NULL)
 			{
+				//该玩家未登录
+				FarmLogic* pFarmLogic = FarmManager::getSingleton().GetFarmLogic(Msg.account());
+				if (pFarmLogic == NULL)
+				{
+					//该玩第一次登陆
+				}
+			}
+			else
+			{
+
 			}
 		}
 	}

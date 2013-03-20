@@ -51,7 +51,6 @@ struct techLevelconf
 class TechnologyManager
 {
 public:
-public:
 	typedef map<int,techLevelconf*> maptechLevelconf;
 	typedef map<DWORD, Technology*> maptechnology;
 public:

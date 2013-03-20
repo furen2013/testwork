@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "PloughCell.h"
 #include "EventMgr.h"
+#include "boost/lexical_cast.hpp"
 
 PloughCell::PloughCell()
 {
@@ -17,6 +18,27 @@ PloughCell::~PloughCell()
 
 }
 
+bool PloughCell::LoadFromString(string sz)
+{
+	std::vector<string> tokens = StrSplit(sz,",");
+	int strNumber = tokens.size();
+	bool b = true;
+	if (strNumber == 5)
+	{
+		id
+		enType = (growstate)boost::lexical_cast<int>(tokens[0].c_str());
+		_waterPercentageMax = boost::lexical_cast<int>(tokens[1].c_str());
+		_waterPercentage = boost::lexical_cast<int>(tokens[2].c_str());
+		_manurelevel = boost::lexical_cast<int>(tokens[3].c_str());
+		_lastStateTime = boost::lexical_cast<DWORD>(tokens[4].c_str());
+		
+	}
+	else
+	{
+
+	}
+	
+}
 
 
 void PloughCell::BecomeYoung()

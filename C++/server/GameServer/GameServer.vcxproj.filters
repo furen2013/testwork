@@ -54,9 +54,6 @@
     <ClInclude Include="logic\farm\PloughCell.h">
       <Filter>logic\farm</Filter>
     </ClInclude>
-    <ClInclude Include="FarmManager.h">
-      <Filter>logic\farm</Filter>
-    </ClInclude>
     <ClInclude Include="logic\technology\TechnologyManager.h">
       <Filter>logic\technology</Filter>
     </ClInclude>
@@ -74,6 +71,9 @@
     </ClInclude>
     <ClInclude Include="logic\Player.h">
       <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\farm\FarmManager.h">
+      <Filter>logic\farm</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -101,9 +101,6 @@
     <ClCompile Include="logic\farm\PloughCell.cpp">
       <Filter>logic\farm</Filter>
     </ClCompile>
-    <ClCompile Include="FarmManager.cpp">
-      <Filter>logic\farm</Filter>
-    </ClCompile>
     <ClCompile Include="logic\technology\TechnologyManager.cpp">
       <Filter>logic\technology</Filter>
     </ClCompile>
@@ -121,6 +118,9 @@
     </ClCompile>
     <ClCompile Include="logic\Player.cpp">
       <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\farm\FarmManager.cpp">
+      <Filter>logic\farm</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
