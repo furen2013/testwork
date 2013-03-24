@@ -10,10 +10,19 @@ public:
 	FarmLogic();
 	virtual ~FarmLogic();
 public:
+	inline void setAccount(DWORD account){_account = account;}
+	inline DWORD getAccount(){return _account;}
+	bool LoadCells(string str);
+	void start();
+public:
+	string MakeCellsStr();
+	void modify();
+	
 
 protected:
-	DWORD account;
+	DWORD _account;
 	PLOUGHCELL _cells;
+	bool _modify;
 };
 
 #endif

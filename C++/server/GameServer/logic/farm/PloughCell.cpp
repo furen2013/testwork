@@ -18,26 +18,51 @@ PloughCell::~PloughCell()
 
 }
 
+string PloughCell::ToString()
+{
+#define MaxNumber  7
+	string str[MaxNumber];
+	str[0] = boost::lexical_cast<string>((int32)enType);
+	str[1] = boost::lexical_cast<string>(_waterPercentageMax);
+	str[2] = boost::lexical_cast<string>(_waterPercentage);
+	str[3] = boost::lexical_cast<string>(_manurelevel);
+	str[4] = boost::lexical_cast<string>(_lastStateTime);
+	str[5] = boost::lexical_cast<string>(_decreaseWaterPerHour);
+	str[6] = boost::lexical_cast<string>(_ID);
+	string Temp;
+	for (int i = 0; i < MaxNumber; i ++)
+	{
+		if (i != 0)
+		{
+			Temp += ",";
+		}
+		Temp += str[i];		
+	}
+	return Temp;
+}
 bool PloughCell::LoadFromString(string sz)
 {
 	std::vector<string> tokens = StrSplit(sz,",");
 	int strNumber = tokens.size();
 	bool b = true;
-	if (strNumber == 5)
+	if (strNumber == 7)
 	{
-		id
-		enType = (growstate)boost::lexical_cast<int>(tokens[0].c_str());
-		_waterPercentageMax = boost::lexical_cast<int>(tokens[1].c_str());
-		_waterPercentage = boost::lexical_cast<int>(tokens[2].c_str());
-		_manurelevel = boost::lexical_cast<int>(tokens[3].c_str());
-		_lastStateTime = boost::lexical_cast<DWORD>(tokens[4].c_str());
 		
+		enType = (growstate)boost::lexical_cast<int32>(tokens[0].c_str());
+		_waterPercentageMax = boost::lexical_cast<int32>(tokens[1].c_str());
+		_waterPercentage = boost::lexical_cast<int32>(tokens[2].c_str());
+		_manurelevel = boost::lexical_cast<int32>(tokens[3].c_str());
+		_lastStateTime = boost::lexical_cast<DWORD>(tokens[4].c_str());
+		_decreaseWaterPerHour = boost::lexical_cast<int32>(tokens[5].c_str());
+		_ID = boost::lexical_cast<int32>(tokens[6].c_str());
+		b = true;
 	}
 	else
 	{
-
+		MyLog::log->debug("error load bad ploughcell. ");
+		b = false;
 	}
-	
+	return b;
 }
 
 

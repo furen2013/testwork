@@ -17,6 +17,7 @@ public:
 	~PloughCell();
 public:
 	bool LoadFromString(string sz);
+	string ToString();
 	
 	void BecomeYoung();
 	void BecomeGrown();

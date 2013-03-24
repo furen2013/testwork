@@ -9,6 +9,7 @@
 
 #include <stdio.h>
 #include <tchar.h>
+#include <iostream>
 #include "TypeDef.h"
 
 #include "../Common/Platform/SystemConfig.h"

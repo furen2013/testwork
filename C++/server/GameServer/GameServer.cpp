@@ -7,6 +7,8 @@
 #include "../../../Common/share/Config/Config.h"
 #include "Net/GSListenSocket.h"
 #include "MyNetGlobleObj.h"
+#include "share/Database/Database.h"
+SERVER_DECL Database* Database_Character;
 #ifdef WIN32
 extern int m_ServiceStatus;
 #endif

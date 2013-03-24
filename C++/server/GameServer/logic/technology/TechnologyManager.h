@@ -37,6 +37,8 @@ struct techconf
 	int id;
 	int maxCount;
 	vcreqtechs reqtechs;
+	bool LoadFromStr(string str);
+
 };
 
 
@@ -63,8 +65,8 @@ protected:
 	const techLevelconf* FindTechConfLevel(int level);
 
 protected:
-	maptechLevelconf  techLevelconfs;
-	maptechnology technologys;
+	maptechLevelconf  _techLevelconfs;
+	maptechnology _technologys;
 
 };
 #endif
