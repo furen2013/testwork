@@ -2,7 +2,8 @@
 #ifndef UNIT_H
 #define UNIT_H
 #include "TypeDef.h"
-class Unit
+#include "Com/EventableObject.h"
+class Unit : public EventableObject
 {
 public:
 	Unit();

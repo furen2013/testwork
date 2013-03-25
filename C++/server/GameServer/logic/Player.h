@@ -2,6 +2,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "Unit.h"
+class Database;
+class NetSession;
 enum enSeedType
 {
 	SeedType_Copper,
@@ -17,7 +19,7 @@ struct PlayerInfo
 	}
 	DWORD _account;
 	int _level;
-	int _icon;
+	string _icon;
 	string _name;
 	long _CreateTime;
 
@@ -42,11 +44,14 @@ public:
 	Player();
 	~Player();
 public:
+	bool Load(DWORD account);
+	void LoadFromDBProc(QueryResultVector & results);
 	DWORD getAccount();
 	int getLevel();
-	int getIcon();
+	const char* getIcon();
 	const char* getName();
 	void setAccount(DWORD account);
+	NetSession* getSession();
 	inline bool IsValid()
 	{
 		if (_Info == NULL)
@@ -60,6 +65,7 @@ public:
 protected:
 	PlayerInfo* _Info;
 	PlayerResource* _PlayerResource;
-
+	Database* _db;
+	NetSession* _session;
 };
 #endif
