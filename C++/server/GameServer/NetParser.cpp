@@ -4,6 +4,8 @@
 #include "Net/NetSessionManager.h"
 #include "Net/NetSession.h"
 #include "logic/farm/FarmManager.h"
+#include "logic/Player.h"
+#include "logic/PlayerInfoManager.h"
 
 initialiseSingleton(NetParser);
 NetParser::NetParser(void)
@@ -37,7 +39,16 @@ void NetParser::ParseMessage(const message_t& msg, CGTSocket* pSocket)
 				if (pFarmLogic == NULL)
 				{
 					//该玩第一次登陆
+					pFarmLogic = FarmManager::getSingleton().CreateFarm(Msg.account());
 				}
+
+				PlayerInfo* playerInfo = PlayerInfoManager::getSingleton().GetPlayerInfo(Msg.account());
+				if (playerInfo == NULL)
+				{
+					playerInfo = PlayerInfoManager::getSingleton().CreatePlayerInfo(Msg.account());
+				}
+				// 载入resource 资源 访问数据库 异步
+
 			}
 			else
 			{

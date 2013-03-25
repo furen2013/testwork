@@ -2,13 +2,38 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "Unit.h"
+enum enSeedType
+{
+	SeedType_Copper,
+	SeedType_Silver,
+	SeedType_Gold,
+	SeedType_Max
+};
 struct PlayerInfo
 {
+	PlayerInfo()
+	{
+
+	}
 	DWORD _account;
 	int _level;
 	int _icon;
 	string _name;
-	long CreateTime;
+	long _CreateTime;
+
+};
+
+struct PlayerResource
+{
+	PlayerResource()
+	{
+
+	}
+	DWORD _account;
+	int _gold;
+	int _ruby;
+	int _manure;
+	int _seeds[SeedType_Max];
 };
 
 class Player : public Unit
@@ -30,8 +55,11 @@ public:
 		}
 		return true;
 	}
+	inline void setPlayerInfo(PlayerInfo* info){_Info = info;}
+	inline void setPlayerResource(PlayerResource* resource){_PlayerResource = resource;}
 protected:
 	PlayerInfo* _Info;
+	PlayerResource* _PlayerResource;
 
 };
 #endif

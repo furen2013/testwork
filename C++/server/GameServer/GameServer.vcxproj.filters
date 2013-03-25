@@ -75,6 +75,12 @@
     <ClInclude Include="logic\farm\FarmManager.h">
       <Filter>logic\farm</Filter>
     </ClInclude>
+    <ClInclude Include="logic\PlayerInfoManager.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\PlayerResourceManager.h">
+      <Filter>logic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -121,6 +127,12 @@
     </ClCompile>
     <ClCompile Include="logic\farm\FarmManager.cpp">
       <Filter>logic\farm</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\PlayerInfoManager.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\PlayerResourceManager.cpp">
+      <Filter>logic</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

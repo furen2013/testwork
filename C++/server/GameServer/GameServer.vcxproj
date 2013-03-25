@@ -87,6 +87,8 @@
     <ClInclude Include="logic\farm\FarmManager.h" />
     <ClInclude Include="logic\farm\PloughCell.h" />
     <ClInclude Include="logic\Player.h" />
+    <ClInclude Include="logic\PlayerInfoManager.h" />
+    <ClInclude Include="logic\PlayerResourceManager.h" />
     <ClInclude Include="logic\technology\Technology.h" />
     <ClInclude Include="logic\technology\TechnologyManager.h" />
     <ClInclude Include="logic\Unit.h" />
@@ -104,6 +106,8 @@
     <ClCompile Include="logic\farm\FarmManager.cpp" />
     <ClCompile Include="logic\farm\PloughCell.cpp" />
     <ClCompile Include="logic\Player.cpp" />
+    <ClCompile Include="logic\PlayerInfoManager.cpp" />
+    <ClCompile Include="logic\PlayerResourceManager.cpp" />
     <ClCompile Include="logic\technology\Technology.cpp" />
     <ClCompile Include="logic\technology\TechnologyManager.cpp" />
     <ClCompile Include="logic\Unit.cpp" />
