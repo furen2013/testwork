@@ -3,6 +3,11 @@
 #include "PlayerInfoManager.h"
 #include "PlayerResourceManager.h"
 #include "Database/Database.h"
+#include "MyLog.h"
+#include "MessageGS2Gate.pb.h"
+#include "../net/NetSession.h"
+#include "technology/TechnologyManager.h"
+#include "technology/Technology.h"
 //#include "MyLog.h"
 Player::Player()
 {
@@ -22,12 +27,18 @@ void Player::LoadFromDBProc(QueryResultVector & results)
 	uint32 field_index = 2;
 #define get_next_field fields[field_index++]
 
-	if(getSession() == NULL || results.size() < 1)
+	if(getSession() == NULL )
 	{
 		//RemovePendingPlayer();
+		
 		return;
 	}
 
+	if (results.size() < 1 || _PlayerResource == NULL)
+	{
+		_PlayerResource = PlayerResourceManager::getSingleton().CreateResource(getTempAccount());
+	}
+	
 
 	QueryResult *result = results[0].result;
 	if(!result)
@@ -49,14 +60,52 @@ void Player::LoadFromDBProc(QueryResultVector & results)
 		_PlayerResource->_seeds[SeedType_Gold] = fields[6].GetInt32();
 	}
 
+	GS2GateLoginOKACK Msg;
+	Msg.set_name(_Info->_name);
+	Msg.set_icon(_Info->_icon);
+	Msg.set_level(_Info->_level);
+	Msg.set_manure(_PlayerResource->_manure);
+	Msg.set_seedcopper(_PlayerResource->_seeds[SeedType_Copper]);
+	Msg.set_seedgold(_PlayerResource->_seeds[SeedType_Gold]);
+	Msg.set_seedsilver(_PlayerResource->_seeds[SeedType_Silver]);
+	Msg.set_techvalue(_technology->GetTechValue());
+
+	
+	Technology::maptechlevel::const_iterator it = _technology->itTechBegin();
+	for (;it != _technology->itTechEnd(); it ++)
+	{
+		const TechLevel* tech = it->second;
+		tgTechLevel* tgtech = Msg.add_tech();
+		tgtech->set_level(tech->level);
+		TechLevel::maptechinfo::const_iterator itinfo = tech->TechInfos.begin();
+		for (; itinfo != tech->TechInfos.end(); ++ itinfo )
+		{
+			const TechInfo* pinfo = itinfo->second;
+			tgTechnology* p = tgtech->add_tech();
+			p->set_id(pinfo->id);
+			p->set_value(pinfo->currentCount);
+		}
+	}
+	getSession()->sendMessage(&Msg, MsgType::GS2Client_GS2GateLoginOKACK);
+
+
+
+
+	//getSession()->sendMessage()
 }
 NetSession* Player::getSession()
 {
 	return _session;
 }
+
+void Player::setSession(NetSession* p)
+{
+	_session = p;
+}
 bool Player::Load(DWORD account)
 {
 	bool newPlayer = false;
+	_technology = TechnologyManager::getSingleton().GetTech(account);
 	_Info = PlayerInfoManager::getSingleton().GetPlayerInfo(account);
 	if (_Info == NULL)
 	{
@@ -127,4 +176,9 @@ void Player::setAccount(DWORD account)
 		return;
 	}
 	_Info->_account = account;
+}
+
+DWORD Player::getTempAccount()
+{
+	return _TempAccount;
 }

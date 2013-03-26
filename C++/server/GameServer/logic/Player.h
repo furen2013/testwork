@@ -4,6 +4,7 @@
 #include "Unit.h"
 class Database;
 class NetSession;
+class Technology;
 enum enSeedType
 {
 	SeedType_Copper,
@@ -52,6 +53,7 @@ public:
 	const char* getName();
 	void setAccount(DWORD account);
 	NetSession* getSession();
+	void setSession(NetSession* p);
 	inline bool IsValid()
 	{
 		if (_Info == NULL)
@@ -67,5 +69,9 @@ protected:
 	PlayerResource* _PlayerResource;
 	Database* _db;
 	NetSession* _session;
+	Technology* _technology;
+protected:
+	DWORD _TempAccount;
+	DWORD getTempAccount();
 };
 #endif

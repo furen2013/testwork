@@ -50,7 +50,7 @@ struct techLevelconf
 	int spendgold;
 };
 
-class TechnologyManager
+class TechnologyManager: public Singleton<TechnologyManager>
 {
 public:
 	typedef map<int,techLevelconf*> maptechLevelconf;
@@ -61,6 +61,8 @@ public:
 	bool Load();
 	enTechResult AddTechCount(DWORD account, int level, int id, int count = 1);
 	enTechResult OpenTechLevel(DWORD account, int level);
+	Technology* GetTech(DWORD account); // if null create it
+
 protected:
 	const techLevelconf* FindTechConfLevel(int level);
 

@@ -22,7 +22,7 @@ struct TechLevel
 };
 class Technology
 {
-	
+public:
 	typedef map<int, TechLevel*> maptechlevel;
 public:
 	Technology();
@@ -37,7 +37,10 @@ public:
 	inline void setAccount(DWORD account){_account = account;}
 	inline DWORD getAccount(){return _account;}
 	string toString();
-protected:
+	inline const int GetTechvalue(){return _techvalue;}
+	maptechlevel::const_iterator itTechBegin();
+	maptechlevel::const_iterator itTechEnd();
+
 	
 protected:
 	maptechlevel _techlevels;

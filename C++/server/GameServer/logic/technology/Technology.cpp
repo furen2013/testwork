@@ -13,6 +13,9 @@ Technology::~Technology()
 {
 
 }
+
+
+
 string Technology::toString()
 {
 	string temp;
@@ -184,4 +187,14 @@ enTechResult Technology::addTech(int level, int id, int ncount,  const techconf*
 	}
 
 	return en;
+}
+
+Technology::maptechlevel::const_iterator Technology::itTechBegin()
+{
+	return _techlevels.begin();
+}
+
+Technology::maptechlevel::const_iterator Technology::itTechEnd()
+{
+	return _techlevels.end();
 }

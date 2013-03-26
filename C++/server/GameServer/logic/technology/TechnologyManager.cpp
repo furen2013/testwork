@@ -4,7 +4,7 @@
 #include "share/Database/Database.h"
 #include "share/Database/DatabaseEnv.h"
 #include "boost/lexical_cast.hpp"
-
+initialiseSingleton(TechnologyManager);
 bool techconf::LoadFromStr(string str)
 {
 	vector<string> strs = StrSplit(str,";");
@@ -85,6 +85,23 @@ bool TechnologyManager::Load()
 	return true;
 }
 
+
+Technology* TechnologyManager::GetTech(DWORD account)
+{
+	Technology* p = NULL;
+	maptechnology::iterator it = _technologys.find(account);
+	if (it != _technologys.end())
+	{
+		p = it->second;
+	}
+	else
+	{
+		p = new Technology();
+		p->setAccount(account);
+		_technologys.insert(maptechnology::value_type(account, p));
+	}
+	return p;
+}
 enTechResult TechnologyManager::OpenTechLevel(DWORD account, int level)
 {
 	enTechResult en = TechResult_OK;

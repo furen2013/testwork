@@ -31,6 +31,8 @@ void  protobuf_AddDesc_MessageGS2Gate_2eproto();
 void protobuf_AssignDesc_MessageGS2Gate_2eproto();
 void protobuf_ShutdownFile_MessageGS2Gate_2eproto();
 
+class tgTechnology;
+class tgTechLevel;
 class GS2GateLoginOKACK;
 class GS2GateErrorACK;
 
@@ -54,6 +56,193 @@ inline bool GS2GateErrorACK_enResult_Parse(
     GS2GateErrorACK_enResult_descriptor(), name, value);
 }
 // ===================================================================
+
+class tgTechnology : public ::google::protobuf::Message {
+ public:
+  tgTechnology();
+  virtual ~tgTechnology();
+  
+  tgTechnology(const tgTechnology& from);
+  
+  inline tgTechnology& operator=(const tgTechnology& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const tgTechnology& default_instance();
+  
+  void Swap(tgTechnology* other);
+  
+  // implements Message ----------------------------------------------
+  
+  tgTechnology* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const tgTechnology& from);
+  void MergeFrom(const tgTechnology& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required int32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+  
+  // required int32 value = 2;
+  inline bool has_value() const;
+  inline void clear_value();
+  static const int kValueFieldNumber = 2;
+  inline ::google::protobuf::int32 value() const;
+  inline void set_value(::google::protobuf::int32 value);
+  
+  // @@protoc_insertion_point(class_scope:tgTechnology)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_value();
+  inline void clear_has_value();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 value_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageGS2Gate_2eproto();
+  friend void protobuf_AssignDesc_MessageGS2Gate_2eproto();
+  friend void protobuf_ShutdownFile_MessageGS2Gate_2eproto();
+  
+  void InitAsDefaultInstance();
+  static tgTechnology* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class tgTechLevel : public ::google::protobuf::Message {
+ public:
+  tgTechLevel();
+  virtual ~tgTechLevel();
+  
+  tgTechLevel(const tgTechLevel& from);
+  
+  inline tgTechLevel& operator=(const tgTechLevel& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const tgTechLevel& default_instance();
+  
+  void Swap(tgTechLevel* other);
+  
+  // implements Message ----------------------------------------------
+  
+  tgTechLevel* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const tgTechLevel& from);
+  void MergeFrom(const tgTechLevel& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required int32 level = 1;
+  inline bool has_level() const;
+  inline void clear_level();
+  static const int kLevelFieldNumber = 1;
+  inline ::google::protobuf::int32 level() const;
+  inline void set_level(::google::protobuf::int32 value);
+  
+  // repeated .tgTechnology tech = 2;
+  inline int tech_size() const;
+  inline void clear_tech();
+  static const int kTechFieldNumber = 2;
+  inline const ::tgTechnology& tech(int index) const;
+  inline ::tgTechnology* mutable_tech(int index);
+  inline ::tgTechnology* add_tech();
+  inline const ::google::protobuf::RepeatedPtrField< ::tgTechnology >&
+      tech() const;
+  inline ::google::protobuf::RepeatedPtrField< ::tgTechnology >*
+      mutable_tech();
+  
+  // @@protoc_insertion_point(class_scope:tgTechLevel)
+ private:
+  inline void set_has_level();
+  inline void clear_has_level();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::RepeatedPtrField< ::tgTechnology > tech_;
+  ::google::protobuf::int32 level_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageGS2Gate_2eproto();
+  friend void protobuf_AssignDesc_MessageGS2Gate_2eproto();
+  friend void protobuf_ShutdownFile_MessageGS2Gate_2eproto();
+  
+  void InitAsDefaultInstance();
+  static tgTechLevel* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class GS2GateLoginOKACK : public ::google::protobuf::Message {
  public:
@@ -127,12 +316,77 @@ class GS2GateLoginOKACK : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 level() const;
   inline void set_level(::google::protobuf::int32 value);
   
-  // required int32 icon = 3;
+  // required string icon = 3;
   inline bool has_icon() const;
   inline void clear_icon();
   static const int kIconFieldNumber = 3;
-  inline ::google::protobuf::int32 icon() const;
-  inline void set_icon(::google::protobuf::int32 value);
+  inline const ::std::string& icon() const;
+  inline void set_icon(const ::std::string& value);
+  inline void set_icon(const char* value);
+  inline void set_icon(const char* value, size_t size);
+  inline ::std::string* mutable_icon();
+  inline ::std::string* release_icon();
+  
+  // required int32 gold = 4;
+  inline bool has_gold() const;
+  inline void clear_gold();
+  static const int kGoldFieldNumber = 4;
+  inline ::google::protobuf::int32 gold() const;
+  inline void set_gold(::google::protobuf::int32 value);
+  
+  // required int32 ruby = 5;
+  inline bool has_ruby() const;
+  inline void clear_ruby();
+  static const int kRubyFieldNumber = 5;
+  inline ::google::protobuf::int32 ruby() const;
+  inline void set_ruby(::google::protobuf::int32 value);
+  
+  // required int32 manure = 6;
+  inline bool has_manure() const;
+  inline void clear_manure();
+  static const int kManureFieldNumber = 6;
+  inline ::google::protobuf::int32 manure() const;
+  inline void set_manure(::google::protobuf::int32 value);
+  
+  // required int32 seedCopper = 7;
+  inline bool has_seedcopper() const;
+  inline void clear_seedcopper();
+  static const int kSeedCopperFieldNumber = 7;
+  inline ::google::protobuf::int32 seedcopper() const;
+  inline void set_seedcopper(::google::protobuf::int32 value);
+  
+  // required int32 seedSilver = 8;
+  inline bool has_seedsilver() const;
+  inline void clear_seedsilver();
+  static const int kSeedSilverFieldNumber = 8;
+  inline ::google::protobuf::int32 seedsilver() const;
+  inline void set_seedsilver(::google::protobuf::int32 value);
+  
+  // required int32 seedGold = 9;
+  inline bool has_seedgold() const;
+  inline void clear_seedgold();
+  static const int kSeedGoldFieldNumber = 9;
+  inline ::google::protobuf::int32 seedgold() const;
+  inline void set_seedgold(::google::protobuf::int32 value);
+  
+  // required int32 techvalue = 10;
+  inline bool has_techvalue() const;
+  inline void clear_techvalue();
+  static const int kTechvalueFieldNumber = 10;
+  inline ::google::protobuf::int32 techvalue() const;
+  inline void set_techvalue(::google::protobuf::int32 value);
+  
+  // repeated .tgTechLevel tech = 11;
+  inline int tech_size() const;
+  inline void clear_tech();
+  static const int kTechFieldNumber = 11;
+  inline const ::tgTechLevel& tech(int index) const;
+  inline ::tgTechLevel* mutable_tech(int index);
+  inline ::tgTechLevel* add_tech();
+  inline const ::google::protobuf::RepeatedPtrField< ::tgTechLevel >&
+      tech() const;
+  inline ::google::protobuf::RepeatedPtrField< ::tgTechLevel >*
+      mutable_tech();
   
   // @@protoc_insertion_point(class_scope:GS2GateLoginOKACK)
  private:
@@ -142,15 +396,37 @@ class GS2GateLoginOKACK : public ::google::protobuf::Message {
   inline void clear_has_level();
   inline void set_has_icon();
   inline void clear_has_icon();
+  inline void set_has_gold();
+  inline void clear_has_gold();
+  inline void set_has_ruby();
+  inline void clear_has_ruby();
+  inline void set_has_manure();
+  inline void clear_has_manure();
+  inline void set_has_seedcopper();
+  inline void clear_has_seedcopper();
+  inline void set_has_seedsilver();
+  inline void clear_has_seedsilver();
+  inline void set_has_seedgold();
+  inline void clear_has_seedgold();
+  inline void set_has_techvalue();
+  inline void clear_has_techvalue();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   ::std::string* name_;
+  ::std::string* icon_;
   ::google::protobuf::int32 level_;
-  ::google::protobuf::int32 icon_;
+  ::google::protobuf::int32 gold_;
+  ::google::protobuf::int32 ruby_;
+  ::google::protobuf::int32 manure_;
+  ::google::protobuf::int32 seedcopper_;
+  ::google::protobuf::int32 seedsilver_;
+  ::google::protobuf::int32 seedgold_;
+  ::google::protobuf::int32 techvalue_;
+  ::google::protobuf::RepeatedPtrField< ::tgTechLevel > tech_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(11 + 31) / 32];
   
   friend void  protobuf_AddDesc_MessageGS2Gate_2eproto();
   friend void protobuf_AssignDesc_MessageGS2Gate_2eproto();
@@ -270,6 +546,105 @@ class GS2GateErrorACK : public ::google::protobuf::Message {
 
 // ===================================================================
 
+// tgTechnology
+
+// required int32 id = 1;
+inline bool tgTechnology::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void tgTechnology::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void tgTechnology::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void tgTechnology::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 tgTechnology::id() const {
+  return id_;
+}
+inline void tgTechnology::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// required int32 value = 2;
+inline bool tgTechnology::has_value() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void tgTechnology::set_has_value() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void tgTechnology::clear_has_value() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void tgTechnology::clear_value() {
+  value_ = 0;
+  clear_has_value();
+}
+inline ::google::protobuf::int32 tgTechnology::value() const {
+  return value_;
+}
+inline void tgTechnology::set_value(::google::protobuf::int32 value) {
+  set_has_value();
+  value_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// tgTechLevel
+
+// required int32 level = 1;
+inline bool tgTechLevel::has_level() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void tgTechLevel::set_has_level() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void tgTechLevel::clear_has_level() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void tgTechLevel::clear_level() {
+  level_ = 0;
+  clear_has_level();
+}
+inline ::google::protobuf::int32 tgTechLevel::level() const {
+  return level_;
+}
+inline void tgTechLevel::set_level(::google::protobuf::int32 value) {
+  set_has_level();
+  level_ = value;
+}
+
+// repeated .tgTechnology tech = 2;
+inline int tgTechLevel::tech_size() const {
+  return tech_.size();
+}
+inline void tgTechLevel::clear_tech() {
+  tech_.Clear();
+}
+inline const ::tgTechnology& tgTechLevel::tech(int index) const {
+  return tech_.Get(index);
+}
+inline ::tgTechnology* tgTechLevel::mutable_tech(int index) {
+  return tech_.Mutable(index);
+}
+inline ::tgTechnology* tgTechLevel::add_tech() {
+  return tech_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::tgTechnology >&
+tgTechLevel::tech() const {
+  return tech_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::tgTechnology >*
+tgTechLevel::mutable_tech() {
+  return &tech_;
+}
+
+// -------------------------------------------------------------------
+
 // GS2GateLoginOKACK
 
 // required string name = 1;
@@ -352,7 +727,7 @@ inline void GS2GateLoginOKACK::set_level(::google::protobuf::int32 value) {
   level_ = value;
 }
 
-// required int32 icon = 3;
+// required string icon = 3;
 inline bool GS2GateLoginOKACK::has_icon() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -363,15 +738,230 @@ inline void GS2GateLoginOKACK::clear_has_icon() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void GS2GateLoginOKACK::clear_icon() {
-  icon_ = 0;
+  if (icon_ != &::google::protobuf::internal::kEmptyString) {
+    icon_->clear();
+  }
   clear_has_icon();
 }
-inline ::google::protobuf::int32 GS2GateLoginOKACK::icon() const {
+inline const ::std::string& GS2GateLoginOKACK::icon() const {
+  return *icon_;
+}
+inline void GS2GateLoginOKACK::set_icon(const ::std::string& value) {
+  set_has_icon();
+  if (icon_ == &::google::protobuf::internal::kEmptyString) {
+    icon_ = new ::std::string;
+  }
+  icon_->assign(value);
+}
+inline void GS2GateLoginOKACK::set_icon(const char* value) {
+  set_has_icon();
+  if (icon_ == &::google::protobuf::internal::kEmptyString) {
+    icon_ = new ::std::string;
+  }
+  icon_->assign(value);
+}
+inline void GS2GateLoginOKACK::set_icon(const char* value, size_t size) {
+  set_has_icon();
+  if (icon_ == &::google::protobuf::internal::kEmptyString) {
+    icon_ = new ::std::string;
+  }
+  icon_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* GS2GateLoginOKACK::mutable_icon() {
+  set_has_icon();
+  if (icon_ == &::google::protobuf::internal::kEmptyString) {
+    icon_ = new ::std::string;
+  }
   return icon_;
 }
-inline void GS2GateLoginOKACK::set_icon(::google::protobuf::int32 value) {
-  set_has_icon();
-  icon_ = value;
+inline ::std::string* GS2GateLoginOKACK::release_icon() {
+  clear_has_icon();
+  if (icon_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = icon_;
+    icon_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// required int32 gold = 4;
+inline bool GS2GateLoginOKACK::has_gold() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void GS2GateLoginOKACK::set_has_gold() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void GS2GateLoginOKACK::clear_has_gold() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void GS2GateLoginOKACK::clear_gold() {
+  gold_ = 0;
+  clear_has_gold();
+}
+inline ::google::protobuf::int32 GS2GateLoginOKACK::gold() const {
+  return gold_;
+}
+inline void GS2GateLoginOKACK::set_gold(::google::protobuf::int32 value) {
+  set_has_gold();
+  gold_ = value;
+}
+
+// required int32 ruby = 5;
+inline bool GS2GateLoginOKACK::has_ruby() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void GS2GateLoginOKACK::set_has_ruby() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void GS2GateLoginOKACK::clear_has_ruby() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void GS2GateLoginOKACK::clear_ruby() {
+  ruby_ = 0;
+  clear_has_ruby();
+}
+inline ::google::protobuf::int32 GS2GateLoginOKACK::ruby() const {
+  return ruby_;
+}
+inline void GS2GateLoginOKACK::set_ruby(::google::protobuf::int32 value) {
+  set_has_ruby();
+  ruby_ = value;
+}
+
+// required int32 manure = 6;
+inline bool GS2GateLoginOKACK::has_manure() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void GS2GateLoginOKACK::set_has_manure() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void GS2GateLoginOKACK::clear_has_manure() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void GS2GateLoginOKACK::clear_manure() {
+  manure_ = 0;
+  clear_has_manure();
+}
+inline ::google::protobuf::int32 GS2GateLoginOKACK::manure() const {
+  return manure_;
+}
+inline void GS2GateLoginOKACK::set_manure(::google::protobuf::int32 value) {
+  set_has_manure();
+  manure_ = value;
+}
+
+// required int32 seedCopper = 7;
+inline bool GS2GateLoginOKACK::has_seedcopper() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void GS2GateLoginOKACK::set_has_seedcopper() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void GS2GateLoginOKACK::clear_has_seedcopper() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void GS2GateLoginOKACK::clear_seedcopper() {
+  seedcopper_ = 0;
+  clear_has_seedcopper();
+}
+inline ::google::protobuf::int32 GS2GateLoginOKACK::seedcopper() const {
+  return seedcopper_;
+}
+inline void GS2GateLoginOKACK::set_seedcopper(::google::protobuf::int32 value) {
+  set_has_seedcopper();
+  seedcopper_ = value;
+}
+
+// required int32 seedSilver = 8;
+inline bool GS2GateLoginOKACK::has_seedsilver() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void GS2GateLoginOKACK::set_has_seedsilver() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void GS2GateLoginOKACK::clear_has_seedsilver() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void GS2GateLoginOKACK::clear_seedsilver() {
+  seedsilver_ = 0;
+  clear_has_seedsilver();
+}
+inline ::google::protobuf::int32 GS2GateLoginOKACK::seedsilver() const {
+  return seedsilver_;
+}
+inline void GS2GateLoginOKACK::set_seedsilver(::google::protobuf::int32 value) {
+  set_has_seedsilver();
+  seedsilver_ = value;
+}
+
+// required int32 seedGold = 9;
+inline bool GS2GateLoginOKACK::has_seedgold() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void GS2GateLoginOKACK::set_has_seedgold() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void GS2GateLoginOKACK::clear_has_seedgold() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void GS2GateLoginOKACK::clear_seedgold() {
+  seedgold_ = 0;
+  clear_has_seedgold();
+}
+inline ::google::protobuf::int32 GS2GateLoginOKACK::seedgold() const {
+  return seedgold_;
+}
+inline void GS2GateLoginOKACK::set_seedgold(::google::protobuf::int32 value) {
+  set_has_seedgold();
+  seedgold_ = value;
+}
+
+// required int32 techvalue = 10;
+inline bool GS2GateLoginOKACK::has_techvalue() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void GS2GateLoginOKACK::set_has_techvalue() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void GS2GateLoginOKACK::clear_has_techvalue() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void GS2GateLoginOKACK::clear_techvalue() {
+  techvalue_ = 0;
+  clear_has_techvalue();
+}
+inline ::google::protobuf::int32 GS2GateLoginOKACK::techvalue() const {
+  return techvalue_;
+}
+inline void GS2GateLoginOKACK::set_techvalue(::google::protobuf::int32 value) {
+  set_has_techvalue();
+  techvalue_ = value;
+}
+
+// repeated .tgTechLevel tech = 11;
+inline int GS2GateLoginOKACK::tech_size() const {
+  return tech_.size();
+}
+inline void GS2GateLoginOKACK::clear_tech() {
+  tech_.Clear();
+}
+inline const ::tgTechLevel& GS2GateLoginOKACK::tech(int index) const {
+  return tech_.Get(index);
+}
+inline ::tgTechLevel* GS2GateLoginOKACK::mutable_tech(int index) {
+  return tech_.Mutable(index);
+}
+inline ::tgTechLevel* GS2GateLoginOKACK::add_tech() {
+  return tech_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::tgTechLevel >&
+GS2GateLoginOKACK::tech() const {
+  return tech_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::tgTechLevel >*
+GS2GateLoginOKACK::mutable_tech() {
+  return &tech_;
 }
 
 // -------------------------------------------------------------------

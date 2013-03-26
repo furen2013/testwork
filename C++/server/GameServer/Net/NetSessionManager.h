@@ -12,6 +12,7 @@ public:
 	~NetSessionManager();
 public:
 	NetSession* FindSession(DWORD account);
+	NetSession* CreateSession(DWORD account);
 protected:
 	mapsession _sessions;
 

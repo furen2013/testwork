@@ -1,11 +1,32 @@
 import "MsgHead.proto";    
+
+message tgTechnology
+{
+	required int32 id = 1;
+	required int32 value = 2;
+}
+
+message tgTechLevel
+{
+	required int32 level = 1;
+	repeated tgTechnology tech = 2;
+
+}
+
 message GS2GateLoginOKACK
 {
 	required string name = 1;
 	required int32 level = 2;
-	required int32 icon = 3;
+	required string icon = 3;
+	required int32 gold = 4;
+	required int32 ruby = 5;
+	required int32 manure = 6;
+	required int32 seedCopper = 7;
+	required int32 seedSilver = 8;
+	required int32 seedGold = 9;
+	required int32 techvalue = 10;
+	repeated tgTechLevel tech = 11;
 }
-
 
 message GS2GateErrorACK
 {

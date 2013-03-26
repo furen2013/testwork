@@ -81,6 +81,9 @@
     <ClInclude Include="logic\PlayerResourceManager.h">
       <Filter>logic</Filter>
     </ClInclude>
+    <ClInclude Include="logic\PlayerManager.h">
+      <Filter>logic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -132,6 +135,9 @@
       <Filter>logic</Filter>
     </ClCompile>
     <ClCompile Include="logic\PlayerResourceManager.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\PlayerManager.cpp">
       <Filter>logic</Filter>
     </ClCompile>
   </ItemGroup>

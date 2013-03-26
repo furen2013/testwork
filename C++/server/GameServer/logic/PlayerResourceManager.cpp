@@ -36,3 +36,18 @@ PlayerResource* PlayerResourceManager::CreateResource(DWORD account)
 	}
 	return resource;
 }
+
+bool PlayerResourceManager::addPlayerResource(PlayerResource* p)
+{
+	bool B = true;
+	mapPlayerResource::iterator it = _playerResources.find(p->_account);
+	if (it == _playerResources.end())
+	{
+		_playerResources.insert(mapPlayerResource::value_type(p->_account, p));
+	}
+	else
+	{
+		B = false;
+	}
+	return B;
+}

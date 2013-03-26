@@ -143,9 +143,12 @@ copy ..\..\intermediate\Server\$(ProjectName)\$(Configuration)\*.pdb ..\..\Bin\S
     <ClCompile Include="GateServer.cpp" />
     <ClCompile Include="ProtoNet\CListenProtoSocket.cpp" />
     <ClCompile Include="ProtoNet\CProtoSocket.cpp" />
+    <ClCompile Include="ProtoNet\GameServerSocket.cpp" />
     <ClCompile Include="ProtoNet\GateParser.cpp" />
     <ClCompile Include="ProtoNet\GProtoSocket.cpp" />
+    <ClCompile Include="ProtoNet\GSMessageParser.cpp" />
     <ClCompile Include="ProtoNet\LG2GateParser.cpp" />
+    <ClCompile Include="ProtoNet\LoginSocket.cpp" />
     <ClCompile Include="ProtoNet\ProtoServer.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -157,9 +160,12 @@ copy ..\..\intermediate\Server\$(ProjectName)\$(Configuration)\*.pdb ..\..\Bin\S
     <ClInclude Include="GameLogic\GateUserManager.h" />
     <ClInclude Include="ProtoNet\CListenProtoSocket.h" />
     <ClInclude Include="ProtoNet\CProtoSocket.h" />
+    <ClInclude Include="ProtoNet\GameServerSocket.h" />
     <ClInclude Include="ProtoNet\GateParser.h" />
     <ClInclude Include="ProtoNet\GProtoSocket.h" />
+    <ClInclude Include="ProtoNet\GSMessageParser.h" />
     <ClInclude Include="ProtoNet\LG2GateParser.h" />
+    <ClInclude Include="ProtoNet\LoginSocket.h" />
     <ClInclude Include="ProtoNet\ProtoServer.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>

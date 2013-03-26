@@ -43,6 +43,15 @@
     <ClCompile Include="ProtoNet\LG2GateParser.cpp">
       <Filter>ProtoNet</Filter>
     </ClCompile>
+    <ClCompile Include="ProtoNet\LoginSocket.cpp">
+      <Filter>ProtoNet</Filter>
+    </ClCompile>
+    <ClCompile Include="ProtoNet\GameServerSocket.cpp">
+      <Filter>ProtoNet</Filter>
+    </ClCompile>
+    <ClCompile Include="ProtoNet\GSMessageParser.cpp">
+      <Filter>ProtoNet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h">
@@ -70,6 +79,15 @@
       <Filter>ProtoNet</Filter>
     </ClInclude>
     <ClInclude Include="ProtoNet\LG2GateParser.h">
+      <Filter>ProtoNet</Filter>
+    </ClInclude>
+    <ClInclude Include="ProtoNet\LoginSocket.h">
+      <Filter>ProtoNet</Filter>
+    </ClInclude>
+    <ClInclude Include="ProtoNet\GameServerSocket.h">
+      <Filter>ProtoNet</Filter>
+    </ClInclude>
+    <ClInclude Include="ProtoNet\GSMessageParser.h">
       <Filter>ProtoNet</Filter>
     </ClInclude>
   </ItemGroup>

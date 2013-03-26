@@ -29,6 +29,9 @@ enum MsgType
 	LG2Gate_End							= 4000;
 
 	GS_MsgGate2GSLoginReq               = 4001;
+
+
+	GS2Client_GS2GateLoginOKACK         = 5001;
 	
 }
 

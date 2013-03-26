@@ -80,7 +80,7 @@ void protobuf_AddDesc_MsgHead_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\rMsgHead.proto\"Q\n\007MsgHead\022\026\n\004Type\030\001 \002(\016"
     "2\010.MsgType\022\017\n\007msgSize\030\002 \002(\005\022\017\n\007account\030\003"
-    " \002(\004\022\014\n\004body\030\004 \002(\014*\237\005\n\007MsgType\022\022\n\016C2Gate"
+    " \002(\004\022\014\n\004body\030\004 \002(\014*\301\005\n\007MsgType\022\022\n\016C2Gate"
     "_MsgNull\020\000\022\026\n\022C2Gate_MsgLoginReq\020\001\022\035\n\031C2"
     "Gate_MsgCreateAcountReq\020\002\022\031\n\025C2Gate_MsgL"
     "oginMacReq\020\003\022\031\n\025C2Gate_MsgBindMailReq\020\004\022"
@@ -97,7 +97,8 @@ void protobuf_AddDesc_MsgHead_2eproto() {
     "gLG2GateLoginACK\020\272\027\022\030\n\023LG2C_MsgBindMailA"
     "CK\020\273\027\022\'\n\"LG2Gate_MsgLG2GateReqLoginUserL"
     "ist\020\274\027\022\020\n\013LG2Gate_End\020\240\037\022\032\n\025GS_MsgGate2G"
-    "SLoginReq\020\241\037", 772);
+    "SLoginReq\020\241\037\022 \n\033GS2Client_GS2GateLoginOK"
+    "ACK\020\211\'", 806);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MsgHead.proto", &protobuf_RegisterTypes);
   MsgHead::default_instance_ = new MsgHead();
@@ -143,6 +144,7 @@ bool MsgType_IsValid(int value) {
     case 3004:
     case 4000:
     case 4001:
+    case 5001:
       return true;
     default:
       return false;
