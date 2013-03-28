@@ -20,7 +20,7 @@ PloughCell::~PloughCell()
 
 string PloughCell::ToString()
 {
-#define MaxNumber  7
+#define MaxNumber  8
 	string str[MaxNumber];
 	str[0] = boost::lexical_cast<string>((int32)enType);
 	str[1] = boost::lexical_cast<string>(_waterPercentageMax);
@@ -29,6 +29,7 @@ string PloughCell::ToString()
 	str[4] = boost::lexical_cast<string>(_lastStateTime);
 	str[5] = boost::lexical_cast<string>(_decreaseWaterPerHour);
 	str[6] = boost::lexical_cast<string>(_ID);
+	str[7] = boost::lexical_cast<string>(_seedLevel);
 	string Temp;
 	for (int i = 0; i < MaxNumber; i ++)
 	{
@@ -45,7 +46,7 @@ bool PloughCell::LoadFromString(string sz)
 	std::vector<string> tokens = StrSplit(sz,",");
 	int strNumber = tokens.size();
 	bool b = true;
-	if (strNumber == 7)
+	if (strNumber == 8)
 	{
 		
 		enType = (growstate)boost::lexical_cast<int32>(tokens[0].c_str());
@@ -55,6 +56,7 @@ bool PloughCell::LoadFromString(string sz)
 		_lastStateTime = boost::lexical_cast<DWORD>(tokens[4].c_str());
 		_decreaseWaterPerHour = boost::lexical_cast<int32>(tokens[5].c_str());
 		_ID = boost::lexical_cast<int32>(tokens[6].c_str());
+		_seedLevel = boost::lexical_cast<int32>(tokens[7].c_str());
 		b = true;
 	}
 	else
@@ -100,6 +102,21 @@ void PloughCell::DecreaseWaterPercentagePerHour()
 void PloughCell::WateringCell()
 {
 	_waterPercentage = _waterPercentageMax;
+}
+
+
+int PloughCell::gather()
+{
+	int resource = 0;
+	if (getgrowstate()== growstate_grown)
+	{
+		
+		resource = 50; // wait to modify;
+		enType = growstate_null;
+	}
+	
+	return resource;
+	
 }
 
 void PloughCell::changeState()

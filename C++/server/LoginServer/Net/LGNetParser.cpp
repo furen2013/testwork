@@ -187,7 +187,7 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 			}
 		}
 		break;
-	case C2Gate_MsgBindMailReq:
+	case C2S_MsgBindMailReq:
 		{
 			MsgBindMailReq Msg;
 			Msg.ParseFromString(Msghead.body());
@@ -212,7 +212,7 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 			
 		}
 		break;
-	case C2Gate_MsgUnbindMacReq:
+	case C2S_MsgUnbindMacReq:
 		{
 			MsgUnbindMacReq Msg;
 			Msg.ParseFromString(Msghead.body());
@@ -228,7 +228,7 @@ void CLGNetParser::ParseMessage(const message_t& msg, CLoginGateSocket* pSocket)
 			pSocket->send_message(LG2C_MsgBindMailACK,&MsgACK, Msghead.account());
 		}
 		break;
-	case C2Gate_MsgBindMacReq:
+	case C2S_MsgBindMacReq:
 		{
 			MsgBindMacReq Msg;
 			MsgLG2GateBindACK MsgACK;

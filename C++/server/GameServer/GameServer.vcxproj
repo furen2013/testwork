@@ -108,6 +108,7 @@
     <ClCompile Include="logic\farm\PloughCell.cpp" />
     <ClCompile Include="logic\Player.cpp" />
     <ClCompile Include="logic\PlayerInfoManager.cpp" />
+    <ClCompile Include="logic\PlayerFarmLogic.cpp" />
     <ClCompile Include="logic\PlayerManager.cpp" />
     <ClCompile Include="logic\PlayerResourceManager.cpp" />
     <ClCompile Include="logic\technology\Technology.cpp" />

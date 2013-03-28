@@ -12,9 +12,11 @@
 #include "../Common/Platform/ServiceWin32.h"
 extern int m_ServiceStatus;
 #endif
+#include "LoginSocket.h"
+#include "GameServerSocket.h"
 
-extern CGProtoSocket* p2LoginSocket;
-extern CGProtoSocket* p2GameServerSocket;
+extern LoginSocket* p2LoginSocket;
+extern GameServerSocket* p2GameServerSocket;
 volatile bool CProtoServer::m_stopEvent = false;
 zip_compress_strategy impcs;
 initialiseSingleton(CProtoServer);
@@ -269,7 +271,7 @@ bool CProtoServer::connectLG()
 {
 	if (!p2LoginSocket)
 	{
-		p2LoginSocket = new CGProtoSocket(*MyNetGlobleObj::get_io_service());
+		p2LoginSocket = new LoginSocket(*MyNetGlobleObj::get_io_service());
 		p2LoginSocket->setServerName("LoginServerName");
 	}
 	p2LoginSocket->connect("127.0.0.1", 95502);
@@ -278,11 +280,11 @@ bool CProtoServer::connectLG()
 
 bool CProtoServer::connectGS()
 {
-	if (!p2LoginSocket)
+	if (!p2GameServerSocket)
 	{
-		p2LoginSocket = new CGProtoSocket(*MyNetGlobleObj::get_io_service());
-		p2LoginSocket->setServerName("GameServerName");
+		p2GameServerSocket = new GameServerSocket(*MyNetGlobleObj::get_io_service());
+		p2GameServerSocket->setServerName("GameServerName");
 	}
-	p2LoginSocket->connect("127.0.0.1", 95503);	
+	p2GameServerSocket->connect("127.0.0.1", 95503);	
 	return true;
 }

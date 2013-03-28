@@ -43,5 +43,11 @@ void NetParser::ParseMessage(const message_t& msg, CGTSocket* pSocket)
 			}
 
 		}
+		break;
+	case GS_MsgGaet2GSLoginOutReq:
+		{
+			MsgGate2GSLoginOutReq Msg;
+			Msg.ParseFromString(Msghead.body());
+		}
 	}
 }

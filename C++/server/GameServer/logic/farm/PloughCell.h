@@ -5,6 +5,7 @@
 class FarmLogic;
 enum growstate
 {
+	growstate_null,
 	growstate_seeding,
 	growstate_young,
 	growstate_grown,
@@ -24,7 +25,8 @@ public:
 	void BecomeSeeding();
 	void DecreaseWaterPercentagePerHour();
 	void WateringCell();
-	inline int getgrowstate(){return enType;}
+	int gather();
+	inline growstate getgrowstate(){return enType;}
 	inline int getID(){return _ID;}
 	inline FarmLogic* getFarm(){return _farm;}
 	inline void setFarm(FarmLogic* pfarm){_farm = pfarm;}
@@ -36,6 +38,7 @@ protected:
 	int time[growstate_max];
 	int32 _waterPercentage;
 	int32 _manurelevel;
+	int32 _seedLevel;
 	DWORD _lastStateTime;
 protected:
 	int32 _decreaseWaterPerHour;

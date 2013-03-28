@@ -97,7 +97,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="proto\MessageC2Gate.proto" />
+    <None Include="proto\MessageC2S.proto" />
     <None Include="proto\MessageFarmG2C.proto" />
     <None Include="proto\MessageG2C.proto" />
     <None Include="proto\MessageGate2GS.proto" />
@@ -109,7 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MessageC2G.pb.cc" />
-    <ClCompile Include="MessageC2Gate.pb.cc" />
+    <ClCompile Include="MessageC2S.pb.cc" />
     <ClCompile Include="MessageFarmG2C.pb.cc" />
     <ClCompile Include="MessageG2C.pb.cc" />
     <ClCompile Include="MessageGate2GS.pb.cc" />
@@ -120,7 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MessageC2G.pb.h" />
-    <ClInclude Include="MessageC2Gate.pb.h" />
+    <ClInclude Include="MessageC2S.pb.h" />
     <ClInclude Include="MessageFarmG2C.pb.h" />
     <ClInclude Include="MessageG2C.pb.h" />
     <ClInclude Include="MessageGate2GS.pb.h" />

@@ -26,7 +26,7 @@ protected:
 	uint32 m_last_ping_time;
 	uint32 m_ping_count;
 	uint32 m_accept_time;
-	unsigned long	m_nAccountID;
+	DWORD	m_nAccountID;
 	DWORD   m_sessionID;
 	bool m_is_valid_connection;
 

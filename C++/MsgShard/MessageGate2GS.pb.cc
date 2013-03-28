@@ -18,6 +18,9 @@ namespace {
 const ::google::protobuf::Descriptor* MsgGate2GSLoginReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgGate2GSLoginReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgGate2GSLoginOutReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgGate2GSLoginOutReq_reflection_ = NULL;
 
 }  // namespace
 
@@ -43,6 +46,21 @@ void protobuf_AssignDesc_MessageGate2GS_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MsgGate2GSLoginReq));
+  MsgGate2GSLoginOutReq_descriptor_ = file->message_type(1);
+  static const int MsgGate2GSLoginOutReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGate2GSLoginOutReq, account_),
+  };
+  MsgGate2GSLoginOutReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MsgGate2GSLoginOutReq_descriptor_,
+      MsgGate2GSLoginOutReq::default_instance_,
+      MsgGate2GSLoginOutReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGate2GSLoginOutReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGate2GSLoginOutReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MsgGate2GSLoginOutReq));
 }
 
 namespace {
@@ -57,6 +75,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     MsgGate2GSLoginReq_descriptor_, &MsgGate2GSLoginReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MsgGate2GSLoginOutReq_descriptor_, &MsgGate2GSLoginOutReq::default_instance());
 }
 
 }  // namespace
@@ -64,6 +84,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void protobuf_ShutdownFile_MessageGate2GS_2eproto() {
   delete MsgGate2GSLoginReq::default_instance_;
   delete MsgGate2GSLoginReq_reflection_;
+  delete MsgGate2GSLoginOutReq::default_instance_;
+  delete MsgGate2GSLoginOutReq_reflection_;
 }
 
 void protobuf_AddDesc_MessageGate2GS_2eproto() {
@@ -75,11 +97,14 @@ void protobuf_AddDesc_MessageGate2GS_2eproto() {
   ::protobuf_AddDesc_MsgHead_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\024MessageGate2GS.proto\032\rMsgHead.proto\"%\n"
-    "\022MsgGate2GSLoginReq\022\017\n\007account\030\001 \002(\004", 76);
+    "\022MsgGate2GSLoginReq\022\017\n\007account\030\001 \002(\004\"(\n\025"
+    "MsgGate2GSLoginOutReq\022\017\n\007account\030\001 \002(\004", 118);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageGate2GS.proto", &protobuf_RegisterTypes);
   MsgGate2GSLoginReq::default_instance_ = new MsgGate2GSLoginReq();
+  MsgGate2GSLoginOutReq::default_instance_ = new MsgGate2GSLoginOutReq();
   MsgGate2GSLoginReq::default_instance_->InitAsDefaultInstance();
+  MsgGate2GSLoginOutReq::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_MessageGate2GS_2eproto);
 }
 
@@ -295,6 +320,214 @@ void MsgGate2GSLoginReq::Swap(MsgGate2GSLoginReq* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = MsgGate2GSLoginReq_descriptor_;
   metadata.reflection = MsgGate2GSLoginReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgGate2GSLoginOutReq::kAccountFieldNumber;
+#endif  // !_MSC_VER
+
+MsgGate2GSLoginOutReq::MsgGate2GSLoginOutReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MsgGate2GSLoginOutReq::InitAsDefaultInstance() {
+}
+
+MsgGate2GSLoginOutReq::MsgGate2GSLoginOutReq(const MsgGate2GSLoginOutReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MsgGate2GSLoginOutReq::SharedCtor() {
+  _cached_size_ = 0;
+  account_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgGate2GSLoginOutReq::~MsgGate2GSLoginOutReq() {
+  SharedDtor();
+}
+
+void MsgGate2GSLoginOutReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgGate2GSLoginOutReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgGate2GSLoginOutReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgGate2GSLoginOutReq_descriptor_;
+}
+
+const MsgGate2GSLoginOutReq& MsgGate2GSLoginOutReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_MessageGate2GS_2eproto();  return *default_instance_;
+}
+
+MsgGate2GSLoginOutReq* MsgGate2GSLoginOutReq::default_instance_ = NULL;
+
+MsgGate2GSLoginOutReq* MsgGate2GSLoginOutReq::New() const {
+  return new MsgGate2GSLoginOutReq;
+}
+
+void MsgGate2GSLoginOutReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    account_ = GOOGLE_ULONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MsgGate2GSLoginOutReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint64 account = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &account_)));
+          set_has_account();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void MsgGate2GSLoginOutReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required uint64 account = 1;
+  if (has_account()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->account(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MsgGate2GSLoginOutReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required uint64 account = 1;
+  if (has_account()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->account(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MsgGate2GSLoginOutReq::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint64 account = 1;
+    if (has_account()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->account());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgGate2GSLoginOutReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MsgGate2GSLoginOutReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgGate2GSLoginOutReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgGate2GSLoginOutReq::MergeFrom(const MsgGate2GSLoginOutReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_account()) {
+      set_account(from.account());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MsgGate2GSLoginOutReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgGate2GSLoginOutReq::CopyFrom(const MsgGate2GSLoginOutReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgGate2GSLoginOutReq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  
+  return true;
+}
+
+void MsgGate2GSLoginOutReq::Swap(MsgGate2GSLoginOutReq* other) {
+  if (other != this) {
+    std::swap(account_, other->account_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MsgGate2GSLoginOutReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgGate2GSLoginOutReq_descriptor_;
+  metadata.reflection = MsgGate2GSLoginOutReq_reflection_;
   return metadata;
 }
 

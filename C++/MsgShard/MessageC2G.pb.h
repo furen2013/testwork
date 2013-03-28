@@ -31,9 +31,9 @@ void  protobuf_AddDesc_MessageC2G_2eproto();
 void protobuf_AssignDesc_MessageC2G_2eproto();
 void protobuf_ShutdownFile_MessageC2G_2eproto();
 
-class MsgC2GateLoginReq;
-class MsgC2GateCreateAcountReq;
-class MsgC2GateLoginMacReq;
+class MsgC2SLoginReq;
+class MsgC2SCreateAcountReq;
+class MsgC2SLoginMacReq;
 class MsgBindMailReq;
 class MsgUnbindMacReq;
 class MsgBindMacReq;
@@ -41,14 +41,14 @@ class MsgMailLoginReq;
 
 // ===================================================================
 
-class MsgC2GateLoginReq : public ::google::protobuf::Message {
+class MsgC2SLoginReq : public ::google::protobuf::Message {
  public:
-  MsgC2GateLoginReq();
-  virtual ~MsgC2GateLoginReq();
+  MsgC2SLoginReq();
+  virtual ~MsgC2SLoginReq();
   
-  MsgC2GateLoginReq(const MsgC2GateLoginReq& from);
+  MsgC2SLoginReq(const MsgC2SLoginReq& from);
   
-  inline MsgC2GateLoginReq& operator=(const MsgC2GateLoginReq& from) {
+  inline MsgC2SLoginReq& operator=(const MsgC2SLoginReq& from) {
     CopyFrom(from);
     return *this;
   }
@@ -62,17 +62,17 @@ class MsgC2GateLoginReq : public ::google::protobuf::Message {
   }
   
   static const ::google::protobuf::Descriptor* descriptor();
-  static const MsgC2GateLoginReq& default_instance();
+  static const MsgC2SLoginReq& default_instance();
   
-  void Swap(MsgC2GateLoginReq* other);
+  void Swap(MsgC2SLoginReq* other);
   
   // implements Message ----------------------------------------------
   
-  MsgC2GateLoginReq* New() const;
+  MsgC2SLoginReq* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const MsgC2GateLoginReq& from);
-  void MergeFrom(const MsgC2GateLoginReq& from);
+  void CopyFrom(const MsgC2SLoginReq& from);
+  void MergeFrom(const MsgC2SLoginReq& from);
   void Clear();
   bool IsInitialized() const;
   
@@ -117,7 +117,7 @@ class MsgC2GateLoginReq : public ::google::protobuf::Message {
   inline ::std::string* mutable_password();
   inline ::std::string* release_password();
   
-  // @@protoc_insertion_point(class_scope:MsgC2GateLoginReq)
+  // @@protoc_insertion_point(class_scope:MsgC2SLoginReq)
  private:
   inline void set_has_id();
   inline void clear_has_id();
@@ -137,18 +137,18 @@ class MsgC2GateLoginReq : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_MessageC2G_2eproto();
   
   void InitAsDefaultInstance();
-  static MsgC2GateLoginReq* default_instance_;
+  static MsgC2SLoginReq* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class MsgC2GateCreateAcountReq : public ::google::protobuf::Message {
+class MsgC2SCreateAcountReq : public ::google::protobuf::Message {
  public:
-  MsgC2GateCreateAcountReq();
-  virtual ~MsgC2GateCreateAcountReq();
+  MsgC2SCreateAcountReq();
+  virtual ~MsgC2SCreateAcountReq();
   
-  MsgC2GateCreateAcountReq(const MsgC2GateCreateAcountReq& from);
+  MsgC2SCreateAcountReq(const MsgC2SCreateAcountReq& from);
   
-  inline MsgC2GateCreateAcountReq& operator=(const MsgC2GateCreateAcountReq& from) {
+  inline MsgC2SCreateAcountReq& operator=(const MsgC2SCreateAcountReq& from) {
     CopyFrom(from);
     return *this;
   }
@@ -162,17 +162,17 @@ class MsgC2GateCreateAcountReq : public ::google::protobuf::Message {
   }
   
   static const ::google::protobuf::Descriptor* descriptor();
-  static const MsgC2GateCreateAcountReq& default_instance();
+  static const MsgC2SCreateAcountReq& default_instance();
   
-  void Swap(MsgC2GateCreateAcountReq* other);
+  void Swap(MsgC2SCreateAcountReq* other);
   
   // implements Message ----------------------------------------------
   
-  MsgC2GateCreateAcountReq* New() const;
+  MsgC2SCreateAcountReq* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const MsgC2GateCreateAcountReq& from);
-  void MergeFrom(const MsgC2GateCreateAcountReq& from);
+  void CopyFrom(const MsgC2SCreateAcountReq& from);
+  void MergeFrom(const MsgC2SCreateAcountReq& from);
   void Clear();
   bool IsInitialized() const;
   
@@ -228,7 +228,7 @@ class MsgC2GateCreateAcountReq : public ::google::protobuf::Message {
   inline ::std::string* mutable_password();
   inline ::std::string* release_password();
   
-  // @@protoc_insertion_point(class_scope:MsgC2GateCreateAcountReq)
+  // @@protoc_insertion_point(class_scope:MsgC2SCreateAcountReq)
  private:
   inline void set_has_id();
   inline void clear_has_id();
@@ -251,18 +251,18 @@ class MsgC2GateCreateAcountReq : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_MessageC2G_2eproto();
   
   void InitAsDefaultInstance();
-  static MsgC2GateCreateAcountReq* default_instance_;
+  static MsgC2SCreateAcountReq* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class MsgC2GateLoginMacReq : public ::google::protobuf::Message {
+class MsgC2SLoginMacReq : public ::google::protobuf::Message {
  public:
-  MsgC2GateLoginMacReq();
-  virtual ~MsgC2GateLoginMacReq();
+  MsgC2SLoginMacReq();
+  virtual ~MsgC2SLoginMacReq();
   
-  MsgC2GateLoginMacReq(const MsgC2GateLoginMacReq& from);
+  MsgC2SLoginMacReq(const MsgC2SLoginMacReq& from);
   
-  inline MsgC2GateLoginMacReq& operator=(const MsgC2GateLoginMacReq& from) {
+  inline MsgC2SLoginMacReq& operator=(const MsgC2SLoginMacReq& from) {
     CopyFrom(from);
     return *this;
   }
@@ -276,17 +276,17 @@ class MsgC2GateLoginMacReq : public ::google::protobuf::Message {
   }
   
   static const ::google::protobuf::Descriptor* descriptor();
-  static const MsgC2GateLoginMacReq& default_instance();
+  static const MsgC2SLoginMacReq& default_instance();
   
-  void Swap(MsgC2GateLoginMacReq* other);
+  void Swap(MsgC2SLoginMacReq* other);
   
   // implements Message ----------------------------------------------
   
-  MsgC2GateLoginMacReq* New() const;
+  MsgC2SLoginMacReq* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const MsgC2GateLoginMacReq& from);
-  void MergeFrom(const MsgC2GateLoginMacReq& from);
+  void CopyFrom(const MsgC2SLoginMacReq& from);
+  void MergeFrom(const MsgC2SLoginMacReq& from);
   void Clear();
   bool IsInitialized() const;
   
@@ -320,7 +320,7 @@ class MsgC2GateLoginMacReq : public ::google::protobuf::Message {
   inline ::std::string* mutable_mac();
   inline ::std::string* release_mac();
   
-  // @@protoc_insertion_point(class_scope:MsgC2GateLoginMacReq)
+  // @@protoc_insertion_point(class_scope:MsgC2SLoginMacReq)
  private:
   inline void set_has_mac();
   inline void clear_has_mac();
@@ -337,7 +337,7 @@ class MsgC2GateLoginMacReq : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_MessageC2G_2eproto();
   
   void InitAsDefaultInstance();
-  static MsgC2GateLoginMacReq* default_instance_;
+  static MsgC2SLoginMacReq* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -816,56 +816,56 @@ class MsgMailLoginReq : public ::google::protobuf::Message {
 
 // ===================================================================
 
-// MsgC2GateLoginReq
+// MsgC2SLoginReq
 
 // required string id = 1;
-inline bool MsgC2GateLoginReq::has_id() const {
+inline bool MsgC2SLoginReq::has_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void MsgC2GateLoginReq::set_has_id() {
+inline void MsgC2SLoginReq::set_has_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void MsgC2GateLoginReq::clear_has_id() {
+inline void MsgC2SLoginReq::clear_has_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void MsgC2GateLoginReq::clear_id() {
+inline void MsgC2SLoginReq::clear_id() {
   if (id_ != &::google::protobuf::internal::kEmptyString) {
     id_->clear();
   }
   clear_has_id();
 }
-inline const ::std::string& MsgC2GateLoginReq::id() const {
+inline const ::std::string& MsgC2SLoginReq::id() const {
   return *id_;
 }
-inline void MsgC2GateLoginReq::set_id(const ::std::string& value) {
+inline void MsgC2SLoginReq::set_id(const ::std::string& value) {
   set_has_id();
   if (id_ == &::google::protobuf::internal::kEmptyString) {
     id_ = new ::std::string;
   }
   id_->assign(value);
 }
-inline void MsgC2GateLoginReq::set_id(const char* value) {
+inline void MsgC2SLoginReq::set_id(const char* value) {
   set_has_id();
   if (id_ == &::google::protobuf::internal::kEmptyString) {
     id_ = new ::std::string;
   }
   id_->assign(value);
 }
-inline void MsgC2GateLoginReq::set_id(const char* value, size_t size) {
+inline void MsgC2SLoginReq::set_id(const char* value, size_t size) {
   set_has_id();
   if (id_ == &::google::protobuf::internal::kEmptyString) {
     id_ = new ::std::string;
   }
   id_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* MsgC2GateLoginReq::mutable_id() {
+inline ::std::string* MsgC2SLoginReq::mutable_id() {
   set_has_id();
   if (id_ == &::google::protobuf::internal::kEmptyString) {
     id_ = new ::std::string;
   }
   return id_;
 }
-inline ::std::string* MsgC2GateLoginReq::release_id() {
+inline ::std::string* MsgC2SLoginReq::release_id() {
   clear_has_id();
   if (id_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -877,53 +877,53 @@ inline ::std::string* MsgC2GateLoginReq::release_id() {
 }
 
 // required string password = 2;
-inline bool MsgC2GateLoginReq::has_password() const {
+inline bool MsgC2SLoginReq::has_password() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void MsgC2GateLoginReq::set_has_password() {
+inline void MsgC2SLoginReq::set_has_password() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void MsgC2GateLoginReq::clear_has_password() {
+inline void MsgC2SLoginReq::clear_has_password() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void MsgC2GateLoginReq::clear_password() {
+inline void MsgC2SLoginReq::clear_password() {
   if (password_ != &::google::protobuf::internal::kEmptyString) {
     password_->clear();
   }
   clear_has_password();
 }
-inline const ::std::string& MsgC2GateLoginReq::password() const {
+inline const ::std::string& MsgC2SLoginReq::password() const {
   return *password_;
 }
-inline void MsgC2GateLoginReq::set_password(const ::std::string& value) {
+inline void MsgC2SLoginReq::set_password(const ::std::string& value) {
   set_has_password();
   if (password_ == &::google::protobuf::internal::kEmptyString) {
     password_ = new ::std::string;
   }
   password_->assign(value);
 }
-inline void MsgC2GateLoginReq::set_password(const char* value) {
+inline void MsgC2SLoginReq::set_password(const char* value) {
   set_has_password();
   if (password_ == &::google::protobuf::internal::kEmptyString) {
     password_ = new ::std::string;
   }
   password_->assign(value);
 }
-inline void MsgC2GateLoginReq::set_password(const char* value, size_t size) {
+inline void MsgC2SLoginReq::set_password(const char* value, size_t size) {
   set_has_password();
   if (password_ == &::google::protobuf::internal::kEmptyString) {
     password_ = new ::std::string;
   }
   password_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* MsgC2GateLoginReq::mutable_password() {
+inline ::std::string* MsgC2SLoginReq::mutable_password() {
   set_has_password();
   if (password_ == &::google::protobuf::internal::kEmptyString) {
     password_ = new ::std::string;
   }
   return password_;
 }
-inline ::std::string* MsgC2GateLoginReq::release_password() {
+inline ::std::string* MsgC2SLoginReq::release_password() {
   clear_has_password();
   if (password_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -936,56 +936,56 @@ inline ::std::string* MsgC2GateLoginReq::release_password() {
 
 // -------------------------------------------------------------------
 
-// MsgC2GateCreateAcountReq
+// MsgC2SCreateAcountReq
 
 // required string id = 1;
-inline bool MsgC2GateCreateAcountReq::has_id() const {
+inline bool MsgC2SCreateAcountReq::has_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void MsgC2GateCreateAcountReq::set_has_id() {
+inline void MsgC2SCreateAcountReq::set_has_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void MsgC2GateCreateAcountReq::clear_has_id() {
+inline void MsgC2SCreateAcountReq::clear_has_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void MsgC2GateCreateAcountReq::clear_id() {
+inline void MsgC2SCreateAcountReq::clear_id() {
   if (id_ != &::google::protobuf::internal::kEmptyString) {
     id_->clear();
   }
   clear_has_id();
 }
-inline const ::std::string& MsgC2GateCreateAcountReq::id() const {
+inline const ::std::string& MsgC2SCreateAcountReq::id() const {
   return *id_;
 }
-inline void MsgC2GateCreateAcountReq::set_id(const ::std::string& value) {
+inline void MsgC2SCreateAcountReq::set_id(const ::std::string& value) {
   set_has_id();
   if (id_ == &::google::protobuf::internal::kEmptyString) {
     id_ = new ::std::string;
   }
   id_->assign(value);
 }
-inline void MsgC2GateCreateAcountReq::set_id(const char* value) {
+inline void MsgC2SCreateAcountReq::set_id(const char* value) {
   set_has_id();
   if (id_ == &::google::protobuf::internal::kEmptyString) {
     id_ = new ::std::string;
   }
   id_->assign(value);
 }
-inline void MsgC2GateCreateAcountReq::set_id(const char* value, size_t size) {
+inline void MsgC2SCreateAcountReq::set_id(const char* value, size_t size) {
   set_has_id();
   if (id_ == &::google::protobuf::internal::kEmptyString) {
     id_ = new ::std::string;
   }
   id_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* MsgC2GateCreateAcountReq::mutable_id() {
+inline ::std::string* MsgC2SCreateAcountReq::mutable_id() {
   set_has_id();
   if (id_ == &::google::protobuf::internal::kEmptyString) {
     id_ = new ::std::string;
   }
   return id_;
 }
-inline ::std::string* MsgC2GateCreateAcountReq::release_id() {
+inline ::std::string* MsgC2SCreateAcountReq::release_id() {
   clear_has_id();
   if (id_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -997,53 +997,53 @@ inline ::std::string* MsgC2GateCreateAcountReq::release_id() {
 }
 
 // required string name = 2;
-inline bool MsgC2GateCreateAcountReq::has_name() const {
+inline bool MsgC2SCreateAcountReq::has_name() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void MsgC2GateCreateAcountReq::set_has_name() {
+inline void MsgC2SCreateAcountReq::set_has_name() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void MsgC2GateCreateAcountReq::clear_has_name() {
+inline void MsgC2SCreateAcountReq::clear_has_name() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void MsgC2GateCreateAcountReq::clear_name() {
+inline void MsgC2SCreateAcountReq::clear_name() {
   if (name_ != &::google::protobuf::internal::kEmptyString) {
     name_->clear();
   }
   clear_has_name();
 }
-inline const ::std::string& MsgC2GateCreateAcountReq::name() const {
+inline const ::std::string& MsgC2SCreateAcountReq::name() const {
   return *name_;
 }
-inline void MsgC2GateCreateAcountReq::set_name(const ::std::string& value) {
+inline void MsgC2SCreateAcountReq::set_name(const ::std::string& value) {
   set_has_name();
   if (name_ == &::google::protobuf::internal::kEmptyString) {
     name_ = new ::std::string;
   }
   name_->assign(value);
 }
-inline void MsgC2GateCreateAcountReq::set_name(const char* value) {
+inline void MsgC2SCreateAcountReq::set_name(const char* value) {
   set_has_name();
   if (name_ == &::google::protobuf::internal::kEmptyString) {
     name_ = new ::std::string;
   }
   name_->assign(value);
 }
-inline void MsgC2GateCreateAcountReq::set_name(const char* value, size_t size) {
+inline void MsgC2SCreateAcountReq::set_name(const char* value, size_t size) {
   set_has_name();
   if (name_ == &::google::protobuf::internal::kEmptyString) {
     name_ = new ::std::string;
   }
   name_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* MsgC2GateCreateAcountReq::mutable_name() {
+inline ::std::string* MsgC2SCreateAcountReq::mutable_name() {
   set_has_name();
   if (name_ == &::google::protobuf::internal::kEmptyString) {
     name_ = new ::std::string;
   }
   return name_;
 }
-inline ::std::string* MsgC2GateCreateAcountReq::release_name() {
+inline ::std::string* MsgC2SCreateAcountReq::release_name() {
   clear_has_name();
   if (name_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -1055,53 +1055,53 @@ inline ::std::string* MsgC2GateCreateAcountReq::release_name() {
 }
 
 // required string password = 3;
-inline bool MsgC2GateCreateAcountReq::has_password() const {
+inline bool MsgC2SCreateAcountReq::has_password() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void MsgC2GateCreateAcountReq::set_has_password() {
+inline void MsgC2SCreateAcountReq::set_has_password() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void MsgC2GateCreateAcountReq::clear_has_password() {
+inline void MsgC2SCreateAcountReq::clear_has_password() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void MsgC2GateCreateAcountReq::clear_password() {
+inline void MsgC2SCreateAcountReq::clear_password() {
   if (password_ != &::google::protobuf::internal::kEmptyString) {
     password_->clear();
   }
   clear_has_password();
 }
-inline const ::std::string& MsgC2GateCreateAcountReq::password() const {
+inline const ::std::string& MsgC2SCreateAcountReq::password() const {
   return *password_;
 }
-inline void MsgC2GateCreateAcountReq::set_password(const ::std::string& value) {
+inline void MsgC2SCreateAcountReq::set_password(const ::std::string& value) {
   set_has_password();
   if (password_ == &::google::protobuf::internal::kEmptyString) {
     password_ = new ::std::string;
   }
   password_->assign(value);
 }
-inline void MsgC2GateCreateAcountReq::set_password(const char* value) {
+inline void MsgC2SCreateAcountReq::set_password(const char* value) {
   set_has_password();
   if (password_ == &::google::protobuf::internal::kEmptyString) {
     password_ = new ::std::string;
   }
   password_->assign(value);
 }
-inline void MsgC2GateCreateAcountReq::set_password(const char* value, size_t size) {
+inline void MsgC2SCreateAcountReq::set_password(const char* value, size_t size) {
   set_has_password();
   if (password_ == &::google::protobuf::internal::kEmptyString) {
     password_ = new ::std::string;
   }
   password_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* MsgC2GateCreateAcountReq::mutable_password() {
+inline ::std::string* MsgC2SCreateAcountReq::mutable_password() {
   set_has_password();
   if (password_ == &::google::protobuf::internal::kEmptyString) {
     password_ = new ::std::string;
   }
   return password_;
 }
-inline ::std::string* MsgC2GateCreateAcountReq::release_password() {
+inline ::std::string* MsgC2SCreateAcountReq::release_password() {
   clear_has_password();
   if (password_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -1114,56 +1114,56 @@ inline ::std::string* MsgC2GateCreateAcountReq::release_password() {
 
 // -------------------------------------------------------------------
 
-// MsgC2GateLoginMacReq
+// MsgC2SLoginMacReq
 
 // required string Mac = 1;
-inline bool MsgC2GateLoginMacReq::has_mac() const {
+inline bool MsgC2SLoginMacReq::has_mac() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void MsgC2GateLoginMacReq::set_has_mac() {
+inline void MsgC2SLoginMacReq::set_has_mac() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void MsgC2GateLoginMacReq::clear_has_mac() {
+inline void MsgC2SLoginMacReq::clear_has_mac() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void MsgC2GateLoginMacReq::clear_mac() {
+inline void MsgC2SLoginMacReq::clear_mac() {
   if (mac_ != &::google::protobuf::internal::kEmptyString) {
     mac_->clear();
   }
   clear_has_mac();
 }
-inline const ::std::string& MsgC2GateLoginMacReq::mac() const {
+inline const ::std::string& MsgC2SLoginMacReq::mac() const {
   return *mac_;
 }
-inline void MsgC2GateLoginMacReq::set_mac(const ::std::string& value) {
+inline void MsgC2SLoginMacReq::set_mac(const ::std::string& value) {
   set_has_mac();
   if (mac_ == &::google::protobuf::internal::kEmptyString) {
     mac_ = new ::std::string;
   }
   mac_->assign(value);
 }
-inline void MsgC2GateLoginMacReq::set_mac(const char* value) {
+inline void MsgC2SLoginMacReq::set_mac(const char* value) {
   set_has_mac();
   if (mac_ == &::google::protobuf::internal::kEmptyString) {
     mac_ = new ::std::string;
   }
   mac_->assign(value);
 }
-inline void MsgC2GateLoginMacReq::set_mac(const char* value, size_t size) {
+inline void MsgC2SLoginMacReq::set_mac(const char* value, size_t size) {
   set_has_mac();
   if (mac_ == &::google::protobuf::internal::kEmptyString) {
     mac_ = new ::std::string;
   }
   mac_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* MsgC2GateLoginMacReq::mutable_mac() {
+inline ::std::string* MsgC2SLoginMacReq::mutable_mac() {
   set_has_mac();
   if (mac_ == &::google::protobuf::internal::kEmptyString) {
     mac_ = new ::std::string;
   }
   return mac_;
 }
-inline ::std::string* MsgC2GateLoginMacReq::release_mac() {
+inline ::std::string* MsgC2SLoginMacReq::release_mac() {
   clear_has_mac();
   if (mac_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;

@@ -5,6 +5,7 @@
 class Database;
 class NetSession;
 class Technology;
+class FarmLogic;
 enum enSeedType
 {
 	SeedType_Copper,
@@ -64,12 +65,16 @@ public:
 	}
 	inline void setPlayerInfo(PlayerInfo* info){_Info = info;}
 	inline void setPlayerResource(PlayerResource* resource){_PlayerResource = resource;}
+public:
+	void gatherFarm(int cell, DWORD account);
+	void spreadManure(int Manurelevel);
 protected:
 	PlayerInfo* _Info;
 	PlayerResource* _PlayerResource;
 	Database* _db;
 	NetSession* _session;
 	Technology* _technology;
+	FarmLogic* _farm;
 protected:
 	DWORD _TempAccount;
 	DWORD getTempAccount();

@@ -3,3 +3,8 @@ message MsgGate2GSLoginReq
 {
 	required uint64 account = 1;
 }
+
+message MsgGate2GSLoginOutReq
+{
+	required uint64 account = 1;
+}

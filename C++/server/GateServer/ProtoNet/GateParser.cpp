@@ -6,7 +6,8 @@
 #include "MessageG2C.pb.h"
 #include "MessageGate2LG.pb.h"
 #include "../GameLogic/GateUserManager.h"
-extern CGProtoSocket* p2LoginSocket;
+#include "LoginSocket.h"
+extern LoginSocket* p2LoginSocket;
 initialiseSingleton(CGateParser);
 CGateParser::CGateParser(void)
 {
@@ -27,7 +28,7 @@ void CGateParser::ParseMessage(const message_t& msg, CCProtoSocket* pSocket)
 	//unsigned short msgBodyBegin = mark + headsize;
 	switch(Msghead.type())
 	{
-	case C2Gate_MsgMailLoginReq:
+	case C2S_MsgMailLoginReq:
 		{
 			DWORD ID = (DWORD)pSocket;
 			MsgMailLoginReq MsgRecive;
@@ -60,7 +61,7 @@ void CGateParser::ParseMessage(const message_t& msg, CCProtoSocket* pSocket)
 			//GUManager.
 		}
 		break;
-	case C2Gate_MsgLoginMacReq:
+	case C2S_MsgLoginMacReq:
 		{
 			if (pSocket->GetAccountID() != 0)
 			{
@@ -72,7 +73,7 @@ void CGateParser::ParseMessage(const message_t& msg, CCProtoSocket* pSocket)
 			}
 			else
 			{
-				MsgC2GateLoginMacReq MsgLoginMac;
+				MsgC2SLoginMacReq MsgLoginMac;
 				MsgLoginMac.ParseFromString(Msghead.body());
 				if (MsgLoginMac.has_mac())
 				{
@@ -90,9 +91,9 @@ void CGateParser::ParseMessage(const message_t& msg, CCProtoSocket* pSocket)
 			
 		}
 		break;
-	case C2Gate_MsgBindMailReq:
-	case C2Gate_MsgUnbindMacReq:
-	case C2Gate_MsgBindMacReq:
+	case C2S_MsgBindMailReq:
+	case C2S_MsgUnbindMacReq:
+	case C2S_MsgBindMacReq:
 		{
 			if (pSocket->GetAccountID() == 0)
 			{

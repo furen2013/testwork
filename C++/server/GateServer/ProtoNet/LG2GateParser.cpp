@@ -10,8 +10,10 @@
 #include "MessageGate2LG.pb.h"
 #include "MessageGate2GS.pb.h"
 #include "GProtoSocket.h"
-extern CGProtoSocket* p2LoginSocket;
-extern CGProtoSocket* p2GameServerSocket;
+#include "LoginSocket.h"
+#include "GameServerSocket.h"
+extern LoginSocket* p2LoginSocket;
+extern GameServerSocket* p2GameServerSocket;
 initialiseSingleton(CLG2GateParser);
 CLG2GateParser::CLG2GateParser(void)
 {
@@ -55,7 +57,7 @@ void CLG2GateParser::ParseMessage(const message_t& msg,const CGProtoSocket* pSoc
 			MsgLG2GateLoginACK Msg;
 			Msg.ParseFromString(Msghead.body());
 			MsgGate2GSLoginReq Msg2GS;
-			MsgG2CLoginMacACK MsgAck;
+			MsgG2CLoginACK MsgAck;
 			CCProtoSocket* pProtoSocket = GUManager.GetClient(Msg.id());
 			if (pProtoSocket)
 			{
@@ -63,7 +65,7 @@ void CLG2GateParser::ParseMessage(const message_t& msg,const CGProtoSocket* pSoc
 				if (Msg.account() == 0)
 				{
 					MsgAck.set_account(0);
-					pProtoSocket->send_message(G2C_LoginMacACK, &MsgAck);
+					pProtoSocket->send_message(G2C_LoginACK, &MsgAck);
 				}
 				else
 				{
@@ -87,7 +89,7 @@ void CLG2GateParser::ParseMessage(const message_t& msg,const CGProtoSocket* pSoc
 					{
 
 						MsgAck.set_account(0);
-						pProtoSocket->send_message(G2C_LoginMacACK, &MsgAck);
+						pProtoSocket->send_message(G2C_LoginACK, &MsgAck);
 					}
 				}
 				

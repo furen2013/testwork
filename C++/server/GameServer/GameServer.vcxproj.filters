@@ -140,5 +140,8 @@
     <ClCompile Include="logic\PlayerManager.cpp">
       <Filter>logic</Filter>
     </ClCompile>
+    <ClCompile Include="logic\PlayerFarmLogic.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -25,9 +25,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
-    <None Include="proto\MessageC2Gate.proto">
-      <Filter>资源文件\proto</Filter>
-    </None>
     <None Include="proto\MessageFarmG2C.proto">
       <Filter>资源文件\proto</Filter>
     </None>
@@ -47,6 +44,9 @@
       <Filter>资源文件\proto</Filter>
     </None>
     <None Include="proto\MsgHead.proto">
+      <Filter>资源文件\proto</Filter>
+    </None>
+    <None Include="proto\MessageC2S.proto">
       <Filter>资源文件\proto</Filter>
     </None>
   </ItemGroup>
@@ -69,13 +69,13 @@
     <ClCompile Include="MessageGate2GS.pb.cc">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="MessageC2Gate.pb.cc">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="MessageFarmG2C.pb.cc">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="MessageGS2Gate.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageC2S.pb.cc">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -101,14 +101,14 @@
     <ClInclude Include="MessageGate2GS.pb.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MessageC2Gate.pb.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="MessageFarmG2C.pb.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="MessageGS2Gate.pb.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageC2S.pb.h">
+      <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

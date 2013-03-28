@@ -15,15 +15,15 @@
 
 namespace {
 
-const ::google::protobuf::Descriptor* MsgC2GateLoginReq_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* MsgC2SLoginReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  MsgC2GateLoginReq_reflection_ = NULL;
-const ::google::protobuf::Descriptor* MsgC2GateCreateAcountReq_descriptor_ = NULL;
+  MsgC2SLoginReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgC2SCreateAcountReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  MsgC2GateCreateAcountReq_reflection_ = NULL;
-const ::google::protobuf::Descriptor* MsgC2GateLoginMacReq_descriptor_ = NULL;
+  MsgC2SCreateAcountReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgC2SLoginMacReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  MsgC2GateLoginMacReq_reflection_ = NULL;
+  MsgC2SLoginMacReq_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MsgBindMailReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgBindMailReq_reflection_ = NULL;
@@ -46,54 +46,54 @@ void protobuf_AssignDesc_MessageC2G_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "MessageC2G.proto");
   GOOGLE_CHECK(file != NULL);
-  MsgC2GateLoginReq_descriptor_ = file->message_type(0);
-  static const int MsgC2GateLoginReq_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2GateLoginReq, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2GateLoginReq, password_),
+  MsgC2SLoginReq_descriptor_ = file->message_type(0);
+  static const int MsgC2SLoginReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SLoginReq, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SLoginReq, password_),
   };
-  MsgC2GateLoginReq_reflection_ =
+  MsgC2SLoginReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      MsgC2GateLoginReq_descriptor_,
-      MsgC2GateLoginReq::default_instance_,
-      MsgC2GateLoginReq_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2GateLoginReq, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2GateLoginReq, _unknown_fields_),
+      MsgC2SLoginReq_descriptor_,
+      MsgC2SLoginReq::default_instance_,
+      MsgC2SLoginReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SLoginReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SLoginReq, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(MsgC2GateLoginReq));
-  MsgC2GateCreateAcountReq_descriptor_ = file->message_type(1);
-  static const int MsgC2GateCreateAcountReq_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2GateCreateAcountReq, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2GateCreateAcountReq, name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2GateCreateAcountReq, password_),
+      sizeof(MsgC2SLoginReq));
+  MsgC2SCreateAcountReq_descriptor_ = file->message_type(1);
+  static const int MsgC2SCreateAcountReq_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCreateAcountReq, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCreateAcountReq, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCreateAcountReq, password_),
   };
-  MsgC2GateCreateAcountReq_reflection_ =
+  MsgC2SCreateAcountReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      MsgC2GateCreateAcountReq_descriptor_,
-      MsgC2GateCreateAcountReq::default_instance_,
-      MsgC2GateCreateAcountReq_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2GateCreateAcountReq, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2GateCreateAcountReq, _unknown_fields_),
+      MsgC2SCreateAcountReq_descriptor_,
+      MsgC2SCreateAcountReq::default_instance_,
+      MsgC2SCreateAcountReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCreateAcountReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCreateAcountReq, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(MsgC2GateCreateAcountReq));
-  MsgC2GateLoginMacReq_descriptor_ = file->message_type(2);
-  static const int MsgC2GateLoginMacReq_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2GateLoginMacReq, mac_),
+      sizeof(MsgC2SCreateAcountReq));
+  MsgC2SLoginMacReq_descriptor_ = file->message_type(2);
+  static const int MsgC2SLoginMacReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SLoginMacReq, mac_),
   };
-  MsgC2GateLoginMacReq_reflection_ =
+  MsgC2SLoginMacReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      MsgC2GateLoginMacReq_descriptor_,
-      MsgC2GateLoginMacReq::default_instance_,
-      MsgC2GateLoginMacReq_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2GateLoginMacReq, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2GateLoginMacReq, _unknown_fields_),
+      MsgC2SLoginMacReq_descriptor_,
+      MsgC2SLoginMacReq::default_instance_,
+      MsgC2SLoginMacReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SLoginMacReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SLoginMacReq, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(MsgC2GateLoginMacReq));
+      sizeof(MsgC2SLoginMacReq));
   MsgBindMailReq_descriptor_ = file->message_type(3);
   static const int MsgBindMailReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgBindMailReq, account_),
@@ -177,11 +177,11 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    MsgC2GateLoginReq_descriptor_, &MsgC2GateLoginReq::default_instance());
+    MsgC2SLoginReq_descriptor_, &MsgC2SLoginReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    MsgC2GateCreateAcountReq_descriptor_, &MsgC2GateCreateAcountReq::default_instance());
+    MsgC2SCreateAcountReq_descriptor_, &MsgC2SCreateAcountReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    MsgC2GateLoginMacReq_descriptor_, &MsgC2GateLoginMacReq::default_instance());
+    MsgC2SLoginMacReq_descriptor_, &MsgC2SLoginMacReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     MsgBindMailReq_descriptor_, &MsgBindMailReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -195,12 +195,12 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_MessageC2G_2eproto() {
-  delete MsgC2GateLoginReq::default_instance_;
-  delete MsgC2GateLoginReq_reflection_;
-  delete MsgC2GateCreateAcountReq::default_instance_;
-  delete MsgC2GateCreateAcountReq_reflection_;
-  delete MsgC2GateLoginMacReq::default_instance_;
-  delete MsgC2GateLoginMacReq_reflection_;
+  delete MsgC2SLoginReq::default_instance_;
+  delete MsgC2SLoginReq_reflection_;
+  delete MsgC2SCreateAcountReq::default_instance_;
+  delete MsgC2SCreateAcountReq_reflection_;
+  delete MsgC2SLoginMacReq::default_instance_;
+  delete MsgC2SLoginMacReq_reflection_;
   delete MsgBindMailReq::default_instance_;
   delete MsgBindMailReq_reflection_;
   delete MsgUnbindMacReq::default_instance_;
@@ -220,10 +220,10 @@ void protobuf_AddDesc_MessageC2G_2eproto() {
   ::protobuf_AddDesc_MsgHead_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\020MessageC2G.proto\032\rMsgHead.proto\"1\n\021Msg"
-    "C2GateLoginReq\022\n\n\002id\030\001 \002(\t\022\020\n\010password\030\002"
-    " \002(\t\"F\n\030MsgC2GateCreateAcountReq\022\n\n\002id\030\001"
+    "C2SLoginReq\022\n\n\002id\030\001 \002(\t\022\020\n\010password\030\002"
+    " \002(\t\"F\n\030MsgC2SCreateAcountReq\022\n\n\002id\030\001"
     " \002(\t\022\014\n\004name\030\002 \002(\t\022\020\n\010password\030\003 \002(\t\"#\n\024"
-    "MsgC2GateLoginMacReq\022\013\n\003Mac\030\001 \002(\t\"N\n\016Msg"
+    "MsgC2SLoginMacReq\022\013\n\003Mac\030\001 \002(\t\"N\n\016Msg"
     "BindMailReq\022\017\n\007account\030\001 \002(\004\022\013\n\003mac\030\002 \002("
     "\t\022\020\n\010password\030\003 \002(\t\022\014\n\004mail\030\004 \002(\t\"O\n\017Msg"
     "UnbindMacReq\022\017\n\007account\030\001 \002(\004\022\013\n\003mac\030\002 \002"
@@ -234,16 +234,16 @@ void protobuf_AddDesc_MessageC2G_2eproto() {
     " \002(\t", 484);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageC2G.proto", &protobuf_RegisterTypes);
-  MsgC2GateLoginReq::default_instance_ = new MsgC2GateLoginReq();
-  MsgC2GateCreateAcountReq::default_instance_ = new MsgC2GateCreateAcountReq();
-  MsgC2GateLoginMacReq::default_instance_ = new MsgC2GateLoginMacReq();
+  MsgC2SLoginReq::default_instance_ = new MsgC2SLoginReq();
+  MsgC2SCreateAcountReq::default_instance_ = new MsgC2SCreateAcountReq();
+  MsgC2SLoginMacReq::default_instance_ = new MsgC2SLoginMacReq();
   MsgBindMailReq::default_instance_ = new MsgBindMailReq();
   MsgUnbindMacReq::default_instance_ = new MsgUnbindMacReq();
   MsgBindMacReq::default_instance_ = new MsgBindMacReq();
   MsgMailLoginReq::default_instance_ = new MsgMailLoginReq();
-  MsgC2GateLoginReq::default_instance_->InitAsDefaultInstance();
-  MsgC2GateCreateAcountReq::default_instance_->InitAsDefaultInstance();
-  MsgC2GateLoginMacReq::default_instance_->InitAsDefaultInstance();
+  MsgC2SLoginReq::default_instance_->InitAsDefaultInstance();
+  MsgC2SCreateAcountReq::default_instance_->InitAsDefaultInstance();
+  MsgC2SLoginMacReq::default_instance_->InitAsDefaultInstance();
   MsgBindMailReq::default_instance_->InitAsDefaultInstance();
   MsgUnbindMacReq::default_instance_->InitAsDefaultInstance();
   MsgBindMacReq::default_instance_->InitAsDefaultInstance();
@@ -262,36 +262,36 @@ struct StaticDescriptorInitializer_MessageC2G_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int MsgC2GateLoginReq::kIdFieldNumber;
-const int MsgC2GateLoginReq::kPasswordFieldNumber;
+const int MsgC2SLoginReq::kIdFieldNumber;
+const int MsgC2SLoginReq::kPasswordFieldNumber;
 #endif  // !_MSC_VER
 
-MsgC2GateLoginReq::MsgC2GateLoginReq()
+MsgC2SLoginReq::MsgC2SLoginReq()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void MsgC2GateLoginReq::InitAsDefaultInstance() {
+void MsgC2SLoginReq::InitAsDefaultInstance() {
 }
 
-MsgC2GateLoginReq::MsgC2GateLoginReq(const MsgC2GateLoginReq& from)
+MsgC2SLoginReq::MsgC2SLoginReq(const MsgC2SLoginReq& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void MsgC2GateLoginReq::SharedCtor() {
+void MsgC2SLoginReq::SharedCtor() {
   _cached_size_ = 0;
   id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   password_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-MsgC2GateLoginReq::~MsgC2GateLoginReq() {
+MsgC2SLoginReq::~MsgC2SLoginReq() {
   SharedDtor();
 }
 
-void MsgC2GateLoginReq::SharedDtor() {
+void MsgC2SLoginReq::SharedDtor() {
   if (id_ != &::google::protobuf::internal::kEmptyString) {
     delete id_;
   }
@@ -302,27 +302,27 @@ void MsgC2GateLoginReq::SharedDtor() {
   }
 }
 
-void MsgC2GateLoginReq::SetCachedSize(int size) const {
+void MsgC2SLoginReq::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* MsgC2GateLoginReq::descriptor() {
+const ::google::protobuf::Descriptor* MsgC2SLoginReq::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return MsgC2GateLoginReq_descriptor_;
+  return MsgC2SLoginReq_descriptor_;
 }
 
-const MsgC2GateLoginReq& MsgC2GateLoginReq::default_instance() {
+const MsgC2SLoginReq& MsgC2SLoginReq::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_MessageC2G_2eproto();  return *default_instance_;
 }
 
-MsgC2GateLoginReq* MsgC2GateLoginReq::default_instance_ = NULL;
+MsgC2SLoginReq* MsgC2SLoginReq::default_instance_ = NULL;
 
-MsgC2GateLoginReq* MsgC2GateLoginReq::New() const {
-  return new MsgC2GateLoginReq;
+MsgC2SLoginReq* MsgC2SLoginReq::New() const {
+  return new MsgC2SLoginReq;
 }
 
-void MsgC2GateLoginReq::Clear() {
+void MsgC2SLoginReq::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (has_id()) {
       if (id_ != &::google::protobuf::internal::kEmptyString) {
@@ -339,7 +339,7 @@ void MsgC2GateLoginReq::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool MsgC2GateLoginReq::MergePartialFromCodedStream(
+bool MsgC2SLoginReq::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -394,7 +394,7 @@ bool MsgC2GateLoginReq::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void MsgC2GateLoginReq::SerializeWithCachedSizes(
+void MsgC2SLoginReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required string id = 1;
   if (has_id()) {
@@ -420,7 +420,7 @@ void MsgC2GateLoginReq::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* MsgC2GateLoginReq::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* MsgC2SLoginReq::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // required string id = 1;
   if (has_id()) {
@@ -449,7 +449,7 @@ void MsgC2GateLoginReq::SerializeWithCachedSizes(
   return target;
 }
 
-int MsgC2GateLoginReq::ByteSize() const {
+int MsgC2SLoginReq::ByteSize() const {
   int total_size = 0;
   
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -479,10 +479,10 @@ int MsgC2GateLoginReq::ByteSize() const {
   return total_size;
 }
 
-void MsgC2GateLoginReq::MergeFrom(const ::google::protobuf::Message& from) {
+void MsgC2SLoginReq::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const MsgC2GateLoginReq* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const MsgC2GateLoginReq*>(
+  const MsgC2SLoginReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgC2SLoginReq*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -491,7 +491,7 @@ void MsgC2GateLoginReq::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void MsgC2GateLoginReq::MergeFrom(const MsgC2GateLoginReq& from) {
+void MsgC2SLoginReq::MergeFrom(const MsgC2SLoginReq& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_id()) {
@@ -504,25 +504,25 @@ void MsgC2GateLoginReq::MergeFrom(const MsgC2GateLoginReq& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void MsgC2GateLoginReq::CopyFrom(const ::google::protobuf::Message& from) {
+void MsgC2SLoginReq::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void MsgC2GateLoginReq::CopyFrom(const MsgC2GateLoginReq& from) {
+void MsgC2SLoginReq::CopyFrom(const MsgC2SLoginReq& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool MsgC2GateLoginReq::IsInitialized() const {
+bool MsgC2SLoginReq::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
   
   return true;
 }
 
-void MsgC2GateLoginReq::Swap(MsgC2GateLoginReq* other) {
+void MsgC2SLoginReq::Swap(MsgC2SLoginReq* other) {
   if (other != this) {
     std::swap(id_, other->id_);
     std::swap(password_, other->password_);
@@ -532,11 +532,11 @@ void MsgC2GateLoginReq::Swap(MsgC2GateLoginReq* other) {
   }
 }
 
-::google::protobuf::Metadata MsgC2GateLoginReq::GetMetadata() const {
+::google::protobuf::Metadata MsgC2SLoginReq::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = MsgC2GateLoginReq_descriptor_;
-  metadata.reflection = MsgC2GateLoginReq_reflection_;
+  metadata.descriptor = MsgC2SLoginReq_descriptor_;
+  metadata.reflection = MsgC2SLoginReq_reflection_;
   return metadata;
 }
 
@@ -544,26 +544,26 @@ void MsgC2GateLoginReq::Swap(MsgC2GateLoginReq* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int MsgC2GateCreateAcountReq::kIdFieldNumber;
-const int MsgC2GateCreateAcountReq::kNameFieldNumber;
-const int MsgC2GateCreateAcountReq::kPasswordFieldNumber;
+const int MsgC2SCreateAcountReq::kIdFieldNumber;
+const int MsgC2SCreateAcountReq::kNameFieldNumber;
+const int MsgC2SCreateAcountReq::kPasswordFieldNumber;
 #endif  // !_MSC_VER
 
-MsgC2GateCreateAcountReq::MsgC2GateCreateAcountReq()
+MsgC2SCreateAcountReq::MsgC2SCreateAcountReq()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void MsgC2GateCreateAcountReq::InitAsDefaultInstance() {
+void MsgC2SCreateAcountReq::InitAsDefaultInstance() {
 }
 
-MsgC2GateCreateAcountReq::MsgC2GateCreateAcountReq(const MsgC2GateCreateAcountReq& from)
+MsgC2SCreateAcountReq::MsgC2SCreateAcountReq(const MsgC2SCreateAcountReq& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void MsgC2GateCreateAcountReq::SharedCtor() {
+void MsgC2SCreateAcountReq::SharedCtor() {
   _cached_size_ = 0;
   id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
@@ -571,11 +571,11 @@ void MsgC2GateCreateAcountReq::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-MsgC2GateCreateAcountReq::~MsgC2GateCreateAcountReq() {
+MsgC2SCreateAcountReq::~MsgC2SCreateAcountReq() {
   SharedDtor();
 }
 
-void MsgC2GateCreateAcountReq::SharedDtor() {
+void MsgC2SCreateAcountReq::SharedDtor() {
   if (id_ != &::google::protobuf::internal::kEmptyString) {
     delete id_;
   }
@@ -589,27 +589,27 @@ void MsgC2GateCreateAcountReq::SharedDtor() {
   }
 }
 
-void MsgC2GateCreateAcountReq::SetCachedSize(int size) const {
+void MsgC2SCreateAcountReq::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* MsgC2GateCreateAcountReq::descriptor() {
+const ::google::protobuf::Descriptor* MsgC2SCreateAcountReq::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return MsgC2GateCreateAcountReq_descriptor_;
+  return MsgC2SCreateAcountReq_descriptor_;
 }
 
-const MsgC2GateCreateAcountReq& MsgC2GateCreateAcountReq::default_instance() {
+const MsgC2SCreateAcountReq& MsgC2SCreateAcountReq::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_MessageC2G_2eproto();  return *default_instance_;
 }
 
-MsgC2GateCreateAcountReq* MsgC2GateCreateAcountReq::default_instance_ = NULL;
+MsgC2SCreateAcountReq* MsgC2SCreateAcountReq::default_instance_ = NULL;
 
-MsgC2GateCreateAcountReq* MsgC2GateCreateAcountReq::New() const {
-  return new MsgC2GateCreateAcountReq;
+MsgC2SCreateAcountReq* MsgC2SCreateAcountReq::New() const {
+  return new MsgC2SCreateAcountReq;
 }
 
-void MsgC2GateCreateAcountReq::Clear() {
+void MsgC2SCreateAcountReq::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (has_id()) {
       if (id_ != &::google::protobuf::internal::kEmptyString) {
@@ -631,7 +631,7 @@ void MsgC2GateCreateAcountReq::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool MsgC2GateCreateAcountReq::MergePartialFromCodedStream(
+bool MsgC2SCreateAcountReq::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -703,7 +703,7 @@ bool MsgC2GateCreateAcountReq::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void MsgC2GateCreateAcountReq::SerializeWithCachedSizes(
+void MsgC2SCreateAcountReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required string id = 1;
   if (has_id()) {
@@ -738,7 +738,7 @@ void MsgC2GateCreateAcountReq::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* MsgC2GateCreateAcountReq::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* MsgC2SCreateAcountReq::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // required string id = 1;
   if (has_id()) {
@@ -777,7 +777,7 @@ void MsgC2GateCreateAcountReq::SerializeWithCachedSizes(
   return target;
 }
 
-int MsgC2GateCreateAcountReq::ByteSize() const {
+int MsgC2SCreateAcountReq::ByteSize() const {
   int total_size = 0;
   
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -814,10 +814,10 @@ int MsgC2GateCreateAcountReq::ByteSize() const {
   return total_size;
 }
 
-void MsgC2GateCreateAcountReq::MergeFrom(const ::google::protobuf::Message& from) {
+void MsgC2SCreateAcountReq::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const MsgC2GateCreateAcountReq* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const MsgC2GateCreateAcountReq*>(
+  const MsgC2SCreateAcountReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgC2SCreateAcountReq*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -826,7 +826,7 @@ void MsgC2GateCreateAcountReq::MergeFrom(const ::google::protobuf::Message& from
   }
 }
 
-void MsgC2GateCreateAcountReq::MergeFrom(const MsgC2GateCreateAcountReq& from) {
+void MsgC2SCreateAcountReq::MergeFrom(const MsgC2SCreateAcountReq& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_id()) {
@@ -842,25 +842,25 @@ void MsgC2GateCreateAcountReq::MergeFrom(const MsgC2GateCreateAcountReq& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void MsgC2GateCreateAcountReq::CopyFrom(const ::google::protobuf::Message& from) {
+void MsgC2SCreateAcountReq::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void MsgC2GateCreateAcountReq::CopyFrom(const MsgC2GateCreateAcountReq& from) {
+void MsgC2SCreateAcountReq::CopyFrom(const MsgC2SCreateAcountReq& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool MsgC2GateCreateAcountReq::IsInitialized() const {
+bool MsgC2SCreateAcountReq::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
   
   return true;
 }
 
-void MsgC2GateCreateAcountReq::Swap(MsgC2GateCreateAcountReq* other) {
+void MsgC2SCreateAcountReq::Swap(MsgC2SCreateAcountReq* other) {
   if (other != this) {
     std::swap(id_, other->id_);
     std::swap(name_, other->name_);
@@ -871,11 +871,11 @@ void MsgC2GateCreateAcountReq::Swap(MsgC2GateCreateAcountReq* other) {
   }
 }
 
-::google::protobuf::Metadata MsgC2GateCreateAcountReq::GetMetadata() const {
+::google::protobuf::Metadata MsgC2SCreateAcountReq::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = MsgC2GateCreateAcountReq_descriptor_;
-  metadata.reflection = MsgC2GateCreateAcountReq_reflection_;
+  metadata.descriptor = MsgC2SCreateAcountReq_descriptor_;
+  metadata.reflection = MsgC2SCreateAcountReq_reflection_;
   return metadata;
 }
 
@@ -883,34 +883,34 @@ void MsgC2GateCreateAcountReq::Swap(MsgC2GateCreateAcountReq* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int MsgC2GateLoginMacReq::kMacFieldNumber;
+const int MsgC2SLoginMacReq::kMacFieldNumber;
 #endif  // !_MSC_VER
 
-MsgC2GateLoginMacReq::MsgC2GateLoginMacReq()
+MsgC2SLoginMacReq::MsgC2SLoginMacReq()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void MsgC2GateLoginMacReq::InitAsDefaultInstance() {
+void MsgC2SLoginMacReq::InitAsDefaultInstance() {
 }
 
-MsgC2GateLoginMacReq::MsgC2GateLoginMacReq(const MsgC2GateLoginMacReq& from)
+MsgC2SLoginMacReq::MsgC2SLoginMacReq(const MsgC2SLoginMacReq& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void MsgC2GateLoginMacReq::SharedCtor() {
+void MsgC2SLoginMacReq::SharedCtor() {
   _cached_size_ = 0;
   mac_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-MsgC2GateLoginMacReq::~MsgC2GateLoginMacReq() {
+MsgC2SLoginMacReq::~MsgC2SLoginMacReq() {
   SharedDtor();
 }
 
-void MsgC2GateLoginMacReq::SharedDtor() {
+void MsgC2SLoginMacReq::SharedDtor() {
   if (mac_ != &::google::protobuf::internal::kEmptyString) {
     delete mac_;
   }
@@ -918,27 +918,27 @@ void MsgC2GateLoginMacReq::SharedDtor() {
   }
 }
 
-void MsgC2GateLoginMacReq::SetCachedSize(int size) const {
+void MsgC2SLoginMacReq::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* MsgC2GateLoginMacReq::descriptor() {
+const ::google::protobuf::Descriptor* MsgC2SLoginMacReq::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return MsgC2GateLoginMacReq_descriptor_;
+  return MsgC2SLoginMacReq_descriptor_;
 }
 
-const MsgC2GateLoginMacReq& MsgC2GateLoginMacReq::default_instance() {
+const MsgC2SLoginMacReq& MsgC2SLoginMacReq::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_MessageC2G_2eproto();  return *default_instance_;
 }
 
-MsgC2GateLoginMacReq* MsgC2GateLoginMacReq::default_instance_ = NULL;
+MsgC2SLoginMacReq* MsgC2SLoginMacReq::default_instance_ = NULL;
 
-MsgC2GateLoginMacReq* MsgC2GateLoginMacReq::New() const {
-  return new MsgC2GateLoginMacReq;
+MsgC2SLoginMacReq* MsgC2SLoginMacReq::New() const {
+  return new MsgC2SLoginMacReq;
 }
 
-void MsgC2GateLoginMacReq::Clear() {
+void MsgC2SLoginMacReq::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (has_mac()) {
       if (mac_ != &::google::protobuf::internal::kEmptyString) {
@@ -950,7 +950,7 @@ void MsgC2GateLoginMacReq::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool MsgC2GateLoginMacReq::MergePartialFromCodedStream(
+bool MsgC2SLoginMacReq::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -988,7 +988,7 @@ bool MsgC2GateLoginMacReq::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void MsgC2GateLoginMacReq::SerializeWithCachedSizes(
+void MsgC2SLoginMacReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required string Mac = 1;
   if (has_mac()) {
@@ -1005,7 +1005,7 @@ void MsgC2GateLoginMacReq::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* MsgC2GateLoginMacReq::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* MsgC2SLoginMacReq::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // required string Mac = 1;
   if (has_mac()) {
@@ -1024,7 +1024,7 @@ void MsgC2GateLoginMacReq::SerializeWithCachedSizes(
   return target;
 }
 
-int MsgC2GateLoginMacReq::ByteSize() const {
+int MsgC2SLoginMacReq::ByteSize() const {
   int total_size = 0;
   
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -1047,10 +1047,10 @@ int MsgC2GateLoginMacReq::ByteSize() const {
   return total_size;
 }
 
-void MsgC2GateLoginMacReq::MergeFrom(const ::google::protobuf::Message& from) {
+void MsgC2SLoginMacReq::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const MsgC2GateLoginMacReq* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const MsgC2GateLoginMacReq*>(
+  const MsgC2SLoginMacReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgC2SLoginMacReq*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1059,7 +1059,7 @@ void MsgC2GateLoginMacReq::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void MsgC2GateLoginMacReq::MergeFrom(const MsgC2GateLoginMacReq& from) {
+void MsgC2SLoginMacReq::MergeFrom(const MsgC2SLoginMacReq& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_mac()) {
@@ -1069,25 +1069,25 @@ void MsgC2GateLoginMacReq::MergeFrom(const MsgC2GateLoginMacReq& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void MsgC2GateLoginMacReq::CopyFrom(const ::google::protobuf::Message& from) {
+void MsgC2SLoginMacReq::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void MsgC2GateLoginMacReq::CopyFrom(const MsgC2GateLoginMacReq& from) {
+void MsgC2SLoginMacReq::CopyFrom(const MsgC2SLoginMacReq& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool MsgC2GateLoginMacReq::IsInitialized() const {
+bool MsgC2SLoginMacReq::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
   
   return true;
 }
 
-void MsgC2GateLoginMacReq::Swap(MsgC2GateLoginMacReq* other) {
+void MsgC2SLoginMacReq::Swap(MsgC2SLoginMacReq* other) {
   if (other != this) {
     std::swap(mac_, other->mac_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -1096,11 +1096,11 @@ void MsgC2GateLoginMacReq::Swap(MsgC2GateLoginMacReq* other) {
   }
 }
 
-::google::protobuf::Metadata MsgC2GateLoginMacReq::GetMetadata() const {
+::google::protobuf::Metadata MsgC2SLoginMacReq::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = MsgC2GateLoginMacReq_descriptor_;
-  metadata.reflection = MsgC2GateLoginMacReq_reflection_;
+  metadata.descriptor = MsgC2SLoginMacReq_descriptor_;
+  metadata.reflection = MsgC2SLoginMacReq_reflection_;
   return metadata;
 }
 

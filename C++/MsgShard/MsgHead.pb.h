@@ -33,18 +33,23 @@ void protobuf_ShutdownFile_MsgHead_2eproto();
 class MsgHead;
 
 enum MsgType {
-  C2Gate_MsgNull = 0,
-  C2Gate_MsgLoginReq = 1,
-  C2Gate_MsgCreateAcountReq = 2,
-  C2Gate_MsgLoginMacReq = 3,
-  C2Gate_MsgBindMailReq = 4,
-  C2Gate_MsgUnbindMacReq = 5,
-  C2Gate_MsgBindMacReq = 6,
-  C2Gate_MsgMailLoginReq = 7,
-  C2Gate_END = 998,
+  C2S_MsgNull = 0,
+  C2S_MsgLoginReq = 1,
+  C2S_MsgCreateAcountReq = 2,
+  C2S_MsgLoginMacReq = 3,
+  C2S_MsgBindMailReq = 4,
+  C2S_MsgUnbindMacReq = 5,
+  C2S_MsgBindMacReq = 6,
+  C2S_MsgMailLoginReq = 7,
+  C2G_MsgMailLoginReq = 8,
+  C2S_END = 998,
   G2C_Begin = 999,
-  G2C_LoginMacACK = 1000,
+  G2C_LoginACK = 1000,
   G2C_MsgG2CErrorACK = 1001,
+  G2C_MsgSeedCellACK = 1002,
+  G2C_MsgSpreadManureACK = 1003,
+  G2C_MsgGatherPloughCellACK = 1004,
+  G2C_MsgFarmErrorACK = 1005,
   G2C_End = 2000,
   Gate2LG_Begin = 2001,
   Gate2LG_MsgGate2LGLoginReq = 2002,
@@ -58,10 +63,11 @@ enum MsgType {
   LG2Gate_MsgLG2GateReqLoginUserList = 3004,
   LG2Gate_End = 4000,
   GS_MsgGate2GSLoginReq = 4001,
+  GS_MsgGaet2GSLoginOutReq = 4002,
   GS2Client_GS2GateLoginOKACK = 5001
 };
 bool MsgType_IsValid(int value);
-const MsgType MsgType_MIN = C2Gate_MsgNull;
+const MsgType MsgType_MIN = C2S_MsgNull;
 const MsgType MsgType_MAX = GS2Client_GS2GateLoginOKACK;
 const int MsgType_ARRAYSIZE = MsgType_MAX + 1;
 

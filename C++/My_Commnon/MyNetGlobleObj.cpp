@@ -11,7 +11,7 @@ void MyNetGlobleObj::InitMsg(int MsgHeadLen, int MsgBasicHeadLen)
 	mMessageBasicHeadLen = MsgBasicHeadLen;
 	mQueueMessageLimitSize = MAX_MESSAGE_LEN * 10;;
 	//pMsgHead = new MsgHead();
-	//pMsgHead->set_type(MsgType::C2Gate_MsgNull);
+	//pMsgHead->set_type(MsgType::C2S_MsgNull);
 	//pMsgHead->set_msgsize(52);
 	//
 

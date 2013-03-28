@@ -2,6 +2,8 @@
 #include "FarmLogic.h"
 #include "boost/lexical_cast.hpp"
 #include "PloughCell.h"
+#include "../Player.h"
+#include "../PlayerManager.h"
 FarmLogic::FarmLogic()
 {
 	_modify = true;
@@ -49,7 +51,28 @@ bool FarmLogic::LoadCells(string str)
 		_cells.insert(PLOUGHCELL::value_type(cell->getID(), cell));
 
 	}
-
-
 	return true;
+}
+
+int FarmLogic::gatherPloughCell(int id)
+{
+	int resorce = 0;
+	PloughCell* p = getPloughCell(id);
+	if (p &&p->getgrowstate() == growstate_grown)
+	{
+		resorce = p->gather();
+	}
+	return resorce;
+}
+
+PloughCell* FarmLogic::getPloughCell(int id)
+{
+	PloughCell* cell = NULL;
+	PLOUGHCELL::iterator it = _cells.find(id);
+	if (it != _cells.end())
+	{
+		cell = it->second;
+	}
+	
+	return cell;
 }

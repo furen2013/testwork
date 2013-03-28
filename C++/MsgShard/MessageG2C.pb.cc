@@ -15,13 +15,26 @@
 
 namespace {
 
-const ::google::protobuf::Descriptor* MsgG2CLoginMacACK_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* MsgG2CLoginACK_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  MsgG2CLoginMacACK_reflection_ = NULL;
+  MsgG2CLoginACK_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MsgG2CErrorACK_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgG2CErrorACK_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* MsgG2CErrorACK_enResult_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* MsgFarmErrorACK_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgFarmErrorACK_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgSeedCellACK_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgSeedCellACK_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgSpreadManureACK_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgSpreadManureACK_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgGatherPloughCellACK_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgGatherPloughCellACK_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* enFarmErrorResult_descriptor_ = NULL;
 
 }  // namespace
 
@@ -32,21 +45,21 @@ void protobuf_AssignDesc_MessageG2C_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "MessageG2C.proto");
   GOOGLE_CHECK(file != NULL);
-  MsgG2CLoginMacACK_descriptor_ = file->message_type(0);
-  static const int MsgG2CLoginMacACK_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2CLoginMacACK, account_),
+  MsgG2CLoginACK_descriptor_ = file->message_type(0);
+  static const int MsgG2CLoginACK_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2CLoginACK, account_),
   };
-  MsgG2CLoginMacACK_reflection_ =
+  MsgG2CLoginACK_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      MsgG2CLoginMacACK_descriptor_,
-      MsgG2CLoginMacACK::default_instance_,
-      MsgG2CLoginMacACK_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2CLoginMacACK, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2CLoginMacACK, _unknown_fields_),
+      MsgG2CLoginACK_descriptor_,
+      MsgG2CLoginACK::default_instance_,
+      MsgG2CLoginACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2CLoginACK, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2CLoginACK, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(MsgG2CLoginMacACK));
+      sizeof(MsgG2CLoginACK));
   MsgG2CErrorACK_descriptor_ = file->message_type(1);
   static const int MsgG2CErrorACK_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2CErrorACK, en_),
@@ -63,6 +76,71 @@ void protobuf_AssignDesc_MessageG2C_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MsgG2CErrorACK));
   MsgG2CErrorACK_enResult_descriptor_ = MsgG2CErrorACK_descriptor_->enum_type(0);
+  MsgFarmErrorACK_descriptor_ = file->message_type(2);
+  static const int MsgFarmErrorACK_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgFarmErrorACK, en_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgFarmErrorACK, cellid_),
+  };
+  MsgFarmErrorACK_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MsgFarmErrorACK_descriptor_,
+      MsgFarmErrorACK::default_instance_,
+      MsgFarmErrorACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgFarmErrorACK, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgFarmErrorACK, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MsgFarmErrorACK));
+  MsgSeedCellACK_descriptor_ = file->message_type(3);
+  static const int MsgSeedCellACK_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSeedCellACK, cellid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSeedCellACK, seedlevel_),
+  };
+  MsgSeedCellACK_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MsgSeedCellACK_descriptor_,
+      MsgSeedCellACK::default_instance_,
+      MsgSeedCellACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSeedCellACK, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSeedCellACK, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MsgSeedCellACK));
+  MsgSpreadManureACK_descriptor_ = file->message_type(4);
+  static const int MsgSpreadManureACK_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSpreadManureACK, cellid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSpreadManureACK, manurelevel_),
+  };
+  MsgSpreadManureACK_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MsgSpreadManureACK_descriptor_,
+      MsgSpreadManureACK::default_instance_,
+      MsgSpreadManureACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSpreadManureACK, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSpreadManureACK, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MsgSpreadManureACK));
+  MsgGatherPloughCellACK_descriptor_ = file->message_type(5);
+  static const int MsgGatherPloughCellACK_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGatherPloughCellACK, cellid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGatherPloughCellACK, resource_),
+  };
+  MsgGatherPloughCellACK_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MsgGatherPloughCellACK_descriptor_,
+      MsgGatherPloughCellACK::default_instance_,
+      MsgGatherPloughCellACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGatherPloughCellACK, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGatherPloughCellACK, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MsgGatherPloughCellACK));
+  enFarmErrorResult_descriptor_ = file->enum_type(0);
 }
 
 namespace {
@@ -76,18 +154,34 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    MsgG2CLoginMacACK_descriptor_, &MsgG2CLoginMacACK::default_instance());
+    MsgG2CLoginACK_descriptor_, &MsgG2CLoginACK::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     MsgG2CErrorACK_descriptor_, &MsgG2CErrorACK::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MsgFarmErrorACK_descriptor_, &MsgFarmErrorACK::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MsgSeedCellACK_descriptor_, &MsgSeedCellACK::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MsgSpreadManureACK_descriptor_, &MsgSpreadManureACK::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MsgGatherPloughCellACK_descriptor_, &MsgGatherPloughCellACK::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_MessageG2C_2eproto() {
-  delete MsgG2CLoginMacACK::default_instance_;
-  delete MsgG2CLoginMacACK_reflection_;
+  delete MsgG2CLoginACK::default_instance_;
+  delete MsgG2CLoginACK_reflection_;
   delete MsgG2CErrorACK::default_instance_;
   delete MsgG2CErrorACK_reflection_;
+  delete MsgFarmErrorACK::default_instance_;
+  delete MsgFarmErrorACK_reflection_;
+  delete MsgSeedCellACK::default_instance_;
+  delete MsgSeedCellACK_reflection_;
+  delete MsgSpreadManureACK::default_instance_;
+  delete MsgSpreadManureACK_reflection_;
+  delete MsgGatherPloughCellACK::default_instance_;
+  delete MsgGatherPloughCellACK_reflection_;
 }
 
 void protobuf_AddDesc_MessageG2C_2eproto() {
@@ -98,17 +192,37 @@ void protobuf_AddDesc_MessageG2C_2eproto() {
 
   ::protobuf_AddDesc_MsgHead_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\020MessageG2C.proto\032\rMsgHead.proto\"$\n\021Msg"
-    "G2CLoginMacACK\022\017\n\007account\030\001 \002(\004\"}\n\016MsgG2"
-    "CErrorACK\022$\n\002en\030\001 \002(\0162\030.MsgG2CErrorACK.e"
-    "nResult\"E\n\010enResult\022\r\n\tLG_UNKNOW\020\000\022\023\n\017LG"
-    "_ALREADYLOGIN\020\001\022\025\n\021LG_YOUARENOTLOGIN\020\002", 198);
+    "\n\020MessageG2C.proto\032\rMsgHead.proto\"!\n\016Msg"
+    "G2CLoginACK\022\017\n\007account\030\001 \002(\004\"\224\001\n\016MsgG2CE"
+    "rrorACK\022$\n\002en\030\001 \002(\0162\030.MsgG2CErrorACK.enR"
+    "esult\"\\\n\010enResult\022\r\n\tLG_UNKNOW\020\000\022\023\n\017LG_A"
+    "LREADYLOGIN\020\001\022\025\n\021LG_YOUARENOTLOGIN\020\002\022\025\n\021"
+    "LG_NOTFOUNDPLAYER\020\003\"A\n\017MsgFarmErrorACK\022\036"
+    "\n\002en\030\001 \002(\0162\022.enFarmErrorResult\022\016\n\006cellid"
+    "\030\002 \002(\005\"3\n\016MsgSeedCellACK\022\016\n\006cellid\030\002 \002(\005"
+    "\022\021\n\tseedlevel\030\003 \002(\005\"9\n\022MsgSpreadManureAC"
+    "K\022\016\n\006cellid\030\001 \002(\005\022\023\n\013manurelevel\030\002 \002(\005\":"
+    "\n\026MsgGatherPloughCellACK\022\016\n\006cellid\030\001 \002(\005"
+    "\022\020\n\010resource\030\002 \002(\005*\274\001\n\021enFarmErrorResult"
+    "\022\032\n\026FarmError_NOTFOUNDCELL\020\000\022\031\n\025FarmErro"
+    "r_NOTHAVESEED\020\001\022\034\n\030FarmError_CELLCANNOTS"
+    "EED\020\002\022\032\n\026FarmError_ISHAVEMANURE\020\003\022 \n\034Far"
+    "mError_GATHERNOTGROWNCELL\020\004\022\024\n\020FarmError"
+    "_UKNOWN\020\005", 649);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageG2C.proto", &protobuf_RegisterTypes);
-  MsgG2CLoginMacACK::default_instance_ = new MsgG2CLoginMacACK();
+  MsgG2CLoginACK::default_instance_ = new MsgG2CLoginACK();
   MsgG2CErrorACK::default_instance_ = new MsgG2CErrorACK();
-  MsgG2CLoginMacACK::default_instance_->InitAsDefaultInstance();
+  MsgFarmErrorACK::default_instance_ = new MsgFarmErrorACK();
+  MsgSeedCellACK::default_instance_ = new MsgSeedCellACK();
+  MsgSpreadManureACK::default_instance_ = new MsgSpreadManureACK();
+  MsgGatherPloughCellACK::default_instance_ = new MsgGatherPloughCellACK();
+  MsgG2CLoginACK::default_instance_->InitAsDefaultInstance();
   MsgG2CErrorACK::default_instance_->InitAsDefaultInstance();
+  MsgFarmErrorACK::default_instance_->InitAsDefaultInstance();
+  MsgSeedCellACK::default_instance_->InitAsDefaultInstance();
+  MsgSpreadManureACK::default_instance_->InitAsDefaultInstance();
+  MsgGatherPloughCellACK::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_MessageG2C_2eproto);
 }
 
@@ -119,63 +233,81 @@ struct StaticDescriptorInitializer_MessageG2C_2eproto {
   }
 } static_descriptor_initializer_MessageG2C_2eproto_;
 
+const ::google::protobuf::EnumDescriptor* enFarmErrorResult_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return enFarmErrorResult_descriptor_;
+}
+bool enFarmErrorResult_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 
 #ifndef _MSC_VER
-const int MsgG2CLoginMacACK::kAccountFieldNumber;
+const int MsgG2CLoginACK::kAccountFieldNumber;
 #endif  // !_MSC_VER
 
-MsgG2CLoginMacACK::MsgG2CLoginMacACK()
+MsgG2CLoginACK::MsgG2CLoginACK()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void MsgG2CLoginMacACK::InitAsDefaultInstance() {
+void MsgG2CLoginACK::InitAsDefaultInstance() {
 }
 
-MsgG2CLoginMacACK::MsgG2CLoginMacACK(const MsgG2CLoginMacACK& from)
+MsgG2CLoginACK::MsgG2CLoginACK(const MsgG2CLoginACK& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void MsgG2CLoginMacACK::SharedCtor() {
+void MsgG2CLoginACK::SharedCtor() {
   _cached_size_ = 0;
   account_ = GOOGLE_ULONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-MsgG2CLoginMacACK::~MsgG2CLoginMacACK() {
+MsgG2CLoginACK::~MsgG2CLoginACK() {
   SharedDtor();
 }
 
-void MsgG2CLoginMacACK::SharedDtor() {
+void MsgG2CLoginACK::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void MsgG2CLoginMacACK::SetCachedSize(int size) const {
+void MsgG2CLoginACK::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* MsgG2CLoginMacACK::descriptor() {
+const ::google::protobuf::Descriptor* MsgG2CLoginACK::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return MsgG2CLoginMacACK_descriptor_;
+  return MsgG2CLoginACK_descriptor_;
 }
 
-const MsgG2CLoginMacACK& MsgG2CLoginMacACK::default_instance() {
+const MsgG2CLoginACK& MsgG2CLoginACK::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_MessageG2C_2eproto();  return *default_instance_;
 }
 
-MsgG2CLoginMacACK* MsgG2CLoginMacACK::default_instance_ = NULL;
+MsgG2CLoginACK* MsgG2CLoginACK::default_instance_ = NULL;
 
-MsgG2CLoginMacACK* MsgG2CLoginMacACK::New() const {
-  return new MsgG2CLoginMacACK;
+MsgG2CLoginACK* MsgG2CLoginACK::New() const {
+  return new MsgG2CLoginACK;
 }
 
-void MsgG2CLoginMacACK::Clear() {
+void MsgG2CLoginACK::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     account_ = GOOGLE_ULONGLONG(0);
   }
@@ -183,7 +315,7 @@ void MsgG2CLoginMacACK::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool MsgG2CLoginMacACK::MergePartialFromCodedStream(
+bool MsgG2CLoginACK::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -220,7 +352,7 @@ bool MsgG2CLoginMacACK::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void MsgG2CLoginMacACK::SerializeWithCachedSizes(
+void MsgG2CLoginACK::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required uint64 account = 1;
   if (has_account()) {
@@ -233,7 +365,7 @@ void MsgG2CLoginMacACK::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* MsgG2CLoginMacACK::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* MsgG2CLoginACK::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // required uint64 account = 1;
   if (has_account()) {
@@ -247,7 +379,7 @@ void MsgG2CLoginMacACK::SerializeWithCachedSizes(
   return target;
 }
 
-int MsgG2CLoginMacACK::ByteSize() const {
+int MsgG2CLoginACK::ByteSize() const {
   int total_size = 0;
   
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -270,10 +402,10 @@ int MsgG2CLoginMacACK::ByteSize() const {
   return total_size;
 }
 
-void MsgG2CLoginMacACK::MergeFrom(const ::google::protobuf::Message& from) {
+void MsgG2CLoginACK::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const MsgG2CLoginMacACK* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const MsgG2CLoginMacACK*>(
+  const MsgG2CLoginACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgG2CLoginACK*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -282,7 +414,7 @@ void MsgG2CLoginMacACK::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void MsgG2CLoginMacACK::MergeFrom(const MsgG2CLoginMacACK& from) {
+void MsgG2CLoginACK::MergeFrom(const MsgG2CLoginACK& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_account()) {
@@ -292,25 +424,25 @@ void MsgG2CLoginMacACK::MergeFrom(const MsgG2CLoginMacACK& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void MsgG2CLoginMacACK::CopyFrom(const ::google::protobuf::Message& from) {
+void MsgG2CLoginACK::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void MsgG2CLoginMacACK::CopyFrom(const MsgG2CLoginMacACK& from) {
+void MsgG2CLoginACK::CopyFrom(const MsgG2CLoginACK& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool MsgG2CLoginMacACK::IsInitialized() const {
+bool MsgG2CLoginACK::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
   
   return true;
 }
 
-void MsgG2CLoginMacACK::Swap(MsgG2CLoginMacACK* other) {
+void MsgG2CLoginACK::Swap(MsgG2CLoginACK* other) {
   if (other != this) {
     std::swap(account_, other->account_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -319,11 +451,11 @@ void MsgG2CLoginMacACK::Swap(MsgG2CLoginMacACK* other) {
   }
 }
 
-::google::protobuf::Metadata MsgG2CLoginMacACK::GetMetadata() const {
+::google::protobuf::Metadata MsgG2CLoginACK::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = MsgG2CLoginMacACK_descriptor_;
-  metadata.reflection = MsgG2CLoginMacACK_reflection_;
+  metadata.descriptor = MsgG2CLoginACK_descriptor_;
+  metadata.reflection = MsgG2CLoginACK_reflection_;
   return metadata;
 }
 
@@ -339,6 +471,7 @@ bool MsgG2CErrorACK_enResult_IsValid(int value) {
     case 0:
     case 1:
     case 2:
+    case 3:
       return true;
     default:
       return false;
@@ -349,6 +482,7 @@ bool MsgG2CErrorACK_enResult_IsValid(int value) {
 const MsgG2CErrorACK_enResult MsgG2CErrorACK::LG_UNKNOW;
 const MsgG2CErrorACK_enResult MsgG2CErrorACK::LG_ALREADYLOGIN;
 const MsgG2CErrorACK_enResult MsgG2CErrorACK::LG_YOUARENOTLOGIN;
+const MsgG2CErrorACK_enResult MsgG2CErrorACK::LG_NOTFOUNDPLAYER;
 const MsgG2CErrorACK_enResult MsgG2CErrorACK::enResult_MIN;
 const MsgG2CErrorACK_enResult MsgG2CErrorACK::enResult_MAX;
 const int MsgG2CErrorACK::enResult_ARRAYSIZE;
@@ -561,6 +695,1004 @@ void MsgG2CErrorACK::Swap(MsgG2CErrorACK* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = MsgG2CErrorACK_descriptor_;
   metadata.reflection = MsgG2CErrorACK_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgFarmErrorACK::kEnFieldNumber;
+const int MsgFarmErrorACK::kCellidFieldNumber;
+#endif  // !_MSC_VER
+
+MsgFarmErrorACK::MsgFarmErrorACK()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MsgFarmErrorACK::InitAsDefaultInstance() {
+}
+
+MsgFarmErrorACK::MsgFarmErrorACK(const MsgFarmErrorACK& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MsgFarmErrorACK::SharedCtor() {
+  _cached_size_ = 0;
+  en_ = 0;
+  cellid_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgFarmErrorACK::~MsgFarmErrorACK() {
+  SharedDtor();
+}
+
+void MsgFarmErrorACK::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgFarmErrorACK::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgFarmErrorACK::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgFarmErrorACK_descriptor_;
+}
+
+const MsgFarmErrorACK& MsgFarmErrorACK::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_MessageG2C_2eproto();  return *default_instance_;
+}
+
+MsgFarmErrorACK* MsgFarmErrorACK::default_instance_ = NULL;
+
+MsgFarmErrorACK* MsgFarmErrorACK::New() const {
+  return new MsgFarmErrorACK;
+}
+
+void MsgFarmErrorACK::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    en_ = 0;
+    cellid_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MsgFarmErrorACK::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required .enFarmErrorResult en = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (enFarmErrorResult_IsValid(value)) {
+            set_en(static_cast< enFarmErrorResult >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(1, value);
+          }
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_cellid;
+        break;
+      }
+      
+      // required int32 cellid = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_cellid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &cellid_)));
+          set_has_cellid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void MsgFarmErrorACK::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required .enFarmErrorResult en = 1;
+  if (has_en()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->en(), output);
+  }
+  
+  // required int32 cellid = 2;
+  if (has_cellid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->cellid(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MsgFarmErrorACK::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required .enFarmErrorResult en = 1;
+  if (has_en()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->en(), target);
+  }
+  
+  // required int32 cellid = 2;
+  if (has_cellid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->cellid(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MsgFarmErrorACK::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required .enFarmErrorResult en = 1;
+    if (has_en()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->en());
+    }
+    
+    // required int32 cellid = 2;
+    if (has_cellid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->cellid());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgFarmErrorACK::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MsgFarmErrorACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgFarmErrorACK*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgFarmErrorACK::MergeFrom(const MsgFarmErrorACK& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_en()) {
+      set_en(from.en());
+    }
+    if (from.has_cellid()) {
+      set_cellid(from.cellid());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MsgFarmErrorACK::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgFarmErrorACK::CopyFrom(const MsgFarmErrorACK& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgFarmErrorACK::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  
+  return true;
+}
+
+void MsgFarmErrorACK::Swap(MsgFarmErrorACK* other) {
+  if (other != this) {
+    std::swap(en_, other->en_);
+    std::swap(cellid_, other->cellid_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MsgFarmErrorACK::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgFarmErrorACK_descriptor_;
+  metadata.reflection = MsgFarmErrorACK_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgSeedCellACK::kCellidFieldNumber;
+const int MsgSeedCellACK::kSeedlevelFieldNumber;
+#endif  // !_MSC_VER
+
+MsgSeedCellACK::MsgSeedCellACK()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MsgSeedCellACK::InitAsDefaultInstance() {
+}
+
+MsgSeedCellACK::MsgSeedCellACK(const MsgSeedCellACK& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MsgSeedCellACK::SharedCtor() {
+  _cached_size_ = 0;
+  cellid_ = 0;
+  seedlevel_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgSeedCellACK::~MsgSeedCellACK() {
+  SharedDtor();
+}
+
+void MsgSeedCellACK::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgSeedCellACK::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgSeedCellACK::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgSeedCellACK_descriptor_;
+}
+
+const MsgSeedCellACK& MsgSeedCellACK::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_MessageG2C_2eproto();  return *default_instance_;
+}
+
+MsgSeedCellACK* MsgSeedCellACK::default_instance_ = NULL;
+
+MsgSeedCellACK* MsgSeedCellACK::New() const {
+  return new MsgSeedCellACK;
+}
+
+void MsgSeedCellACK::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    cellid_ = 0;
+    seedlevel_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MsgSeedCellACK::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 cellid = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &cellid_)));
+          set_has_cellid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_seedlevel;
+        break;
+      }
+      
+      // required int32 seedlevel = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_seedlevel:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &seedlevel_)));
+          set_has_seedlevel();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void MsgSeedCellACK::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 cellid = 2;
+  if (has_cellid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->cellid(), output);
+  }
+  
+  // required int32 seedlevel = 3;
+  if (has_seedlevel()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->seedlevel(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MsgSeedCellACK::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 cellid = 2;
+  if (has_cellid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->cellid(), target);
+  }
+  
+  // required int32 seedlevel = 3;
+  if (has_seedlevel()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->seedlevel(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MsgSeedCellACK::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 cellid = 2;
+    if (has_cellid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->cellid());
+    }
+    
+    // required int32 seedlevel = 3;
+    if (has_seedlevel()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->seedlevel());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgSeedCellACK::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MsgSeedCellACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgSeedCellACK*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgSeedCellACK::MergeFrom(const MsgSeedCellACK& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_cellid()) {
+      set_cellid(from.cellid());
+    }
+    if (from.has_seedlevel()) {
+      set_seedlevel(from.seedlevel());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MsgSeedCellACK::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgSeedCellACK::CopyFrom(const MsgSeedCellACK& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgSeedCellACK::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  
+  return true;
+}
+
+void MsgSeedCellACK::Swap(MsgSeedCellACK* other) {
+  if (other != this) {
+    std::swap(cellid_, other->cellid_);
+    std::swap(seedlevel_, other->seedlevel_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MsgSeedCellACK::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgSeedCellACK_descriptor_;
+  metadata.reflection = MsgSeedCellACK_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgSpreadManureACK::kCellidFieldNumber;
+const int MsgSpreadManureACK::kManurelevelFieldNumber;
+#endif  // !_MSC_VER
+
+MsgSpreadManureACK::MsgSpreadManureACK()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MsgSpreadManureACK::InitAsDefaultInstance() {
+}
+
+MsgSpreadManureACK::MsgSpreadManureACK(const MsgSpreadManureACK& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MsgSpreadManureACK::SharedCtor() {
+  _cached_size_ = 0;
+  cellid_ = 0;
+  manurelevel_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgSpreadManureACK::~MsgSpreadManureACK() {
+  SharedDtor();
+}
+
+void MsgSpreadManureACK::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgSpreadManureACK::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgSpreadManureACK::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgSpreadManureACK_descriptor_;
+}
+
+const MsgSpreadManureACK& MsgSpreadManureACK::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_MessageG2C_2eproto();  return *default_instance_;
+}
+
+MsgSpreadManureACK* MsgSpreadManureACK::default_instance_ = NULL;
+
+MsgSpreadManureACK* MsgSpreadManureACK::New() const {
+  return new MsgSpreadManureACK;
+}
+
+void MsgSpreadManureACK::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    cellid_ = 0;
+    manurelevel_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MsgSpreadManureACK::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 cellid = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &cellid_)));
+          set_has_cellid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_manurelevel;
+        break;
+      }
+      
+      // required int32 manurelevel = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_manurelevel:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &manurelevel_)));
+          set_has_manurelevel();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void MsgSpreadManureACK::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 cellid = 1;
+  if (has_cellid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->cellid(), output);
+  }
+  
+  // required int32 manurelevel = 2;
+  if (has_manurelevel()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->manurelevel(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MsgSpreadManureACK::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 cellid = 1;
+  if (has_cellid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->cellid(), target);
+  }
+  
+  // required int32 manurelevel = 2;
+  if (has_manurelevel()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->manurelevel(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MsgSpreadManureACK::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 cellid = 1;
+    if (has_cellid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->cellid());
+    }
+    
+    // required int32 manurelevel = 2;
+    if (has_manurelevel()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->manurelevel());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgSpreadManureACK::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MsgSpreadManureACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgSpreadManureACK*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgSpreadManureACK::MergeFrom(const MsgSpreadManureACK& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_cellid()) {
+      set_cellid(from.cellid());
+    }
+    if (from.has_manurelevel()) {
+      set_manurelevel(from.manurelevel());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MsgSpreadManureACK::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgSpreadManureACK::CopyFrom(const MsgSpreadManureACK& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgSpreadManureACK::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  
+  return true;
+}
+
+void MsgSpreadManureACK::Swap(MsgSpreadManureACK* other) {
+  if (other != this) {
+    std::swap(cellid_, other->cellid_);
+    std::swap(manurelevel_, other->manurelevel_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MsgSpreadManureACK::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgSpreadManureACK_descriptor_;
+  metadata.reflection = MsgSpreadManureACK_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgGatherPloughCellACK::kCellidFieldNumber;
+const int MsgGatherPloughCellACK::kResourceFieldNumber;
+#endif  // !_MSC_VER
+
+MsgGatherPloughCellACK::MsgGatherPloughCellACK()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MsgGatherPloughCellACK::InitAsDefaultInstance() {
+}
+
+MsgGatherPloughCellACK::MsgGatherPloughCellACK(const MsgGatherPloughCellACK& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MsgGatherPloughCellACK::SharedCtor() {
+  _cached_size_ = 0;
+  cellid_ = 0;
+  resource_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgGatherPloughCellACK::~MsgGatherPloughCellACK() {
+  SharedDtor();
+}
+
+void MsgGatherPloughCellACK::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgGatherPloughCellACK::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgGatherPloughCellACK::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgGatherPloughCellACK_descriptor_;
+}
+
+const MsgGatherPloughCellACK& MsgGatherPloughCellACK::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_MessageG2C_2eproto();  return *default_instance_;
+}
+
+MsgGatherPloughCellACK* MsgGatherPloughCellACK::default_instance_ = NULL;
+
+MsgGatherPloughCellACK* MsgGatherPloughCellACK::New() const {
+  return new MsgGatherPloughCellACK;
+}
+
+void MsgGatherPloughCellACK::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    cellid_ = 0;
+    resource_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MsgGatherPloughCellACK::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 cellid = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &cellid_)));
+          set_has_cellid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_resource;
+        break;
+      }
+      
+      // required int32 resource = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_resource:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &resource_)));
+          set_has_resource();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void MsgGatherPloughCellACK::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 cellid = 1;
+  if (has_cellid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->cellid(), output);
+  }
+  
+  // required int32 resource = 2;
+  if (has_resource()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->resource(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MsgGatherPloughCellACK::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 cellid = 1;
+  if (has_cellid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->cellid(), target);
+  }
+  
+  // required int32 resource = 2;
+  if (has_resource()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->resource(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MsgGatherPloughCellACK::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 cellid = 1;
+    if (has_cellid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->cellid());
+    }
+    
+    // required int32 resource = 2;
+    if (has_resource()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->resource());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgGatherPloughCellACK::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MsgGatherPloughCellACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgGatherPloughCellACK*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgGatherPloughCellACK::MergeFrom(const MsgGatherPloughCellACK& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_cellid()) {
+      set_cellid(from.cellid());
+    }
+    if (from.has_resource()) {
+      set_resource(from.resource());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MsgGatherPloughCellACK::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgGatherPloughCellACK::CopyFrom(const MsgGatherPloughCellACK& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgGatherPloughCellACK::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  
+  return true;
+}
+
+void MsgGatherPloughCellACK::Swap(MsgGatherPloughCellACK* other) {
+  if (other != this) {
+    std::swap(cellid_, other->cellid_);
+    std::swap(resource_, other->resource_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MsgGatherPloughCellACK::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgGatherPloughCellACK_descriptor_;
+  metadata.reflection = MsgGatherPloughCellACK_reflection_;
   return metadata;
 }
 

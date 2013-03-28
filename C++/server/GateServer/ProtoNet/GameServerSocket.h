@@ -2,7 +2,7 @@
 #ifndef GAMESERVERSOCKET_H
 #define GAMESERVERSOCKET_H
 #include "GProtoSocket.h"
-class GameServerSocket
+class GameServerSocket  : public CGProtoSocket 
 {
 public:
 	GameServerSocket(boost::asio::io_service& is);

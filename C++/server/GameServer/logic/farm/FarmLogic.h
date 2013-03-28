@@ -17,6 +17,10 @@ public:
 public:
 	string MakeCellsStr();
 	void modify();
+	void spreadManure();
+	int gatherPloughCell(int id);
+public:
+	PloughCell* getPloughCell(int id);
 	
 
 protected:

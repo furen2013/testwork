@@ -32,6 +32,7 @@ void protobuf_AssignDesc_MessageGate2GS_2eproto();
 void protobuf_ShutdownFile_MessageGate2GS_2eproto();
 
 class MsgGate2GSLoginReq;
+class MsgGate2GSLoginOutReq;
 
 // ===================================================================
 
@@ -115,6 +116,88 @@ class MsgGate2GSLoginReq : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static MsgGate2GSLoginReq* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class MsgGate2GSLoginOutReq : public ::google::protobuf::Message {
+ public:
+  MsgGate2GSLoginOutReq();
+  virtual ~MsgGate2GSLoginOutReq();
+  
+  MsgGate2GSLoginOutReq(const MsgGate2GSLoginOutReq& from);
+  
+  inline MsgGate2GSLoginOutReq& operator=(const MsgGate2GSLoginOutReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgGate2GSLoginOutReq& default_instance();
+  
+  void Swap(MsgGate2GSLoginOutReq* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgGate2GSLoginOutReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgGate2GSLoginOutReq& from);
+  void MergeFrom(const MsgGate2GSLoginOutReq& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required uint64 account = 1;
+  inline bool has_account() const;
+  inline void clear_account();
+  static const int kAccountFieldNumber = 1;
+  inline ::google::protobuf::uint64 account() const;
+  inline void set_account(::google::protobuf::uint64 value);
+  
+  // @@protoc_insertion_point(class_scope:MsgGate2GSLoginOutReq)
+ private:
+  inline void set_has_account();
+  inline void clear_has_account();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::uint64 account_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageGate2GS_2eproto();
+  friend void protobuf_AssignDesc_MessageGate2GS_2eproto();
+  friend void protobuf_ShutdownFile_MessageGate2GS_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgGate2GSLoginOutReq* default_instance_;
+};
 // ===================================================================
 
 
@@ -140,6 +223,32 @@ inline ::google::protobuf::uint64 MsgGate2GSLoginReq::account() const {
   return account_;
 }
 inline void MsgGate2GSLoginReq::set_account(::google::protobuf::uint64 value) {
+  set_has_account();
+  account_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MsgGate2GSLoginOutReq
+
+// required uint64 account = 1;
+inline bool MsgGate2GSLoginOutReq::has_account() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgGate2GSLoginOutReq::set_has_account() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgGate2GSLoginOutReq::clear_has_account() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgGate2GSLoginOutReq::clear_account() {
+  account_ = GOOGLE_ULONGLONG(0);
+  clear_has_account();
+}
+inline ::google::protobuf::uint64 MsgGate2GSLoginOutReq::account() const {
+  return account_;
+}
+inline void MsgGate2GSLoginOutReq::set_account(::google::protobuf::uint64 value) {
   set_has_account();
   account_ = value;
 }

@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "PlayerManager.h"
 #include "Player.h"
+
+initialiseSingleton(PlayerManager);
 PlayerManager::PlayerManager()
 {
 
@@ -34,4 +36,21 @@ bool PlayerManager::addPlayer(Player* p)
 		_players.insert(mapPlayer::value_type(p->getAccount(), p));
 	}
 	return p;
+}
+
+
+bool PlayerManager::delPlayer(DWORD account)
+{
+	bool b = false;
+	mapPlayer::iterator it = _players.find(account);
+	if (it != _players.end())
+	{
+		Player* p = NULL;
+		p = it->second;
+		_players.erase(it);
+		delete p;
+		b = true;
+	}
+	return b;
+
 }

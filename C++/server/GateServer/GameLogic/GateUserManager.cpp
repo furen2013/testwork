@@ -3,7 +3,8 @@
 #include "../ProtoNet/CProtoSocket.h"
 #include "MessageGate2LG.pb.h"
 #include "../ProtoNet/GProtoSocket.h"
-extern CGProtoSocket* p2LoginSocket;
+#include "../ProtoNet/LoginSocket.h"
+extern LoginSocket* p2LoginSocket;
 initialiseSingleton(GateUserManager);
 
 GateUserManager::GateUserManager(void)
