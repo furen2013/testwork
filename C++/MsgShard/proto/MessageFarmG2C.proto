@@ -1,1 +1,19 @@
 import "MsgHead.proto";    
+message MsgPloughCell
+{
+    enum GrowState {
+        State_NULL    = 0;
+        State_Seeding = 1;
+        State_Young   = 2;
+		State_Grown	  = 3;
+   }
+	required int32 level					= 1;
+	required int32 waterPercentage			= 2;
+	required GrowState state				= 3;
+	required int32 manurelevel				= 4;
+	required int32 seedLevel				= 5;
+	required uint64 lastStateTime			= 6;
+	required int32  decreaseWaterperhour	= 7;
+	required int32  ID						= 8;
+
+}

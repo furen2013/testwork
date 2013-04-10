@@ -8,7 +8,9 @@ enum MsgType
 	C2S_MsgUnbindMacReq				= 5;
 	C2S_MsgBindMacReq				= 6;
 	C2S_MsgMailLoginReq				= 7;
-	C2G_MsgMailLoginReq					= 8;
+	C2S_MsgSeedCellReq				= 8;
+	C2S_MsgSpreadManureReq		    = 9;
+	C2S_MsgGatherPloughCellReq      = 10;
 
 	C2S_END							= 998;
 
