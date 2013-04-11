@@ -25,11 +25,18 @@ public:
 	void BecomeSeeding();
 	void DecreaseWaterPercentagePerHour();
 	void WateringCell();
-	int gather();
+	int32 gather();
 	inline growstate getgrowstate(){return enType;}
-	inline int getID(){return _ID;}
+	inline int32 getID(){return _ID;}
 	inline FarmLogic* getFarm(){return _farm;}
 	inline void setFarm(FarmLogic* pfarm){_farm = pfarm;}
+	inline int32 getLevel(){return _level;}
+	inline int32 getWaterPercentage(){return _waterPercentage;}
+	inline int32 getManureLevel(){return _manurelevel;}
+	inline int32 getSeedLevel(){return _seedLevel;}
+	inline DWORD getLastStateTime(){return _lastStateTime;}
+	inline int32 getDecreaseWaterPerhour(){return _decreaseWaterPerHour;}
+	inline int32 getWaterPercentageMax(){return _waterPercentageMax;}
 protected:
 	void changeState();
 protected:

@@ -2,6 +2,7 @@
 #ifndef FARMLOGIC_H
 #define FARMLOGIC_H
 #include "EventableObject.h"
+class NetSession;
 class PloughCell;
 typedef map<int, PloughCell*> PLOUGHCELL;
 class FarmLogic : public EventableObject
@@ -19,14 +20,14 @@ public:
 	void modify();
 	void spreadManure();
 	int gatherPloughCell(int id);
-public:
 	PloughCell* getPloughCell(int id);
+	void sendFarmState();
 	
-
 protected:
 	DWORD _account;
 	PLOUGHCELL _cells;
 	bool _modify;
+	NetSession* _NetSession;
 };
 
 #endif

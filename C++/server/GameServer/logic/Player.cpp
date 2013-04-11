@@ -8,6 +8,8 @@
 #include "../net/NetSession.h"
 #include "technology/TechnologyManager.h"
 #include "technology/Technology.h"
+#include "farm/FarmManager.h"
+#include "../Net/NetSession.h"
 //#include "MyLog.h"
 Player::Player()
 {
@@ -34,17 +36,31 @@ void Player::LoadFromDBProc(QueryResultVector & results)
 		return;
 	}
 
-	if (results.size() < 1 || _PlayerResource == NULL)
+	if (_PlayerResource == NULL)
 	{
 		_PlayerResource = PlayerResourceManager::getSingleton().CreateResource(getTempAccount());
 	}
+
+	if (_farm == NULL)
+	{
+		_farm = FarmManager::getSingleton().GetFarmLogic(getTempAccount());
+		if (_farm)
+		{
+			_session->setFarm(_farm);
+		}
+		else
+		{
+			MyLog::log->warn("can not find farm ,player load failed.");
+		}
+	}
+	
 	
 
 	QueryResult *result = results[0].result;
 	if(!result)
 	{
 		MyLog::log->error("Player login query failed., guid %u\n", getAccount());
-	
+		_session->setPlayer(NULL);
 		return;
 	}
 	else
@@ -86,8 +102,10 @@ void Player::LoadFromDBProc(QueryResultVector & results)
 			p->set_value(pinfo->currentCount);
 		}
 	}
-	getSession()->sendMessage(&Msg, MsgType::GS2Client_GS2GateLoginOKACK);
 
+
+	getSession()->sendMessage(&Msg, MsgType::GS2Client_GS2GateLoginOKACK);
+	_session->setPlayer(this);
 
 
 

@@ -80,30 +80,34 @@ void protobuf_AddDesc_MsgHead_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\rMsgHead.proto\"Q\n\007MsgHead\022\026\n\004Type\030\001 \002(\016"
     "2\010.MsgType\022\017\n\007msgSize\030\002 \002(\005\022\017\n\007account\030\003"
-    " \002(\004\022\014\n\004body\030\004 \002(\014*\207\007\n\007MsgType\022\017\n\013C2S_Ms"
+    " \002(\004\022\014\n\004body\030\004 \002(\014*\271\010\n\007MsgType\022\017\n\013C2S_Ms"
     "gNull\020\000\022\023\n\017C2S_MsgLoginReq\020\001\022\032\n\026C2S_MsgC"
     "reateAcountReq\020\002\022\026\n\022C2S_MsgLoginMacReq\020\003"
     "\022\026\n\022C2S_MsgBindMailReq\020\004\022\027\n\023C2S_MsgUnbin"
     "dMacReq\020\005\022\025\n\021C2S_MsgBindMacReq\020\006\022\027\n\023C2S_"
-    "MsgMailLoginReq\020\007\022\026\n\022C2S_MsgSeedCellReq\020"
-    "\010\022\032\n\026C2S_MsgSpreadManureReq\020\t\022\036\n\032C2S_Msg"
-    "GatherPloughCellReq\020\n\022\014\n\007C2S_END\020\346\007\022\016\n\tG"
-    "2C_Begin\020\347\007\022\021\n\014G2C_LoginACK\020\350\007\022\027\n\022G2C_Ms"
-    "gG2CErrorACK\020\351\007\022\027\n\022G2C_MsgSeedCellACK\020\352\007"
-    "\022\033\n\026G2C_MsgSpreadManureACK\020\353\007\022\037\n\032G2C_Msg"
-    "GatherPloughCellACK\020\354\007\022\030\n\023G2C_MsgFarmErr"
-    "orACK\020\355\007\022\014\n\007G2C_End\020\320\017\022\022\n\rGate2LG_Begin\020"
-    "\321\017\022\037\n\032Gate2LG_MsgGate2LGLoginReq\020\322\017\022\'\n\"G"
-    "ate2LG_MsgGate2LGClientDisconnect\020\323\017\022#\n\036"
-    "Gate2LG_MsgGate2LGLoginMailReq\020\324\017\022(\n#Gat"
-    "e2LG_MsgGate2LGLoginUserInfoList\020\325\017\022\020\n\013G"
-    "ate2LG_End\020\270\027\022\022\n\rLG2Gate_Begin\020\271\027\022\037\n\032LG2"
-    "Gate_MsgLG2GateLoginACK\020\272\027\022\030\n\023LG2C_MsgBi"
-    "ndMailACK\020\273\027\022\'\n\"LG2Gate_MsgLG2GateReqLog"
-    "inUserList\020\274\027\022\020\n\013LG2Gate_End\020\240\037\022\032\n\025GS_Ms"
-    "gGate2GSLoginReq\020\241\037\022\035\n\030GS_MsgGaet2GSLogi"
-    "nOutReq\020\242\037\022 \n\033GS2Client_GS2GateLoginOKAC"
-    "K\020\211\'", 1004);
+    "MsgMailLoginReq\020\007\022\020\n\013C2S_GSBegin\020\254\002\022\027\n\022C"
+    "2S_MsgSeedCellReq\020\255\002\022\033\n\026C2S_MsgSpreadMan"
+    "ureReq\020\256\002\022\037\n\032C2S_MsgGatherPloughCellReq\020"
+    "\257\002\022\030\n\023C2S_MsgFarmStateReq\020\260\002\022\030\n\023C2S_MsgW"
+    "aterCellReq\020\261\002\022\016\n\tC2S_GSEnd\020\364\003\022\014\n\007C2S_EN"
+    "D\020\346\007\022\016\n\tG2C_Begin\020\347\007\022\021\n\014G2C_LoginACK\020\350\007\022"
+    "\027\n\022G2C_MsgG2CErrorACK\020\351\007\022\014\n\007G2C_End\020\320\017\022\022"
+    "\n\rGate2LG_Begin\020\321\017\022\037\n\032Gate2LG_MsgGate2LG"
+    "LoginReq\020\322\017\022\'\n\"Gate2LG_MsgGate2LGClientD"
+    "isconnect\020\323\017\022#\n\036Gate2LG_MsgGate2LGLoginM"
+    "ailReq\020\324\017\022(\n#Gate2LG_MsgGate2LGLoginUser"
+    "InfoList\020\325\017\022\020\n\013Gate2LG_End\020\270\027\022\022\n\rLG2Gate"
+    "_Begin\020\271\027\022\037\n\032LG2Gate_MsgLG2GateLoginACK\020"
+    "\272\027\022\030\n\023LG2C_MsgBindMailACK\020\273\027\022\'\n\"LG2Gate_"
+    "MsgLG2GateReqLoginUserList\020\274\027\022\020\n\013LG2Gate"
+    "_End\020\240\037\022\032\n\025GS_MsgGate2GSLoginReq\020\241\037\022\035\n\030G"
+    "S_MsgGaet2GSLoginOutReq\020\242\037\022 \n\033GS2Client_"
+    "GS2GateLoginOKACK\020\211\'\022\017\n\nGS2C_Begin\020\374*\022\030\n"
+    "\023GS2C_MsgSeedCellACK\020\376*\022\034\n\027GS2C_MsgSprea"
+    "dManureACK\020\377*\022 \n\033GS2C_MsgGatherPloughCel"
+    "lACK\020\200+\022\031\n\024GS2C_MsgFarmErrorACK\020\201+\022\030\n\023GS"
+    "2C_MsgFarmInfoACK\020\202+\022\031\n\024GS2C_MsgWaterCel"
+    "lACK\020\203+\022\r\n\010GS2C_End\020\360.", 1182);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MsgHead.proto", &protobuf_RegisterTypes);
   MsgHead::default_instance_ = new MsgHead();
@@ -132,17 +136,17 @@ bool MsgType_IsValid(int value) {
     case 5:
     case 6:
     case 7:
-    case 8:
-    case 9:
-    case 10:
+    case 300:
+    case 301:
+    case 302:
+    case 303:
+    case 304:
+    case 305:
+    case 500:
     case 998:
     case 999:
     case 1000:
     case 1001:
-    case 1002:
-    case 1003:
-    case 1004:
-    case 1005:
     case 2000:
     case 2001:
     case 2002:
@@ -158,6 +162,14 @@ bool MsgType_IsValid(int value) {
     case 4001:
     case 4002:
     case 5001:
+    case 5500:
+    case 5502:
+    case 5503:
+    case 5504:
+    case 5505:
+    case 5506:
+    case 5507:
+    case 6000:
       return true;
     default:
       return false;

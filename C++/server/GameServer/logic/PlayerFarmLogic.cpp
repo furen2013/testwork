@@ -1,5 +1,16 @@
 #include "stdafx.h"
 #include "Player.h"
+#include "MessageFarmG2C.pb.h"
+
+void Player::sendFarmState()
+{
+	if (_farm)
+	{
+		MsgFarmInfoACK MsgAck;
+
+	}
+}
+
 void Player::spreadManure(int Manurelevel)
 {
 	if (!IsValid())

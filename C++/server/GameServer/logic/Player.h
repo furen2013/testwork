@@ -68,6 +68,7 @@ public:
 public:
 	void gatherFarm(int cell, DWORD account);
 	void spreadManure(int Manurelevel);
+	void sendFarmState();
 protected:
 	PlayerInfo* _Info;
 	PlayerResource* _PlayerResource;

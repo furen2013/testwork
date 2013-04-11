@@ -4,14 +4,47 @@
 #include "MsgHead.pb.h"
 #include "TypeDef.h"
 class CGTSocket;
+class OpcodeHandler;
+
+class Player;
+class FarmLogic;
 class NetSession
 {
 public:
 	NetSession();
 	~NetSession();
 	void sendMessage(::google::protobuf::Message* message, MsgType type);
+	void InitHandleTable();
+	inline void setFarm(FarmLogic* p){_farm = p;}
+	inline void setPlayer(Player* p){_player = p;}
+public:
+	void HandleFarmStateReq(MsgHead& Msg);
+	void HandleSeedCellReq(MsgHead& Msg);
+	void HandleGatherPloughCellReq(MsgHead& Msg);
+	void HandleSpreadManureReq(MsgHead& Msg);
+	void HandleWaterCellReq(MsgHead& Msg);
+	OpcodeHandler* GetMsgOpcodeHandler(MsgType en);
+protected:
+
 protected:
 	DWORD _account;
 	CGTSocket* _socket;
+	int _MsgNumber;
+	Player* _player;
+	FarmLogic* _farm;
+
+};
+
+
+enum SessionStatus
+{
+	STATUS_AUTHED = 0,
+	STATUS_LOGGEDIN
+};
+
+struct OpcodeHandler
+{
+	uint16 status;
+	void (NetSession::*handler)(MsgHead& Msg);
 };
 #endif

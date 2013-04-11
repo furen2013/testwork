@@ -31,14 +31,1351 @@ void  protobuf_AddDesc_MessageFarmG2C_2eproto();
 void protobuf_AssignDesc_MessageFarmG2C_2eproto();
 void protobuf_ShutdownFile_MessageFarmG2C_2eproto();
 
+class MsgPloughCellInfo;
+class MsgFarmInfo;
+class MsgFarmInfoACK;
+class MsgFarmErrorACK;
+class MsgSeedCellACK;
+class MsgSpreadManureACK;
+class MsgGatherPloughCellACK;
+class MsgWaterCellACK;
 
+enum MsgPloughCellInfo_GrowState {
+  MsgPloughCellInfo_GrowState_State_NULL = 0,
+  MsgPloughCellInfo_GrowState_State_Seeding = 1,
+  MsgPloughCellInfo_GrowState_State_Young = 2,
+  MsgPloughCellInfo_GrowState_State_Grown = 3
+};
+bool MsgPloughCellInfo_GrowState_IsValid(int value);
+const MsgPloughCellInfo_GrowState MsgPloughCellInfo_GrowState_GrowState_MIN = MsgPloughCellInfo_GrowState_State_NULL;
+const MsgPloughCellInfo_GrowState MsgPloughCellInfo_GrowState_GrowState_MAX = MsgPloughCellInfo_GrowState_State_Grown;
+const int MsgPloughCellInfo_GrowState_GrowState_ARRAYSIZE = MsgPloughCellInfo_GrowState_GrowState_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* MsgPloughCellInfo_GrowState_descriptor();
+inline const ::std::string& MsgPloughCellInfo_GrowState_Name(MsgPloughCellInfo_GrowState value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    MsgPloughCellInfo_GrowState_descriptor(), value);
+}
+inline bool MsgPloughCellInfo_GrowState_Parse(
+    const ::std::string& name, MsgPloughCellInfo_GrowState* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<MsgPloughCellInfo_GrowState>(
+    MsgPloughCellInfo_GrowState_descriptor(), name, value);
+}
+enum enFarmErrorResult {
+  FarmError_NOTFOUNDCELL = 0,
+  FarmError_NOTHAVESEED = 1,
+  FarmError_CELLCANNOTSEED = 2,
+  FarmError_ISHAVEMANURE = 3,
+  FarmError_GATHERNOTGROWNCELL = 4,
+  FarmError_UKNOWN = 5
+};
+bool enFarmErrorResult_IsValid(int value);
+const enFarmErrorResult enFarmErrorResult_MIN = FarmError_NOTFOUNDCELL;
+const enFarmErrorResult enFarmErrorResult_MAX = FarmError_UKNOWN;
+const int enFarmErrorResult_ARRAYSIZE = enFarmErrorResult_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* enFarmErrorResult_descriptor();
+inline const ::std::string& enFarmErrorResult_Name(enFarmErrorResult value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    enFarmErrorResult_descriptor(), value);
+}
+inline bool enFarmErrorResult_Parse(
+    const ::std::string& name, enFarmErrorResult* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<enFarmErrorResult>(
+    enFarmErrorResult_descriptor(), name, value);
+}
+// ===================================================================
+
+class MsgPloughCellInfo : public ::google::protobuf::Message {
+ public:
+  MsgPloughCellInfo();
+  virtual ~MsgPloughCellInfo();
+  
+  MsgPloughCellInfo(const MsgPloughCellInfo& from);
+  
+  inline MsgPloughCellInfo& operator=(const MsgPloughCellInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgPloughCellInfo& default_instance();
+  
+  void Swap(MsgPloughCellInfo* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgPloughCellInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgPloughCellInfo& from);
+  void MergeFrom(const MsgPloughCellInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  typedef MsgPloughCellInfo_GrowState GrowState;
+  static const GrowState State_NULL = MsgPloughCellInfo_GrowState_State_NULL;
+  static const GrowState State_Seeding = MsgPloughCellInfo_GrowState_State_Seeding;
+  static const GrowState State_Young = MsgPloughCellInfo_GrowState_State_Young;
+  static const GrowState State_Grown = MsgPloughCellInfo_GrowState_State_Grown;
+  static inline bool GrowState_IsValid(int value) {
+    return MsgPloughCellInfo_GrowState_IsValid(value);
+  }
+  static const GrowState GrowState_MIN =
+    MsgPloughCellInfo_GrowState_GrowState_MIN;
+  static const GrowState GrowState_MAX =
+    MsgPloughCellInfo_GrowState_GrowState_MAX;
+  static const int GrowState_ARRAYSIZE =
+    MsgPloughCellInfo_GrowState_GrowState_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  GrowState_descriptor() {
+    return MsgPloughCellInfo_GrowState_descriptor();
+  }
+  static inline const ::std::string& GrowState_Name(GrowState value) {
+    return MsgPloughCellInfo_GrowState_Name(value);
+  }
+  static inline bool GrowState_Parse(const ::std::string& name,
+      GrowState* value) {
+    return MsgPloughCellInfo_GrowState_Parse(name, value);
+  }
+  
+  // accessors -------------------------------------------------------
+  
+  // required int32 level = 1;
+  inline bool has_level() const;
+  inline void clear_level();
+  static const int kLevelFieldNumber = 1;
+  inline ::google::protobuf::int32 level() const;
+  inline void set_level(::google::protobuf::int32 value);
+  
+  // required int32 waterPercentage = 2;
+  inline bool has_waterpercentage() const;
+  inline void clear_waterpercentage();
+  static const int kWaterPercentageFieldNumber = 2;
+  inline ::google::protobuf::int32 waterpercentage() const;
+  inline void set_waterpercentage(::google::protobuf::int32 value);
+  
+  // required .MsgPloughCellInfo.GrowState state = 3;
+  inline bool has_state() const;
+  inline void clear_state();
+  static const int kStateFieldNumber = 3;
+  inline ::MsgPloughCellInfo_GrowState state() const;
+  inline void set_state(::MsgPloughCellInfo_GrowState value);
+  
+  // required int32 manurelevel = 4;
+  inline bool has_manurelevel() const;
+  inline void clear_manurelevel();
+  static const int kManurelevelFieldNumber = 4;
+  inline ::google::protobuf::int32 manurelevel() const;
+  inline void set_manurelevel(::google::protobuf::int32 value);
+  
+  // required int32 seedLevel = 5;
+  inline bool has_seedlevel() const;
+  inline void clear_seedlevel();
+  static const int kSeedLevelFieldNumber = 5;
+  inline ::google::protobuf::int32 seedlevel() const;
+  inline void set_seedlevel(::google::protobuf::int32 value);
+  
+  // required uint64 lastStateTime = 6;
+  inline bool has_laststatetime() const;
+  inline void clear_laststatetime();
+  static const int kLastStateTimeFieldNumber = 6;
+  inline ::google::protobuf::uint64 laststatetime() const;
+  inline void set_laststatetime(::google::protobuf::uint64 value);
+  
+  // required int32 decreaseWaterperhour = 7;
+  inline bool has_decreasewaterperhour() const;
+  inline void clear_decreasewaterperhour();
+  static const int kDecreaseWaterperhourFieldNumber = 7;
+  inline ::google::protobuf::int32 decreasewaterperhour() const;
+  inline void set_decreasewaterperhour(::google::protobuf::int32 value);
+  
+  // required int32 ID = 8;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIDFieldNumber = 8;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+  
+  // required int32 waterPercentageMax = 9;
+  inline bool has_waterpercentagemax() const;
+  inline void clear_waterpercentagemax();
+  static const int kWaterPercentageMaxFieldNumber = 9;
+  inline ::google::protobuf::int32 waterpercentagemax() const;
+  inline void set_waterpercentagemax(::google::protobuf::int32 value);
+  
+  // @@protoc_insertion_point(class_scope:MsgPloughCellInfo)
+ private:
+  inline void set_has_level();
+  inline void clear_has_level();
+  inline void set_has_waterpercentage();
+  inline void clear_has_waterpercentage();
+  inline void set_has_state();
+  inline void clear_has_state();
+  inline void set_has_manurelevel();
+  inline void clear_has_manurelevel();
+  inline void set_has_seedlevel();
+  inline void clear_has_seedlevel();
+  inline void set_has_laststatetime();
+  inline void clear_has_laststatetime();
+  inline void set_has_decreasewaterperhour();
+  inline void clear_has_decreasewaterperhour();
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_waterpercentagemax();
+  inline void clear_has_waterpercentagemax();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::int32 level_;
+  ::google::protobuf::int32 waterpercentage_;
+  int state_;
+  ::google::protobuf::int32 manurelevel_;
+  ::google::protobuf::uint64 laststatetime_;
+  ::google::protobuf::int32 seedlevel_;
+  ::google::protobuf::int32 decreasewaterperhour_;
+  ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 waterpercentagemax_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_AssignDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_ShutdownFile_MessageFarmG2C_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgPloughCellInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgFarmInfo : public ::google::protobuf::Message {
+ public:
+  MsgFarmInfo();
+  virtual ~MsgFarmInfo();
+  
+  MsgFarmInfo(const MsgFarmInfo& from);
+  
+  inline MsgFarmInfo& operator=(const MsgFarmInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgFarmInfo& default_instance();
+  
+  void Swap(MsgFarmInfo* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgFarmInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgFarmInfo& from);
+  void MergeFrom(const MsgFarmInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // repeated .MsgPloughCellInfo cells = 1;
+  inline int cells_size() const;
+  inline void clear_cells();
+  static const int kCellsFieldNumber = 1;
+  inline const ::MsgPloughCellInfo& cells(int index) const;
+  inline ::MsgPloughCellInfo* mutable_cells(int index);
+  inline ::MsgPloughCellInfo* add_cells();
+  inline const ::google::protobuf::RepeatedPtrField< ::MsgPloughCellInfo >&
+      cells() const;
+  inline ::google::protobuf::RepeatedPtrField< ::MsgPloughCellInfo >*
+      mutable_cells();
+  
+  // @@protoc_insertion_point(class_scope:MsgFarmInfo)
+ private:
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::RepeatedPtrField< ::MsgPloughCellInfo > cells_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_AssignDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_ShutdownFile_MessageFarmG2C_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgFarmInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgFarmInfoACK : public ::google::protobuf::Message {
+ public:
+  MsgFarmInfoACK();
+  virtual ~MsgFarmInfoACK();
+  
+  MsgFarmInfoACK(const MsgFarmInfoACK& from);
+  
+  inline MsgFarmInfoACK& operator=(const MsgFarmInfoACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgFarmInfoACK& default_instance();
+  
+  void Swap(MsgFarmInfoACK* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgFarmInfoACK* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgFarmInfoACK& from);
+  void MergeFrom(const MsgFarmInfoACK& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required .MsgFarmInfo info = 1;
+  inline bool has_info() const;
+  inline void clear_info();
+  static const int kInfoFieldNumber = 1;
+  inline const ::MsgFarmInfo& info() const;
+  inline ::MsgFarmInfo* mutable_info();
+  inline ::MsgFarmInfo* release_info();
+  
+  // @@protoc_insertion_point(class_scope:MsgFarmInfoACK)
+ private:
+  inline void set_has_info();
+  inline void clear_has_info();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::MsgFarmInfo* info_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_AssignDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_ShutdownFile_MessageFarmG2C_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgFarmInfoACK* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgFarmErrorACK : public ::google::protobuf::Message {
+ public:
+  MsgFarmErrorACK();
+  virtual ~MsgFarmErrorACK();
+  
+  MsgFarmErrorACK(const MsgFarmErrorACK& from);
+  
+  inline MsgFarmErrorACK& operator=(const MsgFarmErrorACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgFarmErrorACK& default_instance();
+  
+  void Swap(MsgFarmErrorACK* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgFarmErrorACK* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgFarmErrorACK& from);
+  void MergeFrom(const MsgFarmErrorACK& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required .enFarmErrorResult en = 1;
+  inline bool has_en() const;
+  inline void clear_en();
+  static const int kEnFieldNumber = 1;
+  inline enFarmErrorResult en() const;
+  inline void set_en(enFarmErrorResult value);
+  
+  // required int32 cellid = 2;
+  inline bool has_cellid() const;
+  inline void clear_cellid();
+  static const int kCellidFieldNumber = 2;
+  inline ::google::protobuf::int32 cellid() const;
+  inline void set_cellid(::google::protobuf::int32 value);
+  
+  // @@protoc_insertion_point(class_scope:MsgFarmErrorACK)
+ private:
+  inline void set_has_en();
+  inline void clear_has_en();
+  inline void set_has_cellid();
+  inline void clear_has_cellid();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  int en_;
+  ::google::protobuf::int32 cellid_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_AssignDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_ShutdownFile_MessageFarmG2C_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgFarmErrorACK* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgSeedCellACK : public ::google::protobuf::Message {
+ public:
+  MsgSeedCellACK();
+  virtual ~MsgSeedCellACK();
+  
+  MsgSeedCellACK(const MsgSeedCellACK& from);
+  
+  inline MsgSeedCellACK& operator=(const MsgSeedCellACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgSeedCellACK& default_instance();
+  
+  void Swap(MsgSeedCellACK* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgSeedCellACK* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgSeedCellACK& from);
+  void MergeFrom(const MsgSeedCellACK& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required int32 cellid = 1;
+  inline bool has_cellid() const;
+  inline void clear_cellid();
+  static const int kCellidFieldNumber = 1;
+  inline ::google::protobuf::int32 cellid() const;
+  inline void set_cellid(::google::protobuf::int32 value);
+  
+  // required int32 seedlevel = 2;
+  inline bool has_seedlevel() const;
+  inline void clear_seedlevel();
+  static const int kSeedlevelFieldNumber = 2;
+  inline ::google::protobuf::int32 seedlevel() const;
+  inline void set_seedlevel(::google::protobuf::int32 value);
+  
+  // @@protoc_insertion_point(class_scope:MsgSeedCellACK)
+ private:
+  inline void set_has_cellid();
+  inline void clear_has_cellid();
+  inline void set_has_seedlevel();
+  inline void clear_has_seedlevel();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::int32 cellid_;
+  ::google::protobuf::int32 seedlevel_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_AssignDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_ShutdownFile_MessageFarmG2C_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgSeedCellACK* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgSpreadManureACK : public ::google::protobuf::Message {
+ public:
+  MsgSpreadManureACK();
+  virtual ~MsgSpreadManureACK();
+  
+  MsgSpreadManureACK(const MsgSpreadManureACK& from);
+  
+  inline MsgSpreadManureACK& operator=(const MsgSpreadManureACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgSpreadManureACK& default_instance();
+  
+  void Swap(MsgSpreadManureACK* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgSpreadManureACK* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgSpreadManureACK& from);
+  void MergeFrom(const MsgSpreadManureACK& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required int32 cellid = 1;
+  inline bool has_cellid() const;
+  inline void clear_cellid();
+  static const int kCellidFieldNumber = 1;
+  inline ::google::protobuf::int32 cellid() const;
+  inline void set_cellid(::google::protobuf::int32 value);
+  
+  // required int32 manurelevel = 2;
+  inline bool has_manurelevel() const;
+  inline void clear_manurelevel();
+  static const int kManurelevelFieldNumber = 2;
+  inline ::google::protobuf::int32 manurelevel() const;
+  inline void set_manurelevel(::google::protobuf::int32 value);
+  
+  // @@protoc_insertion_point(class_scope:MsgSpreadManureACK)
+ private:
+  inline void set_has_cellid();
+  inline void clear_has_cellid();
+  inline void set_has_manurelevel();
+  inline void clear_has_manurelevel();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::int32 cellid_;
+  ::google::protobuf::int32 manurelevel_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_AssignDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_ShutdownFile_MessageFarmG2C_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgSpreadManureACK* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgGatherPloughCellACK : public ::google::protobuf::Message {
+ public:
+  MsgGatherPloughCellACK();
+  virtual ~MsgGatherPloughCellACK();
+  
+  MsgGatherPloughCellACK(const MsgGatherPloughCellACK& from);
+  
+  inline MsgGatherPloughCellACK& operator=(const MsgGatherPloughCellACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgGatherPloughCellACK& default_instance();
+  
+  void Swap(MsgGatherPloughCellACK* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgGatherPloughCellACK* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgGatherPloughCellACK& from);
+  void MergeFrom(const MsgGatherPloughCellACK& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required int32 cellid = 1;
+  inline bool has_cellid() const;
+  inline void clear_cellid();
+  static const int kCellidFieldNumber = 1;
+  inline ::google::protobuf::int32 cellid() const;
+  inline void set_cellid(::google::protobuf::int32 value);
+  
+  // required int32 resource = 2;
+  inline bool has_resource() const;
+  inline void clear_resource();
+  static const int kResourceFieldNumber = 2;
+  inline ::google::protobuf::int32 resource() const;
+  inline void set_resource(::google::protobuf::int32 value);
+  
+  // @@protoc_insertion_point(class_scope:MsgGatherPloughCellACK)
+ private:
+  inline void set_has_cellid();
+  inline void clear_has_cellid();
+  inline void set_has_resource();
+  inline void clear_has_resource();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::int32 cellid_;
+  ::google::protobuf::int32 resource_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_AssignDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_ShutdownFile_MessageFarmG2C_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgGatherPloughCellACK* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgWaterCellACK : public ::google::protobuf::Message {
+ public:
+  MsgWaterCellACK();
+  virtual ~MsgWaterCellACK();
+  
+  MsgWaterCellACK(const MsgWaterCellACK& from);
+  
+  inline MsgWaterCellACK& operator=(const MsgWaterCellACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgWaterCellACK& default_instance();
+  
+  void Swap(MsgWaterCellACK* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgWaterCellACK* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgWaterCellACK& from);
+  void MergeFrom(const MsgWaterCellACK& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required int32 cellid = 1;
+  inline bool has_cellid() const;
+  inline void clear_cellid();
+  static const int kCellidFieldNumber = 1;
+  inline ::google::protobuf::int32 cellid() const;
+  inline void set_cellid(::google::protobuf::int32 value);
+  
+  // @@protoc_insertion_point(class_scope:MsgWaterCellACK)
+ private:
+  inline void set_has_cellid();
+  inline void clear_has_cellid();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::int32 cellid_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_AssignDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_ShutdownFile_MessageFarmG2C_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgWaterCellACK* default_instance_;
+};
 // ===================================================================
 
 
 // ===================================================================
 
+// MsgPloughCellInfo
 
-// ===================================================================
+// required int32 level = 1;
+inline bool MsgPloughCellInfo::has_level() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgPloughCellInfo::set_has_level() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgPloughCellInfo::clear_has_level() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgPloughCellInfo::clear_level() {
+  level_ = 0;
+  clear_has_level();
+}
+inline ::google::protobuf::int32 MsgPloughCellInfo::level() const {
+  return level_;
+}
+inline void MsgPloughCellInfo::set_level(::google::protobuf::int32 value) {
+  set_has_level();
+  level_ = value;
+}
+
+// required int32 waterPercentage = 2;
+inline bool MsgPloughCellInfo::has_waterpercentage() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgPloughCellInfo::set_has_waterpercentage() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgPloughCellInfo::clear_has_waterpercentage() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgPloughCellInfo::clear_waterpercentage() {
+  waterpercentage_ = 0;
+  clear_has_waterpercentage();
+}
+inline ::google::protobuf::int32 MsgPloughCellInfo::waterpercentage() const {
+  return waterpercentage_;
+}
+inline void MsgPloughCellInfo::set_waterpercentage(::google::protobuf::int32 value) {
+  set_has_waterpercentage();
+  waterpercentage_ = value;
+}
+
+// required .MsgPloughCellInfo.GrowState state = 3;
+inline bool MsgPloughCellInfo::has_state() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgPloughCellInfo::set_has_state() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgPloughCellInfo::clear_has_state() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgPloughCellInfo::clear_state() {
+  state_ = 0;
+  clear_has_state();
+}
+inline ::MsgPloughCellInfo_GrowState MsgPloughCellInfo::state() const {
+  return static_cast< ::MsgPloughCellInfo_GrowState >(state_);
+}
+inline void MsgPloughCellInfo::set_state(::MsgPloughCellInfo_GrowState value) {
+  GOOGLE_DCHECK(::MsgPloughCellInfo_GrowState_IsValid(value));
+  set_has_state();
+  state_ = value;
+}
+
+// required int32 manurelevel = 4;
+inline bool MsgPloughCellInfo::has_manurelevel() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MsgPloughCellInfo::set_has_manurelevel() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MsgPloughCellInfo::clear_has_manurelevel() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MsgPloughCellInfo::clear_manurelevel() {
+  manurelevel_ = 0;
+  clear_has_manurelevel();
+}
+inline ::google::protobuf::int32 MsgPloughCellInfo::manurelevel() const {
+  return manurelevel_;
+}
+inline void MsgPloughCellInfo::set_manurelevel(::google::protobuf::int32 value) {
+  set_has_manurelevel();
+  manurelevel_ = value;
+}
+
+// required int32 seedLevel = 5;
+inline bool MsgPloughCellInfo::has_seedlevel() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MsgPloughCellInfo::set_has_seedlevel() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MsgPloughCellInfo::clear_has_seedlevel() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MsgPloughCellInfo::clear_seedlevel() {
+  seedlevel_ = 0;
+  clear_has_seedlevel();
+}
+inline ::google::protobuf::int32 MsgPloughCellInfo::seedlevel() const {
+  return seedlevel_;
+}
+inline void MsgPloughCellInfo::set_seedlevel(::google::protobuf::int32 value) {
+  set_has_seedlevel();
+  seedlevel_ = value;
+}
+
+// required uint64 lastStateTime = 6;
+inline bool MsgPloughCellInfo::has_laststatetime() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void MsgPloughCellInfo::set_has_laststatetime() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void MsgPloughCellInfo::clear_has_laststatetime() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void MsgPloughCellInfo::clear_laststatetime() {
+  laststatetime_ = GOOGLE_ULONGLONG(0);
+  clear_has_laststatetime();
+}
+inline ::google::protobuf::uint64 MsgPloughCellInfo::laststatetime() const {
+  return laststatetime_;
+}
+inline void MsgPloughCellInfo::set_laststatetime(::google::protobuf::uint64 value) {
+  set_has_laststatetime();
+  laststatetime_ = value;
+}
+
+// required int32 decreaseWaterperhour = 7;
+inline bool MsgPloughCellInfo::has_decreasewaterperhour() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void MsgPloughCellInfo::set_has_decreasewaterperhour() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void MsgPloughCellInfo::clear_has_decreasewaterperhour() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void MsgPloughCellInfo::clear_decreasewaterperhour() {
+  decreasewaterperhour_ = 0;
+  clear_has_decreasewaterperhour();
+}
+inline ::google::protobuf::int32 MsgPloughCellInfo::decreasewaterperhour() const {
+  return decreasewaterperhour_;
+}
+inline void MsgPloughCellInfo::set_decreasewaterperhour(::google::protobuf::int32 value) {
+  set_has_decreasewaterperhour();
+  decreasewaterperhour_ = value;
+}
+
+// required int32 ID = 8;
+inline bool MsgPloughCellInfo::has_id() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void MsgPloughCellInfo::set_has_id() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void MsgPloughCellInfo::clear_has_id() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void MsgPloughCellInfo::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 MsgPloughCellInfo::id() const {
+  return id_;
+}
+inline void MsgPloughCellInfo::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// required int32 waterPercentageMax = 9;
+inline bool MsgPloughCellInfo::has_waterpercentagemax() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void MsgPloughCellInfo::set_has_waterpercentagemax() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void MsgPloughCellInfo::clear_has_waterpercentagemax() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void MsgPloughCellInfo::clear_waterpercentagemax() {
+  waterpercentagemax_ = 0;
+  clear_has_waterpercentagemax();
+}
+inline ::google::protobuf::int32 MsgPloughCellInfo::waterpercentagemax() const {
+  return waterpercentagemax_;
+}
+inline void MsgPloughCellInfo::set_waterpercentagemax(::google::protobuf::int32 value) {
+  set_has_waterpercentagemax();
+  waterpercentagemax_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MsgFarmInfo
+
+// repeated .MsgPloughCellInfo cells = 1;
+inline int MsgFarmInfo::cells_size() const {
+  return cells_.size();
+}
+inline void MsgFarmInfo::clear_cells() {
+  cells_.Clear();
+}
+inline const ::MsgPloughCellInfo& MsgFarmInfo::cells(int index) const {
+  return cells_.Get(index);
+}
+inline ::MsgPloughCellInfo* MsgFarmInfo::mutable_cells(int index) {
+  return cells_.Mutable(index);
+}
+inline ::MsgPloughCellInfo* MsgFarmInfo::add_cells() {
+  return cells_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::MsgPloughCellInfo >&
+MsgFarmInfo::cells() const {
+  return cells_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::MsgPloughCellInfo >*
+MsgFarmInfo::mutable_cells() {
+  return &cells_;
+}
+
+// -------------------------------------------------------------------
+
+// MsgFarmInfoACK
+
+// required .MsgFarmInfo info = 1;
+inline bool MsgFarmInfoACK::has_info() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgFarmInfoACK::set_has_info() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgFarmInfoACK::clear_has_info() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgFarmInfoACK::clear_info() {
+  if (info_ != NULL) info_->::MsgFarmInfo::Clear();
+  clear_has_info();
+}
+inline const ::MsgFarmInfo& MsgFarmInfoACK::info() const {
+  return info_ != NULL ? *info_ : *default_instance_->info_;
+}
+inline ::MsgFarmInfo* MsgFarmInfoACK::mutable_info() {
+  set_has_info();
+  if (info_ == NULL) info_ = new ::MsgFarmInfo;
+  return info_;
+}
+inline ::MsgFarmInfo* MsgFarmInfoACK::release_info() {
+  clear_has_info();
+  ::MsgFarmInfo* temp = info_;
+  info_ = NULL;
+  return temp;
+}
+
+// -------------------------------------------------------------------
+
+// MsgFarmErrorACK
+
+// required .enFarmErrorResult en = 1;
+inline bool MsgFarmErrorACK::has_en() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgFarmErrorACK::set_has_en() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgFarmErrorACK::clear_has_en() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgFarmErrorACK::clear_en() {
+  en_ = 0;
+  clear_has_en();
+}
+inline enFarmErrorResult MsgFarmErrorACK::en() const {
+  return static_cast< enFarmErrorResult >(en_);
+}
+inline void MsgFarmErrorACK::set_en(enFarmErrorResult value) {
+  GOOGLE_DCHECK(enFarmErrorResult_IsValid(value));
+  set_has_en();
+  en_ = value;
+}
+
+// required int32 cellid = 2;
+inline bool MsgFarmErrorACK::has_cellid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgFarmErrorACK::set_has_cellid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgFarmErrorACK::clear_has_cellid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgFarmErrorACK::clear_cellid() {
+  cellid_ = 0;
+  clear_has_cellid();
+}
+inline ::google::protobuf::int32 MsgFarmErrorACK::cellid() const {
+  return cellid_;
+}
+inline void MsgFarmErrorACK::set_cellid(::google::protobuf::int32 value) {
+  set_has_cellid();
+  cellid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MsgSeedCellACK
+
+// required int32 cellid = 1;
+inline bool MsgSeedCellACK::has_cellid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgSeedCellACK::set_has_cellid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgSeedCellACK::clear_has_cellid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgSeedCellACK::clear_cellid() {
+  cellid_ = 0;
+  clear_has_cellid();
+}
+inline ::google::protobuf::int32 MsgSeedCellACK::cellid() const {
+  return cellid_;
+}
+inline void MsgSeedCellACK::set_cellid(::google::protobuf::int32 value) {
+  set_has_cellid();
+  cellid_ = value;
+}
+
+// required int32 seedlevel = 2;
+inline bool MsgSeedCellACK::has_seedlevel() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgSeedCellACK::set_has_seedlevel() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgSeedCellACK::clear_has_seedlevel() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgSeedCellACK::clear_seedlevel() {
+  seedlevel_ = 0;
+  clear_has_seedlevel();
+}
+inline ::google::protobuf::int32 MsgSeedCellACK::seedlevel() const {
+  return seedlevel_;
+}
+inline void MsgSeedCellACK::set_seedlevel(::google::protobuf::int32 value) {
+  set_has_seedlevel();
+  seedlevel_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MsgSpreadManureACK
+
+// required int32 cellid = 1;
+inline bool MsgSpreadManureACK::has_cellid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgSpreadManureACK::set_has_cellid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgSpreadManureACK::clear_has_cellid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgSpreadManureACK::clear_cellid() {
+  cellid_ = 0;
+  clear_has_cellid();
+}
+inline ::google::protobuf::int32 MsgSpreadManureACK::cellid() const {
+  return cellid_;
+}
+inline void MsgSpreadManureACK::set_cellid(::google::protobuf::int32 value) {
+  set_has_cellid();
+  cellid_ = value;
+}
+
+// required int32 manurelevel = 2;
+inline bool MsgSpreadManureACK::has_manurelevel() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgSpreadManureACK::set_has_manurelevel() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgSpreadManureACK::clear_has_manurelevel() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgSpreadManureACK::clear_manurelevel() {
+  manurelevel_ = 0;
+  clear_has_manurelevel();
+}
+inline ::google::protobuf::int32 MsgSpreadManureACK::manurelevel() const {
+  return manurelevel_;
+}
+inline void MsgSpreadManureACK::set_manurelevel(::google::protobuf::int32 value) {
+  set_has_manurelevel();
+  manurelevel_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MsgGatherPloughCellACK
+
+// required int32 cellid = 1;
+inline bool MsgGatherPloughCellACK::has_cellid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgGatherPloughCellACK::set_has_cellid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgGatherPloughCellACK::clear_has_cellid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgGatherPloughCellACK::clear_cellid() {
+  cellid_ = 0;
+  clear_has_cellid();
+}
+inline ::google::protobuf::int32 MsgGatherPloughCellACK::cellid() const {
+  return cellid_;
+}
+inline void MsgGatherPloughCellACK::set_cellid(::google::protobuf::int32 value) {
+  set_has_cellid();
+  cellid_ = value;
+}
+
+// required int32 resource = 2;
+inline bool MsgGatherPloughCellACK::has_resource() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgGatherPloughCellACK::set_has_resource() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgGatherPloughCellACK::clear_has_resource() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgGatherPloughCellACK::clear_resource() {
+  resource_ = 0;
+  clear_has_resource();
+}
+inline ::google::protobuf::int32 MsgGatherPloughCellACK::resource() const {
+  return resource_;
+}
+inline void MsgGatherPloughCellACK::set_resource(::google::protobuf::int32 value) {
+  set_has_resource();
+  resource_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MsgWaterCellACK
+
+// required int32 cellid = 1;
+inline bool MsgWaterCellACK::has_cellid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgWaterCellACK::set_has_cellid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgWaterCellACK::clear_has_cellid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgWaterCellACK::clear_cellid() {
+  cellid_ = 0;
+  clear_has_cellid();
+}
+inline ::google::protobuf::int32 MsgWaterCellACK::cellid() const {
+  return cellid_;
+}
+inline void MsgWaterCellACK::set_cellid(::google::protobuf::int32 value) {
+  set_has_cellid();
+  cellid_ = value;
+}
 
 
 // @@protoc_insertion_point(namespace_scope)
@@ -47,6 +1384,14 @@ void protobuf_ShutdownFile_MessageFarmG2C_2eproto();
 namespace google {
 namespace protobuf {
 
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::MsgPloughCellInfo_GrowState>() {
+  return ::MsgPloughCellInfo_GrowState_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< enFarmErrorResult>() {
+  return enFarmErrorResult_descriptor();
+}
 
 }  // namespace google
 }  // namespace protobuf

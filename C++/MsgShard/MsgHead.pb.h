@@ -41,17 +41,17 @@ enum MsgType {
   C2S_MsgUnbindMacReq = 5,
   C2S_MsgBindMacReq = 6,
   C2S_MsgMailLoginReq = 7,
-  C2S_MsgSeedCellReq = 8,
-  C2S_MsgSpreadManureReq = 9,
-  C2S_MsgGatherPloughCellReq = 10,
+  C2S_GSBegin = 300,
+  C2S_MsgSeedCellReq = 301,
+  C2S_MsgSpreadManureReq = 302,
+  C2S_MsgGatherPloughCellReq = 303,
+  C2S_MsgFarmStateReq = 304,
+  C2S_MsgWaterCellReq = 305,
+  C2S_GSEnd = 500,
   C2S_END = 998,
   G2C_Begin = 999,
   G2C_LoginACK = 1000,
   G2C_MsgG2CErrorACK = 1001,
-  G2C_MsgSeedCellACK = 1002,
-  G2C_MsgSpreadManureACK = 1003,
-  G2C_MsgGatherPloughCellACK = 1004,
-  G2C_MsgFarmErrorACK = 1005,
   G2C_End = 2000,
   Gate2LG_Begin = 2001,
   Gate2LG_MsgGate2LGLoginReq = 2002,
@@ -66,11 +66,19 @@ enum MsgType {
   LG2Gate_End = 4000,
   GS_MsgGate2GSLoginReq = 4001,
   GS_MsgGaet2GSLoginOutReq = 4002,
-  GS2Client_GS2GateLoginOKACK = 5001
+  GS2Client_GS2GateLoginOKACK = 5001,
+  GS2C_Begin = 5500,
+  GS2C_MsgSeedCellACK = 5502,
+  GS2C_MsgSpreadManureACK = 5503,
+  GS2C_MsgGatherPloughCellACK = 5504,
+  GS2C_MsgFarmErrorACK = 5505,
+  GS2C_MsgFarmInfoACK = 5506,
+  GS2C_MsgWaterCellACK = 5507,
+  GS2C_End = 6000
 };
 bool MsgType_IsValid(int value);
 const MsgType MsgType_MIN = C2S_MsgNull;
-const MsgType MsgType_MAX = GS2Client_GS2GateLoginOKACK;
+const MsgType MsgType_MAX = GS2C_End;
 const int MsgType_ARRAYSIZE = MsgType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* MsgType_descriptor();

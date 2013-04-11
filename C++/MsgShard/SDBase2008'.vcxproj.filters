@@ -49,6 +49,9 @@
     <None Include="proto\MessageC2S.proto">
       <Filter>资源文件\proto</Filter>
     </None>
+    <None Include="proto\MessageFarmC2S.proto">
+      <Filter>资源文件\proto</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MsgHead.pb.cc">
@@ -77,6 +80,9 @@
     </ClCompile>
     <ClCompile Include="MessageC2S.pb.cc">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageFarmC2S.pb.cc">
+      <Filter>头文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +115,9 @@
     </ClInclude>
     <ClInclude Include="MessageC2S.pb.h">
       <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageFarmC2S.pb.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

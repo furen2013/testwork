@@ -1,5 +1,5 @@
 import "MsgHead.proto";    
-message MsgPloughCell
+message MsgPloughCellInfo
 {
     enum GrowState {
         State_NULL    = 0;
@@ -15,5 +15,54 @@ message MsgPloughCell
 	required uint64 lastStateTime			= 6;
 	required int32  decreaseWaterperhour	= 7;
 	required int32  ID						= 8;
+	required int32 waterPercentageMax	    = 9;
 
+}
+
+message MsgFarmInfo
+{
+	repeated MsgPloughCellInfo			cells = 1;
+}
+
+message MsgFarmInfoACK
+{
+	required MsgFarmInfo	info = 1;
+}
+
+enum enFarmErrorResult
+{
+	FarmError_NOTFOUNDCELL			= 0;
+	FarmError_NOTHAVESEED			= 1;
+	FarmError_CELLCANNOTSEED		= 2;	
+	FarmError_ISHAVEMANURE			= 3;
+	FarmError_GATHERNOTGROWNCELL	= 4;
+	FarmError_UKNOWN				= 5;
+}
+
+message MsgFarmErrorACK
+{
+	required enFarmErrorResult en     = 1;
+	required int32 cellid			  = 2;
+}
+message MsgSeedCellACK
+{
+	required int32 cellid            = 1;
+	required int32 seedlevel         = 2;
+}
+
+message MsgSpreadManureACK
+{
+	required int32 cellid            = 1;
+	required int32 manurelevel       = 2;
+}
+
+message MsgGatherPloughCellACK
+{
+	required int32 cellid		     = 1;
+	required int32 resource		     = 2;
+} 
+
+message MsgWaterCellACK
+{
+	required int32 cellid			= 1;
 }

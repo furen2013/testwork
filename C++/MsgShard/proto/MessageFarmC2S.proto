@@ -1,0 +1,27 @@
+import "MsgHead.proto";    
+
+
+message MsgFarmStateReq
+{
+
+}
+
+message MsgSeedCellReq
+{
+	required int32 seedlevel = 1;
+}
+
+message MsgSpreadManureReq
+{
+	required int32 manurelevel = 1;
+}
+
+message MsgGatherPloughCellReq
+{
+	required int32 cellid = 1;
+}
+
+message MsgWaterCellReq
+{
+	required int32 cellid = 1;
+}

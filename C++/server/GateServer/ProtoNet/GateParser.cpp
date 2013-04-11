@@ -7,7 +7,9 @@
 #include "MessageGate2LG.pb.h"
 #include "../GameLogic/GateUserManager.h"
 #include "LoginSocket.h"
+#include "GameServerSocket.h"
 extern LoginSocket* p2LoginSocket;
+extern GameServerSocket* p2GameServerSocket;
 initialiseSingleton(CGateParser);
 CGateParser::CGateParser(void)
 {
@@ -123,7 +125,19 @@ void CGateParser::ParseMessage(const message_t& msg, CCProtoSocket* pSocket)
 		}
 		break;
 
+	default:
+		{
+			if (Msghead.type() >(int)C2S_GSBegin && Msghead.type() < (int)C2S_GSEnd )
+			{
+				if (pSocket->GetAccountID())
+				{
+					Msghead.set_account(pSocket->GetAccountID());
+					p2GameServerSocket->send_message(&Msghead);
+				}
+			}
+		}
+
 	}
-	//unsigned short sII = *((unsigned short*)msg.data + sizeof(unsigned short));
+	
 
 }
