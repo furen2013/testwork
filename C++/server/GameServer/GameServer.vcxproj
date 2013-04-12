@@ -119,7 +119,9 @@
     <ClCompile Include="Net\GSListenSocket.cpp" />
     <ClCompile Include="Net\GSocket.cpp" />
     <ClCompile Include="Net\NetSession.cpp" />
+    <ClCompile Include="Net\NetSessionFarm.cpp" />
     <ClCompile Include="Net\NetSessionManager.cpp" />
+    <ClCompile Include="Net\NetSessionTechnology.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

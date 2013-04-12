@@ -52,6 +52,12 @@
     <None Include="proto\MessageFarmC2S.proto">
       <Filter>资源文件\proto</Filter>
     </None>
+    <None Include="proto\MessageTechnologyC2S.proto">
+      <Filter>资源文件\proto</Filter>
+    </None>
+    <None Include="proto\MessageTechnologyG2C.proto">
+      <Filter>资源文件\proto</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MsgHead.pb.cc">
@@ -81,8 +87,14 @@
     <ClCompile Include="MessageC2S.pb.cc">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="MessageTechnologyC2S.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageTechnologyG2C.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="MessageFarmC2S.pb.cc">
-      <Filter>头文件</Filter>
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +129,12 @@
       <Filter>源文件</Filter>
     </ClInclude>
     <ClInclude Include="MessageFarmC2S.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageTechnologyC2S.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageTechnologyG2C.pb.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

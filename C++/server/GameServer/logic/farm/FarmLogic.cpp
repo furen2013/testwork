@@ -6,6 +6,7 @@
 #include "../PlayerManager.h"
 #include "../../Net/NetSession.h"
 #include "MessageFarmG2C.pb.h"
+#include "MyLog.h"
 FarmLogic::FarmLogic()
 {
 	_NetSession = NULL;
@@ -115,7 +116,7 @@ void FarmLogic::sendFarmState()
 	}
 	else
 	{
-		MyLog.log->warn("send farm info failed _NetSession is null");
+		MyLog::log->warn("send farm info failed _NetSession is null");
 	}
 	
 }

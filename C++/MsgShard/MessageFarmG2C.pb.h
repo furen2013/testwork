@@ -62,12 +62,12 @@ inline bool MsgPloughCellInfo_GrowState_Parse(
     MsgPloughCellInfo_GrowState_descriptor(), name, value);
 }
 enum enFarmErrorResult {
-  FarmError_NOTFOUNDCELL = 0,
-  FarmError_NOTHAVESEED = 1,
-  FarmError_CELLCANNOTSEED = 2,
-  FarmError_ISHAVEMANURE = 3,
-  FarmError_GATHERNOTGROWNCELL = 4,
-  FarmError_UKNOWN = 5
+  FarmError_NOTFOUNDCELL = 1,
+  FarmError_NOTHAVESEED = 2,
+  FarmError_CELLCANNOTSEED = 3,
+  FarmError_ISHAVEMANURE = 4,
+  FarmError_GATHERNOTGROWNCELL = 5,
+  FarmError_UKNOWN = 6
 };
 bool enFarmErrorResult_IsValid(int value);
 const enFarmErrorResult enFarmErrorResult_MIN = FarmError_NOTFOUNDCELL;
@@ -1173,7 +1173,7 @@ inline void MsgFarmErrorACK::clear_has_en() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void MsgFarmErrorACK::clear_en() {
-  en_ = 0;
+  en_ = 1;
   clear_has_en();
 }
 inline enFarmErrorResult MsgFarmErrorACK::en() const {

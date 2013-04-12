@@ -1,0 +1,44 @@
+import "MsgHead.proto";    
+
+
+message MsgTechInfo
+{
+	required int32 id				= 1;
+	required int32 currentCount		= 2;
+}
+
+message MsgTechLevelInfo
+{
+	required int32 level			= 1;
+	repeated MsgTechInfo techs		= 2;
+}
+
+message MsgTechnologyInfo
+{
+	repeated MsgTechLevelInfo levels = 1;
+}
+
+message MsgTechnologyStateACK
+{
+	required MsgTechnologyInfo info	 = 1;
+}
+enum enTechnologyResult
+{
+	Technology_OK								= 0;
+	Technology_ErrorNotFindLvel					= 1;
+	Technology_ErrorNotFindTechInfo				= 2;
+	Technology_ErrorNotEnoughMoneyOpenLevel		= 3;
+}
+message MsgOpenTechLevelACK
+{
+	required int32 level					= 1;
+	required enTechnologyResult en			= 2;
+}
+
+message MsgApplyAddTechInfoACK
+{
+	required int32 level				= 1;
+	required int32 id					= 2;
+	required int32 current				= 3;
+	required enTechnologyResult en		= 4;
+}

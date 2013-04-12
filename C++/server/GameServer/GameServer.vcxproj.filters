@@ -143,5 +143,11 @@
     <ClCompile Include="logic\PlayerFarmLogic.cpp">
       <Filter>logic</Filter>
     </ClCompile>
+    <ClCompile Include="Net\NetSessionFarm.cpp">
+      <Filter>Net</Filter>
+    </ClCompile>
+    <ClCompile Include="Net\NetSessionTechnology.cpp">
+      <Filter>Net</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

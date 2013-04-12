@@ -31,12 +31,12 @@ message MsgFarmInfoACK
 
 enum enFarmErrorResult
 {
-	FarmError_NOTFOUNDCELL			= 0;
-	FarmError_NOTHAVESEED			= 1;
-	FarmError_CELLCANNOTSEED		= 2;	
-	FarmError_ISHAVEMANURE			= 3;
-	FarmError_GATHERNOTGROWNCELL	= 4;
-	FarmError_UKNOWN				= 5;
+	FarmError_NOTFOUNDCELL			= 1;
+	FarmError_NOTHAVESEED			= 2;
+	FarmError_CELLCANNOTSEED		= 3;	
+	FarmError_ISHAVEMANURE			= 4;
+	FarmError_GATHERNOTGROWNCELL	= 5;
+	FarmError_UKNOWN				= 6;
 }
 
 message MsgFarmErrorACK

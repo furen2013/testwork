@@ -59,10 +59,13 @@ void NetParser::ParseMessage(const message_t& msg, CGTSocket* pSocket)
 			Msg.ParseFromString(Msghead.body());
 		}
 		break;
-	case C2S_MsgFarmStateReq:
+	default:
 		{
-
+			NetSession* pSession = NetSessionManager::getSingleton().FindSession(Msghead.account());
+			if (pSession)
+			{
+				pSession->GetMsgOpcodeHandler()
+			}
 		}
-		break;
 	}
 }

@@ -105,6 +105,8 @@
     <None Include="proto\MessageGate2LG.proto" />
     <None Include="proto\MessageGS2Gate.proto" />
     <None Include="proto\MessageLG2Gate.proto" />
+    <None Include="proto\MessageTechnologyC2S.proto" />
+    <None Include="proto\MessageTechnologyG2C.proto" />
     <None Include="proto\MsgHead.proto" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
@@ -118,6 +120,8 @@
     <ClCompile Include="MessageGate2LG.pb.cc" />
     <ClCompile Include="MessageGS2Gate.pb.cc" />
     <ClCompile Include="MessageLG2Gate.pb.cc" />
+    <ClCompile Include="MessageTechnologyC2S.pb.cc" />
+    <ClCompile Include="MessageTechnologyG2C.pb.cc" />
     <ClCompile Include="MsgHead.pb.cc" />
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +134,8 @@
     <ClInclude Include="MessageGate2LG.pb.h" />
     <ClInclude Include="MessageGS2Gate.pb.h" />
     <ClInclude Include="MessageLG2Gate.pb.h" />
+    <ClInclude Include="MessageTechnologyC2S.pb.h" />
+    <ClInclude Include="MessageTechnologyG2C.pb.h" />
     <ClInclude Include="MsgHead.pb.h" />
     <ClInclude Include="TypeDef.h" />
   </ItemGroup>

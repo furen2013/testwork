@@ -3,7 +3,7 @@
 #include "../net/GSocket.h"
 #include "MessageFarmC2S.pb.h"
 
-OpcodeHandler WorldPacketHandlers[C2S_GSEnd - C2S_GSBegin];
+
 NetSession::NetSession(): _player(NULL)
 {
 
@@ -42,6 +42,10 @@ void NetSession::InitHandleTable()
 	GetMsgOpcodeHandler(C2S_MsgSpreadManureReq)->handler = &NetSession::HandleSpreadManureReq;
 	GetMsgOpcodeHandler(C2S_MsgGatherPloughCellReq)->handler = &NetSession::HandleGatherPloughCellReq;
 	GetMsgOpcodeHandler(C2S_MsgWaterCellReq)->handler = &NetSession::HandleWaterCellReq;
+	GetMsgOpcodeHandler(C2S_MsgTechnologyStateReq)->handler = &NetSession::HandleTechnologyStateReq;
+	GetMsgOpcodeHandler(C2S_MsgOpenTechLevelReq)->handler = &NetSession::HandleTechLevelReq;
+	GetMsgOpcodeHandler(C2S_MsgApplyAddTechInfoReq)->handler = &NetSession::HandleTechnologyStateReq;
+	
 	
 }
 

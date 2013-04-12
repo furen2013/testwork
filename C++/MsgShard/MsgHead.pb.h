@@ -47,6 +47,9 @@ enum MsgType {
   C2S_MsgGatherPloughCellReq = 303,
   C2S_MsgFarmStateReq = 304,
   C2S_MsgWaterCellReq = 305,
+  C2S_MsgTechnologyStateReq = 306,
+  C2S_MsgOpenTechLevelReq = 307,
+  C2S_MsgApplyAddTechInfoReq = 308,
   C2S_GSEnd = 500,
   C2S_END = 998,
   G2C_Begin = 999,
@@ -74,6 +77,10 @@ enum MsgType {
   GS2C_MsgFarmErrorACK = 5505,
   GS2C_MsgFarmInfoACK = 5506,
   GS2C_MsgWaterCellACK = 5507,
+  GS2C_MsgFarmEnd = 5507,
+  GS2C_MsgTechnologyStateACK = 5508,
+  GS2C_MsgOpenTechLevelACK = 5509,
+  GS2C_MsgApplyAddTechInfoACK = 5510,
   GS2C_End = 6000
 };
 bool MsgType_IsValid(int value);

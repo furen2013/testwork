@@ -56,5 +56,19 @@ void GSMessageParser::ParseMessage(const message_t& msg, GameServerSocket* pSock
 			//Msghead.account()
 		}
 
+	default:
+		{
+
+			CCProtoSocket*pSocket = GUManager.GetLoginClient(Msghead.account());
+			if (pSocket)
+			{
+				pSocket->send_message(&Msghead);
+			}
+			else
+			{
+				MyLog::log->warn("GSParserMsg failed find login account [%lu]", Msghead.account());
+			}
+		}
+
 	}
 }

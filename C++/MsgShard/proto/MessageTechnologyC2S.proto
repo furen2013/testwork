@@ -1,0 +1,19 @@
+import "MsgHead.proto";    
+
+
+message MsgTechnologyStateReq
+{
+
+}
+
+message MsgOpenTechLevelReq
+{
+	required int32 level = 1;
+}
+
+message MsgApplyAddTechInfoReq
+{
+	required int32 level		= 1;
+	required int32 id			= 2;
+	required int32 addcount		= 3;
+}

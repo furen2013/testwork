@@ -263,10 +263,10 @@ void protobuf_AddDesc_MessageFarmG2C_2eproto() {
     "gGatherPloughCellACK\022\016\n\006cellid\030\001 \002(\005\022\020\n\010"
     "resource\030\002 \002(\005\"!\n\017MsgWaterCellACK\022\016\n\006cel"
     "lid\030\001 \002(\005*\274\001\n\021enFarmErrorResult\022\032\n\026FarmE"
-    "rror_NOTFOUNDCELL\020\000\022\031\n\025FarmError_NOTHAVE"
-    "SEED\020\001\022\034\n\030FarmError_CELLCANNOTSEED\020\002\022\032\n\026"
-    "FarmError_ISHAVEMANURE\020\003\022 \n\034FarmError_GA"
-    "THERNOTGROWNCELL\020\004\022\024\n\020FarmError_UKNOWN\020\005", 920);
+    "rror_NOTFOUNDCELL\020\001\022\031\n\025FarmError_NOTHAVE"
+    "SEED\020\002\022\034\n\030FarmError_CELLCANNOTSEED\020\003\022\032\n\026"
+    "FarmError_ISHAVEMANURE\020\004\022 \n\034FarmError_GA"
+    "THERNOTGROWNCELL\020\005\022\024\n\020FarmError_UKNOWN\020\006", 920);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageFarmG2C.proto", &protobuf_RegisterTypes);
   MsgPloughCellInfo::default_instance_ = new MsgPloughCellInfo();
@@ -301,12 +301,12 @@ const ::google::protobuf::EnumDescriptor* enFarmErrorResult_descriptor() {
 }
 bool enFarmErrorResult_IsValid(int value) {
   switch(value) {
-    case 0:
     case 1:
     case 2:
     case 3:
     case 4:
     case 5:
+    case 6:
       return true;
     default:
       return false;
@@ -1323,7 +1323,7 @@ MsgFarmErrorACK::MsgFarmErrorACK(const MsgFarmErrorACK& from)
 
 void MsgFarmErrorACK::SharedCtor() {
   _cached_size_ = 0;
-  en_ = 0;
+  en_ = 1;
   cellid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -1359,7 +1359,7 @@ MsgFarmErrorACK* MsgFarmErrorACK::New() const {
 
 void MsgFarmErrorACK::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    en_ = 0;
+    en_ = 1;
     cellid_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
