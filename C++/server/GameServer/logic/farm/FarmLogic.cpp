@@ -4,12 +4,13 @@
 #include "PloughCell.h"
 #include "../Player.h"
 #include "../PlayerManager.h"
+#include "../PlayerResourceManager.h"
 #include "../../Net/NetSession.h"
-#include "MessageFarmG2C.pb.h"
 #include "MyLog.h"
+
 FarmLogic::FarmLogic()
 {
-	_NetSession = NULL;
+	//_NetSession = NULL;
 	_modify = true;
 }
 
@@ -58,66 +59,182 @@ bool FarmLogic::LoadCells(string str)
 	return true;
 }
 
-int FarmLogic::gatherPloughCell(int id)
+
+bool FarmLogic::wateringCell(int id)
 {
-	int resorce = 0;
+	bool b = false;
 	PloughCell* p = getPloughCell(id);
-	if (p &&p->getgrowstate() == growstate_grown)
+	if (!p)
 	{
-		resorce = p->gather();
+		sendFarmError(id, FarmError_NOTFOUNDCELL);
 	}
-	return resorce;
+	else
+	{
+		MsgWaterCellACK ACK;
+		ACK.set_cellid(id);
+		p->WateringCell();
+		sendMessage(&ACK, GS2C_MsgWaterCellACK);
+		b = true;
+	}
+	return b;
+}
+
+bool FarmLogic::gatherPloughCell(int id)
+{
+	bool b = false;
+	//MsgGatherPloughCellACK
+	PloughCell* p = getPloughCell(id);
+	if (!p)
+	{
+		sendFarmError(id, FarmError_NOTFOUNDCELL);
+	}
+	else
+	{
+		if (p->getgrowstate() != growstate_grown)
+		{
+			sendFarmError(id, FarmError_GATHERNOTGROWNCELL);
+		}
+		else
+		{
+			PlayerResource* playeresource =  _Player->getResource();
+			if (playeresource)
+			{
+				MsgGatherPloughCellACK gatherACK;
+				int resource = 0;
+				resource = p->gather();
+				gatherACK.set_cellid(id);
+				gatherACK.set_resource(resource);
+				playeresource->_petfood += resource;
+				MyLog::log->info("player name[%s] account [%lu] gather cell[%d] success gains [%d] petfood so have [%d] petfoods",_Player->getName(),
+					_Player->getAccount(), id, resource, playeresource->_petfood);
+				sendMessage(&gatherACK,GS2C_MsgGatherPloughCellACK);
+				b = true;
+			}
+			else
+			{
+				MyLog::log->warn("player name[%s] account [%lu] not fond resource");
+				sendFarmError(id, FarmError_UKNOWN);
+			}
+			
+		}
+		
+	}
+	return b;
+
+}
+
+void FarmLogic::sendFarmError(int id, enFarmErrorResult error)
+{
+	MsgFarmErrorACK errorack;
+	errorack.set_cellid(id);
+	errorack.set_en(error);
+	sendMessage(&errorack, GS2C_MsgFarmErrorACK);
+}
+
+void FarmLogic::sendMessage(::google::protobuf::Message* message, MsgType type)
+{
+	if (GetNetSession())
+	{
+		GetNetSession()->sendMessage(message, type);
+	}
+	
+}
+
+NetSession* FarmLogic::GetNetSession()
+{
+	if (_Player)
+	{
+		_Player->getNetSession();
+	}
+	return NULL;
+}
+
+bool FarmLogic::seedCell(int id, int seedlevel)
+{
+	bool b = false;
+	PloughCell* p = getPloughCell(id);
+	if (!p)
+	{
+		sendFarmError(id, FarmError_NOTFOUNDCELL);
+
+	}
+	else
+	{
+		if (p->getgrowstate() != growstate_null)
+		{
+			sendFarmError(id, FarmError_CELLCANNOTSEED);
+		}
+		else
+		{
+			if (seedlevel > 0)
+			{
+				if (p->BecomeSeeding(seedlevel))
+				{
+					MyLog::log->info("player name[%s] account [%lu] seed cell [%d] with seedcell [%d] success",_Player->getName(),_Player->getAccount(),
+						id, seedlevel);
+					MsgSeedCellACK ACK;
+					ACK.set_cellid(id);
+					ACK.set_seedlevel(seedlevel);
+					sendMessage(&ACK, GS2C_MsgSeedCellACK);
+					b = true;
+				}
+				else
+				{
+					sendFarmError(id, FarmError_CELLCANNOTSEED);
+				}
+			}
+			
+			
+		}
+	}
+
+	return b;
 }
 
 void FarmLogic::sendFarmState()
 {
-	if (_NetSession != NULL)
+
+	PloughCell* cell = NULL;
+	MsgFarmInfoACK MsgSend;
+	MsgFarmInfo* info = MsgSend.mutable_info();
+	PLOUGHCELL::iterator it = _cells.begin();
+	for (; it != _cells.end(); ++ it)
 	{
-		PloughCell* cell = NULL;
-		MsgFarmInfoACK MsgSend;
-		MsgFarmInfo* info = MsgSend.mutable_info();
-		PLOUGHCELL::iterator it = _cells.begin();
-		for (; it != _cells.end(); ++ it)
+		cell = it->second;
+		MsgPloughCellInfo* cellInfo = info->add_cells();
+		cellInfo->set_level(cell->getLevel());
+		cellInfo->set_manurelevel(cell->getManureLevel());
+		cellInfo->set_waterpercentage(cell->getWaterPercentage());
+		cellInfo->set_decreasewaterperhour(cell->getDecreaseWaterPerhour());
+		cellInfo->set_laststatetime(cell->getLastStateTime());
+		cellInfo->set_waterpercentagemax(cell->getDecreaseWaterPerhour());
+		cellInfo->set_id(cell->getID());
+		switch(cell->getgrowstate())
 		{
-			cell = it->second;
-			MsgPloughCellInfo* cellInfo = info->add_cells();
-			cellInfo->set_level(cell->getLevel());
-			cellInfo->set_manurelevel(cell->getManureLevel());
-			cellInfo->set_waterpercentage(cell->getWaterPercentage());
-			cellInfo->set_decreasewaterperhour(cell->getDecreaseWaterPerhour());
-			cellInfo->set_laststatetime(cell->getLastStateTime());
-			cellInfo->set_waterpercentagemax(cell->getDecreaseWaterPerhour());
-			cellInfo->set_id(cell->getID());
-			switch(cell->getgrowstate())
+		case growstate_grown:
 			{
-			case growstate_grown:
-				{
-					cellInfo->set_state(MsgPloughCellInfo_GrowState_State_Grown);
-				}
-				break;
-			case growstate_null:
-				{
-					cellInfo->set_state(MsgPloughCellInfo_GrowState_State_NULL);
-				}
-				break;
-			case growstate_seeding:
-				{
-					cellInfo->set_state(MsgPloughCellInfo_GrowState_State_Seeding);
-				}
-				break;
-			case growstate_young:
-				{
-					cellInfo->set_state(MsgPloughCellInfo_GrowState_State_Young);
-				}
-				break;
+				cellInfo->set_state(MsgPloughCellInfo_GrowState_State_Grown);
 			}
+			break;
+		case growstate_null:
+			{
+				cellInfo->set_state(MsgPloughCellInfo_GrowState_State_NULL);
+			}
+			break;
+		case growstate_seeding:
+			{
+				cellInfo->set_state(MsgPloughCellInfo_GrowState_State_Seeding);
+			}
+			break;
+		case growstate_young:
+			{
+				cellInfo->set_state(MsgPloughCellInfo_GrowState_State_Young);
+			}
+			break;
 		}
-		_NetSession->sendMessage(&MsgSend,GS2C_MsgFarmInfoACK);
 	}
-	else
-	{
-		MyLog::log->warn("send farm info failed _NetSession is null");
-	}
+	sendMessage(&MsgSend,GS2C_MsgFarmInfoACK);
+
 	
 }
 
@@ -131,4 +248,32 @@ PloughCell* FarmLogic::getPloughCell(int id)
 	}
 	
 	return cell;
+}
+
+bool FarmLogic::spreadManure(int cellid, int Spreadmanure)
+{
+	bool b = false;
+	PloughCell* p = getPloughCell(cellid);
+	if (!p)
+	{
+		sendFarmError(cellid, FarmError_NOTFOUNDCELL);
+	}
+	else
+	{
+		if (p->SpreadManure(Spreadmanure))
+		{
+			MsgSpreadManureACK ACK;
+			sendMessage(&ACK, GS2C_MsgSpreadManureACK);
+			MyLog::log->info("player name[%s] account [%lu] spread manure cellid[%d] success with manure level [%d]" ,
+				_Player->getName(), _Player->getAccount(), cellid,Spreadmanure);
+			b = true;
+		}
+		else
+		{
+			sendFarmError(cellid, FarmError_ISHAVEMANURE);
+		}
+	}
+	return b;
+	
+
 }

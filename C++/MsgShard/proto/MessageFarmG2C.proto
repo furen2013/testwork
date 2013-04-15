@@ -36,7 +36,10 @@ enum enFarmErrorResult
 	FarmError_CELLCANNOTSEED		= 3;	
 	FarmError_ISHAVEMANURE			= 4;
 	FarmError_GATHERNOTGROWNCELL	= 5;
-	FarmError_UKNOWN				= 6;
+	FarmError_NOTHAVEMANURE			= 6;
+	FarmError_NOTHAVETHISSEED		= 7;
+	FarmError_ERRORSEED				= 8;
+	FarmError_UKNOWN				= 9;
 }
 
 message MsgFarmErrorACK

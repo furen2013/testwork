@@ -22,9 +22,10 @@ public:
 	
 	void BecomeYoung();
 	void BecomeGrown();
-	void BecomeSeeding();
+	bool BecomeSeeding(int seedlevel);
 	void DecreaseWaterPercentagePerHour();
 	void WateringCell();
+	bool SpreadManure(int Manurelevel);
 	int32 gather();
 	inline growstate getgrowstate(){return enType;}
 	inline int32 getID(){return _ID;}

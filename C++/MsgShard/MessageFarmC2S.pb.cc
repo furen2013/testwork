@@ -55,8 +55,9 @@ void protobuf_AssignDesc_MessageFarmC2S_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MsgFarmStateReq));
   MsgSeedCellReq_descriptor_ = file->message_type(1);
-  static const int MsgSeedCellReq_offsets_[1] = {
+  static const int MsgSeedCellReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSeedCellReq, seedlevel_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSeedCellReq, cellid_),
   };
   MsgSeedCellReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -70,8 +71,9 @@ void protobuf_AssignDesc_MessageFarmC2S_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MsgSeedCellReq));
   MsgSpreadManureReq_descriptor_ = file->message_type(2);
-  static const int MsgSpreadManureReq_offsets_[1] = {
+  static const int MsgSpreadManureReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSpreadManureReq, manurelevel_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSpreadManureReq, cellid_),
   };
   MsgSpreadManureReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -162,11 +164,12 @@ void protobuf_AddDesc_MessageFarmC2S_2eproto() {
   ::protobuf_AddDesc_MsgHead_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\024MessageFarmC2S.proto\032\rMsgHead.proto\"\021\n"
-    "\017MsgFarmStateReq\"#\n\016MsgSeedCellReq\022\021\n\tse"
-    "edlevel\030\001 \002(\005\")\n\022MsgSpreadManureReq\022\023\n\013m"
-    "anurelevel\030\001 \002(\005\"(\n\026MsgGatherPloughCellR"
-    "eq\022\016\n\006cellid\030\001 \002(\005\"!\n\017MsgWaterCellReq\022\016\n"
-    "\006cellid\030\001 \002(\005", 213);
+    "\017MsgFarmStateReq\"3\n\016MsgSeedCellReq\022\021\n\tse"
+    "edlevel\030\001 \002(\005\022\016\n\006cellid\030\002 \002(\005\"9\n\022MsgSpre"
+    "adManureReq\022\023\n\013manurelevel\030\001 \002(\005\022\016\n\006cell"
+    "id\030\002 \002(\005\"(\n\026MsgGatherPloughCellReq\022\016\n\006ce"
+    "llid\030\001 \002(\005\"!\n\017MsgWaterCellReq\022\016\n\006cellid\030"
+    "\001 \002(\005", 245);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageFarmC2S.proto", &protobuf_RegisterTypes);
   MsgFarmStateReq::default_instance_ = new MsgFarmStateReq();
@@ -349,6 +352,7 @@ void MsgFarmStateReq::Swap(MsgFarmStateReq* other) {
 
 #ifndef _MSC_VER
 const int MsgSeedCellReq::kSeedlevelFieldNumber;
+const int MsgSeedCellReq::kCellidFieldNumber;
 #endif  // !_MSC_VER
 
 MsgSeedCellReq::MsgSeedCellReq()
@@ -368,6 +372,7 @@ MsgSeedCellReq::MsgSeedCellReq(const MsgSeedCellReq& from)
 void MsgSeedCellReq::SharedCtor() {
   _cached_size_ = 0;
   seedlevel_ = 0;
+  cellid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -403,6 +408,7 @@ MsgSeedCellReq* MsgSeedCellReq::New() const {
 void MsgSeedCellReq::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     seedlevel_ = 0;
+    cellid_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -422,6 +428,22 @@ bool MsgSeedCellReq::MergePartialFromCodedStream(
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &seedlevel_)));
           set_has_seedlevel();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_cellid;
+        break;
+      }
+      
+      // required int32 cellid = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_cellid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &cellid_)));
+          set_has_cellid();
         } else {
           goto handle_uninterpreted;
         }
@@ -452,6 +474,11 @@ void MsgSeedCellReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->seedlevel(), output);
   }
   
+  // required int32 cellid = 2;
+  if (has_cellid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->cellid(), output);
+  }
+  
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -463,6 +490,11 @@ void MsgSeedCellReq::SerializeWithCachedSizes(
   // required int32 seedlevel = 1;
   if (has_seedlevel()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->seedlevel(), target);
+  }
+  
+  // required int32 cellid = 2;
+  if (has_cellid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->cellid(), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -481,6 +513,13 @@ int MsgSeedCellReq::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->seedlevel());
+    }
+    
+    // required int32 cellid = 2;
+    if (has_cellid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->cellid());
     }
     
   }
@@ -513,6 +552,9 @@ void MsgSeedCellReq::MergeFrom(const MsgSeedCellReq& from) {
     if (from.has_seedlevel()) {
       set_seedlevel(from.seedlevel());
     }
+    if (from.has_cellid()) {
+      set_cellid(from.cellid());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -530,7 +572,7 @@ void MsgSeedCellReq::CopyFrom(const MsgSeedCellReq& from) {
 }
 
 bool MsgSeedCellReq::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
   
   return true;
 }
@@ -538,6 +580,7 @@ bool MsgSeedCellReq::IsInitialized() const {
 void MsgSeedCellReq::Swap(MsgSeedCellReq* other) {
   if (other != this) {
     std::swap(seedlevel_, other->seedlevel_);
+    std::swap(cellid_, other->cellid_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -557,6 +600,7 @@ void MsgSeedCellReq::Swap(MsgSeedCellReq* other) {
 
 #ifndef _MSC_VER
 const int MsgSpreadManureReq::kManurelevelFieldNumber;
+const int MsgSpreadManureReq::kCellidFieldNumber;
 #endif  // !_MSC_VER
 
 MsgSpreadManureReq::MsgSpreadManureReq()
@@ -576,6 +620,7 @@ MsgSpreadManureReq::MsgSpreadManureReq(const MsgSpreadManureReq& from)
 void MsgSpreadManureReq::SharedCtor() {
   _cached_size_ = 0;
   manurelevel_ = 0;
+  cellid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -611,6 +656,7 @@ MsgSpreadManureReq* MsgSpreadManureReq::New() const {
 void MsgSpreadManureReq::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     manurelevel_ = 0;
+    cellid_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -630,6 +676,22 @@ bool MsgSpreadManureReq::MergePartialFromCodedStream(
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &manurelevel_)));
           set_has_manurelevel();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_cellid;
+        break;
+      }
+      
+      // required int32 cellid = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_cellid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &cellid_)));
+          set_has_cellid();
         } else {
           goto handle_uninterpreted;
         }
@@ -660,6 +722,11 @@ void MsgSpreadManureReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->manurelevel(), output);
   }
   
+  // required int32 cellid = 2;
+  if (has_cellid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->cellid(), output);
+  }
+  
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -671,6 +738,11 @@ void MsgSpreadManureReq::SerializeWithCachedSizes(
   // required int32 manurelevel = 1;
   if (has_manurelevel()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->manurelevel(), target);
+  }
+  
+  // required int32 cellid = 2;
+  if (has_cellid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->cellid(), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -689,6 +761,13 @@ int MsgSpreadManureReq::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->manurelevel());
+    }
+    
+    // required int32 cellid = 2;
+    if (has_cellid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->cellid());
     }
     
   }
@@ -721,6 +800,9 @@ void MsgSpreadManureReq::MergeFrom(const MsgSpreadManureReq& from) {
     if (from.has_manurelevel()) {
       set_manurelevel(from.manurelevel());
     }
+    if (from.has_cellid()) {
+      set_cellid(from.cellid());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -738,7 +820,7 @@ void MsgSpreadManureReq::CopyFrom(const MsgSpreadManureReq& from) {
 }
 
 bool MsgSpreadManureReq::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
   
   return true;
 }
@@ -746,6 +828,7 @@ bool MsgSpreadManureReq::IsInitialized() const {
 void MsgSpreadManureReq::Swap(MsgSpreadManureReq* other) {
   if (other != this) {
     std::swap(manurelevel_, other->manurelevel_);
+    std::swap(cellid_, other->cellid_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

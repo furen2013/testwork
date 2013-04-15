@@ -1,7 +1,7 @@
 #pragma once
 #ifndef PLAYERINFOMANAGER_H
 #define PLAYERINFOMANAGER_H
-class PlayerInfo;
+struct PlayerInfo;
 class PlayerInfoManager: public Singleton<PlayerInfoManager>
 {
 public:

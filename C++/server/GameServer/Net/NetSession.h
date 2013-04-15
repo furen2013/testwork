@@ -25,7 +25,6 @@ public:
 	~NetSession();
 	void sendMessage(::google::protobuf::Message* message, MsgType type);
 	void InitHandleTable();
-	inline void setFarm(FarmLogic* p){_farm = p;}
 	inline void setPlayer(Player* p){_player = p;}
 public:
 	void HandleFarmStateReq(MsgHead& Msg);
@@ -47,7 +46,6 @@ protected:
 	CGTSocket* _socket;
 	int _MsgNumber;
 	Player* _player;
-	FarmLogic* _farm;
 	OpcodeHandler WorldPacketHandlers[C2S_GSEnd - C2S_GSBegin];
 };
 

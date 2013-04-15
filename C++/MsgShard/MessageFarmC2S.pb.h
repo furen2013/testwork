@@ -172,17 +172,27 @@ class MsgSeedCellReq : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 seedlevel() const;
   inline void set_seedlevel(::google::protobuf::int32 value);
   
+  // required int32 cellid = 2;
+  inline bool has_cellid() const;
+  inline void clear_cellid();
+  static const int kCellidFieldNumber = 2;
+  inline ::google::protobuf::int32 cellid() const;
+  inline void set_cellid(::google::protobuf::int32 value);
+  
   // @@protoc_insertion_point(class_scope:MsgSeedCellReq)
  private:
   inline void set_has_seedlevel();
   inline void clear_has_seedlevel();
+  inline void set_has_cellid();
+  inline void clear_has_cellid();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   ::google::protobuf::int32 seedlevel_;
+  ::google::protobuf::int32 cellid_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
   
   friend void  protobuf_AddDesc_MessageFarmC2S_2eproto();
   friend void protobuf_AssignDesc_MessageFarmC2S_2eproto();
@@ -254,17 +264,27 @@ class MsgSpreadManureReq : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 manurelevel() const;
   inline void set_manurelevel(::google::protobuf::int32 value);
   
+  // required int32 cellid = 2;
+  inline bool has_cellid() const;
+  inline void clear_cellid();
+  static const int kCellidFieldNumber = 2;
+  inline ::google::protobuf::int32 cellid() const;
+  inline void set_cellid(::google::protobuf::int32 value);
+  
   // @@protoc_insertion_point(class_scope:MsgSpreadManureReq)
  private:
   inline void set_has_manurelevel();
   inline void clear_has_manurelevel();
+  inline void set_has_cellid();
+  inline void clear_has_cellid();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   ::google::protobuf::int32 manurelevel_;
+  ::google::protobuf::int32 cellid_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
   
   friend void  protobuf_AddDesc_MessageFarmC2S_2eproto();
   friend void protobuf_AssignDesc_MessageFarmC2S_2eproto();
@@ -470,6 +490,28 @@ inline void MsgSeedCellReq::set_seedlevel(::google::protobuf::int32 value) {
   seedlevel_ = value;
 }
 
+// required int32 cellid = 2;
+inline bool MsgSeedCellReq::has_cellid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgSeedCellReq::set_has_cellid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgSeedCellReq::clear_has_cellid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgSeedCellReq::clear_cellid() {
+  cellid_ = 0;
+  clear_has_cellid();
+}
+inline ::google::protobuf::int32 MsgSeedCellReq::cellid() const {
+  return cellid_;
+}
+inline void MsgSeedCellReq::set_cellid(::google::protobuf::int32 value) {
+  set_has_cellid();
+  cellid_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // MsgSpreadManureReq
@@ -494,6 +536,28 @@ inline ::google::protobuf::int32 MsgSpreadManureReq::manurelevel() const {
 inline void MsgSpreadManureReq::set_manurelevel(::google::protobuf::int32 value) {
   set_has_manurelevel();
   manurelevel_ = value;
+}
+
+// required int32 cellid = 2;
+inline bool MsgSpreadManureReq::has_cellid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgSpreadManureReq::set_has_cellid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgSpreadManureReq::clear_has_cellid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgSpreadManureReq::clear_cellid() {
+  cellid_ = 0;
+  clear_has_cellid();
+}
+inline ::google::protobuf::int32 MsgSpreadManureReq::cellid() const {
+  return cellid_;
+}
+inline void MsgSpreadManureReq::set_cellid(::google::protobuf::int32 value) {
+  set_has_cellid();
+  cellid_ = value;
 }
 
 // -------------------------------------------------------------------

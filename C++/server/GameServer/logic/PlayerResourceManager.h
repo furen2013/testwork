@@ -1,7 +1,7 @@
 #pragma once
 #ifndef PLAYERRESOURCEMANAGER_H
 #define PLAYERRESOURCEMANAGER_H
-class PlayerResource;
+struct PlayerResource;
 class PlayerResourceManager : public Singleton<PlayerResourceManager>
 {
 public:

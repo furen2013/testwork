@@ -10,6 +10,7 @@
 #include "technology/Technology.h"
 #include "farm/FarmManager.h"
 #include "../Net/NetSession.h"
+#include "farm/FarmLogic.h"
 //#include "MyLog.h"
 Player::Player()
 {
@@ -44,11 +45,7 @@ void Player::LoadFromDBProc(QueryResultVector & results)
 	if (_farm == NULL)
 	{
 		_farm = FarmManager::getSingleton().GetFarmLogic(getTempAccount());
-		if (_farm)
-		{
-			_session->setFarm(_farm);
-		}
-		else
+		if (!_farm)
 		{
 			MyLog::log->warn("can not find farm ,player load failed.");
 		}

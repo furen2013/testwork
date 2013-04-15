@@ -3,7 +3,7 @@
 #define TECHNOLOGY_H
 #include "TypeDef.h"
 extern 	enum enTechResult;
-class techconf;
+struct techconf;
 struct TechInfo
 {
 	int id;

@@ -9,8 +9,8 @@ PloughCell::PloughCell()
 	_waterPercentage = _waterPercentageMax;
 	_decreaseWaterPerHour = 1;
 	_manurelevel = 0;
-	
-	BecomeSeeding();
+	enType =  growstate_null;
+	//BecomeSeeding();
 
 }
 PloughCell::~PloughCell()
@@ -70,11 +70,14 @@ bool PloughCell::LoadFromString(string sz)
 
 void PloughCell::BecomeYoung()
 {
+	if (enType != growstate_seeding)
+	{
+	
+	}
 	changeState();
 	enType = growstate_young;
-	
 	EventMgr::getSingleton().AddEvent(this,&PloughCell::BecomeGrown, PLOUGHCELL_BECOME_GROWN, time[growstate_grown], 0, 0);
-
+	
 }
 
 void PloughCell::BecomeGrown()
@@ -83,11 +86,17 @@ void PloughCell::BecomeGrown()
 	enType = growstate_grown;
 }
 
-void PloughCell::BecomeSeeding()
+bool PloughCell::BecomeSeeding(int seedlevel)
 {
+	if (enType != growstate_null)
+	{
+		return false;
+	}
 	changeState();
 	enType = growstate_seeding;
+	_seedLevel = seedlevel;
 	EventMgr::getSingleton().AddEvent(this,&PloughCell::BecomeYoung, PLOUGHCELL_BECOME_YOUNG, time[growstate_young], 0, 0);
+	return true;
 }
 
 void PloughCell::DecreaseWaterPercentagePerHour()
@@ -102,6 +111,16 @@ void PloughCell::DecreaseWaterPercentagePerHour()
 void PloughCell::WateringCell()
 {
 	_waterPercentage = _waterPercentageMax;
+}
+
+bool PloughCell::SpreadManure(int Manurelevel)
+{
+	if (_manurelevel != 0)
+	{
+		return false;
+	}
+	_manurelevel = Manurelevel;
+	return true;
 }
 
 

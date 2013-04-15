@@ -64,7 +64,7 @@ void NetParser::ParseMessage(const message_t& msg, CGTSocket* pSocket)
 			NetSession* pSession = NetSessionManager::getSingleton().FindSession(Msghead.account());
 			if (pSession)
 			{
-				pSession->GetMsgOpcodeHandler()
+				//pSession->GetMsgOpcodeHandler()
 			}
 		}
 	}

@@ -9,11 +9,13 @@ message MsgFarmStateReq
 message MsgSeedCellReq
 {
 	required int32 seedlevel = 1;
+	required int32 cellid = 2;
 }
 
 message MsgSpreadManureReq
 {
 	required int32 manurelevel = 1;
+	required int32 cellid = 2;
 }
 
 message MsgGatherPloughCellReq
@@ -24,4 +26,5 @@ message MsgGatherPloughCellReq
 message MsgWaterCellReq
 {
 	required int32 cellid = 1;
+
 }

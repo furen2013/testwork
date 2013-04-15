@@ -7,7 +7,7 @@ class NetSession;
 class Technology;
 class FarmLogic;
 enum enSeedType
-{
+{	SeedType_NULL,
 	SeedType_Copper,
 	SeedType_Silver,
 	SeedType_Gold,
@@ -31,13 +31,22 @@ struct PlayerResource
 {
 	PlayerResource()
 	{
-
+		_account = 0;
+		_gold = 0;
+		_ruby = 0;
+		_manure = 0;
+		_petfood = 0;
+		for (int i = 0; i < SeedType_Max; i ++)
+		{
+			_seeds[i] = 0;
+		}
 	}
 	DWORD _account;
-	int _gold;
-	int _ruby;
-	int _manure;
-	int _seeds[SeedType_Max];
+	int32 _gold;
+	int32 _ruby;
+	int32 _manure;
+	int32 _seeds[SeedType_Max];
+	int32 _petfood;
 };
 
 class Player : public Unit
@@ -65,10 +74,19 @@ public:
 	}
 	inline void setPlayerInfo(PlayerInfo* info){_Info = info;}
 	inline void setPlayerResource(PlayerResource* resource){_PlayerResource = resource;}
-public:
-	void gatherFarm(int cell, DWORD account);
-	void spreadManure(int Manurelevel);
+public: // farm
+	void spreadManure(int cellid, int Spreadmanure);
+	void gatherPloughCell(int id);
+	void wateringCell(int id);
 	void sendFarmState();
+	void seedCell(int id, int seedlevel);
+public:
+	inline FarmLogic* getFarm(){return _farm;}
+	inline Technology* getTechnology(){return _technology;}	
+	inline NetSession* getNetSession(){return _session;}
+	inline PlayerResource* getResource(){return _PlayerResource;}
+
+
 protected:
 	PlayerInfo* _Info;
 	PlayerResource* _PlayerResource;
