@@ -33,6 +33,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MsgApplyAddTechInfoACK_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgApplyAddTechInfoACK_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgAddTechValueACK_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgAddTechValueACK_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* enTechnologyResult_descriptor_ = NULL;
 
 }  // namespace
@@ -140,6 +143,22 @@ void protobuf_AssignDesc_MessageTechnologyG2C_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MsgApplyAddTechInfoACK));
+  MsgAddTechValueACK_descriptor_ = file->message_type(6);
+  static const int MsgAddTechValueACK_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgAddTechValueACK, currentvalue_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgAddTechValueACK, en_),
+  };
+  MsgAddTechValueACK_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MsgAddTechValueACK_descriptor_,
+      MsgAddTechValueACK::default_instance_,
+      MsgAddTechValueACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgAddTechValueACK, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgAddTechValueACK, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MsgAddTechValueACK));
   enTechnologyResult_descriptor_ = file->enum_type(0);
 }
 
@@ -165,6 +184,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     MsgOpenTechLevelACK_descriptor_, &MsgOpenTechLevelACK::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     MsgApplyAddTechInfoACK_descriptor_, &MsgApplyAddTechInfoACK::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MsgAddTechValueACK_descriptor_, &MsgAddTechValueACK::default_instance());
 }
 
 }  // namespace
@@ -182,6 +203,8 @@ void protobuf_ShutdownFile_MessageTechnologyG2C_2eproto() {
   delete MsgOpenTechLevelACK_reflection_;
   delete MsgApplyAddTechInfoACK::default_instance_;
   delete MsgApplyAddTechInfoACK_reflection_;
+  delete MsgAddTechValueACK::default_instance_;
+  delete MsgAddTechValueACK_reflection_;
 }
 
 void protobuf_AddDesc_MessageTechnologyG2C_2eproto() {
@@ -203,11 +226,17 @@ void protobuf_AddDesc_MessageTechnologyG2C_2eproto() {
     "\0162\023.enTechnologyResult\"e\n\026MsgApplyAddTec"
     "hInfoACK\022\r\n\005level\030\001 \002(\005\022\n\n\002id\030\002 \002(\005\022\017\n\007c"
     "urrent\030\003 \002(\005\022\037\n\002en\030\004 \002(\0162\023.enTechnologyR"
-    "esult*\232\001\n\022enTechnologyResult\022\021\n\rTechnolo"
-    "gy_OK\020\000\022\037\n\033Technology_ErrorNotFindLvel\020\001"
-    "\022#\n\037Technology_ErrorNotFindTechInfo\020\002\022+\n"
-    "\'Technology_ErrorNotEnoughMoneyOpenLevel"
-    "\020\003", 602);
+    "esult\"K\n\022MsgAddTechValueACK\022\024\n\014currentva"
+    "lue\030\001 \002(\005\022\037\n\002en\030\002 \002(\0162\023.enTechnologyResu"
+    "lt*\334\002\n\022enTechnologyResult\022\021\n\rTechnology_"
+    "OK\020\000\022 \n\034Technology_ErrorNotFindLevel\020\001\022#"
+    "\n\037Technology_ErrorNotFindTechInfo\020\002\022+\n\'T"
+    "echnology_ErrorNotEnoughMoneyOpenLevel\020\003"
+    "\022)\n%Technology_ErrorNotEnoughValueAddTec"
+    "h\020\004\022)\n%Technology_ErrorNotEnoughNotFound"
+    "User\020\005\022\"\n\036Technology_ErrorNotHaveReqTech"
+    "\020\006\022\037\n\033Technology_ErrorNotHaveTech\020\007\022$\n T"
+    "echnology_ErrorAlreadyHaveLevel\020\010", 873);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageTechnologyG2C.proto", &protobuf_RegisterTypes);
   MsgTechInfo::default_instance_ = new MsgTechInfo();
@@ -216,12 +245,14 @@ void protobuf_AddDesc_MessageTechnologyG2C_2eproto() {
   MsgTechnologyStateACK::default_instance_ = new MsgTechnologyStateACK();
   MsgOpenTechLevelACK::default_instance_ = new MsgOpenTechLevelACK();
   MsgApplyAddTechInfoACK::default_instance_ = new MsgApplyAddTechInfoACK();
+  MsgAddTechValueACK::default_instance_ = new MsgAddTechValueACK();
   MsgTechInfo::default_instance_->InitAsDefaultInstance();
   MsgTechLevelInfo::default_instance_->InitAsDefaultInstance();
   MsgTechnologyInfo::default_instance_->InitAsDefaultInstance();
   MsgTechnologyStateACK::default_instance_->InitAsDefaultInstance();
   MsgOpenTechLevelACK::default_instance_->InitAsDefaultInstance();
   MsgApplyAddTechInfoACK::default_instance_->InitAsDefaultInstance();
+  MsgAddTechValueACK::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_MessageTechnologyG2C_2eproto);
 }
 
@@ -242,6 +273,11 @@ bool enTechnologyResult_IsValid(int value) {
     case 1:
     case 2:
     case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
       return true;
     default:
       return false;
@@ -1753,6 +1789,260 @@ void MsgApplyAddTechInfoACK::Swap(MsgApplyAddTechInfoACK* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = MsgApplyAddTechInfoACK_descriptor_;
   metadata.reflection = MsgApplyAddTechInfoACK_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgAddTechValueACK::kCurrentvalueFieldNumber;
+const int MsgAddTechValueACK::kEnFieldNumber;
+#endif  // !_MSC_VER
+
+MsgAddTechValueACK::MsgAddTechValueACK()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MsgAddTechValueACK::InitAsDefaultInstance() {
+}
+
+MsgAddTechValueACK::MsgAddTechValueACK(const MsgAddTechValueACK& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MsgAddTechValueACK::SharedCtor() {
+  _cached_size_ = 0;
+  currentvalue_ = 0;
+  en_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgAddTechValueACK::~MsgAddTechValueACK() {
+  SharedDtor();
+}
+
+void MsgAddTechValueACK::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgAddTechValueACK::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgAddTechValueACK::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgAddTechValueACK_descriptor_;
+}
+
+const MsgAddTechValueACK& MsgAddTechValueACK::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_MessageTechnologyG2C_2eproto();  return *default_instance_;
+}
+
+MsgAddTechValueACK* MsgAddTechValueACK::default_instance_ = NULL;
+
+MsgAddTechValueACK* MsgAddTechValueACK::New() const {
+  return new MsgAddTechValueACK;
+}
+
+void MsgAddTechValueACK::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    currentvalue_ = 0;
+    en_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MsgAddTechValueACK::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 currentvalue = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &currentvalue_)));
+          set_has_currentvalue();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_en;
+        break;
+      }
+      
+      // required .enTechnologyResult en = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_en:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (enTechnologyResult_IsValid(value)) {
+            set_en(static_cast< enTechnologyResult >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(2, value);
+          }
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void MsgAddTechValueACK::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 currentvalue = 1;
+  if (has_currentvalue()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->currentvalue(), output);
+  }
+  
+  // required .enTechnologyResult en = 2;
+  if (has_en()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      2, this->en(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MsgAddTechValueACK::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 currentvalue = 1;
+  if (has_currentvalue()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->currentvalue(), target);
+  }
+  
+  // required .enTechnologyResult en = 2;
+  if (has_en()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      2, this->en(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MsgAddTechValueACK::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 currentvalue = 1;
+    if (has_currentvalue()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->currentvalue());
+    }
+    
+    // required .enTechnologyResult en = 2;
+    if (has_en()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->en());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgAddTechValueACK::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MsgAddTechValueACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgAddTechValueACK*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgAddTechValueACK::MergeFrom(const MsgAddTechValueACK& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_currentvalue()) {
+      set_currentvalue(from.currentvalue());
+    }
+    if (from.has_en()) {
+      set_en(from.en());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MsgAddTechValueACK::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgAddTechValueACK::CopyFrom(const MsgAddTechValueACK& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgAddTechValueACK::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  
+  return true;
+}
+
+void MsgAddTechValueACK::Swap(MsgAddTechValueACK* other) {
+  if (other != this) {
+    std::swap(currentvalue_, other->currentvalue_);
+    std::swap(en_, other->en_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MsgAddTechValueACK::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgAddTechValueACK_descriptor_;
+  metadata.reflection = MsgAddTechValueACK_reflection_;
   return metadata;
 }
 

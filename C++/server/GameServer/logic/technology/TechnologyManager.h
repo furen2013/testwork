@@ -62,9 +62,9 @@ public:
 	enTechResult AddTechCount(DWORD account, int level, int id, int count = 1);
 	enTechResult OpenTechLevel(DWORD account, int level);
 	Technology* GetTech(DWORD account); // if null create it
-
-protected:
 	const techLevelconf* FindTechConfLevel(int level);
+protected:
+	
 
 protected:
 	maptechLevelconf  _techLevelconfs;

@@ -37,16 +37,22 @@ class MsgTechnologyInfo;
 class MsgTechnologyStateACK;
 class MsgOpenTechLevelACK;
 class MsgApplyAddTechInfoACK;
+class MsgAddTechValueACK;
 
 enum enTechnologyResult {
   Technology_OK = 0,
-  Technology_ErrorNotFindLvel = 1,
+  Technology_ErrorNotFindLevel = 1,
   Technology_ErrorNotFindTechInfo = 2,
-  Technology_ErrorNotEnoughMoneyOpenLevel = 3
+  Technology_ErrorNotEnoughMoneyOpenLevel = 3,
+  Technology_ErrorNotEnoughValueAddTech = 4,
+  Technology_ErrorNotEnoughNotFoundUser = 5,
+  Technology_ErrorNotHaveReqTech = 6,
+  Technology_ErrorNotHaveTech = 7,
+  Technology_ErrorAlreadyHaveLevel = 8
 };
 bool enTechnologyResult_IsValid(int value);
 const enTechnologyResult enTechnologyResult_MIN = Technology_OK;
-const enTechnologyResult enTechnologyResult_MAX = Technology_ErrorNotEnoughMoneyOpenLevel;
+const enTechnologyResult enTechnologyResult_MAX = Technology_ErrorAlreadyHaveLevel;
 const int enTechnologyResult_ARRAYSIZE = enTechnologyResult_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* enTechnologyResult_descriptor();
@@ -618,6 +624,98 @@ class MsgApplyAddTechInfoACK : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static MsgApplyAddTechInfoACK* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class MsgAddTechValueACK : public ::google::protobuf::Message {
+ public:
+  MsgAddTechValueACK();
+  virtual ~MsgAddTechValueACK();
+  
+  MsgAddTechValueACK(const MsgAddTechValueACK& from);
+  
+  inline MsgAddTechValueACK& operator=(const MsgAddTechValueACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgAddTechValueACK& default_instance();
+  
+  void Swap(MsgAddTechValueACK* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgAddTechValueACK* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgAddTechValueACK& from);
+  void MergeFrom(const MsgAddTechValueACK& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required int32 currentvalue = 1;
+  inline bool has_currentvalue() const;
+  inline void clear_currentvalue();
+  static const int kCurrentvalueFieldNumber = 1;
+  inline ::google::protobuf::int32 currentvalue() const;
+  inline void set_currentvalue(::google::protobuf::int32 value);
+  
+  // required .enTechnologyResult en = 2;
+  inline bool has_en() const;
+  inline void clear_en();
+  static const int kEnFieldNumber = 2;
+  inline enTechnologyResult en() const;
+  inline void set_en(enTechnologyResult value);
+  
+  // @@protoc_insertion_point(class_scope:MsgAddTechValueACK)
+ private:
+  inline void set_has_currentvalue();
+  inline void clear_has_currentvalue();
+  inline void set_has_en();
+  inline void clear_has_en();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::int32 currentvalue_;
+  int en_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageTechnologyG2C_2eproto();
+  friend void protobuf_AssignDesc_MessageTechnologyG2C_2eproto();
+  friend void protobuf_ShutdownFile_MessageTechnologyG2C_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgAddTechValueACK* default_instance_;
+};
 // ===================================================================
 
 
@@ -919,6 +1017,55 @@ inline enTechnologyResult MsgApplyAddTechInfoACK::en() const {
   return static_cast< enTechnologyResult >(en_);
 }
 inline void MsgApplyAddTechInfoACK::set_en(enTechnologyResult value) {
+  GOOGLE_DCHECK(enTechnologyResult_IsValid(value));
+  set_has_en();
+  en_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MsgAddTechValueACK
+
+// required int32 currentvalue = 1;
+inline bool MsgAddTechValueACK::has_currentvalue() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgAddTechValueACK::set_has_currentvalue() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgAddTechValueACK::clear_has_currentvalue() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgAddTechValueACK::clear_currentvalue() {
+  currentvalue_ = 0;
+  clear_has_currentvalue();
+}
+inline ::google::protobuf::int32 MsgAddTechValueACK::currentvalue() const {
+  return currentvalue_;
+}
+inline void MsgAddTechValueACK::set_currentvalue(::google::protobuf::int32 value) {
+  set_has_currentvalue();
+  currentvalue_ = value;
+}
+
+// required .enTechnologyResult en = 2;
+inline bool MsgAddTechValueACK::has_en() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgAddTechValueACK::set_has_en() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgAddTechValueACK::clear_has_en() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgAddTechValueACK::clear_en() {
+  en_ = 0;
+  clear_has_en();
+}
+inline enTechnologyResult MsgAddTechValueACK::en() const {
+  return static_cast< enTechnologyResult >(en_);
+}
+inline void MsgAddTechValueACK::set_en(enTechnologyResult value) {
   GOOGLE_DCHECK(enTechnologyResult_IsValid(value));
   set_has_en();
   en_ = value;

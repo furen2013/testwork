@@ -111,6 +111,7 @@
     <ClCompile Include="logic\PlayerFarmLogic.cpp" />
     <ClCompile Include="logic\PlayerManager.cpp" />
     <ClCompile Include="logic\PlayerResourceManager.cpp" />
+    <ClCompile Include="logic\PlayerTechnology.cpp" />
     <ClCompile Include="logic\technology\Technology.cpp" />
     <ClCompile Include="logic\technology\TechnologyManager.cpp" />
     <ClCompile Include="logic\Unit.cpp" />

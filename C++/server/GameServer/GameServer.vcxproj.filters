@@ -149,5 +149,8 @@
     <ClCompile Include="Net\NetSessionTechnology.cpp">
       <Filter>Net</Filter>
     </ClCompile>
+    <ClCompile Include="logic\PlayerTechnology.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

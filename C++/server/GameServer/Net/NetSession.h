@@ -37,6 +37,7 @@ public:
 	void HandleTechnologyStateReq(MsgHead& Msg);
 	void HandleTechLevelReq(MsgHead& Msg);
 	void HandleApplyAddTechInfoReq(MsgHead& Msg);
+	void HandleAddTechValueReq(MsgHead& Msg);
 
 	
 protected:

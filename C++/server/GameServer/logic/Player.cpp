@@ -101,7 +101,7 @@ void Player::LoadFromDBProc(QueryResultVector & results)
 	}
 
 
-	getSession()->sendMessage(&Msg, MsgType::GS2Client_GS2GateLoginOKACK);
+	getSession()->sendMessage(&Msg, GS2Client_GS2GateLoginOKACK);
 	_session->setPlayer(this);
 
 
@@ -196,4 +196,12 @@ void Player::setAccount(DWORD account)
 DWORD Player::getTempAccount()
 {
 	return _TempAccount;
+}
+
+void Player::sendMessage(::google::protobuf::Message* message, MsgType type)
+{
+	if(_session)
+	{
+		_session->sendMessage(message, type);
+	}
 }

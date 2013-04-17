@@ -4,6 +4,7 @@
 #include "TypeDef.h"
 extern 	enum enTechResult;
 struct techconf;
+class Player;
 struct TechInfo
 {
 	int id;
@@ -30,9 +31,8 @@ public:
 	bool IsHaveTechLevel(int level);
 	int GetTechCount(int level,int id);
 	int GetTechValue();
-	enTechResult addTech(int level, int id, int ncount, const techconf* pconf);
-	bool addTechValue(int nValue);
-	bool openTechLevel(int level);
+	
+
 	bool LoadFromStr(string str);
 	inline void setAccount(DWORD account){_account = account;}
 	inline DWORD getAccount(){return _account;}
@@ -40,12 +40,20 @@ public:
 	inline const int GetTechvalue(){return _techvalue;}
 	maptechlevel::const_iterator itTechBegin();
 	maptechlevel::const_iterator itTechEnd();
-
-	
+public:
+	void sendTechnologyState();
+	void addTechValue(int Techvalue);
+	void openTechLevel(int level);
+	void addTech(int level, int id, int count = 1);
+protected:
+	bool _addTechValue(int nValue);
+	bool _openTechLevel(int level);
+	void _addTech(int level, int id, int ncount, const techconf* pconf);
 protected:
 	maptechlevel _techlevels;
 	DWORD _account;
 	volatile int _techvalue;
+	Player* _player;
 
 };
 

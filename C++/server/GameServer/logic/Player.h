@@ -2,10 +2,12 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "Unit.h"
+#include "MsgHead.pb.h"
 class Database;
 class NetSession;
 class Technology;
 class FarmLogic;
+
 enum enSeedType
 {	SeedType_NULL,
 	SeedType_Copper,
@@ -80,6 +82,15 @@ public: // farm
 	void wateringCell(int id);
 	void sendFarmState();
 	void seedCell(int id, int seedlevel);
+public: //technology
+	void sendTechnologyState();
+	void openTechLevel(int level);
+	void addTechValue(int value);
+	void addTechInfo(int level, int id, int count = 1);
+public:
+	void sendMessage(::google::protobuf::Message* message, MsgType type);
+	
+
 public:
 	inline FarmLogic* getFarm(){return _farm;}
 	inline Technology* getTechnology(){return _technology;}	

@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Technology.h"
 #include "TechnologyManager.h"
+#include "MessageTechnologyG2C.pb.h"
+#include "../Player.h"
 #include "Util.h"
 #include "boost/lexical_cast.hpp"
 
@@ -13,6 +15,7 @@ Technology::~Technology()
 {
 
 }
+
 
 
 
@@ -74,12 +77,85 @@ bool Technology::LoadFromStr(string str)
 
 	return true;
 }
+void Technology::addTechValue(int Techvalue)
+{	
+	if (_player)
+	{
+		_addTechValue(Techvalue);
+		MsgAddTechValueACK ACK;
+		ACK.set_en(Technology_OK);
+		ACK.set_currentvalue(_techvalue);
+		_player->sendMessage(&ACK, GS2C_MsgAddTechValueACK);
+	}
+	
+	
+	
+}
+void Technology::openTechLevel(int level)
+{
+	if (_player)
+	{
 
-bool Technology::openTechLevel(int level)
+		MsgOpenTechLevelACK ACK;
+		const techLevelconf* pconf = TechnologyManager::getSingleton().FindTechConfLevel(level);
+		ACK.set_level(level);
+		if (pconf == NULL)
+		{
+			ACK.set_en(Technology_ErrorNotFindLevel);
+			ACK.set_level(level);
+		}
+		else
+		{
+
+			if (_openTechLevel(level))
+			{
+				ACK.set_en(Technology_OK);
+			}
+			else
+			{
+				ACK.set_en(Technology_ErrorAlreadyHaveLevel);
+			}
+		}
+		_player->sendMessage(&ACK, GS2C_MsgOpenTechLevelACK);
+	}
+	
+}
+void Technology::addTech(int level, int id, int count)
+{
+	MsgApplyAddTechInfoACK ack;
+	ack.set_level(level);
+	ack.set_id(id);
+	ack.set_en(Technology_OK);
+	const techLevelconf* pconf = TechnologyManager::getSingleton().FindTechConfLevel(level);
+	if (pconf == NULL)
+	{
+		ack.set_en(Technology_ErrorNotFindLevel);
+	}
+	else
+	{
+
+		techLevelconf::maptechinfo::const_iterator itconf = pconf->techinfos.find(id);
+		if (itconf == pconf->techinfos.end())
+		{
+			ack.set_en(Technology_ErrorNotHaveTech);
+		}
+		else
+		{
+			_addTech(level, id, count, itconf->second);
+		}
+	}
+
+	if (ack.en() != Technology_OK)
+	{
+		_player->sendMessage(&ack, GS2C_MsgApplyAddTechInfoACK);
+	}
+	
+}
+bool Technology::_openTechLevel(int level)
 {
 	bool b = true;
 	maptechlevel::iterator it = _techlevels.find(level);
-	if (it == _techlevels.end())
+	if (it != _techlevels.end())
 	{
 		b = false;
 	}
@@ -122,71 +198,110 @@ int Technology::GetTechValue()
 	return _techvalue;
 }
 
-bool Technology::addTechValue(int nValue)
+bool Technology::_addTechValue(int nValue)
 {
 	_techvalue = nValue;
 	return true;
 }
 
-enTechResult Technology::addTech(int level, int id, int ncount,  const techconf* pconf )
+
+
+void Technology::_addTech(int level, int id, int ncount,  const techconf* pconf )
 {
-	enTechResult en = TechResult_OK;
-	maptechlevel::iterator it = _techlevels.find(level);
-	if (it == _techlevels.end())
+	if (_player)
 	{
-		en = TechResult_NotHaveTechLevel;
-	}
-	else
-	{
-		TechLevel* pTechLevel = it->second;
-		if (_techvalue < ncount)
+		MsgApplyAddTechInfoACK ACK;
+		ACK.set_level( level);
+		ACK.set_id(id);
+		ACK.set_en(Technology_OK);
+		maptechlevel::iterator it = _techlevels.find(level);
+		if (it == _techlevels.end())
 		{
-			en = TechResult_NotHaveOwnerTechValue;
+			ACK.set_en(Technology_ErrorNotFindLevel);
 		}
 		else
 		{
-			techconf::vcreqtechs::const_iterator ittechs = pconf->reqtechs.begin();
-			for (; ittechs != pconf->reqtechs.end(); ++ ittechs)
+			TechLevel* pTechLevel = it->second;
+			if (_techvalue < ncount)
+			{		
+				ACK.set_en(Technology_ErrorNotEnoughValueAddTech);
+			}
+			else
 			{
-				reqtech* preqtech = (*ittechs);
-				TechLevel::maptechinfo::iterator itInfos= pTechLevel->TechInfos.find(preqtech->id);
-				if (itInfos == pTechLevel->TechInfos.end())
+				techconf::vcreqtechs::const_iterator ittechs = pconf->reqtechs.begin();
+				for (; ittechs != pconf->reqtechs.end(); ++ ittechs)
 				{
-					en = TechResult_NotHaveReqTech;
-					break;
-				}
-				else
-				{
-					TechInfo* pcurrentinfo = itInfos->second;
-					if (pcurrentinfo->currentCount < preqtech->reqcount)
+					reqtech* preqtech = (*ittechs);
+					TechLevel::maptechinfo::iterator itInfos= pTechLevel->TechInfos.find(preqtech->id);
+					if (itInfos == pTechLevel->TechInfos.end())
 					{
-						en = TechResult_NotHaveReqTech;
+						ACK.set_en(Technology_ErrorNotHaveReqTech);
 						break;
 					}
+					else
+					{
+						TechInfo* pcurrentinfo = itInfos->second;
+						if (pcurrentinfo->currentCount < preqtech->reqcount)
+						{
+							ACK.set_en(Technology_ErrorNotHaveReqTech);
+							break;
+						}
+					}
 				}
-			}
 
-			if (en == TechResult_OK)
-			{
-				TechInfo* info = NULL;
-				TechLevel::maptechinfo::iterator itinfo = pTechLevel->TechInfos.find(id);
-				if (itinfo == pTechLevel->TechInfos.end())
+				if (ACK.en() == Technology_OK)
 				{
-					info = new TechInfo;
-					info->id = id;
-					pTechLevel->TechInfos.insert(TechLevel::maptechinfo::value_type(id, info));
+					TechInfo* info = NULL;
+					TechLevel::maptechinfo::iterator itinfo = pTechLevel->TechInfos.find(id);
+					if (itinfo == pTechLevel->TechInfos.end())
+					{
+						info = new TechInfo;
+						info->id = id;
+						pTechLevel->TechInfos.insert(TechLevel::maptechinfo::value_type(id, info));
+					}
+					else
+					{
+						info = itinfo->second;
+					}
+					info->currentCount += ncount;
+					_techvalue -= ncount;
+
+					ACK.set_current(info->currentCount);
 				}
-				else
-				{
-					info = itinfo->second;
-				}
-				info->currentCount += ncount;
-				_techvalue -= ncount;
 			}
 		}
+		_player->sendMessage(&ACK, GS2C_MsgApplyAddTechInfoACK);
 	}
+	
 
-	return en;
+}
+
+void Technology::sendTechnologyState()
+{
+
+	if (_player)
+	{
+		MsgTechnologyStateACK ACK;
+		MsgTechnologyInfo* info = ACK.mutable_info();
+		maptechlevel::const_iterator it = itTechBegin();
+		for (; it != itTechEnd(); ++ it)
+		{
+			TechLevel* level = it->second;
+			MsgTechLevelInfo* levelinfo = info->add_levels();
+			levelinfo->set_level(level->level);
+			TechLevel::maptechinfo::iterator Infoit = level->TechInfos.begin();
+			for (; Infoit != level->TechInfos.end(); ++ Infoit)
+			{
+				TechInfo* techInfo = Infoit->second;
+				MsgTechInfo* Info = levelinfo->add_techs();
+				Info->set_id(techInfo->id);
+				Info->set_currentcount(techInfo->currentCount);
+			}
+		}
+		_player->sendMessage(&ACK, GS2C_MsgTechnologyStateACK);
+	}
+	
+
 }
 
 Technology::maptechlevel::const_iterator Technology::itTechBegin()
@@ -198,3 +313,5 @@ Technology::maptechlevel::const_iterator Technology::itTechEnd()
 {
 	return _techlevels.end();
 }
+
+

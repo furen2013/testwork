@@ -34,6 +34,7 @@ void protobuf_ShutdownFile_MessageTechnologyC2S_2eproto();
 class MsgTechnologyStateReq;
 class MsgOpenTechLevelReq;
 class MsgApplyAddTechInfoReq;
+class MsgAddTechValueReq;
 
 // ===================================================================
 
@@ -291,6 +292,88 @@ class MsgApplyAddTechInfoReq : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static MsgApplyAddTechInfoReq* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class MsgAddTechValueReq : public ::google::protobuf::Message {
+ public:
+  MsgAddTechValueReq();
+  virtual ~MsgAddTechValueReq();
+  
+  MsgAddTechValueReq(const MsgAddTechValueReq& from);
+  
+  inline MsgAddTechValueReq& operator=(const MsgAddTechValueReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgAddTechValueReq& default_instance();
+  
+  void Swap(MsgAddTechValueReq* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgAddTechValueReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgAddTechValueReq& from);
+  void MergeFrom(const MsgAddTechValueReq& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required int32 count = 1;
+  inline bool has_count() const;
+  inline void clear_count();
+  static const int kCountFieldNumber = 1;
+  inline ::google::protobuf::int32 count() const;
+  inline void set_count(::google::protobuf::int32 value);
+  
+  // @@protoc_insertion_point(class_scope:MsgAddTechValueReq)
+ private:
+  inline void set_has_count();
+  inline void clear_has_count();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::int32 count_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageTechnologyC2S_2eproto();
+  friend void protobuf_AssignDesc_MessageTechnologyC2S_2eproto();
+  friend void protobuf_ShutdownFile_MessageTechnologyC2S_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgAddTechValueReq* default_instance_;
+};
 // ===================================================================
 
 
@@ -392,6 +475,32 @@ inline ::google::protobuf::int32 MsgApplyAddTechInfoReq::addcount() const {
 inline void MsgApplyAddTechInfoReq::set_addcount(::google::protobuf::int32 value) {
   set_has_addcount();
   addcount_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MsgAddTechValueReq
+
+// required int32 count = 1;
+inline bool MsgAddTechValueReq::has_count() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgAddTechValueReq::set_has_count() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgAddTechValueReq::clear_has_count() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgAddTechValueReq::clear_count() {
+  count_ = 0;
+  clear_has_count();
+}
+inline ::google::protobuf::int32 MsgAddTechValueReq::count() const {
+  return count_;
+}
+inline void MsgAddTechValueReq::set_count(::google::protobuf::int32 value) {
+  set_has_count();
+  count_ = value;
 }
 
 

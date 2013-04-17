@@ -25,9 +25,14 @@ message MsgTechnologyStateACK
 enum enTechnologyResult
 {
 	Technology_OK								= 0;
-	Technology_ErrorNotFindLvel					= 1;
+	Technology_ErrorNotFindLevel				= 1;
 	Technology_ErrorNotFindTechInfo				= 2;
 	Technology_ErrorNotEnoughMoneyOpenLevel		= 3;
+	Technology_ErrorNotEnoughValueAddTech		= 4;
+	Technology_ErrorNotEnoughNotFoundUser		= 5;
+	Technology_ErrorNotHaveReqTech				= 6;
+	Technology_ErrorNotHaveTech					= 7;
+	Technology_ErrorAlreadyHaveLevel			= 8;
 }
 message MsgOpenTechLevelACK
 {
@@ -41,4 +46,10 @@ message MsgApplyAddTechInfoACK
 	required int32 id					= 2;
 	required int32 current				= 3;
 	required enTechnologyResult en		= 4;
+}
+
+message MsgAddTechValueACK
+{
+	required int32 currentvalue				= 1;
+	required enTechnologyResult en			= 2;
 }

@@ -17,3 +17,8 @@ message MsgApplyAddTechInfoReq
 	required int32 id			= 2;
 	required int32 addcount		= 3;
 }
+
+message MsgAddTechValueReq
+{
+	required int32 count		= 1;
+}

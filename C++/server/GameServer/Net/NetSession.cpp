@@ -45,7 +45,7 @@ void NetSession::InitHandleTable()
 	GetMsgOpcodeHandler(C2S_MsgTechnologyStateReq)->handler = &NetSession::HandleTechnologyStateReq;
 	GetMsgOpcodeHandler(C2S_MsgOpenTechLevelReq)->handler = &NetSession::HandleTechLevelReq;
 	GetMsgOpcodeHandler(C2S_MsgApplyAddTechInfoReq)->handler = &NetSession::HandleTechnologyStateReq;
-	
+	GetMsgOpcodeHandler(C2S_MsgAddTechValueReq)->handler = &NetSession::HandleAddTechValueReq;
 	
 }
 
