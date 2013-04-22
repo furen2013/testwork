@@ -9,9 +9,10 @@
 #include "MyLog.h"
 
 FarmLogic::FarmLogic()
+	:_allowBuildWaterWay(false),
+	_modify(true),
+	_allowBuildMill(false)
 {
-	//_NetSession = NULL;
-	_modify = true;
 }
 
 FarmLogic::~FarmLogic()

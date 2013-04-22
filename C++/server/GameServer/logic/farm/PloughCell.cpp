@@ -2,6 +2,8 @@
 #include "PloughCell.h"
 #include "EventMgr.h"
 #include "boost/lexical_cast.hpp"
+#include "PloughWaterWay.h"
+#include "PloughMill.h"
 
 PloughCell::PloughCell()
 {
@@ -10,6 +12,9 @@ PloughCell::PloughCell()
 	_decreaseWaterPerHour = 1;
 	_manurelevel = 0;
 	enType =  growstate_null;
+	_farm = NULL;
+	_mill = NULL;
+	_WaterWay = NULL;
 	//BecomeSeeding();
 
 }
@@ -101,7 +106,14 @@ bool PloughCell::BecomeSeeding(int seedlevel)
 
 void PloughCell::DecreaseWaterPercentagePerHour()
 {
-	int32 currentwater =_waterPercentage - _decreaseWaterPerHour;
+	int decreasePerHour = _decreaseWaterPerHour;
+	if (_WaterWay)
+	{
+		decreasePerHour = _WaterWay->DecreaseWater(decreasePerHour);
+	}
+	
+	int32 currentwater =_waterPercentage - decreasePerHour;
+
 	if (currentwater > 0)
 	{
 		_waterPercentage = currentwater;
@@ -132,6 +144,11 @@ int PloughCell::gather()
 		
 		resource = 50; // wait to modify;
 		enType = growstate_null;
+		if (_mill)
+		{
+			resource = _mill->GatherModify(resource);
+		}
+		
 	}
 	
 	return resource;

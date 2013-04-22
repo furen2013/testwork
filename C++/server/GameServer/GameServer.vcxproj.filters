@@ -84,6 +84,18 @@
     <ClInclude Include="logic\PlayerManager.h">
       <Filter>logic</Filter>
     </ClInclude>
+    <ClInclude Include="logic\technology\TechSkill.h">
+      <Filter>logic\technology</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\technology\TechSkillStorage.h">
+      <Filter>logic\technology</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\farm\PloughWaterWay.h">
+      <Filter>logic\farm</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\farm\PloughMill.h">
+      <Filter>logic\farm</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -151,6 +163,18 @@
     </ClCompile>
     <ClCompile Include="logic\PlayerTechnology.cpp">
       <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\technology\TechSkill.cpp">
+      <Filter>logic\technology</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\technology\TechSkillStorage.cpp">
+      <Filter>logic\technology</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\farm\PloughWaterWay.cpp">
+      <Filter>logic\farm</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\farm\PloughMill.cpp">
+      <Filter>logic\farm</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

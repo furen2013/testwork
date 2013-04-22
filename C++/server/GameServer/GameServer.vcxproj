@@ -86,12 +86,16 @@
     <ClInclude Include="logic\farm\FarmLogic.h" />
     <ClInclude Include="logic\farm\FarmManager.h" />
     <ClInclude Include="logic\farm\PloughCell.h" />
+    <ClInclude Include="logic\farm\PloughMill.h" />
+    <ClInclude Include="logic\farm\PloughWaterWay.h" />
     <ClInclude Include="logic\Player.h" />
     <ClInclude Include="logic\PlayerInfoManager.h" />
     <ClInclude Include="logic\PlayerManager.h" />
     <ClInclude Include="logic\PlayerResourceManager.h" />
     <ClInclude Include="logic\technology\Technology.h" />
     <ClInclude Include="logic\technology\TechnologyManager.h" />
+    <ClInclude Include="logic\technology\TechSkill.h" />
+    <ClInclude Include="logic\technology\TechSkillStorage.h" />
     <ClInclude Include="logic\Unit.h" />
     <ClInclude Include="NetParser.h" />
     <ClInclude Include="Net\GSListenSocket.h" />
@@ -106,6 +110,8 @@
     <ClCompile Include="logic\farm\FarmLogic.cpp" />
     <ClCompile Include="logic\farm\FarmManager.cpp" />
     <ClCompile Include="logic\farm\PloughCell.cpp" />
+    <ClCompile Include="logic\farm\PloughMill.cpp" />
+    <ClCompile Include="logic\farm\PloughWaterWay.cpp" />
     <ClCompile Include="logic\Player.cpp" />
     <ClCompile Include="logic\PlayerInfoManager.cpp" />
     <ClCompile Include="logic\PlayerFarmLogic.cpp" />
@@ -114,6 +120,8 @@
     <ClCompile Include="logic\PlayerTechnology.cpp" />
     <ClCompile Include="logic\technology\Technology.cpp" />
     <ClCompile Include="logic\technology\TechnologyManager.cpp" />
+    <ClCompile Include="logic\technology\TechSkill.cpp" />
+    <ClCompile Include="logic\technology\TechSkillStorage.cpp" />
     <ClCompile Include="logic\Unit.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NetParser.cpp" />

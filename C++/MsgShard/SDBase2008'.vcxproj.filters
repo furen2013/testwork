@@ -96,6 +96,9 @@
     <ClCompile Include="MessageFarmC2S.pb.cc">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="TechSkillInfo.cpp">
+      <Filter>Public</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MsgHead.pb.h">
@@ -136,6 +139,9 @@
     </ClInclude>
     <ClInclude Include="MessageTechnologyG2C.pb.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TechSkillInfo.h">
+      <Filter>Public</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

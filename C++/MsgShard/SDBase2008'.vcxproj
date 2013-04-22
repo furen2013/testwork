@@ -123,6 +123,7 @@
     <ClCompile Include="MessageTechnologyC2S.pb.cc" />
     <ClCompile Include="MessageTechnologyG2C.pb.cc" />
     <ClCompile Include="MsgHead.pb.cc" />
+    <ClCompile Include="TechSkillInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MessageC2G.pb.h" />
@@ -137,6 +138,7 @@
     <ClInclude Include="MessageTechnologyC2S.pb.h" />
     <ClInclude Include="MessageTechnologyG2C.pb.h" />
     <ClInclude Include="MsgHead.pb.h" />
+    <ClInclude Include="TechSkillInfo.h" />
     <ClInclude Include="TypeDef.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

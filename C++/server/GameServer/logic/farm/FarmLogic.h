@@ -37,7 +37,8 @@ protected:
 	DWORD _account;
 	PLOUGHCELL _cells;
 	bool _modify;
-	//NetSession* _NetSession;
+	bool _allowBuildMill;
+	bool _allowBuildWaterWay;
 	Player* _Player;
 };
 

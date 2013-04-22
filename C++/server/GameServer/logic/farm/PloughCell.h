@@ -3,6 +3,9 @@
 #define PLOUGHCELL_H
 #include "EventableObject.h"
 class FarmLogic;
+class PloughMill;
+class PloughWaterWay;
+
 enum growstate
 {
 	growstate_null,
@@ -53,7 +56,9 @@ protected:
 	int32 _waterPercentageMax;
 	int32 _ID;
 
-	FarmLogic* _farm; 
+	FarmLogic*		_farm; 
+	PloughMill*		_mill;
+	PloughWaterWay* _WaterWay;
 };
 
 #endif

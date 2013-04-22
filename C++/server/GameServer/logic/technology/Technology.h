@@ -5,6 +5,7 @@
 extern 	enum enTechResult;
 struct techconf;
 class Player;
+class TechSkill;
 struct TechInfo
 {
 	int id;
@@ -25,6 +26,7 @@ class Technology
 {
 public:
 	typedef map<int, TechLevel*> maptechlevel;
+	typedef map<int, TechSkill*> maptechskill;
 public:
 	Technology();
 	~Technology();
@@ -51,10 +53,11 @@ protected:
 	void _addTech(int level, int id, int ncount, const techconf* pconf);
 protected:
 	maptechlevel _techlevels;
+	maptechskill _techskill;
 	DWORD _account;
 	volatile int _techvalue;
 	Player* _player;
-
+	
 };
 
 #endif
