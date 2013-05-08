@@ -28,6 +28,13 @@ public:
 	void sendFarmState();
 	bool seedCell(int id, int seedlevel);
 	void sendFarmError(int id, enFarmErrorResult error);
+	void modifyallowBuildMill(int m);
+	void modifyallowBuildWaterWay(int m);
+	void allowBuildMill(int n);
+	void allowBuildWaterWay(int n);
+	void modifyMillEffect(int m);
+	void modifyWaterWayEffect(int m);
+	void modifyCellBaseHavest(int m);
 protected:
 	NetSession* GetNetSession();
 	void sendMessage(::google::protobuf::Message* message, MsgType type);
@@ -37,8 +44,11 @@ protected:
 	DWORD _account;
 	PLOUGHCELL _cells;
 	bool _modify;
-	bool _allowBuildMill;
-	bool _allowBuildWaterWay;
+	int _allowBuildMill;
+	int _allowBuildWaterWay;
+	int _millEffectModify;
+	int _waterWayEffectModify;
+	int _modifyBaseHavest;
 	Player* _Player;
 };
 

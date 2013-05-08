@@ -5,6 +5,8 @@
 #include "../Player.h"
 #include "Util.h"
 #include "boost/lexical_cast.hpp"
+#include "TechSkillStorage.h"
+#include "TechSkill.h"
 
 Technology::Technology()
 {
@@ -264,6 +266,14 @@ void Technology::_addTech(int level, int id, int ncount,  const techconf* pconf 
 						info = itinfo->second;
 					}
 					info->currentCount += ncount;
+					int skillid = TechnologyManager::getSingleton().FindTechSkill(info->id, info->currentCount);
+					if (skillid != -1)
+					{
+						TechSkillInfo* info = TechSkillStorage::getSingleton().FindSkillInfo(skillid);
+						TechSkill* skill = new TechSkill(info,this);
+
+					}
+					
 					_techvalue -= ncount;
 
 					ACK.set_current(info->currentCount);

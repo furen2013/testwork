@@ -6,31 +6,34 @@ class Technology;
 class TechSkill
 {
 public:
-	TechSkill();
+	TechSkill(	TechSkillInfo* info, Technology* technology);
 	~TechSkill();
-	void ModifyPetDamage(); //add base and max
-	void OpenPetWeapon();
-	void ModifyPetWeaponSplitDamage();
-	void ModifyPetWopeanDotDamage(); // 棒类
-	void ModifyPetWopeanPenetrateDamage();//钉类
-	void ModifyPetAllWopeanDamageToBarrier();
-	void ModifyPetArmor(); //更换所有防御到某一ID
-	void ModifyPetEquipArmor();//更改防具防御防御值
-	void OpenPetWeaponPropertyDamage(); //开启武器附加攻击
-	void ModifyFarmHarvest(); //增加农场产量
-	void OpenFarmWaterWayTech();//水道开启
-	void ModifyFarmWaterWayEffect(); //修改水道效果
-	void OpenFarmMillTech();	//开启磨坊
-	void ModifyFarmMillEffect();
-	void ModifyFarmWaterRecovery();
-	void ModifyFarmWaterWayPrice();
-	void ModifyFarmMillPrice();
 public:
+	void ParseSkill();
+public:
+	void ModifyPetDamage(bool b); //add base and max
+	void OpenPetWeapon(bool b);
+	void ModifyPetWeaponSplitDamage(bool b);
+	void ModifyPetWopeanDotDamage(bool b); // 棒类
+	void ModifyPetWopeanPenetrateDamage(bool b);//钉类
+	void ModifyPetAllWopeanDamageToBarrier(bool b);
+	void ModifyPetArmor(bool b); //更换所有防御到某一ID
+	void ModifyPetEquipArmor(bool b);//更改防具防御防御值
+	void OpenPetWeaponPropertyDamage(bool b); //开启武器附加攻击
+	void ModifyFarmHarvest(bool b); //增加农场产量
+	void OpenFarmWaterWayTech(bool b);//水道开启
+	void ModifyFarmWaterWayEffect(bool b); //修改水道效果
+	void OpenFarmMillTech(bool b);	//开启磨坊
+	void ModifyFarmMillEffect(bool b);
+	void ModifyFarmWaterRecovery(bool b);
+	void ModifyFarmWaterWayPrice(bool b);
+	void ModifyFarmMillPrice(bool b);
+protected:
 	TechSkillInfo* _info;
 	Technology*	_technology;
 };
 
 
-typedef void(TechSkill::*pSkillEffect)();
+typedef void(TechSkill::*pSkillEffect)(bool b);
 
 #endif

@@ -9,9 +9,11 @@
 #include "MyLog.h"
 
 FarmLogic::FarmLogic()
-	:_allowBuildWaterWay(false),
+	:_allowBuildWaterWay(0),
 	_modify(true),
-	_allowBuildMill(false)
+	_allowBuildMill(0),
+	_waterWayEffectModify(0),
+	_millEffectModify(0)
 {
 }
 
@@ -80,6 +82,22 @@ bool FarmLogic::wateringCell(int id)
 	return b;
 }
 
+
+void FarmLogic::modifyMillEffect(int m)
+{
+	_millEffectModify += m;
+	
+}
+void FarmLogic::modifyWaterWayEffect(int m)
+{
+	_waterWayEffectModify += m;
+}
+
+void FarmLogic::modifyCellBaseHavest(int m)
+{
+	_modifyBaseHavest += m;
+}
+
 bool FarmLogic::gatherPloughCell(int id)
 {
 	bool b = false;
@@ -122,6 +140,24 @@ bool FarmLogic::gatherPloughCell(int id)
 	}
 	return b;
 
+}
+
+void FarmLogic::modifyallowBuildMill(int m)
+{
+	_allowBuildMill += m;
+}
+void FarmLogic::modifyallowBuildWaterWay(int m)
+{
+	_allowBuildWaterWay +=m;
+}
+
+void FarmLogic::allowBuildMill(int n)
+{
+	_allowBuildMill = n;
+}
+void FarmLogic::allowBuildWaterWay(int n)
+{
+	_allowBuildWaterWay = n;
 }
 
 void FarmLogic::sendFarmError(int id, enFarmErrorResult error)

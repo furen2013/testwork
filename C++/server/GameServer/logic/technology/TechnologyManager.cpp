@@ -130,6 +130,34 @@ enTechResult TechnologyManager::OpenTechLevel(DWORD account, int level)
 	return en;
 }
 
+int TechnologyManager::FindTechSkill(int id, int n)
+{
+	int skill = -1;
+	const TechSkillConf* conf = FindSkillConf(id);
+	if (conf)
+	{
+		TechSkillConf::mapskill::const_iterator it = conf->skills.find(n);
+		if (it != conf->skills.end())
+		{
+			skill = it->second;
+		}
+	}
+	return skill;
+	
+}
+
+const TechSkillConf* TechnologyManager::FindSkillConf(int id)
+{
+	TechSkillConf* pconf = NULL;
+	maptechskillconf::iterator it = _techskillconf.find(id);
+	if (it != _techskillconf.end())
+	{
+		pconf = it->second;
+	}
+	return pconf;
+	
+}
+
 const techLevelconf* TechnologyManager::FindTechConfLevel(int level)
 {
 	maptechLevelconf::iterator it = _techLevelconfs.find(level);

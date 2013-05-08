@@ -2,13 +2,14 @@
 #ifndef TECHSKILLSTORAGE_H
 #define TECHSKILLSTORAGE_H
 struct TechSkillInfo;
-class TechSkillStorage
+class TechSkillStorage : public Singleton<TechSkillStorage>
 {
 	typedef	map<int32, TechSkillInfo*> MAPTECHSKILLINFO;
 public:
 	TechSkillStorage();
 	~TechSkillStorage();
 	bool Load();
+	TechSkillInfo* FindSkillInfo(int32 id);
 protected:
 	MAPTECHSKILLINFO _mapTechInfo;
 };

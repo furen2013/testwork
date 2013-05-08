@@ -24,6 +24,14 @@ struct reqtech
 	int id;
 	int reqcount;
 };
+
+struct TechSkillConf
+{
+	typedef map<int, int> mapskill;
+	int id;
+	mapskill skills;
+
+};
 struct techconf
 {
 	typedef vector<reqtech*> vcreqtechs;
@@ -55,6 +63,7 @@ class TechnologyManager: public Singleton<TechnologyManager>
 public:
 	typedef map<int,techLevelconf*> maptechLevelconf;
 	typedef map<DWORD, Technology*> maptechnology;
+	typedef map<int, TechSkillConf*> maptechskillconf;
 public:
 	TechnologyManager();
 	~TechnologyManager();
@@ -63,12 +72,15 @@ public:
 	enTechResult OpenTechLevel(DWORD account, int level);
 	Technology* GetTech(DWORD account); // if null create it
 	const techLevelconf* FindTechConfLevel(int level);
+	const TechSkillConf* FindSkillConf(int id);
+	int FindTechSkill(int id, int n);
 protected:
 	
 
 protected:
 	maptechLevelconf  _techLevelconfs;
 	maptechnology _technologys;
+	maptechskillconf _techskillconf;
 
 };
 #endif
