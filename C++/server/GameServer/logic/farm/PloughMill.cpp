@@ -16,6 +16,7 @@ PloughMill::~PloughMill()
 int PloughMill::GatherModify(int gather)
 {
 	int temp = gather;
+	
 	temp = (float(gather) / 100.f * float(_modifyHavestPct)) + float(_modifyHavest);
 	return temp;
 }

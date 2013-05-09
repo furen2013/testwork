@@ -35,10 +35,12 @@ public:
 	int GetTechValue();
 	
 
-	bool LoadFromStr(string str);
+	bool LoadTechlevelsFromStr(string str);
+	bool loadSkillsFromStr(string str);
 	inline void setAccount(DWORD account){_account = account;}
 	inline DWORD getAccount(){return _account;}
-	string toString();
+	string techlevelstoString();
+	string skillstoString();
 	inline const int GetTechvalue(){return _techvalue;}
 	maptechlevel::const_iterator itTechBegin();
 	maptechlevel::const_iterator itTechEnd();
@@ -51,6 +53,7 @@ protected:
 	bool _addTechValue(int nValue);
 	bool _openTechLevel(int level);
 	void _addTech(int level, int id, int ncount, const techconf* pconf);
+	void addSkill(int skillid);
 protected:
 	maptechlevel _techlevels;
 	maptechskill _techskill;

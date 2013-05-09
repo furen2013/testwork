@@ -28,6 +28,15 @@ public:
 	void ModifyFarmWaterRecovery(bool b);
 	void ModifyFarmWaterWayPrice(bool b);
 	void ModifyFarmMillPrice(bool b);
+
+	inline int getID()
+	{
+		if (_info)
+		{
+			return _info->id;
+		}
+		return 0;
+	}
 protected:
 	TechSkillInfo* _info;
 	Technology*	_technology;

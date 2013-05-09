@@ -19,9 +19,35 @@ Technology::~Technology()
 }
 
 
+string Technology::skillstoString()
+{
+	bool first = true;
+	string temp;
+	maptechskill::iterator itskill = _techskill.begin();
 
-
-string Technology::toString()
+	for (; itskill != _techskill.end(); ++ itskill)
+	{
+		if (first)
+		{
+			temp += ";";
+			first = false;
+		}
+		temp += boost::lexical_cast<string>(itskill->first);
+	}
+	return temp;
+}
+bool Technology::loadSkillsFromStr(string str)
+{
+	vector<string> skillstr = StrSplit(str,";");
+	vector<string>::iterator it = skillstr.begin();
+	for (; it != skillstr.end(); ++ it)
+	{
+		string strTemp = (*it);
+		int skillid = boost::lexical_cast<int>(strTemp);
+		addSkill(skillid);
+	}
+}
+string Technology::techlevelstoString()
 {
 	string temp;
 	maptechlevel::iterator it = _techlevels.begin();
@@ -49,10 +75,11 @@ string Technology::toString()
 		}
 
 	}
-
 	return temp;
 }
-bool Technology::LoadFromStr(string str)
+
+
+bool Technology::LoadTechlevelsFromStr(string str)
 {
 	vector<string> techlevels = StrSplit(str,";");
 	vector<string>::iterator it = techlevels.begin();
@@ -206,7 +233,16 @@ bool Technology::_addTechValue(int nValue)
 	return true;
 }
 
-
+void Technology::addSkill(int skillid)
+{
+	if (skillid != -1)
+	{
+		TechSkillInfo* info = TechSkillStorage::getSingleton().FindSkillInfo(skillid);
+		TechSkill* skill = new TechSkill(info,this);
+		skill->ParseSkill();
+		_techskill.insert(maptechskill::value_type(skillid, skill));
+	}
+}
 
 void Technology::_addTech(int level, int id, int ncount,  const techconf* pconf )
 {
@@ -269,9 +305,7 @@ void Technology::_addTech(int level, int id, int ncount,  const techconf* pconf 
 					int skillid = TechnologyManager::getSingleton().FindTechSkill(info->id, info->currentCount);
 					if (skillid != -1)
 					{
-						TechSkillInfo* info = TechSkillStorage::getSingleton().FindSkillInfo(skillid);
-						TechSkill* skill = new TechSkill(info,this);
-
+						addSkill(skillid);
 					}
 					
 					_techvalue -= ncount;

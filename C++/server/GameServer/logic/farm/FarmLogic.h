@@ -35,6 +35,10 @@ public:
 	void modifyMillEffect(int m);
 	void modifyWaterWayEffect(int m);
 	void modifyCellBaseHavest(int m);
+	inline int getMillEffectModify()
+	{
+		return _millEffectModify;
+	}
 protected:
 	NetSession* GetNetSession();
 	void sendMessage(::google::protobuf::Message* message, MsgType type);
