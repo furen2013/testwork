@@ -46,6 +46,7 @@ bool Technology::loadSkillsFromStr(string str)
 		int skillid = boost::lexical_cast<int>(strTemp);
 		addSkill(skillid);
 	}
+	return true;
 }
 string Technology::techlevelstoString()
 {

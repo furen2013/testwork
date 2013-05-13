@@ -41,7 +41,7 @@ bool TechnologyManager::Load()
 		do 
 		{
 			Technology* technology = new Technology();
-			technology->LoadFromStr(fields[1].GetString());
+			technology->LoadTechlevelsFromStr(fields[1].GetString());
 			technology->setAccount(fields[0].GetUInt64());
 			_technologys.insert(maptechnology::value_type(technology->getAccount(), technology));
 
