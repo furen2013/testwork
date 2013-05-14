@@ -69,3 +69,17 @@ message MsgWaterCellACK
 {
 	required int32 cellid			= 1;
 }
+
+message MsgBuildMillACK
+{
+	required int32 cellid			= 1;
+	required int32 currentlevel		= 2;
+	required int32 spendgold		= 3;
+}
+
+message MsgBuildWaterWayACK
+{
+	required int32 cellid			= 1;
+	required int32 currentlevel		= 2;
+	required int32 spendgold		= 3;
+}

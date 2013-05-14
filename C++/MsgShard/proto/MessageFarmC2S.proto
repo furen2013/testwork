@@ -28,3 +28,12 @@ message MsgWaterCellReq
 	required int32 cellid = 1;
 
 }
+message MsgBuildMillReq
+{
+	required int32 milllevel = 1;
+}
+
+message MsgBuildWaterWayReq
+{
+	required int32 waterwaylevel = 1;
+}
