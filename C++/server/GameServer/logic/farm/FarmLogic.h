@@ -39,9 +39,23 @@ public:
 	{
 		return _millEffectModify;
 	}
+
+	inline int getAllowBuildMill()
+	{
+		return _allowBuildMill;
+	}
+	inline int getAllowBuildWaterWay()
+	{
+		return _allowBuildWaterWay;
+	}
+	inline Player* getPlayer()
+	{
+		return _Player;
+	}
+	void sendMessage(::google::protobuf::Message* message, MsgType type);
 protected:
 	NetSession* GetNetSession();
-	void sendMessage(::google::protobuf::Message* message, MsgType type);
+
 	
 	
 protected:

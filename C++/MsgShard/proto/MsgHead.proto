@@ -62,6 +62,7 @@ enum MsgType
 	GS2C_MsgOpenTechLevelACK			= 5509;
 	GS2C_MsgApplyAddTechInfoACK			= 5510;
 	GS2C_MsgAddTechValueACK				= 5511;
+	GS2C_MsgBuildMillACK				= 5512;
 	GS2C_End						    = 6000;
 }
 

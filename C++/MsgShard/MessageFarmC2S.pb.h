@@ -36,6 +36,8 @@ class MsgSeedCellReq;
 class MsgSpreadManureReq;
 class MsgGatherPloughCellReq;
 class MsgWaterCellReq;
+class MsgBuildMillReq;
+class MsgBuildWaterWayReq;
 
 // ===================================================================
 
@@ -457,6 +459,170 @@ class MsgWaterCellReq : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static MsgWaterCellReq* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class MsgBuildMillReq : public ::google::protobuf::Message {
+ public:
+  MsgBuildMillReq();
+  virtual ~MsgBuildMillReq();
+  
+  MsgBuildMillReq(const MsgBuildMillReq& from);
+  
+  inline MsgBuildMillReq& operator=(const MsgBuildMillReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgBuildMillReq& default_instance();
+  
+  void Swap(MsgBuildMillReq* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgBuildMillReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgBuildMillReq& from);
+  void MergeFrom(const MsgBuildMillReq& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required int32 milllevel = 1;
+  inline bool has_milllevel() const;
+  inline void clear_milllevel();
+  static const int kMilllevelFieldNumber = 1;
+  inline ::google::protobuf::int32 milllevel() const;
+  inline void set_milllevel(::google::protobuf::int32 value);
+  
+  // @@protoc_insertion_point(class_scope:MsgBuildMillReq)
+ private:
+  inline void set_has_milllevel();
+  inline void clear_has_milllevel();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::int32 milllevel_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageFarmC2S_2eproto();
+  friend void protobuf_AssignDesc_MessageFarmC2S_2eproto();
+  friend void protobuf_ShutdownFile_MessageFarmC2S_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgBuildMillReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgBuildWaterWayReq : public ::google::protobuf::Message {
+ public:
+  MsgBuildWaterWayReq();
+  virtual ~MsgBuildWaterWayReq();
+  
+  MsgBuildWaterWayReq(const MsgBuildWaterWayReq& from);
+  
+  inline MsgBuildWaterWayReq& operator=(const MsgBuildWaterWayReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgBuildWaterWayReq& default_instance();
+  
+  void Swap(MsgBuildWaterWayReq* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgBuildWaterWayReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgBuildWaterWayReq& from);
+  void MergeFrom(const MsgBuildWaterWayReq& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required int32 waterwaylevel = 1;
+  inline bool has_waterwaylevel() const;
+  inline void clear_waterwaylevel();
+  static const int kWaterwaylevelFieldNumber = 1;
+  inline ::google::protobuf::int32 waterwaylevel() const;
+  inline void set_waterwaylevel(::google::protobuf::int32 value);
+  
+  // @@protoc_insertion_point(class_scope:MsgBuildWaterWayReq)
+ private:
+  inline void set_has_waterwaylevel();
+  inline void clear_has_waterwaylevel();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::int32 waterwaylevel_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageFarmC2S_2eproto();
+  friend void protobuf_AssignDesc_MessageFarmC2S_2eproto();
+  friend void protobuf_ShutdownFile_MessageFarmC2S_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgBuildWaterWayReq* default_instance_;
+};
 // ===================================================================
 
 
@@ -610,6 +776,58 @@ inline ::google::protobuf::int32 MsgWaterCellReq::cellid() const {
 inline void MsgWaterCellReq::set_cellid(::google::protobuf::int32 value) {
   set_has_cellid();
   cellid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MsgBuildMillReq
+
+// required int32 milllevel = 1;
+inline bool MsgBuildMillReq::has_milllevel() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgBuildMillReq::set_has_milllevel() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgBuildMillReq::clear_has_milllevel() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgBuildMillReq::clear_milllevel() {
+  milllevel_ = 0;
+  clear_has_milllevel();
+}
+inline ::google::protobuf::int32 MsgBuildMillReq::milllevel() const {
+  return milllevel_;
+}
+inline void MsgBuildMillReq::set_milllevel(::google::protobuf::int32 value) {
+  set_has_milllevel();
+  milllevel_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MsgBuildWaterWayReq
+
+// required int32 waterwaylevel = 1;
+inline bool MsgBuildWaterWayReq::has_waterwaylevel() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgBuildWaterWayReq::set_has_waterwaylevel() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgBuildWaterWayReq::clear_has_waterwaylevel() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgBuildWaterWayReq::clear_waterwaylevel() {
+  waterwaylevel_ = 0;
+  clear_has_waterwaylevel();
+}
+inline ::google::protobuf::int32 MsgBuildWaterWayReq::waterwaylevel() const {
+  return waterwaylevel_;
+}
+inline void MsgBuildWaterWayReq::set_waterwaylevel(::google::protobuf::int32 value) {
+  set_has_waterwaylevel();
+  waterwaylevel_ = value;
 }
 
 

@@ -26,6 +26,8 @@ public:
 	void BecomeYoung();
 	void BecomeGrown();
 	bool BecomeSeeding(int seedlevel);
+	bool BuildMill(int millLevel);
+	bool buildWaterWay(int waterwayLevel);
 	void DecreaseWaterPercentagePerHour();
 	void WateringCell();
 	bool SpreadManure(int Manurelevel);

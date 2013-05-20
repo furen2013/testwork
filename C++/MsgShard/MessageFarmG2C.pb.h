@@ -39,6 +39,8 @@ class MsgSeedCellACK;
 class MsgSpreadManureACK;
 class MsgGatherPloughCellACK;
 class MsgWaterCellACK;
+class MsgBuildMillACK;
+class MsgBuildWaterWayACK;
 
 enum MsgPloughCellInfo_GrowState {
   MsgPloughCellInfo_GrowState_State_NULL = 0,
@@ -70,7 +72,9 @@ enum enFarmErrorResult {
   FarmError_NOTHAVEMANURE = 6,
   FarmError_NOTHAVETHISSEED = 7,
   FarmError_ERRORSEED = 8,
-  FarmError_UKNOWN = 9
+  FarmError_THEMILLLEVELTOOHIGH = 9,
+  FarmError_THEWATERWAYLEVELTOOHIGH = 10,
+  FarmError_UKNOWN = 11
 };
 bool enFarmErrorResult_IsValid(int value);
 const enFarmErrorResult enFarmErrorResult_MIN = FarmError_NOTFOUNDCELL;
@@ -893,6 +897,210 @@ class MsgWaterCellACK : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static MsgWaterCellACK* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class MsgBuildMillACK : public ::google::protobuf::Message {
+ public:
+  MsgBuildMillACK();
+  virtual ~MsgBuildMillACK();
+  
+  MsgBuildMillACK(const MsgBuildMillACK& from);
+  
+  inline MsgBuildMillACK& operator=(const MsgBuildMillACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgBuildMillACK& default_instance();
+  
+  void Swap(MsgBuildMillACK* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgBuildMillACK* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgBuildMillACK& from);
+  void MergeFrom(const MsgBuildMillACK& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required int32 cellid = 1;
+  inline bool has_cellid() const;
+  inline void clear_cellid();
+  static const int kCellidFieldNumber = 1;
+  inline ::google::protobuf::int32 cellid() const;
+  inline void set_cellid(::google::protobuf::int32 value);
+  
+  // required int32 currentlevel = 2;
+  inline bool has_currentlevel() const;
+  inline void clear_currentlevel();
+  static const int kCurrentlevelFieldNumber = 2;
+  inline ::google::protobuf::int32 currentlevel() const;
+  inline void set_currentlevel(::google::protobuf::int32 value);
+  
+  // required int32 spendgold = 3;
+  inline bool has_spendgold() const;
+  inline void clear_spendgold();
+  static const int kSpendgoldFieldNumber = 3;
+  inline ::google::protobuf::int32 spendgold() const;
+  inline void set_spendgold(::google::protobuf::int32 value);
+  
+  // @@protoc_insertion_point(class_scope:MsgBuildMillACK)
+ private:
+  inline void set_has_cellid();
+  inline void clear_has_cellid();
+  inline void set_has_currentlevel();
+  inline void clear_has_currentlevel();
+  inline void set_has_spendgold();
+  inline void clear_has_spendgold();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::int32 cellid_;
+  ::google::protobuf::int32 currentlevel_;
+  ::google::protobuf::int32 spendgold_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_AssignDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_ShutdownFile_MessageFarmG2C_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgBuildMillACK* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgBuildWaterWayACK : public ::google::protobuf::Message {
+ public:
+  MsgBuildWaterWayACK();
+  virtual ~MsgBuildWaterWayACK();
+  
+  MsgBuildWaterWayACK(const MsgBuildWaterWayACK& from);
+  
+  inline MsgBuildWaterWayACK& operator=(const MsgBuildWaterWayACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgBuildWaterWayACK& default_instance();
+  
+  void Swap(MsgBuildWaterWayACK* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgBuildWaterWayACK* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgBuildWaterWayACK& from);
+  void MergeFrom(const MsgBuildWaterWayACK& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required int32 cellid = 1;
+  inline bool has_cellid() const;
+  inline void clear_cellid();
+  static const int kCellidFieldNumber = 1;
+  inline ::google::protobuf::int32 cellid() const;
+  inline void set_cellid(::google::protobuf::int32 value);
+  
+  // required int32 currentlevel = 2;
+  inline bool has_currentlevel() const;
+  inline void clear_currentlevel();
+  static const int kCurrentlevelFieldNumber = 2;
+  inline ::google::protobuf::int32 currentlevel() const;
+  inline void set_currentlevel(::google::protobuf::int32 value);
+  
+  // required int32 spendgold = 3;
+  inline bool has_spendgold() const;
+  inline void clear_spendgold();
+  static const int kSpendgoldFieldNumber = 3;
+  inline ::google::protobuf::int32 spendgold() const;
+  inline void set_spendgold(::google::protobuf::int32 value);
+  
+  // @@protoc_insertion_point(class_scope:MsgBuildWaterWayACK)
+ private:
+  inline void set_has_cellid();
+  inline void clear_has_cellid();
+  inline void set_has_currentlevel();
+  inline void clear_has_currentlevel();
+  inline void set_has_spendgold();
+  inline void clear_has_spendgold();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::int32 cellid_;
+  ::google::protobuf::int32 currentlevel_;
+  ::google::protobuf::int32 spendgold_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_AssignDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_ShutdownFile_MessageFarmG2C_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgBuildWaterWayACK* default_instance_;
+};
 // ===================================================================
 
 
@@ -1378,6 +1586,146 @@ inline ::google::protobuf::int32 MsgWaterCellACK::cellid() const {
 inline void MsgWaterCellACK::set_cellid(::google::protobuf::int32 value) {
   set_has_cellid();
   cellid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MsgBuildMillACK
+
+// required int32 cellid = 1;
+inline bool MsgBuildMillACK::has_cellid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgBuildMillACK::set_has_cellid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgBuildMillACK::clear_has_cellid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgBuildMillACK::clear_cellid() {
+  cellid_ = 0;
+  clear_has_cellid();
+}
+inline ::google::protobuf::int32 MsgBuildMillACK::cellid() const {
+  return cellid_;
+}
+inline void MsgBuildMillACK::set_cellid(::google::protobuf::int32 value) {
+  set_has_cellid();
+  cellid_ = value;
+}
+
+// required int32 currentlevel = 2;
+inline bool MsgBuildMillACK::has_currentlevel() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgBuildMillACK::set_has_currentlevel() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgBuildMillACK::clear_has_currentlevel() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgBuildMillACK::clear_currentlevel() {
+  currentlevel_ = 0;
+  clear_has_currentlevel();
+}
+inline ::google::protobuf::int32 MsgBuildMillACK::currentlevel() const {
+  return currentlevel_;
+}
+inline void MsgBuildMillACK::set_currentlevel(::google::protobuf::int32 value) {
+  set_has_currentlevel();
+  currentlevel_ = value;
+}
+
+// required int32 spendgold = 3;
+inline bool MsgBuildMillACK::has_spendgold() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgBuildMillACK::set_has_spendgold() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgBuildMillACK::clear_has_spendgold() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgBuildMillACK::clear_spendgold() {
+  spendgold_ = 0;
+  clear_has_spendgold();
+}
+inline ::google::protobuf::int32 MsgBuildMillACK::spendgold() const {
+  return spendgold_;
+}
+inline void MsgBuildMillACK::set_spendgold(::google::protobuf::int32 value) {
+  set_has_spendgold();
+  spendgold_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MsgBuildWaterWayACK
+
+// required int32 cellid = 1;
+inline bool MsgBuildWaterWayACK::has_cellid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgBuildWaterWayACK::set_has_cellid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgBuildWaterWayACK::clear_has_cellid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgBuildWaterWayACK::clear_cellid() {
+  cellid_ = 0;
+  clear_has_cellid();
+}
+inline ::google::protobuf::int32 MsgBuildWaterWayACK::cellid() const {
+  return cellid_;
+}
+inline void MsgBuildWaterWayACK::set_cellid(::google::protobuf::int32 value) {
+  set_has_cellid();
+  cellid_ = value;
+}
+
+// required int32 currentlevel = 2;
+inline bool MsgBuildWaterWayACK::has_currentlevel() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgBuildWaterWayACK::set_has_currentlevel() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgBuildWaterWayACK::clear_has_currentlevel() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgBuildWaterWayACK::clear_currentlevel() {
+  currentlevel_ = 0;
+  clear_has_currentlevel();
+}
+inline ::google::protobuf::int32 MsgBuildWaterWayACK::currentlevel() const {
+  return currentlevel_;
+}
+inline void MsgBuildWaterWayACK::set_currentlevel(::google::protobuf::int32 value) {
+  set_has_currentlevel();
+  currentlevel_ = value;
+}
+
+// required int32 spendgold = 3;
+inline bool MsgBuildWaterWayACK::has_spendgold() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgBuildWaterWayACK::set_has_spendgold() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgBuildWaterWayACK::clear_has_spendgold() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgBuildWaterWayACK::clear_spendgold() {
+  spendgold_ = 0;
+  clear_has_spendgold();
+}
+inline ::google::protobuf::int32 MsgBuildWaterWayACK::spendgold() const {
+  return spendgold_;
+}
+inline void MsgBuildWaterWayACK::set_spendgold(::google::protobuf::int32 value) {
+  set_has_spendgold();
+  spendgold_ = value;
 }
 
 

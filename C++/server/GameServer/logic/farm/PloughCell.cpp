@@ -4,6 +4,9 @@
 #include "boost/lexical_cast.hpp"
 #include "PloughWaterWay.h"
 #include "PloughMill.h"
+#include "FarmLogic.h"
+#include "../Player.h"
+#include "../PlayerResourceManager.h"
 
 PloughCell::PloughCell()
 {
@@ -22,6 +25,8 @@ PloughCell::~PloughCell()
 {
 
 }
+
+
 
 string PloughCell::ToString()
 {
@@ -159,4 +164,57 @@ void PloughCell::changeState()
 {
 	_lastStateTime = getMSTime();
  
+}
+
+
+bool PloughCell::BuildMill(int millLevel)
+{
+	if (millLevel > _farm->getAllowBuildMill())
+	{
+		_farm->sendFarmError(_ID, FarmError_THEMILLLEVELTOOHIGH);
+		return false;
+	}
+	else
+	{
+		PlayerResource* resource = _farm->getPlayer()->getResource();
+		if (!_mill)
+		{
+			_mill = new PloughMill();
+		}
+		_mill->setLevel(millLevel);
+		MsgBuildMillACK ACK;
+		ACK.set_currentlevel(_mill->getLevel());
+		ACK.set_cellid(_ID);
+		ACK.set_spendgold(0);//½«À´²¹³ä£»
+		_farm->sendMessage(&ACK, GS2C_MsgBuildMillACK);
+		
+	}
+	return true;
+	
+}
+
+bool PloughCell::buildWaterWay(int waterwayLevel)
+{
+	if (waterwayLevel > _farm->getAllowBuildWaterWay())
+	{
+		_farm->sendFarmError(_ID, enFarmErrorResult::FarmError_THEWATERWAYLEVELTOOHIGH);
+		return false;
+	}
+	else
+	{
+		PlayerResource* resource = _farm->getPlayer()->getResource();
+		if (!_WaterWay)
+		{
+			_WaterWay = new PloughWaterWay();
+		}
+
+		_WaterWay->setLevel(waterwayLevel);
+		MsgBuildWaterWayACK ack;
+		ack.set_currentlevel(_WaterWay->getLevel());
+		ack.set_cellid(_ID);
+		ack.set_spendgold(0);
+	}
+
+	return true;
+	
 }

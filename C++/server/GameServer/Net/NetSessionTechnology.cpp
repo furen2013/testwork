@@ -4,6 +4,7 @@
 #include "MessageTechnologyC2S.pb.h"
 #include "MessageTechnologyG2C.pb.h"
 #include "../logic/Player.h"
+#include "MessageFarmC2S.pb.h"
 void NetSession::HandleTechnologyStateReq(MsgHead& Msg)
 {
 	//MsgTechnologyStateReq Msg;
@@ -42,5 +43,25 @@ void NetSession::HandleAddTechValueReq(MsgHead& Msg)
 		MsgAddTechValueReq MsgRecive;
 		MsgRecive.ParseFromString(Msg.body());
 		_player->addTechValue(MsgRecive.count());
+	}
+}
+
+void NetSession::HandleBuildMillReq(MsgHead& Msg)
+{
+	if (_player)
+	{
+		MsgBuildMillReq MsgRecive;
+		MsgRecive.ParseFromString(Msg.body());
+
+
+	}
+}
+
+void NetSession::HandleBuildWaterWayReq(MsgHead& Msg)
+{
+	if (_player)
+	{
+		MsgBuildWaterWayReq MsgRecive;
+		MsgRecive.ParseFromString(Msg.body());
 	}
 }

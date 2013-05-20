@@ -31,15 +31,17 @@ message MsgFarmInfoACK
 
 enum enFarmErrorResult
 {
-	FarmError_NOTFOUNDCELL			= 1;
-	FarmError_NOTHAVESEED			= 2;
-	FarmError_CELLCANNOTSEED		= 3;	
-	FarmError_ISHAVEMANURE			= 4;
-	FarmError_GATHERNOTGROWNCELL	= 5;
-	FarmError_NOTHAVEMANURE			= 6;
-	FarmError_NOTHAVETHISSEED		= 7;
-	FarmError_ERRORSEED				= 8;
-	FarmError_UKNOWN				= 9;
+	FarmError_NOTFOUNDCELL				= 1;
+	FarmError_NOTHAVESEED				= 2;
+	FarmError_CELLCANNOTSEED			= 3;	
+	FarmError_ISHAVEMANURE				= 4;
+	FarmError_GATHERNOTGROWNCELL		= 5;
+	FarmError_NOTHAVEMANURE				= 6;
+	FarmError_NOTHAVETHISSEED			= 7;
+	FarmError_ERRORSEED					= 8;
+	FarmError_THEMILLLEVELTOOHIGH		= 9;
+	FarmError_THEWATERWAYLEVELTOOHIGH	= 10;
+	FarmError_UKNOWN					= 11;
 }
 
 message MsgFarmErrorACK

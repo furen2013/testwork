@@ -38,6 +38,8 @@ public:
 	void HandleTechLevelReq(MsgHead& Msg);
 	void HandleApplyAddTechInfoReq(MsgHead& Msg);
 	void HandleAddTechValueReq(MsgHead& Msg);
+	void HandleBuildMillReq(MsgHead& Msg);
+	void HandleBuildWaterWayReq(MsgHead& Msg);
 
 	
 protected:

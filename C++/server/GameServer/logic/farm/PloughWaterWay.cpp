@@ -20,3 +20,15 @@ int PloughWaterWay::DecreaseWater(int currentwater)
 	tempWater = float(_decreaseWater) / 100.f * (1.f + float(_modifydecreasePct)) + _modifydecrease;
 	return tempWater;
 }
+
+void PloughWaterWay::setLevel(int level)
+{
+	_level = level;
+	changeLevel();
+}
+
+void PloughWaterWay::changeLevel() //»±…ŸÀÆµ¿≈‰÷√
+{
+
+}
+

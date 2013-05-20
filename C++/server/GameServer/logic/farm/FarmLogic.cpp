@@ -13,7 +13,8 @@ FarmLogic::FarmLogic()
 	_modify(true),
 	_allowBuildMill(0),
 	_waterWayEffectModify(0),
-	_millEffectModify(0)
+	_millEffectModify(0),
+	_Player(NULL)
 {
 }
 
