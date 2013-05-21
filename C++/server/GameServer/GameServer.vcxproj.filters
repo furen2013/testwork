@@ -96,6 +96,9 @@
     <ClInclude Include="logic\farm\PloughMill.h">
       <Filter>logic\farm</Filter>
     </ClInclude>
+    <ClInclude Include="logic\farm\FarmComponentStorage.h">
+      <Filter>logic\farm</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -174,6 +177,9 @@
       <Filter>logic\farm</Filter>
     </ClCompile>
     <ClCompile Include="logic\farm\PloughMill.cpp">
+      <Filter>logic\farm</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\farm\FarmComponentStorage.cpp">
       <Filter>logic\farm</Filter>
     </ClCompile>
   </ItemGroup>
