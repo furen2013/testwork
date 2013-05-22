@@ -7,6 +7,7 @@
 #include "FarmLogic.h"
 #include "../Player.h"
 #include "../PlayerResourceManager.h"
+#include "FarmComponentStorage.h"
 
 PloughCell::PloughCell()
 {
@@ -176,17 +177,47 @@ bool PloughCell::BuildMill(int millLevel)
 	}
 	else
 	{
-		PlayerResource* resource = _farm->getPlayer()->getResource();
-		if (!_mill)
+		
+		MillConf* conf = FarmComponentStorage::getSingleton().getMillConf(millLevel);
+		if (!conf)
 		{
-			_mill = new PloughMill();
+			_farm->sendFarmError(_ID, FarmError_ERRORMILLLEVEL);
+		
 		}
-		_mill->setLevel(millLevel);
-		MsgBuildMillACK ACK;
-		ACK.set_currentlevel(_mill->getLevel());
-		ACK.set_cellid(_ID);
-		ACK.set_spendgold(0);//将来补充；
-		_farm->sendMessage(&ACK, GS2C_MsgBuildMillACK);
+		else
+		{
+			PlayerResource* resource = _farm->getPlayer()->getResource();
+			if (conf->spendgold > resource->_gold)
+			{
+				_farm->sendFarmError(_ID, FarmError_BUILDMILLNOTHAVEENOUGHMONEY);
+			}
+			else
+			{
+				if (!_mill)
+				{
+					_mill = new PloughMill();
+				}
+				if (_mill->getLevel() >= millLevel)
+				{
+					_farm->sendFarmError(_ID, FarmError_MILLISALREADYINTHISLEVEL);
+				}
+				else
+				{
+					_mill->setLevel(millLevel);
+					MsgBuildMillACK ACK;
+					ACK.set_currentlevel(_mill->getLevel());
+					ACK.set_cellid(_ID);
+					ACK.set_spendgold(conf->spendgold);//将来补充；
+					resource->_gold -= conf->spendgold;
+					_farm->sendMessage(&ACK, GS2C_MsgBuildMillACK);
+				}
+				
+
+			}
+			
+
+		}
+
 		
 	}
 	return true;
@@ -202,17 +233,44 @@ bool PloughCell::buildWaterWay(int waterwayLevel)
 	}
 	else
 	{
-		PlayerResource* resource = _farm->getPlayer()->getResource();
-		if (!_WaterWay)
+		WaterWayConf* conf = FarmComponentStorage::getSingleton().getWaterWayConf(waterwayLevel);
+		if (!conf)
 		{
-			_WaterWay = new PloughWaterWay();
+			_farm->sendFarmError(_ID, FarmError_ERRORWATERWAYLEVEL);
 		}
+		else
+		{
+			PlayerResource* resource = _farm->getPlayer()->getResource();
+			if (resource->_gold < conf->spendgold)
+			{
+				_farm->sendFarmError(_ID, FarmError_BUILDWATERWAYNOTHAVEENOUGHMONEY);
+			}
+			else
+			{
 
-		_WaterWay->setLevel(waterwayLevel);
-		MsgBuildWaterWayACK ack;
-		ack.set_currentlevel(_WaterWay->getLevel());
-		ack.set_cellid(_ID);
-		ack.set_spendgold(0);
+				if (!_WaterWay)
+				{
+					_WaterWay = new PloughWaterWay();
+				}
+				if (_WaterWay->getLevel() >= waterwayLevel)
+				{
+					_farm->sendFarmError(_ID, FarmError_WATERWAYALREADYINTHISLEVEL);
+				}
+				else
+				{
+					resource->_gold -= conf->spendgold;
+					_WaterWay->setLevel(waterwayLevel);
+					MsgBuildWaterWayACK ack;
+					ack.set_currentlevel(_WaterWay->getLevel());
+					ack.set_cellid(_ID);
+					ack.set_spendgold(conf->spendgold);
+				}
+				
+			}
+			
+		}
+		
+
 	}
 
 	return true;

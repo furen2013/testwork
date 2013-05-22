@@ -74,11 +74,17 @@ enum enFarmErrorResult {
   FarmError_ERRORSEED = 8,
   FarmError_THEMILLLEVELTOOHIGH = 9,
   FarmError_THEWATERWAYLEVELTOOHIGH = 10,
+  FarmError_ERRORMILLLEVEL = 11,
+  FarmError_ERRORWATERWAYLEVEL = 12,
+  FarmError_BUILDMILLNOTHAVEENOUGHMONEY = 13,
+  FarmError_BUILDWATERWAYNOTHAVEENOUGHMONEY = 14,
+  FarmError_MILLISALREADYINTHISLEVEL = 15,
+  FarmError_WATERWAYALREADYINTHISLEVEL = 16,
   FarmError_UKNOWN = 11
 };
 bool enFarmErrorResult_IsValid(int value);
 const enFarmErrorResult enFarmErrorResult_MIN = FarmError_NOTFOUNDCELL;
-const enFarmErrorResult enFarmErrorResult_MAX = FarmError_UKNOWN;
+const enFarmErrorResult enFarmErrorResult_MAX = FarmError_WATERWAYALREADYINTHISLEVEL;
 const int enFarmErrorResult_ARRAYSIZE = enFarmErrorResult_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* enFarmErrorResult_descriptor();

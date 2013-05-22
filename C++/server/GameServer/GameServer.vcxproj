@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameServer.h" />
+    <ClInclude Include="logic\farm\FarmComponentStorage.h" />
     <ClInclude Include="logic\farm\FarmLogic.h" />
     <ClInclude Include="logic\farm\FarmManager.h" />
     <ClInclude Include="logic\farm\PloughCell.h" />
@@ -107,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameServer.cpp" />
+    <ClCompile Include="logic\farm\FarmComponentStorage.cpp" />
     <ClCompile Include="logic\farm\FarmLogic.cpp" />
     <ClCompile Include="logic\farm\FarmManager.cpp" />
     <ClCompile Include="logic\farm\PloughCell.cpp" />
