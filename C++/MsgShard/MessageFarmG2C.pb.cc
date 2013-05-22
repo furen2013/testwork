@@ -314,7 +314,7 @@ void protobuf_AddDesc_MessageFarmG2C_2eproto() {
     " \002(\005\022\024\n\014currentlevel\030\002 \002(\005\022\021\n\tspendgold\030"
     "\003 \002(\005\"N\n\023MsgBuildWaterWayACK\022\016\n\006cellid\030\001"
     " \002(\005\022\024\n\014currentlevel\030\002 \002(\005\022\021\n\tspendgold\030"
-    "\003 \002(\005*\333\002\n\021enFarmErrorResult\022\032\n\026FarmError"
+    "\003 \002(\005*\307\004\n\021enFarmErrorResult\022\032\n\026FarmError"
     "_NOTFOUNDCELL\020\001\022\031\n\025FarmError_NOTHAVESEED"
     "\020\002\022\034\n\030FarmError_CELLCANNOTSEED\020\003\022\032\n\026Farm"
     "Error_ISHAVEMANURE\020\004\022 \n\034FarmError_GATHER"
@@ -322,7 +322,13 @@ void protobuf_AddDesc_MessageFarmG2C_2eproto() {
     "E\020\006\022\035\n\031FarmError_NOTHAVETHISSEED\020\007\022\027\n\023Fa"
     "rmError_ERRORSEED\020\010\022!\n\035FarmError_THEMILL"
     "LEVELTOOHIGH\020\t\022%\n!FarmError_THEWATERWAYL"
-    "EVELTOOHIGH\020\n\022\024\n\020FarmError_UKNOWN\020\013", 1235);
+    "EVELTOOHIGH\020\n\022\034\n\030FarmError_ERRORMILLLEVE"
+    "L\020\013\022 \n\034FarmError_ERRORWATERWAYLEVEL\020\014\022)\n"
+    "%FarmError_BUILDMILLNOTHAVEENOUGHMONEY\020\r"
+    "\022-\n)FarmError_BUILDWATERWAYNOTHAVEENOUGH"
+    "MONEY\020\016\022&\n\"FarmError_MILLISALREADYINTHIS"
+    "LEVEL\020\017\022(\n$FarmError_WATERWAYALREADYINTH"
+    "ISLEVEL\020\020\022\024\n\020FarmError_UKNOWN\020\013", 1471);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageFarmG2C.proto", &protobuf_RegisterTypes);
   MsgPloughCellInfo::default_instance_ = new MsgPloughCellInfo();
@@ -372,6 +378,11 @@ bool enFarmErrorResult_IsValid(int value) {
     case 9:
     case 10:
     case 11:
+    case 12:
+    case 13:
+    case 14:
+    case 15:
+    case 16:
       return true;
     default:
       return false;
