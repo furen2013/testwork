@@ -99,6 +99,9 @@
     <ClInclude Include="logic\farm\FarmComponentStorage.h">
       <Filter>logic\farm</Filter>
     </ClInclude>
+    <ClInclude Include="logic\world.h">
+      <Filter>logic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -181,6 +184,9 @@
     </ClCompile>
     <ClCompile Include="logic\farm\FarmComponentStorage.cpp">
       <Filter>logic\farm</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\world.cpp">
+      <Filter>logic</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

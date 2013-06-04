@@ -28,8 +28,8 @@ public:
 	~FarmComponentStorage();
 public:
 	void Load();
-	WaterWayConf* getWaterWayConf(int level);
-	MillConf* getMillConf(int level);
+	const WaterWayConf* getWaterWayConf(int level);
+	const MillConf* getMillConf(int level);
 protected:
 	WATERWAYCONFS _waterWays;
 	MILLCONFS     _millConfs;

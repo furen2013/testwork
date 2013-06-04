@@ -39,7 +39,10 @@ public:
 	{
 		return _millEffectModify;
 	}
-
+	inline int getWaterWayEffectModify()
+	{
+		return _waterWayEffectModify;
+	}
 	inline int getAllowBuildMill()
 	{
 		return _allowBuildMill;

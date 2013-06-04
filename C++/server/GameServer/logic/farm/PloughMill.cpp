@@ -2,6 +2,7 @@
 #include "PloughMill.h"
 #include "FarmLogic.h"
 #include "PloughCell.h"
+#include "FarmComponentStorage.h"
 PloughMill::PloughMill()
 	:_ploughCell(NULL),
 	_modifyHavest(0),
@@ -39,5 +40,14 @@ void PloughMill::setLevel(int level)
 // È±ÉÙ¸öÅäÖÃ
 void PloughMill::changeLevel()
 {
-
+	const MillConf* conf = FarmComponentStorage::getSingleton().getMillConf(_level);
+	if (!conf)
+	{
+		MyLog::log->fatal("not found mill conf [%d]", _level);
+	}
+	else
+	{
+		_modifyHavest = conf->modify;
+		_modifyHavestPct = conf->modifyPct;
+	}
 }

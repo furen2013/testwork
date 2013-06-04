@@ -98,6 +98,7 @@
     <ClInclude Include="logic\technology\TechSkill.h" />
     <ClInclude Include="logic\technology\TechSkillStorage.h" />
     <ClInclude Include="logic\Unit.h" />
+    <ClInclude Include="logic\world.h" />
     <ClInclude Include="NetParser.h" />
     <ClInclude Include="Net\GSListenSocket.h" />
     <ClInclude Include="Net\GSocket.h" />
@@ -125,6 +126,7 @@
     <ClCompile Include="logic\technology\TechSkill.cpp" />
     <ClCompile Include="logic\technology\TechSkillStorage.cpp" />
     <ClCompile Include="logic\Unit.cpp" />
+    <ClCompile Include="logic\world.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NetParser.cpp" />
     <ClCompile Include="Net\GSListenSocket.cpp" />

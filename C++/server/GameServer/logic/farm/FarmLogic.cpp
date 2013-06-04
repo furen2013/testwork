@@ -245,7 +245,9 @@ void FarmLogic::sendFarmState()
 		cellInfo->set_waterpercentage(cell->getWaterPercentage());
 		cellInfo->set_decreasewaterperhour(cell->getDecreaseWaterPerhour());
 		cellInfo->set_laststatetime(cell->getLastStateTime());
-		cellInfo->set_waterpercentagemax(cell->getDecreaseWaterPerhour());
+		cellInfo->set_waterpercentagemax(cell->getWaterPercentageMax());
+		cellInfo->set_realdecreasewaterperhour(cell->getRealDecreaseWaterPerhour());
+		cellInfo->set_realhavest(cell->getRealHavest());
 		cellInfo->set_id(cell->getID());
 		switch(cell->getgrowstate())
 		{

@@ -68,6 +68,18 @@ bool PloughCell::LoadFromString(string sz)
 		_decreaseWaterPerHour = boost::lexical_cast<int32>(tokens[5].c_str());
 		_ID = boost::lexical_cast<int32>(tokens[6].c_str());
 		_seedLevel = boost::lexical_cast<int32>(tokens[7].c_str());
+		int milllevel = boost::lexical_cast<int32>(tokens[8].c_str());
+		if (milllevel != 0&& _mill ==NULL)
+		{
+			_mill = new PloughMill();
+			_mill->setLevel(milllevel);
+		}
+		int waterwaylevel = boost::lexical_cast<int32>(tokens[9].c_str());
+		if (waterwaylevel != 0 && _WaterWay == NULL)
+		{
+			_WaterWay = new PloughWaterWay();
+			_WaterWay->setLevel(waterwaylevel);
+		}
 		b = true;
 	}
 	else
@@ -141,6 +153,25 @@ bool PloughCell::SpreadManure(int Manurelevel)
 	return true;
 }
 
+int32 PloughCell::getRealDecreaseWaterPerhour()
+{
+	int decreasePerHour = _decreaseWaterPerHour;
+	if (_WaterWay)
+	{
+		decreasePerHour = _WaterWay->DecreaseWater(decreasePerHour);
+	}
+	return decreasePerHour;
+}
+
+int32 PloughCell::getRealHavest()
+{
+	int resource = 50; // wait to modify;
+	if (_mill)
+	{
+		resource = _mill->GatherModify(resource);
+	}
+	return resource;
+}
 
 int PloughCell::gather()
 {
@@ -178,7 +209,7 @@ bool PloughCell::BuildMill(int millLevel)
 	else
 	{
 		
-		MillConf* conf = FarmComponentStorage::getSingleton().getMillConf(millLevel);
+		const MillConf* conf = FarmComponentStorage::getSingleton().getMillConf(millLevel);
 		if (!conf)
 		{
 			_farm->sendFarmError(_ID, FarmError_ERRORMILLLEVEL);
@@ -209,6 +240,7 @@ bool PloughCell::BuildMill(int millLevel)
 					ACK.set_cellid(_ID);
 					ACK.set_spendgold(conf->spendgold);//½«À´²¹³ä£»
 					resource->_gold -= conf->spendgold;
+					_farm->modify();
 					_farm->sendMessage(&ACK, GS2C_MsgBuildMillACK);
 				}
 				
@@ -233,7 +265,7 @@ bool PloughCell::buildWaterWay(int waterwayLevel)
 	}
 	else
 	{
-		WaterWayConf* conf = FarmComponentStorage::getSingleton().getWaterWayConf(waterwayLevel);
+		const WaterWayConf* conf = FarmComponentStorage::getSingleton().getWaterWayConf(waterwayLevel);
 		if (!conf)
 		{
 			_farm->sendFarmError(_ID, FarmError_ERRORWATERWAYLEVEL);
@@ -260,6 +292,7 @@ bool PloughCell::buildWaterWay(int waterwayLevel)
 				{
 					resource->_gold -= conf->spendgold;
 					_WaterWay->setLevel(waterwayLevel);
+					_farm->modify();
 					MsgBuildWaterWayACK ack;
 					ack.set_currentlevel(_WaterWay->getLevel());
 					ack.set_cellid(_ID);

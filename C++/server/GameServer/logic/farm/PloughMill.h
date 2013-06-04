@@ -17,7 +17,6 @@ protected:
 	PloughCell* _ploughCell;
 	int32 _modifyHavestPct;
 	int32 _modifyHavest;
-	int32 _modify;
 	int32 _level;
 	
 };

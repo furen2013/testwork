@@ -58,7 +58,7 @@ void protobuf_AssignDesc_MessageFarmG2C_2eproto() {
       "MessageFarmG2C.proto");
   GOOGLE_CHECK(file != NULL);
   MsgPloughCellInfo_descriptor_ = file->message_type(0);
-  static const int MsgPloughCellInfo_offsets_[9] = {
+  static const int MsgPloughCellInfo_offsets_[11] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgPloughCellInfo, level_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgPloughCellInfo, waterpercentage_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgPloughCellInfo, state_),
@@ -68,6 +68,8 @@ void protobuf_AssignDesc_MessageFarmG2C_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgPloughCellInfo, decreasewaterperhour_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgPloughCellInfo, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgPloughCellInfo, waterpercentagemax_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgPloughCellInfo, realdecreasewaterperhour_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgPloughCellInfo, realhavest_),
   };
   MsgPloughCellInfo_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -292,43 +294,45 @@ void protobuf_AddDesc_MessageFarmG2C_2eproto() {
 
   ::protobuf_AddDesc_MsgHead_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\024MessageFarmG2C.proto\032\rMsgHead.proto\"\277\002"
+    "\n\024MessageFarmG2C.proto\032\rMsgHead.proto\"\365\002"
     "\n\021MsgPloughCellInfo\022\r\n\005level\030\001 \002(\005\022\027\n\017wa"
     "terPercentage\030\002 \002(\005\022+\n\005state\030\003 \002(\0162\034.Msg"
     "PloughCellInfo.GrowState\022\023\n\013manurelevel\030"
     "\004 \002(\005\022\021\n\tseedLevel\030\005 \002(\005\022\025\n\rlastStateTim"
     "e\030\006 \002(\004\022\034\n\024decreaseWaterperhour\030\007 \002(\005\022\n\n"
-    "\002ID\030\010 \002(\005\022\032\n\022waterPercentageMax\030\t \002(\005\"P\n"
-    "\tGrowState\022\016\n\nState_NULL\020\000\022\021\n\rState_Seed"
-    "ing\020\001\022\017\n\013State_Young\020\002\022\017\n\013State_Grown\020\003\""
-    "0\n\013MsgFarmInfo\022!\n\005cells\030\001 \003(\0132\022.MsgPloug"
-    "hCellInfo\",\n\016MsgFarmInfoACK\022\032\n\004info\030\001 \002("
-    "\0132\014.MsgFarmInfo\"A\n\017MsgFarmErrorACK\022\036\n\002en"
-    "\030\001 \002(\0162\022.enFarmErrorResult\022\016\n\006cellid\030\002 \002"
-    "(\005\"3\n\016MsgSeedCellACK\022\016\n\006cellid\030\001 \002(\005\022\021\n\t"
-    "seedlevel\030\002 \002(\005\"9\n\022MsgSpreadManureACK\022\016\n"
-    "\006cellid\030\001 \002(\005\022\023\n\013manurelevel\030\002 \002(\005\":\n\026Ms"
-    "gGatherPloughCellACK\022\016\n\006cellid\030\001 \002(\005\022\020\n\010"
-    "resource\030\002 \002(\005\"!\n\017MsgWaterCellACK\022\016\n\006cel"
-    "lid\030\001 \002(\005\"J\n\017MsgBuildMillACK\022\016\n\006cellid\030\001"
-    " \002(\005\022\024\n\014currentlevel\030\002 \002(\005\022\021\n\tspendgold\030"
-    "\003 \002(\005\"N\n\023MsgBuildWaterWayACK\022\016\n\006cellid\030\001"
-    " \002(\005\022\024\n\014currentlevel\030\002 \002(\005\022\021\n\tspendgold\030"
-    "\003 \002(\005*\307\004\n\021enFarmErrorResult\022\032\n\026FarmError"
-    "_NOTFOUNDCELL\020\001\022\031\n\025FarmError_NOTHAVESEED"
-    "\020\002\022\034\n\030FarmError_CELLCANNOTSEED\020\003\022\032\n\026Farm"
-    "Error_ISHAVEMANURE\020\004\022 \n\034FarmError_GATHER"
-    "NOTGROWNCELL\020\005\022\033\n\027FarmError_NOTHAVEMANUR"
-    "E\020\006\022\035\n\031FarmError_NOTHAVETHISSEED\020\007\022\027\n\023Fa"
-    "rmError_ERRORSEED\020\010\022!\n\035FarmError_THEMILL"
-    "LEVELTOOHIGH\020\t\022%\n!FarmError_THEWATERWAYL"
-    "EVELTOOHIGH\020\n\022\034\n\030FarmError_ERRORMILLLEVE"
-    "L\020\013\022 \n\034FarmError_ERRORWATERWAYLEVEL\020\014\022)\n"
-    "%FarmError_BUILDMILLNOTHAVEENOUGHMONEY\020\r"
-    "\022-\n)FarmError_BUILDWATERWAYNOTHAVEENOUGH"
-    "MONEY\020\016\022&\n\"FarmError_MILLISALREADYINTHIS"
-    "LEVEL\020\017\022(\n$FarmError_WATERWAYALREADYINTH"
-    "ISLEVEL\020\020\022\024\n\020FarmError_UKNOWN\020\013", 1471);
+    "\002ID\030\010 \002(\005\022\032\n\022waterPercentageMax\030\t \002(\005\022 \n"
+    "\030realDecreaseWaterPerhour\030\n \002(\005\022\022\n\nrealH"
+    "avest\030\013 \002(\005\"P\n\tGrowState\022\016\n\nState_NULL\020\000"
+    "\022\021\n\rState_Seeding\020\001\022\017\n\013State_Young\020\002\022\017\n\013"
+    "State_Grown\020\003\"0\n\013MsgFarmInfo\022!\n\005cells\030\001 "
+    "\003(\0132\022.MsgPloughCellInfo\",\n\016MsgFarmInfoAC"
+    "K\022\032\n\004info\030\001 \002(\0132\014.MsgFarmInfo\"A\n\017MsgFarm"
+    "ErrorACK\022\036\n\002en\030\001 \002(\0162\022.enFarmErrorResult"
+    "\022\016\n\006cellid\030\002 \002(\005\"3\n\016MsgSeedCellACK\022\016\n\006ce"
+    "llid\030\001 \002(\005\022\021\n\tseedlevel\030\002 \002(\005\"9\n\022MsgSpre"
+    "adManureACK\022\016\n\006cellid\030\001 \002(\005\022\023\n\013manurelev"
+    "el\030\002 \002(\005\":\n\026MsgGatherPloughCellACK\022\016\n\006ce"
+    "llid\030\001 \002(\005\022\020\n\010resource\030\002 \002(\005\"!\n\017MsgWater"
+    "CellACK\022\016\n\006cellid\030\001 \002(\005\"J\n\017MsgBuildMillA"
+    "CK\022\016\n\006cellid\030\001 \002(\005\022\024\n\014currentlevel\030\002 \002(\005"
+    "\022\021\n\tspendgold\030\003 \002(\005\"N\n\023MsgBuildWaterWayA"
+    "CK\022\016\n\006cellid\030\001 \002(\005\022\024\n\014currentlevel\030\002 \002(\005"
+    "\022\021\n\tspendgold\030\003 \002(\005*\307\004\n\021enFarmErrorResul"
+    "t\022\032\n\026FarmError_NOTFOUNDCELL\020\001\022\031\n\025FarmErr"
+    "or_NOTHAVESEED\020\002\022\034\n\030FarmError_CELLCANNOT"
+    "SEED\020\003\022\032\n\026FarmError_ISHAVEMANURE\020\004\022 \n\034Fa"
+    "rmError_GATHERNOTGROWNCELL\020\005\022\033\n\027FarmErro"
+    "r_NOTHAVEMANURE\020\006\022\035\n\031FarmError_NOTHAVETH"
+    "ISSEED\020\007\022\027\n\023FarmError_ERRORSEED\020\010\022!\n\035Far"
+    "mError_THEMILLLEVELTOOHIGH\020\t\022%\n!FarmErro"
+    "r_THEWATERWAYLEVELTOOHIGH\020\n\022\034\n\030FarmError"
+    "_ERRORMILLLEVEL\020\013\022 \n\034FarmError_ERRORWATE"
+    "RWAYLEVEL\020\014\022)\n%FarmError_BUILDMILLNOTHAV"
+    "EENOUGHMONEY\020\r\022-\n)FarmError_BUILDWATERWA"
+    "YNOTHAVEENOUGHMONEY\020\016\022&\n\"FarmError_MILLI"
+    "SALREADYINTHISLEVEL\020\017\022(\n$FarmError_WATER"
+    "WAYALREADYINTHISLEVEL\020\020\022\024\n\020FarmError_UKN"
+    "OWN\020\013", 1525);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageFarmG2C.proto", &protobuf_RegisterTypes);
   MsgPloughCellInfo::default_instance_ = new MsgPloughCellInfo();
@@ -427,6 +431,8 @@ const int MsgPloughCellInfo::kLastStateTimeFieldNumber;
 const int MsgPloughCellInfo::kDecreaseWaterperhourFieldNumber;
 const int MsgPloughCellInfo::kIDFieldNumber;
 const int MsgPloughCellInfo::kWaterPercentageMaxFieldNumber;
+const int MsgPloughCellInfo::kRealDecreaseWaterPerhourFieldNumber;
+const int MsgPloughCellInfo::kRealHavestFieldNumber;
 #endif  // !_MSC_VER
 
 MsgPloughCellInfo::MsgPloughCellInfo()
@@ -454,6 +460,8 @@ void MsgPloughCellInfo::SharedCtor() {
   decreasewaterperhour_ = 0;
   id_ = 0;
   waterpercentagemax_ = 0;
+  realdecreasewaterperhour_ = 0;
+  realhavest_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -499,6 +507,8 @@ void MsgPloughCellInfo::Clear() {
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     waterpercentagemax_ = 0;
+    realdecreasewaterperhour_ = 0;
+    realhavest_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -654,6 +664,38 @@ bool MsgPloughCellInfo::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(80)) goto parse_realDecreaseWaterPerhour;
+        break;
+      }
+      
+      // required int32 realDecreaseWaterPerhour = 10;
+      case 10: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_realDecreaseWaterPerhour:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &realdecreasewaterperhour_)));
+          set_has_realdecreasewaterperhour();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(88)) goto parse_realHavest;
+        break;
+      }
+      
+      // required int32 realHavest = 11;
+      case 11: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_realHavest:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &realhavest_)));
+          set_has_realhavest();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -722,6 +764,16 @@ void MsgPloughCellInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->waterpercentagemax(), output);
   }
   
+  // required int32 realDecreaseWaterPerhour = 10;
+  if (has_realdecreasewaterperhour()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->realdecreasewaterperhour(), output);
+  }
+  
+  // required int32 realHavest = 11;
+  if (has_realhavest()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->realhavest(), output);
+  }
+  
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -774,6 +826,16 @@ void MsgPloughCellInfo::SerializeWithCachedSizes(
   // required int32 waterPercentageMax = 9;
   if (has_waterpercentagemax()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->waterpercentagemax(), target);
+  }
+  
+  // required int32 realDecreaseWaterPerhour = 10;
+  if (has_realdecreasewaterperhour()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->realdecreasewaterperhour(), target);
+  }
+  
+  // required int32 realHavest = 11;
+  if (has_realhavest()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->realhavest(), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -851,6 +913,20 @@ int MsgPloughCellInfo::ByteSize() const {
           this->waterpercentagemax());
     }
     
+    // required int32 realDecreaseWaterPerhour = 10;
+    if (has_realdecreasewaterperhour()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->realdecreasewaterperhour());
+    }
+    
+    // required int32 realHavest = 11;
+    if (has_realhavest()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->realhavest());
+    }
+    
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -907,6 +983,12 @@ void MsgPloughCellInfo::MergeFrom(const MsgPloughCellInfo& from) {
     if (from.has_waterpercentagemax()) {
       set_waterpercentagemax(from.waterpercentagemax());
     }
+    if (from.has_realdecreasewaterperhour()) {
+      set_realdecreasewaterperhour(from.realdecreasewaterperhour());
+    }
+    if (from.has_realhavest()) {
+      set_realhavest(from.realhavest());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -924,7 +1006,7 @@ void MsgPloughCellInfo::CopyFrom(const MsgPloughCellInfo& from) {
 }
 
 bool MsgPloughCellInfo::IsInitialized() const {
-  if ((_has_bits_[0] & 0x000001ff) != 0x000001ff) return false;
+  if ((_has_bits_[0] & 0x000007ff) != 0x000007ff) return false;
   
   return true;
 }
@@ -940,6 +1022,8 @@ void MsgPloughCellInfo::Swap(MsgPloughCellInfo* other) {
     std::swap(decreasewaterperhour_, other->decreasewaterperhour_);
     std::swap(id_, other->id_);
     std::swap(waterpercentagemax_, other->waterpercentagemax_);
+    std::swap(realdecreasewaterperhour_, other->realdecreasewaterperhour_);
+    std::swap(realhavest_, other->realhavest_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

@@ -242,6 +242,20 @@ class MsgPloughCellInfo : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 waterpercentagemax() const;
   inline void set_waterpercentagemax(::google::protobuf::int32 value);
   
+  // required int32 realDecreaseWaterPerhour = 10;
+  inline bool has_realdecreasewaterperhour() const;
+  inline void clear_realdecreasewaterperhour();
+  static const int kRealDecreaseWaterPerhourFieldNumber = 10;
+  inline ::google::protobuf::int32 realdecreasewaterperhour() const;
+  inline void set_realdecreasewaterperhour(::google::protobuf::int32 value);
+  
+  // required int32 realHavest = 11;
+  inline bool has_realhavest() const;
+  inline void clear_realhavest();
+  static const int kRealHavestFieldNumber = 11;
+  inline ::google::protobuf::int32 realhavest() const;
+  inline void set_realhavest(::google::protobuf::int32 value);
+  
   // @@protoc_insertion_point(class_scope:MsgPloughCellInfo)
  private:
   inline void set_has_level();
@@ -262,6 +276,10 @@ class MsgPloughCellInfo : public ::google::protobuf::Message {
   inline void clear_has_id();
   inline void set_has_waterpercentagemax();
   inline void clear_has_waterpercentagemax();
+  inline void set_has_realdecreasewaterperhour();
+  inline void clear_has_realdecreasewaterperhour();
+  inline void set_has_realhavest();
+  inline void clear_has_realhavest();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
@@ -274,9 +292,11 @@ class MsgPloughCellInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 decreasewaterperhour_;
   ::google::protobuf::int32 id_;
   ::google::protobuf::int32 waterpercentagemax_;
+  ::google::protobuf::int32 realdecreasewaterperhour_;
+  ::google::protobuf::int32 realhavest_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(11 + 31) / 32];
   
   friend void  protobuf_AddDesc_MessageFarmG2C_2eproto();
   friend void protobuf_AssignDesc_MessageFarmG2C_2eproto();
@@ -1311,6 +1331,50 @@ inline ::google::protobuf::int32 MsgPloughCellInfo::waterpercentagemax() const {
 inline void MsgPloughCellInfo::set_waterpercentagemax(::google::protobuf::int32 value) {
   set_has_waterpercentagemax();
   waterpercentagemax_ = value;
+}
+
+// required int32 realDecreaseWaterPerhour = 10;
+inline bool MsgPloughCellInfo::has_realdecreasewaterperhour() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void MsgPloughCellInfo::set_has_realdecreasewaterperhour() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void MsgPloughCellInfo::clear_has_realdecreasewaterperhour() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void MsgPloughCellInfo::clear_realdecreasewaterperhour() {
+  realdecreasewaterperhour_ = 0;
+  clear_has_realdecreasewaterperhour();
+}
+inline ::google::protobuf::int32 MsgPloughCellInfo::realdecreasewaterperhour() const {
+  return realdecreasewaterperhour_;
+}
+inline void MsgPloughCellInfo::set_realdecreasewaterperhour(::google::protobuf::int32 value) {
+  set_has_realdecreasewaterperhour();
+  realdecreasewaterperhour_ = value;
+}
+
+// required int32 realHavest = 11;
+inline bool MsgPloughCellInfo::has_realhavest() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void MsgPloughCellInfo::set_has_realhavest() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void MsgPloughCellInfo::clear_has_realhavest() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void MsgPloughCellInfo::clear_realhavest() {
+  realhavest_ = 0;
+  clear_has_realhavest();
+}
+inline ::google::protobuf::int32 MsgPloughCellInfo::realhavest() const {
+  return realhavest_;
+}
+inline void MsgPloughCellInfo::set_realhavest(::google::protobuf::int32 value) {
+  set_has_realhavest();
+  realhavest_ = value;
 }
 
 // -------------------------------------------------------------------

@@ -49,17 +49,31 @@ public:
 	void addTechValue(int Techvalue);
 	void openTechLevel(int level);
 	void addTech(int level, int id, int count = 1);
+	inline void setTechValue(int techvalue)
+	{
+		_techvalue = techvalue;
+	}
 protected:
 	bool _addTechValue(int nValue);
 	bool _openTechLevel(int level);
 	void _addTech(int level, int id, int ncount, const techconf* pconf);
 	void addSkill(int skillid);
+	inline void setModify(bool b)
+	{
+		_modify = b;
+	}
+	inline bool modify()
+	{
+		return _modify;
+	}
+
 protected:
 	maptechlevel _techlevels;
 	maptechskill _techskill;
 	DWORD _account;
 	volatile int _techvalue;
 	Player* _player;
+	bool _modify;
 	
 };
 

@@ -11,6 +11,7 @@
 Technology::Technology()
 {
 	_techvalue = 0;
+	_modify = false;
 }
 
 Technology::~Technology()
@@ -140,6 +141,7 @@ void Technology::openTechLevel(int level)
 			if (_openTechLevel(level))
 			{
 				ACK.set_en(Technology_OK);
+				setModify(true);
 			}
 			else
 			{
@@ -231,6 +233,7 @@ int Technology::GetTechValue()
 bool Technology::_addTechValue(int nValue)
 {
 	_techvalue = nValue;
+	setModify(true);
 	return true;
 }
 
@@ -310,7 +313,7 @@ void Technology::_addTech(int level, int id, int ncount,  const techconf* pconf 
 					}
 					
 					_techvalue -= ncount;
-
+					setModify(true);
 					ACK.set_current(info->currentCount);
 				}
 			}

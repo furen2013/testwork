@@ -43,6 +43,8 @@ public:
 	inline DWORD getLastStateTime(){return _lastStateTime;}
 	inline int32 getDecreaseWaterPerhour(){return _decreaseWaterPerHour;}
 	inline int32 getWaterPercentageMax(){return _waterPercentageMax;}
+	int32 getRealDecreaseWaterPerhour();
+	int32 getRealHavest();
 protected:
 	void changeState();
 protected:

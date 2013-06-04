@@ -16,6 +16,8 @@ message MsgPloughCellInfo
 	required int32  decreaseWaterperhour	= 7;
 	required int32  ID						= 8;
 	required int32 waterPercentageMax	    = 9;
+	required int32 realDecreaseWaterPerhour = 10;
+	required int32 realHavest				= 11;
 
 }
 

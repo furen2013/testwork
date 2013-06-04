@@ -42,7 +42,9 @@ bool TechnologyManager::Load()
 		{
 			Technology* technology = new Technology();
 			technology->LoadTechlevelsFromStr(fields[1].GetString());
-			technology->setAccount(fields[0].GetUInt64());
+			technology->loadSkillsFromStr(fields[2].GetString());
+			technology->setAccount(fields[0].GetUInt32());
+			technology->setTechValue(fields[3].GetUInt32());
 			_technologys.insert(maptechnology::value_type(technology->getAccount(), technology));
 
 		} while (result->NextRow());

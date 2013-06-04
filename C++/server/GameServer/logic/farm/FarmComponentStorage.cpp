@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "FarmComponentStorage.h"
+#include "share/Database/Database.h"
+#include "share/Database/DatabaseEnv.h"
 initialiseSingleton(FarmComponentStorage);
 FarmComponentStorage::FarmComponentStorage()
 {
@@ -14,10 +16,47 @@ FarmComponentStorage::~FarmComponentStorage()
 
 void FarmComponentStorage::Load()
 {
+	QueryResult * result;
+	result = CharacterDatabase.Query("SELECT * FROM millconf");
+	if (!result)
+		return;
+	
+	if (result->GetRowCount() > 0)
+	{
+		do 
+		{
+			Field * fields = result->Fetch();
+			MillConf* conf = new MillConf();
+			conf->level = fields[0].GetInt32();
+			conf->spendgold = fields[1].GetInt32();
+			conf->modify = fields[2].GetInt32();
+			conf->modifyPct = fields[3].GetInt32();
+			_millConfs.insert(MILLCONFS::value_type(conf->level, conf));
+		} while (result->NextRow());
+	}
+	delete result;
+	result = CharacterDatabase.Query("SELECT * FROM waterwayconf");
+	if (!result)
+		return;
+	
+	if (result->GetRowCount() > 0)
+	{
+		do 
+		{
+			Field * fields = result->Fetch();
+			WaterWayConf* conf = new WaterWayConf();
+			conf->level = fields[0].GetInt32();
+			conf->spendgold = fields[1].GetInt32();
+			conf->modify = fields[2].GetInt32();
+			conf->modifyPct = fields[3].GetInt32();
+			_waterWays.insert(WATERWAYCONFS::value_type(conf->level, conf));
+		} while (result->NextRow());
+	}
 
+	delete result;
 }
 
-MillConf* FarmComponentStorage::getMillConf(int level)
+const MillConf* FarmComponentStorage::getMillConf(int level)
 {
 
 	MillConf* p = NULL;
@@ -29,7 +68,7 @@ MillConf* FarmComponentStorage::getMillConf(int level)
 	return p;
 }
 
-WaterWayConf* FarmComponentStorage::getWaterWayConf(int level)
+const WaterWayConf* FarmComponentStorage::getWaterWayConf(int level)
 {
 	WaterWayConf* p = NULL;
 	WATERWAYCONFS::iterator it = _waterWays.find(level);
