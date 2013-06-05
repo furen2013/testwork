@@ -10,11 +10,14 @@ class FarmManager : public Singleton<FarmManager>
 public:
 	FarmManager();
 	~FarmManager();
+public:
+	void init();
 	// if return null is already have farm;
 	FarmLogic* CreateFarm(DWORD account);
-	void LoadFarms();
 	void Process();
 	FarmLogic* GetFarmLogic(DWORD account);
+protected:
+	void LoadFarms();
 protected:
 	FARMS _farms;
 

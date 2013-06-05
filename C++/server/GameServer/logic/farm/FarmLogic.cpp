@@ -7,6 +7,7 @@
 #include "../PlayerResourceManager.h"
 #include "../../Net/NetSession.h"
 #include "MyLog.h"
+#include "Database/DatabaseEnv.h"
 
 FarmLogic::FarmLogic()
 	:_allowBuildWaterWay(0),
@@ -25,7 +26,11 @@ FarmLogic::~FarmLogic()
 
 void FarmLogic::modify()
 {
-	_modify = true;
+	if (!_modify)
+	{
+		_modify = true;
+		EventMgr::getSingleton().AddEvent(this,&FarmLogic::synSave, TECHNOLOGY_SYNSAVE, 60000, 0, 0);
+	}
 }
 
 string FarmLogic::MakeCellsStr()
@@ -288,6 +293,26 @@ PloughCell* FarmLogic::getPloughCell(int id)
 	}
 	
 	return cell;
+}
+
+void FarmLogic::synSave()
+{
+	if (_modify)
+	{
+		CharacterDatabase.Execute("replace into PlayerFarm (id,cells) values(%lu,%s)",getAccount(), MakeCellsStr().c_str());
+		_modify =  false;
+	}
+	
+}
+
+void FarmLogic::Save()
+{
+	if (_modify)
+	{
+		CharacterDatabase.WaitExecute("replace into PlayerFarm (id,cells) values(%lu,%s)",getAccount(), MakeCellsStr().c_str());
+		_modify = false;
+	}
+	
 }
 
 bool FarmLogic::spreadManure(int cellid, int Spreadmanure)

@@ -4,6 +4,7 @@
 #include "share/Database/Database.h"
 #include "share/Database/DatabaseEnv.h"
 #include "boost/lexical_cast.hpp"
+#include "TechSkillStorage.h"
 initialiseSingleton(TechnologyManager);
 bool techconf::LoadFromStr(string str)
 {
@@ -28,9 +29,9 @@ TechnologyManager::~TechnologyManager()
 
 }
 
-bool TechnologyManager::Load()
+bool TechnologyManager::init()
 {
-
+	TechSkillStorage::getSingleton().init();
 	QueryResult * result;
 	result = CharacterDatabase.Query("SELECT * FROM %s", "Technology");
 	if (!result)

@@ -9,6 +9,8 @@ public:
 public:
 	PlayerResourceManager();
 	~PlayerResourceManager();
+public:
+	void Init();
 	PlayerResource* GetPlayerResource(DWORD account);
 	PlayerResource* CreateResource(DWORD account);
 	bool addPlayerResource(PlayerResource* p);

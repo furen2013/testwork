@@ -8,7 +8,7 @@ class TechSkillStorage : public Singleton<TechSkillStorage>
 public:
 	TechSkillStorage();
 	~TechSkillStorage();
-	bool Load();
+	bool init();
 	TechSkillInfo* FindSkillInfo(int32 id);
 protected:
 	MAPTECHSKILLINFO _mapTechInfo;

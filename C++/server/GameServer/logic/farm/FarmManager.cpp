@@ -3,6 +3,7 @@
 #include "FarmLogic.h"
 #include "share/Database/Database.h"
 #include "share/Database/DatabaseEnv.h"
+#include "FarmComponentStorage.h"
 initialiseSingleton(FarmManager);
 FarmManager::FarmManager()
 {
@@ -12,6 +13,12 @@ FarmManager::FarmManager()
 FarmManager::~FarmManager()
 {
 
+}
+
+void FarmManager::init()
+{
+	FarmComponentStorage::getSingleton().Load();
+	LoadFarms();
 }
 
 FarmLogic* FarmManager::CreateFarm(DWORD account)

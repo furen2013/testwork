@@ -67,7 +67,7 @@ public:
 public:
 	TechnologyManager();
 	~TechnologyManager();
-	bool Load();
+	bool init();
 	enTechResult AddTechCount(DWORD account, int level, int id, int count = 1);
 	enTechResult OpenTechLevel(DWORD account, int level);
 	Technology* GetTech(DWORD account); // if null create it

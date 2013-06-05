@@ -56,9 +56,11 @@ public:
 		return _Player;
 	}
 	void sendMessage(::google::protobuf::Message* message, MsgType type);
+
+	void Save();
 protected:
 	NetSession* GetNetSession();
-
+	void synSave();
 	
 	
 protected:

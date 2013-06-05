@@ -2,6 +2,7 @@
 #ifndef TECHNOLOGY_H
 #define TECHNOLOGY_H
 #include "TypeDef.h"
+#include "Com/EventableObject.h"
 extern 	enum enTechResult;
 struct techconf;
 class Player;
@@ -22,7 +23,7 @@ struct TechLevel
 	maptechinfo TechInfos;
 
 };
-class Technology
+class Technology : public EventableObject
 {
 public:
 	typedef map<int, TechLevel*> maptechlevel;
@@ -53,16 +54,16 @@ public:
 	{
 		_techvalue = techvalue;
 	}
+	void Save();
 protected:
+	void synSave();
 	bool _addTechValue(int nValue);
 	bool _openTechLevel(int level);
 	void _addTech(int level, int id, int ncount, const techconf* pconf);
 	void addSkill(int skillid);
-	inline void setModify(bool b)
-	{
-		_modify = b;
-	}
-	inline bool modify()
+	void modify( );
+
+	inline bool isModify()
 	{
 		return _modify;
 	}

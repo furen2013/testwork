@@ -8,6 +8,7 @@
 #include "Net/GSListenSocket.h"
 #include "MyNetGlobleObj.h"
 #include "share/Database/Database.h"
+#include "logic/world.h"
 SERVER_DECL Database* Database_Character;
 #ifdef WIN32
 extern int m_ServiceStatus;
@@ -110,6 +111,7 @@ void CGameServer::Run()
 				//sCSSocket.run_no_wait();
 				//sDBSocket.run_no_wait();
 				GSL.run_no_wait();
+				World::getSingleton().Run();
 				//sCLS.run_no_wait();
 			}
 
@@ -217,7 +219,7 @@ bool CGameServer::Init()
 #endif
 	int HeadLen = sizeof(unsigned short);
 	MyNetGlobleObj::InitMsg(HeadLen, 0);
-
+	
 
 
 #ifdef _WIN32
@@ -231,7 +233,7 @@ bool CGameServer::Init()
 	}
 	GSL.set_limit_mode( true );
 	MyLog::log->notice("Start Listen Client on port[%u]", 95502);
-
+	World::getSingleton().Init();
 
 	return true;
 }

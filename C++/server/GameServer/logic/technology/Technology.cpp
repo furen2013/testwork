@@ -7,7 +7,7 @@
 #include "boost/lexical_cast.hpp"
 #include "TechSkillStorage.h"
 #include "TechSkill.h"
-
+#include "Database/DatabaseEnv.h"
 Technology::Technology()
 {
 	_techvalue = 0;
@@ -141,7 +141,7 @@ void Technology::openTechLevel(int level)
 			if (_openTechLevel(level))
 			{
 				ACK.set_en(Technology_OK);
-				setModify(true);
+				modify();
 			}
 			else
 			{
@@ -152,6 +152,31 @@ void Technology::openTechLevel(int level)
 	}
 	
 }
+
+
+void Technology::Save()
+{
+	CharacterDatabase.WaitExecute("replace into Technology (id, techs, skills) values(%lu, %s, %s)",
+		getAccount(), techlevelstoString().c_str(),skillstoString().c_str());
+}
+
+void Technology::synSave()
+{
+
+	CharacterDatabase.WaitExecute("replace into Technology (id, techs, skills) values(%lu, %s, %s)",
+		getAccount(), techlevelstoString().c_str(),skillstoString().c_str());
+}
+
+void Technology::modify()
+{
+	if (_modify == false)
+	{
+		_modify =  true;
+		EventMgr::getSingleton().AddEvent(this,&Technology::synSave, FARM_SYNSAVE, 60000, 0, 0);
+	}
+	
+}
+
 void Technology::addTech(int level, int id, int count)
 {
 	MsgApplyAddTechInfoACK ack;
@@ -233,7 +258,7 @@ int Technology::GetTechValue()
 bool Technology::_addTechValue(int nValue)
 {
 	_techvalue = nValue;
-	setModify(true);
+	modify();
 	return true;
 }
 
@@ -313,7 +338,7 @@ void Technology::_addTech(int level, int id, int ncount,  const techconf* pconf 
 					}
 					
 					_techvalue -= ncount;
-					setModify(true);
+					modify();
 					ACK.set_current(info->currentCount);
 				}
 			}

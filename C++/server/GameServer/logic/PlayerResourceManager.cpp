@@ -12,6 +12,11 @@ PlayerResourceManager::~PlayerResourceManager()
 
 }
 
+void PlayerResourceManager::Init()
+{
+
+}
+
 PlayerResource* PlayerResourceManager::GetPlayerResource(DWORD account)
 {
 	PlayerResource* resource = NULL;

@@ -2,6 +2,12 @@
 #include "world.h"
 #include "share/Database/Database.h"
 #include "share/Database/DatabaseEnv.h"
+#include "technology/TechnologyManager.h"
+#include "PlayerResourceManager.h"
+#include "technology/TechSkillStorage.h"
+#include "farm/FarmComponentStorage.h"
+#include "farm/FarmManager.h"
+
 initialiseSingleton( World );
 World::World()
 {
@@ -15,11 +21,17 @@ World::~World()
 void World::Init()
 {
 
+	TechnologyManager::getSingleton().init();
+	PlayerResourceManager::getSingleton().Init();
+	
+	FarmManager::getSingleton().init();
+
+
 }
 
 void World::Run()
 {
-
+  //every process
 }
 
 bool World::ExecuteSqlToDBServer( QueryBuffer* buf )

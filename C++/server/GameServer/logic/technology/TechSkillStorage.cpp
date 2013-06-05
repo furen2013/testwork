@@ -14,7 +14,7 @@ TechSkillStorage::~TechSkillStorage()
 
 }
 
-bool TechSkillStorage::Load()
+bool TechSkillStorage::init()
 {
 	QueryResult* result;
 	result = CharacterDatabase.Query("select * from techskillinfo");
