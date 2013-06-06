@@ -103,6 +103,7 @@
     <None Include="proto\MessageG2C.proto" />
     <None Include="proto\MessageGate2GS.proto" />
     <None Include="proto\MessageGate2LG.proto" />
+    <None Include="proto\MessageGS2C.proto" />
     <None Include="proto\MessageGS2Gate.proto" />
     <None Include="proto\MessageLG2Gate.proto" />
     <None Include="proto\MessageTechnologyC2S.proto" />

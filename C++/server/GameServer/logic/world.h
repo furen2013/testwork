@@ -4,6 +4,7 @@
 #include "EventableObject.h"
 #include "share/Database/Database.h"
 #include "share/Database/DatabaseEnv.h"
+class EventableObjectHolder;
 class World : public Singleton<World>, public EventableObject
 {
 public:
@@ -11,8 +12,10 @@ public:
 	~World();
 public:
 	void Init();
-	void Run();
+	void Run(uint32 time_difference);
 	bool ExecuteSqlToDBServer( QueryBuffer* buf );
 	bool ExecuteSqlToDBServer( const char* sql, ... );
+protected:
+	EventableObjectHolder* _holder;
 };
 #endif

@@ -39,3 +39,21 @@ void NetSession::HandleWaterCellReq(MsgHead& Msg)
 	_player->wateringCell(MsgRecive.cellid());
 }
 
+void NetSession::HandleCreateCellReq(MsgHead& Msg)
+{
+	if (_player)
+	{
+	}
+}
+
+void NetSession::HandleCreateFarmReq(MsgHead& Msg)
+{
+	if (_player)
+	{
+		if (_player->getFarm() != NULL)
+		{
+
+		}
+		
+	}
+}

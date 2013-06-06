@@ -80,7 +80,7 @@ void protobuf_AddDesc_MsgHead_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\rMsgHead.proto\"Q\n\007MsgHead\022\026\n\004Type\030\001 \002(\016"
     "2\010.MsgType\022\017\n\007msgSize\030\002 \002(\005\022\017\n\007account\030\003"
-    " \002(\004\022\014\n\004body\030\004 \002(\014*\236\013\n\007MsgType\022\017\n\013C2S_Ms"
+    " \002(\004\022\014\n\004body\030\004 \002(\014*\214\014\n\007MsgType\022\017\n\013C2S_Ms"
     "gNull\020\000\022\023\n\017C2S_MsgLoginReq\020\001\022\032\n\026C2S_MsgC"
     "reateAcountReq\020\002\022\026\n\022C2S_MsgLoginMacReq\020\003"
     "\022\026\n\022C2S_MsgBindMailReq\020\004\022\027\n\023C2S_MsgUnbin"
@@ -93,30 +93,33 @@ void protobuf_AddDesc_MsgHead_2eproto() {
     "Req\020\262\002\022\034\n\027C2S_MsgOpenTechLevelReq\020\263\002\022\037\n\032"
     "C2S_MsgApplyAddTechInfoReq\020\264\002\022\033\n\026C2S_Msg"
     "AddTechValueReq\020\265\002\022\030\n\023C2S_MsgBuildMillRe"
-    "q\020\266\002\022\034\n\027C2S_MsgBuildWaterWayReq\020\267\002\022\016\n\tC2"
-    "S_GSEnd\020\364\003\022\014\n\007C2S_END\020\346\007\022\016\n\tG2C_Begin\020\347\007"
-    "\022\021\n\014G2C_LoginACK\020\350\007\022\027\n\022G2C_MsgG2CErrorAC"
-    "K\020\351\007\022\014\n\007G2C_End\020\320\017\022\022\n\rGate2LG_Begin\020\321\017\022\037"
-    "\n\032Gate2LG_MsgGate2LGLoginReq\020\322\017\022\'\n\"Gate2"
-    "LG_MsgGate2LGClientDisconnect\020\323\017\022#\n\036Gate"
-    "2LG_MsgGate2LGLoginMailReq\020\324\017\022(\n#Gate2LG"
-    "_MsgGate2LGLoginUserInfoList\020\325\017\022\020\n\013Gate2"
-    "LG_End\020\270\027\022\022\n\rLG2Gate_Begin\020\271\027\022\037\n\032LG2Gate"
-    "_MsgLG2GateLoginACK\020\272\027\022\030\n\023LG2C_MsgBindMa"
-    "ilACK\020\273\027\022\'\n\"LG2Gate_MsgLG2GateReqLoginUs"
-    "erList\020\274\027\022\020\n\013LG2Gate_End\020\240\037\022\032\n\025GS_MsgGat"
-    "e2GSLoginReq\020\241\037\022\035\n\030GS_MsgGaet2GSLoginOut"
-    "Req\020\242\037\022 \n\033GS2Client_GS2GateLoginOKACK\020\211\'"
-    "\022\017\n\nGS2C_Begin\020\374*\022\030\n\023GS2C_MsgSeedCellACK"
-    "\020\376*\022\034\n\027GS2C_MsgSpreadManureACK\020\377*\022 \n\033GS2"
-    "C_MsgGatherPloughCellACK\020\200+\022\031\n\024GS2C_MsgF"
-    "armErrorACK\020\201+\022\030\n\023GS2C_MsgFarmInfoACK\020\202+"
-    "\022\031\n\024GS2C_MsgWaterCellACK\020\203+\022\024\n\017GS2C_MsgF"
-    "armEnd\020\203+\022\037\n\032GS2C_MsgTechnologyStateACK\020"
-    "\204+\022\035\n\030GS2C_MsgOpenTechLevelACK\020\205+\022 \n\033GS2"
-    "C_MsgApplyAddTechInfoACK\020\206+\022\034\n\027GS2C_MsgA"
-    "ddTechValueACK\020\207+\022\031\n\024GS2C_MsgBuildMillAC"
-    "K\020\210+\022\r\n\010GS2C_End\020\360.", 1539);
+    "q\020\266\002\022\034\n\027C2S_MsgBuildWaterWayReq\020\267\002\022\031\n\024C2"
+    "S_MsgCreateFarmReq\020\270\002\022\031\n\024C2S_MsgCreateCe"
+    "llReq\020\271\002\022\016\n\tC2S_GSEnd\020\364\003\022\014\n\007C2S_END\020\346\007\022\016"
+    "\n\tG2C_Begin\020\347\007\022\021\n\014G2C_LoginACK\020\350\007\022\027\n\022G2C"
+    "_MsgG2CErrorACK\020\351\007\022\014\n\007G2C_End\020\320\017\022\022\n\rGate"
+    "2LG_Begin\020\321\017\022\037\n\032Gate2LG_MsgGate2LGLoginR"
+    "eq\020\322\017\022\'\n\"Gate2LG_MsgGate2LGClientDisconn"
+    "ect\020\323\017\022#\n\036Gate2LG_MsgGate2LGLoginMailReq"
+    "\020\324\017\022(\n#Gate2LG_MsgGate2LGLoginUserInfoLi"
+    "st\020\325\017\022\020\n\013Gate2LG_End\020\270\027\022\022\n\rLG2Gate_Begin"
+    "\020\271\027\022\037\n\032LG2Gate_MsgLG2GateLoginACK\020\272\027\022\030\n\023"
+    "LG2C_MsgBindMailACK\020\273\027\022\'\n\"LG2Gate_MsgLG2"
+    "GateReqLoginUserList\020\274\027\022\020\n\013LG2Gate_End\020\240"
+    "\037\022\032\n\025GS_MsgGate2GSLoginReq\020\241\037\022\035\n\030GS_MsgG"
+    "aet2GSLoginOutReq\020\242\037\022 \n\033GS2Client_GS2Gat"
+    "eLoginOKACK\020\211\'\022\017\n\nGS2C_Begin\020\374*\022\030\n\023GS2C_"
+    "MsgSeedCellACK\020\376*\022\034\n\027GS2C_MsgSpreadManur"
+    "eACK\020\377*\022 \n\033GS2C_MsgGatherPloughCellACK\020\200"
+    "+\022\031\n\024GS2C_MsgFarmErrorACK\020\201+\022\030\n\023GS2C_Msg"
+    "FarmInfoACK\020\202+\022\031\n\024GS2C_MsgWaterCellACK\020\203"
+    "+\022\024\n\017GS2C_MsgFarmEnd\020\203+\022\037\n\032GS2C_MsgTechn"
+    "ologyStateACK\020\204+\022\035\n\030GS2C_MsgOpenTechLeve"
+    "lACK\020\205+\022 \n\033GS2C_MsgApplyAddTechInfoACK\020\206"
+    "+\022\034\n\027GS2C_MsgAddTechValueACK\020\207+\022\031\n\024GS2C_"
+    "MsgBuildMillACK\020\210+\022\032\n\025GS2C_MsgCreateFarm"
+    "ACK\020\211+\022\032\n\025GS2C_MsgCreateCellACK\020\212+\022\r\n\010GS"
+    "2C_End\020\360.", 1649);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MsgHead.proto", &protobuf_RegisterTypes);
   MsgHead::default_instance_ = new MsgHead();
@@ -157,6 +160,8 @@ bool MsgType_IsValid(int value) {
     case 309:
     case 310:
     case 311:
+    case 312:
+    case 313:
     case 500:
     case 998:
     case 999:
@@ -189,6 +194,8 @@ bool MsgType_IsValid(int value) {
     case 5510:
     case 5511:
     case 5512:
+    case 5513:
+    case 5514:
     case 6000:
       return true;
     default:

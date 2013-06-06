@@ -41,6 +41,10 @@ public:
 	void HandleBuildMillReq(MsgHead& Msg);
 	void HandleBuildWaterWayReq(MsgHead& Msg);
 
+	void HandleCreateFarmReq(MsgHead& Msg);
+	void HandleCreateCellReq(MsgHead& Msg);
+
+
 	
 protected:
 	OpcodeHandler* GetMsgOpcodeHandler(MsgType en);

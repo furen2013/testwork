@@ -18,6 +18,7 @@ public:
 	inline DWORD getAccount(){return _account;}
 	bool LoadCells(string str);
 	void start();
+	bool createCell(int id);
 public:
 	string MakeCellsStr();
 	void modify();

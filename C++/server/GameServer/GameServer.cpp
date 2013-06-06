@@ -111,7 +111,7 @@ void CGameServer::Run()
 				//sCSSocket.run_no_wait();
 				//sDBSocket.run_no_wait();
 				GSL.run_no_wait();
-				World::getSingleton().Run();
+				World::getSingleton().Run(realCurrTime - realPrevTime);
 				//sCLS.run_no_wait();
 			}
 

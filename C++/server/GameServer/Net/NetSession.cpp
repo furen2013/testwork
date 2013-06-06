@@ -48,6 +48,8 @@ void NetSession::InitHandleTable()
 	GetMsgOpcodeHandler(C2S_MsgAddTechValueReq)->handler = &NetSession::HandleAddTechValueReq;
 	GetMsgOpcodeHandler(C2S_MsgBuildMillReq)->handler = &NetSession::HandleBuildMillReq;
 	GetMsgOpcodeHandler(C2S_MsgBuildWaterWayReq)->handler = &NetSession::HandleBuildWaterWayReq;
+	GetMsgOpcodeHandler(C2S_MsgCreateFarmReq)->handler = &NetSession::HandleCreateFarmReq;
+	GetMsgOpcodeHandler(C2S_MsgCreateCellReq)->handler = &NetSession::HandleCreateCellReq;
 	
 }
 

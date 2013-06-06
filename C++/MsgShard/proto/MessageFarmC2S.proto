@@ -37,3 +37,13 @@ message MsgBuildWaterWayReq
 {
 	required int32 waterwaylevel = 1;
 }
+
+message MsgCreateFarmReq
+{
+
+}
+
+message MsgCreateCellReq
+{
+	required int32 id = 1;
+}

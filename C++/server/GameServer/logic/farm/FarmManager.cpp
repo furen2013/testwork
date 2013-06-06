@@ -29,6 +29,7 @@ FarmLogic* FarmManager::CreateFarm(DWORD account)
 	{
 		pLogic = new FarmLogic();
 		pLogic->setAccount(account);
+		pLogic->createCell(0);
 		_farms.insert(FARMS::value_type(account, pLogic));
 	}
 

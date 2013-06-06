@@ -141,6 +141,8 @@ bool Player::Load(DWORD account)
 		}		
 	}
 
+	_farm = FarmManager::getSingleton().GetFarmLogic(account);
+
 
 
 	return true;
@@ -204,4 +206,28 @@ void Player::sendMessage(::google::protobuf::Message* message, MsgType type)
 	{
 		_session->sendMessage(message, type);
 	}
+}
+
+void Player::createCell(int id)
+{
+	if (_farm)
+	{
+		_farm->createCell(id);
+	}
+	else
+	{
+
+	}
+	
+}
+
+void Player::createFarm()
+{
+	if (_farm == NULL)
+	{
+		_farm = FarmManager::getSingleton().CreateFarm(getAccount());
+		MsgCreateFarmACK Farm;
+		sendMessage(&Farm, GS2C_MsgCreateCellACK);
+	}
+	
 }

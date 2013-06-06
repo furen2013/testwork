@@ -46,6 +46,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MsgBuildWaterWayACK_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgBuildWaterWayACK_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgCreateFarmACK_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgCreateFarmACK_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgCreateCellACK_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgCreateCellACK_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* enFarmErrorResult_descriptor_ = NULL;
 
 }  // namespace
@@ -58,7 +64,7 @@ void protobuf_AssignDesc_MessageFarmG2C_2eproto() {
       "MessageFarmG2C.proto");
   GOOGLE_CHECK(file != NULL);
   MsgPloughCellInfo_descriptor_ = file->message_type(0);
-  static const int MsgPloughCellInfo_offsets_[11] = {
+  static const int MsgPloughCellInfo_offsets_[13] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgPloughCellInfo, level_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgPloughCellInfo, waterpercentage_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgPloughCellInfo, state_),
@@ -70,6 +76,8 @@ void protobuf_AssignDesc_MessageFarmG2C_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgPloughCellInfo, waterpercentagemax_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgPloughCellInfo, realdecreasewaterperhour_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgPloughCellInfo, realhavest_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgPloughCellInfo, milllevel_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgPloughCellInfo, waterwaylevel_),
   };
   MsgPloughCellInfo_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -226,6 +234,36 @@ void protobuf_AssignDesc_MessageFarmG2C_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MsgBuildWaterWayACK));
+  MsgCreateFarmACK_descriptor_ = file->message_type(10);
+  static const int MsgCreateFarmACK_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgCreateFarmACK, result_),
+  };
+  MsgCreateFarmACK_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MsgCreateFarmACK_descriptor_,
+      MsgCreateFarmACK::default_instance_,
+      MsgCreateFarmACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgCreateFarmACK, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgCreateFarmACK, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MsgCreateFarmACK));
+  MsgCreateCellACK_descriptor_ = file->message_type(11);
+  static const int MsgCreateCellACK_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgCreateCellACK, info_),
+  };
+  MsgCreateCellACK_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MsgCreateCellACK_descriptor_,
+      MsgCreateCellACK::default_instance_,
+      MsgCreateCellACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgCreateCellACK, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgCreateCellACK, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MsgCreateCellACK));
   enFarmErrorResult_descriptor_ = file->enum_type(0);
 }
 
@@ -259,6 +297,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     MsgBuildMillACK_descriptor_, &MsgBuildMillACK::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     MsgBuildWaterWayACK_descriptor_, &MsgBuildWaterWayACK::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MsgCreateFarmACK_descriptor_, &MsgCreateFarmACK::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MsgCreateCellACK_descriptor_, &MsgCreateCellACK::default_instance());
 }
 
 }  // namespace
@@ -284,6 +326,10 @@ void protobuf_ShutdownFile_MessageFarmG2C_2eproto() {
   delete MsgBuildMillACK_reflection_;
   delete MsgBuildWaterWayACK::default_instance_;
   delete MsgBuildWaterWayACK_reflection_;
+  delete MsgCreateFarmACK::default_instance_;
+  delete MsgCreateFarmACK_reflection_;
+  delete MsgCreateCellACK::default_instance_;
+  delete MsgCreateCellACK_reflection_;
 }
 
 void protobuf_AddDesc_MessageFarmG2C_2eproto() {
@@ -294,7 +340,7 @@ void protobuf_AddDesc_MessageFarmG2C_2eproto() {
 
   ::protobuf_AddDesc_MsgHead_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\024MessageFarmG2C.proto\032\rMsgHead.proto\"\365\002"
+    "\n\024MessageFarmG2C.proto\032\rMsgHead.proto\"\237\003"
     "\n\021MsgPloughCellInfo\022\r\n\005level\030\001 \002(\005\022\027\n\017wa"
     "terPercentage\030\002 \002(\005\022+\n\005state\030\003 \002(\0162\034.Msg"
     "PloughCellInfo.GrowState\022\023\n\013manurelevel\030"
@@ -302,37 +348,41 @@ void protobuf_AddDesc_MessageFarmG2C_2eproto() {
     "e\030\006 \002(\004\022\034\n\024decreaseWaterperhour\030\007 \002(\005\022\n\n"
     "\002ID\030\010 \002(\005\022\032\n\022waterPercentageMax\030\t \002(\005\022 \n"
     "\030realDecreaseWaterPerhour\030\n \002(\005\022\022\n\nrealH"
-    "avest\030\013 \002(\005\"P\n\tGrowState\022\016\n\nState_NULL\020\000"
-    "\022\021\n\rState_Seeding\020\001\022\017\n\013State_Young\020\002\022\017\n\013"
-    "State_Grown\020\003\"0\n\013MsgFarmInfo\022!\n\005cells\030\001 "
-    "\003(\0132\022.MsgPloughCellInfo\",\n\016MsgFarmInfoAC"
-    "K\022\032\n\004info\030\001 \002(\0132\014.MsgFarmInfo\"A\n\017MsgFarm"
-    "ErrorACK\022\036\n\002en\030\001 \002(\0162\022.enFarmErrorResult"
-    "\022\016\n\006cellid\030\002 \002(\005\"3\n\016MsgSeedCellACK\022\016\n\006ce"
-    "llid\030\001 \002(\005\022\021\n\tseedlevel\030\002 \002(\005\"9\n\022MsgSpre"
-    "adManureACK\022\016\n\006cellid\030\001 \002(\005\022\023\n\013manurelev"
-    "el\030\002 \002(\005\":\n\026MsgGatherPloughCellACK\022\016\n\006ce"
-    "llid\030\001 \002(\005\022\020\n\010resource\030\002 \002(\005\"!\n\017MsgWater"
-    "CellACK\022\016\n\006cellid\030\001 \002(\005\"J\n\017MsgBuildMillA"
-    "CK\022\016\n\006cellid\030\001 \002(\005\022\024\n\014currentlevel\030\002 \002(\005"
-    "\022\021\n\tspendgold\030\003 \002(\005\"N\n\023MsgBuildWaterWayA"
-    "CK\022\016\n\006cellid\030\001 \002(\005\022\024\n\014currentlevel\030\002 \002(\005"
-    "\022\021\n\tspendgold\030\003 \002(\005*\307\004\n\021enFarmErrorResul"
-    "t\022\032\n\026FarmError_NOTFOUNDCELL\020\001\022\031\n\025FarmErr"
-    "or_NOTHAVESEED\020\002\022\034\n\030FarmError_CELLCANNOT"
-    "SEED\020\003\022\032\n\026FarmError_ISHAVEMANURE\020\004\022 \n\034Fa"
-    "rmError_GATHERNOTGROWNCELL\020\005\022\033\n\027FarmErro"
-    "r_NOTHAVEMANURE\020\006\022\035\n\031FarmError_NOTHAVETH"
-    "ISSEED\020\007\022\027\n\023FarmError_ERRORSEED\020\010\022!\n\035Far"
-    "mError_THEMILLLEVELTOOHIGH\020\t\022%\n!FarmErro"
-    "r_THEWATERWAYLEVELTOOHIGH\020\n\022\034\n\030FarmError"
-    "_ERRORMILLLEVEL\020\013\022 \n\034FarmError_ERRORWATE"
-    "RWAYLEVEL\020\014\022)\n%FarmError_BUILDMILLNOTHAV"
-    "EENOUGHMONEY\020\r\022-\n)FarmError_BUILDWATERWA"
-    "YNOTHAVEENOUGHMONEY\020\016\022&\n\"FarmError_MILLI"
-    "SALREADYINTHISLEVEL\020\017\022(\n$FarmError_WATER"
-    "WAYALREADYINTHISLEVEL\020\020\022\024\n\020FarmError_UKN"
-    "OWN\020\013", 1525);
+    "avest\030\013 \002(\005\022\021\n\tmilllevel\030\014 \002(\005\022\025\n\rwaterw"
+    "aylevel\030\r \002(\005\"P\n\tGrowState\022\016\n\nState_NULL"
+    "\020\000\022\021\n\rState_Seeding\020\001\022\017\n\013State_Young\020\002\022\017"
+    "\n\013State_Grown\020\003\"0\n\013MsgFarmInfo\022!\n\005cells\030"
+    "\001 \003(\0132\022.MsgPloughCellInfo\",\n\016MsgFarmInfo"
+    "ACK\022\032\n\004info\030\001 \002(\0132\014.MsgFarmInfo\"A\n\017MsgFa"
+    "rmErrorACK\022\036\n\002en\030\001 \002(\0162\022.enFarmErrorResu"
+    "lt\022\016\n\006cellid\030\002 \002(\005\"3\n\016MsgSeedCellACK\022\016\n\006"
+    "cellid\030\001 \002(\005\022\021\n\tseedlevel\030\002 \002(\005\"9\n\022MsgSp"
+    "readManureACK\022\016\n\006cellid\030\001 \002(\005\022\023\n\013manurel"
+    "evel\030\002 \002(\005\":\n\026MsgGatherPloughCellACK\022\016\n\006"
+    "cellid\030\001 \002(\005\022\020\n\010resource\030\002 \002(\005\"!\n\017MsgWat"
+    "erCellACK\022\016\n\006cellid\030\001 \002(\005\"J\n\017MsgBuildMil"
+    "lACK\022\016\n\006cellid\030\001 \002(\005\022\024\n\014currentlevel\030\002 \002"
+    "(\005\022\021\n\tspendgold\030\003 \002(\005\"N\n\023MsgBuildWaterWa"
+    "yACK\022\016\n\006cellid\030\001 \002(\005\022\024\n\014currentlevel\030\002 \002"
+    "(\005\022\021\n\tspendgold\030\003 \002(\005\"\"\n\020MsgCreateFarmAC"
+    "K\022\016\n\006result\030\001 \002(\005\"4\n\020MsgCreateCellACK\022 \n"
+    "\004info\030\001 \002(\0132\022.MsgPloughCellInfo*\203\005\n\021enFa"
+    "rmErrorResult\022\032\n\026FarmError_NOTFOUNDCELL\020"
+    "\001\022\031\n\025FarmError_NOTHAVESEED\020\002\022\034\n\030FarmErro"
+    "r_CELLCANNOTSEED\020\003\022\032\n\026FarmError_ISHAVEMA"
+    "NURE\020\004\022 \n\034FarmError_GATHERNOTGROWNCELL\020\005"
+    "\022\033\n\027FarmError_NOTHAVEMANURE\020\006\022\035\n\031FarmErr"
+    "or_NOTHAVETHISSEED\020\007\022\027\n\023FarmError_ERRORS"
+    "EED\020\010\022!\n\035FarmError_THEMILLLEVELTOOHIGH\020\t"
+    "\022%\n!FarmError_THEWATERWAYLEVELTOOHIGH\020\n\022"
+    "\034\n\030FarmError_ERRORMILLLEVEL\020\013\022 \n\034FarmErr"
+    "or_ERRORWATERWAYLEVEL\020\014\022)\n%FarmError_BUI"
+    "LDMILLNOTHAVEENOUGHMONEY\020\r\022-\n)FarmError_"
+    "BUILDWATERWAYNOTHAVEENOUGHMONEY\020\016\022&\n\"Far"
+    "mError_MILLISALREADYINTHISLEVEL\020\017\022(\n$Far"
+    "mError_WATERWAYALREADYINTHISLEVEL\020\020\022\034\n\030F"
+    "armError_AREADYHAVECELL\020\021\022\034\n\030FarmError_A"
+    "READYHAVEFARM\020\022\022\024\n\020FarmError_UKNOWN\020d", 1717);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MessageFarmG2C.proto", &protobuf_RegisterTypes);
   MsgPloughCellInfo::default_instance_ = new MsgPloughCellInfo();
@@ -345,6 +395,8 @@ void protobuf_AddDesc_MessageFarmG2C_2eproto() {
   MsgWaterCellACK::default_instance_ = new MsgWaterCellACK();
   MsgBuildMillACK::default_instance_ = new MsgBuildMillACK();
   MsgBuildWaterWayACK::default_instance_ = new MsgBuildWaterWayACK();
+  MsgCreateFarmACK::default_instance_ = new MsgCreateFarmACK();
+  MsgCreateCellACK::default_instance_ = new MsgCreateCellACK();
   MsgPloughCellInfo::default_instance_->InitAsDefaultInstance();
   MsgFarmInfo::default_instance_->InitAsDefaultInstance();
   MsgFarmInfoACK::default_instance_->InitAsDefaultInstance();
@@ -355,6 +407,8 @@ void protobuf_AddDesc_MessageFarmG2C_2eproto() {
   MsgWaterCellACK::default_instance_->InitAsDefaultInstance();
   MsgBuildMillACK::default_instance_->InitAsDefaultInstance();
   MsgBuildWaterWayACK::default_instance_->InitAsDefaultInstance();
+  MsgCreateFarmACK::default_instance_->InitAsDefaultInstance();
+  MsgCreateCellACK::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_MessageFarmG2C_2eproto);
 }
 
@@ -387,6 +441,9 @@ bool enFarmErrorResult_IsValid(int value) {
     case 14:
     case 15:
     case 16:
+    case 17:
+    case 18:
+    case 100:
       return true;
     default:
       return false;
@@ -433,6 +490,8 @@ const int MsgPloughCellInfo::kIDFieldNumber;
 const int MsgPloughCellInfo::kWaterPercentageMaxFieldNumber;
 const int MsgPloughCellInfo::kRealDecreaseWaterPerhourFieldNumber;
 const int MsgPloughCellInfo::kRealHavestFieldNumber;
+const int MsgPloughCellInfo::kMilllevelFieldNumber;
+const int MsgPloughCellInfo::kWaterwaylevelFieldNumber;
 #endif  // !_MSC_VER
 
 MsgPloughCellInfo::MsgPloughCellInfo()
@@ -462,6 +521,8 @@ void MsgPloughCellInfo::SharedCtor() {
   waterpercentagemax_ = 0;
   realdecreasewaterperhour_ = 0;
   realhavest_ = 0;
+  milllevel_ = 0;
+  waterwaylevel_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -509,6 +570,8 @@ void MsgPloughCellInfo::Clear() {
     waterpercentagemax_ = 0;
     realdecreasewaterperhour_ = 0;
     realhavest_ = 0;
+    milllevel_ = 0;
+    waterwaylevel_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -696,6 +759,38 @@ bool MsgPloughCellInfo::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(96)) goto parse_milllevel;
+        break;
+      }
+      
+      // required int32 milllevel = 12;
+      case 12: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_milllevel:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &milllevel_)));
+          set_has_milllevel();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(104)) goto parse_waterwaylevel;
+        break;
+      }
+      
+      // required int32 waterwaylevel = 13;
+      case 13: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_waterwaylevel:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &waterwaylevel_)));
+          set_has_waterwaylevel();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -774,6 +869,16 @@ void MsgPloughCellInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->realhavest(), output);
   }
   
+  // required int32 milllevel = 12;
+  if (has_milllevel()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->milllevel(), output);
+  }
+  
+  // required int32 waterwaylevel = 13;
+  if (has_waterwaylevel()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->waterwaylevel(), output);
+  }
+  
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -836,6 +941,16 @@ void MsgPloughCellInfo::SerializeWithCachedSizes(
   // required int32 realHavest = 11;
   if (has_realhavest()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->realhavest(), target);
+  }
+  
+  // required int32 milllevel = 12;
+  if (has_milllevel()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->milllevel(), target);
+  }
+  
+  // required int32 waterwaylevel = 13;
+  if (has_waterwaylevel()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->waterwaylevel(), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -927,6 +1042,20 @@ int MsgPloughCellInfo::ByteSize() const {
           this->realhavest());
     }
     
+    // required int32 milllevel = 12;
+    if (has_milllevel()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->milllevel());
+    }
+    
+    // required int32 waterwaylevel = 13;
+    if (has_waterwaylevel()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->waterwaylevel());
+    }
+    
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -989,6 +1118,12 @@ void MsgPloughCellInfo::MergeFrom(const MsgPloughCellInfo& from) {
     if (from.has_realhavest()) {
       set_realhavest(from.realhavest());
     }
+    if (from.has_milllevel()) {
+      set_milllevel(from.milllevel());
+    }
+    if (from.has_waterwaylevel()) {
+      set_waterwaylevel(from.waterwaylevel());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -1006,7 +1141,7 @@ void MsgPloughCellInfo::CopyFrom(const MsgPloughCellInfo& from) {
 }
 
 bool MsgPloughCellInfo::IsInitialized() const {
-  if ((_has_bits_[0] & 0x000007ff) != 0x000007ff) return false;
+  if ((_has_bits_[0] & 0x00001fff) != 0x00001fff) return false;
   
   return true;
 }
@@ -1024,6 +1159,8 @@ void MsgPloughCellInfo::Swap(MsgPloughCellInfo* other) {
     std::swap(waterpercentagemax_, other->waterpercentagemax_);
     std::swap(realdecreasewaterperhour_, other->realdecreasewaterperhour_);
     std::swap(realhavest_, other->realhavest_);
+    std::swap(milllevel_, other->milllevel_);
+    std::swap(waterwaylevel_, other->waterwaylevel_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -3238,6 +3375,430 @@ void MsgBuildWaterWayACK::Swap(MsgBuildWaterWayACK* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = MsgBuildWaterWayACK_descriptor_;
   metadata.reflection = MsgBuildWaterWayACK_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgCreateFarmACK::kResultFieldNumber;
+#endif  // !_MSC_VER
+
+MsgCreateFarmACK::MsgCreateFarmACK()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MsgCreateFarmACK::InitAsDefaultInstance() {
+}
+
+MsgCreateFarmACK::MsgCreateFarmACK(const MsgCreateFarmACK& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MsgCreateFarmACK::SharedCtor() {
+  _cached_size_ = 0;
+  result_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgCreateFarmACK::~MsgCreateFarmACK() {
+  SharedDtor();
+}
+
+void MsgCreateFarmACK::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgCreateFarmACK::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgCreateFarmACK::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgCreateFarmACK_descriptor_;
+}
+
+const MsgCreateFarmACK& MsgCreateFarmACK::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_MessageFarmG2C_2eproto();  return *default_instance_;
+}
+
+MsgCreateFarmACK* MsgCreateFarmACK::default_instance_ = NULL;
+
+MsgCreateFarmACK* MsgCreateFarmACK::New() const {
+  return new MsgCreateFarmACK;
+}
+
+void MsgCreateFarmACK::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    result_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MsgCreateFarmACK::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 result = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &result_)));
+          set_has_result();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void MsgCreateFarmACK::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 result = 1;
+  if (has_result()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->result(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MsgCreateFarmACK::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 result = 1;
+  if (has_result()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->result(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MsgCreateFarmACK::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 result = 1;
+    if (has_result()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->result());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgCreateFarmACK::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MsgCreateFarmACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgCreateFarmACK*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgCreateFarmACK::MergeFrom(const MsgCreateFarmACK& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_result()) {
+      set_result(from.result());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MsgCreateFarmACK::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgCreateFarmACK::CopyFrom(const MsgCreateFarmACK& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgCreateFarmACK::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  
+  return true;
+}
+
+void MsgCreateFarmACK::Swap(MsgCreateFarmACK* other) {
+  if (other != this) {
+    std::swap(result_, other->result_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MsgCreateFarmACK::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgCreateFarmACK_descriptor_;
+  metadata.reflection = MsgCreateFarmACK_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgCreateCellACK::kInfoFieldNumber;
+#endif  // !_MSC_VER
+
+MsgCreateCellACK::MsgCreateCellACK()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MsgCreateCellACK::InitAsDefaultInstance() {
+  info_ = const_cast< ::MsgPloughCellInfo*>(&::MsgPloughCellInfo::default_instance());
+}
+
+MsgCreateCellACK::MsgCreateCellACK(const MsgCreateCellACK& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MsgCreateCellACK::SharedCtor() {
+  _cached_size_ = 0;
+  info_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgCreateCellACK::~MsgCreateCellACK() {
+  SharedDtor();
+}
+
+void MsgCreateCellACK::SharedDtor() {
+  if (this != default_instance_) {
+    delete info_;
+  }
+}
+
+void MsgCreateCellACK::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgCreateCellACK::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgCreateCellACK_descriptor_;
+}
+
+const MsgCreateCellACK& MsgCreateCellACK::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_MessageFarmG2C_2eproto();  return *default_instance_;
+}
+
+MsgCreateCellACK* MsgCreateCellACK::default_instance_ = NULL;
+
+MsgCreateCellACK* MsgCreateCellACK::New() const {
+  return new MsgCreateCellACK;
+}
+
+void MsgCreateCellACK::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_info()) {
+      if (info_ != NULL) info_->::MsgPloughCellInfo::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MsgCreateCellACK::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required .MsgPloughCellInfo info = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_info()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void MsgCreateCellACK::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required .MsgPloughCellInfo info = 1;
+  if (has_info()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->info(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MsgCreateCellACK::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required .MsgPloughCellInfo info = 1;
+  if (has_info()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->info(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MsgCreateCellACK::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required .MsgPloughCellInfo info = 1;
+    if (has_info()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->info());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgCreateCellACK::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MsgCreateCellACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgCreateCellACK*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgCreateCellACK::MergeFrom(const MsgCreateCellACK& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_info()) {
+      mutable_info()->::MsgPloughCellInfo::MergeFrom(from.info());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MsgCreateCellACK::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgCreateCellACK::CopyFrom(const MsgCreateCellACK& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgCreateCellACK::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  
+  if (has_info()) {
+    if (!this->info().IsInitialized()) return false;
+  }
+  return true;
+}
+
+void MsgCreateCellACK::Swap(MsgCreateCellACK* other) {
+  if (other != this) {
+    std::swap(info_, other->info_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MsgCreateCellACK::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgCreateCellACK_descriptor_;
+  metadata.reflection = MsgCreateCellACK_reflection_;
   return metadata;
 }
 

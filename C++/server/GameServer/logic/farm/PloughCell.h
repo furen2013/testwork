@@ -5,6 +5,7 @@
 class FarmLogic;
 class PloughMill;
 class PloughWaterWay;
+class MsgPloughCellInfo;
 
 enum growstate
 {
@@ -17,6 +18,7 @@ enum growstate
 class PloughCell : public EventableObject
 {
 public:
+	PloughCell(int id);
 	PloughCell();
 	~PloughCell();
 public:
@@ -45,8 +47,12 @@ public:
 	inline int32 getWaterPercentageMax(){return _waterPercentageMax;}
 	int32 getRealDecreaseWaterPerhour();
 	int32 getRealHavest();
+	int32 getMillLevel();
+	int32 getWaterwayLevel();
+	void fillMsgInfo(MsgPloughCellInfo* info);
 protected:
 	void changeState();
+	void cellReset();
 protected:
 	int32 _level;
 	growstate enType;

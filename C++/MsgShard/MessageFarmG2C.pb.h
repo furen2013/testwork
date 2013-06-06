@@ -41,6 +41,8 @@ class MsgGatherPloughCellACK;
 class MsgWaterCellACK;
 class MsgBuildMillACK;
 class MsgBuildWaterWayACK;
+class MsgCreateFarmACK;
+class MsgCreateCellACK;
 
 enum MsgPloughCellInfo_GrowState {
   MsgPloughCellInfo_GrowState_State_NULL = 0,
@@ -80,11 +82,13 @@ enum enFarmErrorResult {
   FarmError_BUILDWATERWAYNOTHAVEENOUGHMONEY = 14,
   FarmError_MILLISALREADYINTHISLEVEL = 15,
   FarmError_WATERWAYALREADYINTHISLEVEL = 16,
-  FarmError_UKNOWN = 11
+  FarmError_AREADYHAVECELL = 17,
+  FarmError_AREADYHAVEFARM = 18,
+  FarmError_UKNOWN = 100
 };
 bool enFarmErrorResult_IsValid(int value);
 const enFarmErrorResult enFarmErrorResult_MIN = FarmError_NOTFOUNDCELL;
-const enFarmErrorResult enFarmErrorResult_MAX = FarmError_WATERWAYALREADYINTHISLEVEL;
+const enFarmErrorResult enFarmErrorResult_MAX = FarmError_UKNOWN;
 const int enFarmErrorResult_ARRAYSIZE = enFarmErrorResult_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* enFarmErrorResult_descriptor();
@@ -256,6 +260,20 @@ class MsgPloughCellInfo : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 realhavest() const;
   inline void set_realhavest(::google::protobuf::int32 value);
   
+  // required int32 milllevel = 12;
+  inline bool has_milllevel() const;
+  inline void clear_milllevel();
+  static const int kMilllevelFieldNumber = 12;
+  inline ::google::protobuf::int32 milllevel() const;
+  inline void set_milllevel(::google::protobuf::int32 value);
+  
+  // required int32 waterwaylevel = 13;
+  inline bool has_waterwaylevel() const;
+  inline void clear_waterwaylevel();
+  static const int kWaterwaylevelFieldNumber = 13;
+  inline ::google::protobuf::int32 waterwaylevel() const;
+  inline void set_waterwaylevel(::google::protobuf::int32 value);
+  
   // @@protoc_insertion_point(class_scope:MsgPloughCellInfo)
  private:
   inline void set_has_level();
@@ -280,6 +298,10 @@ class MsgPloughCellInfo : public ::google::protobuf::Message {
   inline void clear_has_realdecreasewaterperhour();
   inline void set_has_realhavest();
   inline void clear_has_realhavest();
+  inline void set_has_milllevel();
+  inline void clear_has_milllevel();
+  inline void set_has_waterwaylevel();
+  inline void clear_has_waterwaylevel();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
@@ -294,9 +316,11 @@ class MsgPloughCellInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 waterpercentagemax_;
   ::google::protobuf::int32 realdecreasewaterperhour_;
   ::google::protobuf::int32 realhavest_;
+  ::google::protobuf::int32 milllevel_;
+  ::google::protobuf::int32 waterwaylevel_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(11 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
   
   friend void  protobuf_AddDesc_MessageFarmG2C_2eproto();
   friend void protobuf_AssignDesc_MessageFarmG2C_2eproto();
@@ -1127,6 +1151,171 @@ class MsgBuildWaterWayACK : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static MsgBuildWaterWayACK* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class MsgCreateFarmACK : public ::google::protobuf::Message {
+ public:
+  MsgCreateFarmACK();
+  virtual ~MsgCreateFarmACK();
+  
+  MsgCreateFarmACK(const MsgCreateFarmACK& from);
+  
+  inline MsgCreateFarmACK& operator=(const MsgCreateFarmACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgCreateFarmACK& default_instance();
+  
+  void Swap(MsgCreateFarmACK* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgCreateFarmACK* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgCreateFarmACK& from);
+  void MergeFrom(const MsgCreateFarmACK& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required int32 result = 1;
+  inline bool has_result() const;
+  inline void clear_result();
+  static const int kResultFieldNumber = 1;
+  inline ::google::protobuf::int32 result() const;
+  inline void set_result(::google::protobuf::int32 value);
+  
+  // @@protoc_insertion_point(class_scope:MsgCreateFarmACK)
+ private:
+  inline void set_has_result();
+  inline void clear_has_result();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::int32 result_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_AssignDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_ShutdownFile_MessageFarmG2C_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgCreateFarmACK* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgCreateCellACK : public ::google::protobuf::Message {
+ public:
+  MsgCreateCellACK();
+  virtual ~MsgCreateCellACK();
+  
+  MsgCreateCellACK(const MsgCreateCellACK& from);
+  
+  inline MsgCreateCellACK& operator=(const MsgCreateCellACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgCreateCellACK& default_instance();
+  
+  void Swap(MsgCreateCellACK* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MsgCreateCellACK* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgCreateCellACK& from);
+  void MergeFrom(const MsgCreateCellACK& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required .MsgPloughCellInfo info = 1;
+  inline bool has_info() const;
+  inline void clear_info();
+  static const int kInfoFieldNumber = 1;
+  inline const ::MsgPloughCellInfo& info() const;
+  inline ::MsgPloughCellInfo* mutable_info();
+  inline ::MsgPloughCellInfo* release_info();
+  
+  // @@protoc_insertion_point(class_scope:MsgCreateCellACK)
+ private:
+  inline void set_has_info();
+  inline void clear_has_info();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::MsgPloughCellInfo* info_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_AssignDesc_MessageFarmG2C_2eproto();
+  friend void protobuf_ShutdownFile_MessageFarmG2C_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MsgCreateCellACK* default_instance_;
+};
 // ===================================================================
 
 
@@ -1375,6 +1564,50 @@ inline ::google::protobuf::int32 MsgPloughCellInfo::realhavest() const {
 inline void MsgPloughCellInfo::set_realhavest(::google::protobuf::int32 value) {
   set_has_realhavest();
   realhavest_ = value;
+}
+
+// required int32 milllevel = 12;
+inline bool MsgPloughCellInfo::has_milllevel() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void MsgPloughCellInfo::set_has_milllevel() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void MsgPloughCellInfo::clear_has_milllevel() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void MsgPloughCellInfo::clear_milllevel() {
+  milllevel_ = 0;
+  clear_has_milllevel();
+}
+inline ::google::protobuf::int32 MsgPloughCellInfo::milllevel() const {
+  return milllevel_;
+}
+inline void MsgPloughCellInfo::set_milllevel(::google::protobuf::int32 value) {
+  set_has_milllevel();
+  milllevel_ = value;
+}
+
+// required int32 waterwaylevel = 13;
+inline bool MsgPloughCellInfo::has_waterwaylevel() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void MsgPloughCellInfo::set_has_waterwaylevel() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void MsgPloughCellInfo::clear_has_waterwaylevel() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void MsgPloughCellInfo::clear_waterwaylevel() {
+  waterwaylevel_ = 0;
+  clear_has_waterwaylevel();
+}
+inline ::google::protobuf::int32 MsgPloughCellInfo::waterwaylevel() const {
+  return waterwaylevel_;
+}
+inline void MsgPloughCellInfo::set_waterwaylevel(::google::protobuf::int32 value) {
+  set_has_waterwaylevel();
+  waterwaylevel_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -1796,6 +2029,65 @@ inline ::google::protobuf::int32 MsgBuildWaterWayACK::spendgold() const {
 inline void MsgBuildWaterWayACK::set_spendgold(::google::protobuf::int32 value) {
   set_has_spendgold();
   spendgold_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MsgCreateFarmACK
+
+// required int32 result = 1;
+inline bool MsgCreateFarmACK::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgCreateFarmACK::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgCreateFarmACK::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgCreateFarmACK::clear_result() {
+  result_ = 0;
+  clear_has_result();
+}
+inline ::google::protobuf::int32 MsgCreateFarmACK::result() const {
+  return result_;
+}
+inline void MsgCreateFarmACK::set_result(::google::protobuf::int32 value) {
+  set_has_result();
+  result_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MsgCreateCellACK
+
+// required .MsgPloughCellInfo info = 1;
+inline bool MsgCreateCellACK::has_info() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgCreateCellACK::set_has_info() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgCreateCellACK::clear_has_info() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgCreateCellACK::clear_info() {
+  if (info_ != NULL) info_->::MsgPloughCellInfo::Clear();
+  clear_has_info();
+}
+inline const ::MsgPloughCellInfo& MsgCreateCellACK::info() const {
+  return info_ != NULL ? *info_ : *default_instance_->info_;
+}
+inline ::MsgPloughCellInfo* MsgCreateCellACK::mutable_info() {
+  set_has_info();
+  if (info_ == NULL) info_ = new ::MsgPloughCellInfo;
+  return info_;
+}
+inline ::MsgPloughCellInfo* MsgCreateCellACK::release_info() {
+  clear_has_info();
+  ::MsgPloughCellInfo* temp = info_;
+  info_ = NULL;
+  return temp;
 }
 
 

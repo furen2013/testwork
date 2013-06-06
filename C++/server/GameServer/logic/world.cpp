@@ -7,6 +7,7 @@
 #include "technology/TechSkillStorage.h"
 #include "farm/FarmComponentStorage.h"
 #include "farm/FarmManager.h"
+#include "Com/EventMgr.h"
 
 initialiseSingleton( World );
 World::World()
@@ -23,14 +24,15 @@ void World::Init()
 
 	TechnologyManager::getSingleton().init();
 	PlayerResourceManager::getSingleton().Init();
-	
 	FarmManager::getSingleton().init();
-
-
+	_holder = new EventableObjectHolder(-1);
+	sEventMgr.AddEventHolder(_holder, -1);
 }
 
-void World::Run()
+void World::Run(uint32 time_difference)
 {
+
+	_holder->Update(time_difference);
   //every process
 }
 

@@ -97,6 +97,9 @@ public:
 	inline NetSession* getNetSession(){return _session;}
 	inline PlayerResource* getResource(){return _PlayerResource;}
 
+	void createFarm();
+	void createCell(int id);
+
 
 protected:
 	PlayerInfo* _Info;

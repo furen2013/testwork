@@ -17,6 +17,7 @@ FarmLogic::FarmLogic()
 	_millEffectModify(0),
 	_Player(NULL)
 {
+
 }
 
 FarmLogic::~FarmLogic()
@@ -54,8 +55,29 @@ void FarmLogic::start()
 
 }
 
+bool FarmLogic::createCell(int id)
+{
+	PLOUGHCELL::iterator it = _cells.find(id);
+	if (it ==  _cells.end())
+	{
+		PloughCell* cell = new PloughCell(id);
+		_cells.insert(PLOUGHCELL::value_type(id, cell));
+		MsgCreateCellACK ack;
+		MsgPloughCellInfo* info = ack.mutable_info();
+		cell->fillMsgInfo(info);
+		sendMessage(&ack,GS2C_MsgCreateCellACK);
+		return true;
+	}
+	else
+	{
+		sendFarmError(id,FarmError_AREADYHAVECELL);
+	}
+	return false;
+}
+
 bool FarmLogic::LoadCells(string str)
 {
+	bool b = false;
 	vector<string> cellsinfo = StrSplit(str, ";");
 	vector<string>::iterator it = cellsinfo.begin();
 	for (; it != cellsinfo.end(); ++ it)
@@ -63,9 +85,11 @@ bool FarmLogic::LoadCells(string str)
 		PloughCell* cell = new PloughCell();
 		cell->LoadFromString(*it);
 		_cells.insert(PLOUGHCELL::value_type(cell->getID(), cell));
+		b = true;
 
 	}
-	return true;
+	return b;
+
 }
 
 
@@ -245,38 +269,8 @@ void FarmLogic::sendFarmState()
 	{
 		cell = it->second;
 		MsgPloughCellInfo* cellInfo = info->add_cells();
-		cellInfo->set_level(cell->getLevel());
-		cellInfo->set_manurelevel(cell->getManureLevel());
-		cellInfo->set_waterpercentage(cell->getWaterPercentage());
-		cellInfo->set_decreasewaterperhour(cell->getDecreaseWaterPerhour());
-		cellInfo->set_laststatetime(cell->getLastStateTime());
-		cellInfo->set_waterpercentagemax(cell->getWaterPercentageMax());
-		cellInfo->set_realdecreasewaterperhour(cell->getRealDecreaseWaterPerhour());
-		cellInfo->set_realhavest(cell->getRealHavest());
-		cellInfo->set_id(cell->getID());
-		switch(cell->getgrowstate())
-		{
-		case growstate_grown:
-			{
-				cellInfo->set_state(MsgPloughCellInfo_GrowState_State_Grown);
-			}
-			break;
-		case growstate_null:
-			{
-				cellInfo->set_state(MsgPloughCellInfo_GrowState_State_NULL);
-			}
-			break;
-		case growstate_seeding:
-			{
-				cellInfo->set_state(MsgPloughCellInfo_GrowState_State_Seeding);
-			}
-			break;
-		case growstate_young:
-			{
-				cellInfo->set_state(MsgPloughCellInfo_GrowState_State_Young);
-			}
-			break;
-		}
+		cell->fillMsgInfo(cellInfo);
+
 	}
 	sendMessage(&MsgSend,GS2C_MsgFarmInfoACK);
 

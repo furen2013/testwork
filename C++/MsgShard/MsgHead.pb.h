@@ -53,6 +53,8 @@ enum MsgType {
   C2S_MsgAddTechValueReq = 309,
   C2S_MsgBuildMillReq = 310,
   C2S_MsgBuildWaterWayReq = 311,
+  C2S_MsgCreateFarmReq = 312,
+  C2S_MsgCreateCellReq = 313,
   C2S_GSEnd = 500,
   C2S_END = 998,
   G2C_Begin = 999,
@@ -86,6 +88,8 @@ enum MsgType {
   GS2C_MsgApplyAddTechInfoACK = 5510,
   GS2C_MsgAddTechValueACK = 5511,
   GS2C_MsgBuildMillACK = 5512,
+  GS2C_MsgCreateFarmACK = 5513,
+  GS2C_MsgCreateCellACK = 5514,
   GS2C_End = 6000
 };
 bool MsgType_IsValid(int value);

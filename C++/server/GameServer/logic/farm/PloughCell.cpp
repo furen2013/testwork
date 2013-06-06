@@ -9,7 +9,25 @@
 #include "../PlayerResourceManager.h"
 #include "FarmComponentStorage.h"
 
+PloughCell::PloughCell(int id)
+{
+	cellReset();
+	_ID = id;
+	//BecomeSeeding();
+
+}
+
 PloughCell::PloughCell()
+{
+	cellReset();
+}
+
+PloughCell::~PloughCell()
+{
+
+}
+
+void PloughCell::cellReset()
 {
 	_waterPercentageMax = 100;
 	_waterPercentage = _waterPercentageMax;
@@ -19,19 +37,12 @@ PloughCell::PloughCell()
 	_farm = NULL;
 	_mill = NULL;
 	_WaterWay = NULL;
-	//BecomeSeeding();
-
 }
-PloughCell::~PloughCell()
-{
-
-}
-
 
 
 string PloughCell::ToString()
 {
-#define MaxNumber  8
+#define MaxNumber  10
 	string str[MaxNumber];
 	str[0] = boost::lexical_cast<string>((int32)enType);
 	str[1] = boost::lexical_cast<string>(_waterPercentageMax);
@@ -41,6 +52,8 @@ string PloughCell::ToString()
 	str[5] = boost::lexical_cast<string>(_decreaseWaterPerHour);
 	str[6] = boost::lexical_cast<string>(_ID);
 	str[7] = boost::lexical_cast<string>(_seedLevel);
+	str[8] = boost::lexical_cast<string>(getMillLevel());
+	str[9] = boost::lexical_cast<string>(getWaterwayLevel());
 	string Temp;
 	for (int i = 0; i < MaxNumber; i ++)
 	{
@@ -95,7 +108,7 @@ void PloughCell::BecomeYoung()
 {
 	if (enType != growstate_seeding)
 	{
-	
+		return;
 	}
 	changeState();
 	enType = growstate_young;
@@ -254,6 +267,63 @@ bool PloughCell::BuildMill(int millLevel)
 	}
 	return true;
 	
+}
+
+int32 PloughCell::getWaterwayLevel()
+{
+	if (_WaterWay)
+	{
+		return _WaterWay->getLevel();
+	}
+	return 0;
+}
+
+int32 PloughCell::getMillLevel()
+{
+	if (_mill)
+	{
+		return _mill->getLevel();
+	}
+	return 0;
+	
+}
+
+void PloughCell::fillMsgInfo(MsgPloughCellInfo* info)
+{
+	info->set_level(getLevel());
+	info->set_manurelevel(getManureLevel());
+	info->set_waterpercentage(getWaterPercentage());
+	info->set_decreasewaterperhour(getDecreaseWaterPerhour());
+	info->set_laststatetime(getLastStateTime());
+	info->set_waterpercentagemax(getWaterPercentageMax());
+	info->set_realdecreasewaterperhour(getRealDecreaseWaterPerhour());
+	info->set_realhavest(getRealHavest());
+	info->set_id(getID());
+	info->set_waterwaylevel(getWaterwayLevel());
+	info->set_milllevel(getMillLevel());
+	switch(getgrowstate())
+	{
+	case growstate_grown:
+		{
+			info->set_state(MsgPloughCellInfo_GrowState_State_Grown);
+		}
+		break;
+	case growstate_null:
+		{
+			info->set_state(MsgPloughCellInfo_GrowState_State_NULL);
+		}
+		break;
+	case growstate_seeding:
+		{
+			info->set_state(MsgPloughCellInfo_GrowState_State_Seeding);
+		}
+		break;
+	case growstate_young:
+		{
+			info->set_state(MsgPloughCellInfo_GrowState_State_Young);
+		}
+		break;
+	}
 }
 
 bool PloughCell::buildWaterWay(int waterwayLevel)
