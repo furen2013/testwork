@@ -18,12 +18,14 @@ void FarmComponentStorage::Load()
 {
 	QueryResult * result;
 	result = phoneDatabase->Query("SELECT * FROM millconf");
+	int ncount = 0;
 	if (result)
 	{
 		if (result->GetRowCount() > 0)
 		{
 			do 
 			{
+				ncount ++;
 				Field * fields = result->Fetch();
 				MillConf* conf = new MillConf();
 				conf->level = fields[0].GetInt32();
@@ -34,6 +36,7 @@ void FarmComponentStorage::Load()
 			} while (result->NextRow());
 		}
 		delete result;
+		MyLog::log->notice("%d millconf be loaded", ncount);
 	}
 	else
 	{
@@ -42,10 +45,12 @@ void FarmComponentStorage::Load()
 	result = phoneDatabase->Query("SELECT * FROM waterwayconf");
 	if (result)
 	{
+		ncount = 0;
 		if (result->GetRowCount() > 0)
 		{
 			do 
 			{
+				ncount;
 				Field * fields = result->Fetch();
 				WaterWayConf* conf = new WaterWayConf();
 				conf->level = fields[0].GetInt32();
@@ -57,6 +62,7 @@ void FarmComponentStorage::Load()
 		}
 
 		delete result;
+		MyLog::log->notice("%d waterwayconf be loaded");
 	}
 	else
 	{

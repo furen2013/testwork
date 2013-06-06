@@ -56,3 +56,13 @@ bool PlayerResourceManager::addPlayerResource(PlayerResource* p)
 	}
 	return B;
 }
+
+void PlayerResourceManager::save()
+{
+
+}
+
+void PlayerResourceManager::synSave()
+{
+
+}

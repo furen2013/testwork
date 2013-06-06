@@ -17,6 +17,7 @@ TechSkillStorage::~TechSkillStorage()
 bool TechSkillStorage::init()
 {
 	QueryResult* result = phoneDatabase->Query("select * from %s","techskillinfo");
+	int count = 0;
 	if (result)
 	{
 
@@ -24,6 +25,7 @@ bool TechSkillStorage::init()
 		{
 			do 
 			{
+				count ++;
 				Field * fields = result->Fetch();
 				TechSkillInfo* info = new TechSkillInfo();
 				info->id = fields[0].GetUInt32();
@@ -33,6 +35,9 @@ bool TechSkillStorage::init()
 				_mapTechInfo.insert(MAPTECHSKILLINFO::value_type(info->id,info));
 			} while (result->NextRow());
 		}
+
+		result->Delete();
+		MyLog::log->notice("%d techskillinfo be loaded", count);
 	}
 	else
 	{

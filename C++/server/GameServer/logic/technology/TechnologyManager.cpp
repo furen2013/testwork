@@ -34,13 +34,15 @@ bool TechnologyManager::init()
 	TechSkillStorage::getSingleton().init();
 	QueryResult * result;
 	result = phoneDatabase->Query("SELECT * FROM %s", "technology");
+	int count = 0;
 	if (result)
 	{
-		
+		count = 0;
 		if (result->GetRowCount() > 0)
 		{
 			do 
 			{
+				count ++;
 				Field * fields = result->Fetch();
 				Technology* technology = new Technology();
 				technology->LoadTechlevelsFromStr(fields[1].GetString());
@@ -52,16 +54,19 @@ bool TechnologyManager::init()
 			} while (result->NextRow());
 		}
 		result->Delete();
+		MyLog::log->notice("%d technology be loaded", count);
 	}
 
 
 	result = phoneDatabase->Query("SELECT * FROM %s","techconf");
 	if (result)
 	{
+		count = 0;
 		if (result->GetRowCount() > 0)
 		{
 			do 
 			{
+				count ++;
 				Field * fields = result->Fetch();
 				techLevelconf* conf = NULL;
 				int level = fields[2].GetInt32();
@@ -91,6 +96,8 @@ bool TechnologyManager::init()
 
 			} while (result->NextRow());
 		}
+		result->Delete();
+		MyLog::log->notice("%d techconf be loaded", count);
 	}
 
 	return true;

@@ -14,6 +14,8 @@ public:
 	PlayerResource* GetPlayerResource(DWORD account);
 	PlayerResource* CreateResource(DWORD account);
 	bool addPlayerResource(PlayerResource* p);
+	void save();
+	void synSave();
 protected:
 	mapPlayerResource _playerResources;
 };

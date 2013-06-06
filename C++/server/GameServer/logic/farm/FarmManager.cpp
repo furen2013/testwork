@@ -40,21 +40,31 @@ void FarmManager::LoadFarms()
 {
 	QueryResult * result;
 	result = phoneDatabase->Query("SELECT * FROM %s", "PlayerFarm");
-	if (!result)
-		return;
-	Field * fields = result->Fetch();
-	if (result->GetRowCount() > 0)
+	if (result)
 	{
-		do 
+		int ncount = 0;
+		if (result->GetRowCount() > 0)
 		{
-			FarmLogic* farm = new FarmLogic();
-			farm->setAccount(fields[0].GetUInt64());
-			farm->LoadCells(fields[1].GetString());
-			_farms.insert(FARMS::value_type(farm->getAccount(),farm));
+			do 
+			{
+				ncount ++;
+				Field * fields = result->Fetch();
+				FarmLogic* farm = new FarmLogic();
+				farm->setAccount(fields[0].GetUInt64());
+				farm->LoadCells(fields[1].GetString());
+				_farms.insert(FARMS::value_type(farm->getAccount(),farm));
 
-		} while (result->NextRow());
+			} while (result->NextRow());
+		}
+		result->Delete();
+		MyLog::log->notice("%d farm be loaded", ncount);
 	}
-	 
+	else
+	{
+		MyLog::log->warn("no farm be loaded");
+	}
+	
+
 
 }
 
