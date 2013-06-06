@@ -33,58 +33,66 @@ bool TechnologyManager::init()
 {
 	TechSkillStorage::getSingleton().init();
 	QueryResult * result;
-	result = CharacterDatabase.Query("SELECT * FROM %s", "Technology");
-	if (!result)
-		return false;
-	Field * fields = result->Fetch();
-	if (result->GetRowCount() > 0)
+	result = phoneDatabase->Query("SELECT * FROM %s", "technology");
+	if (result)
 	{
-		do 
+		
+		if (result->GetRowCount() > 0)
 		{
-			Technology* technology = new Technology();
-			technology->LoadTechlevelsFromStr(fields[1].GetString());
-			technology->loadSkillsFromStr(fields[2].GetString());
-			technology->setAccount(fields[0].GetUInt32());
-			technology->setTechValue(fields[3].GetUInt32());
-			_technologys.insert(maptechnology::value_type(technology->getAccount(), technology));
+			do 
+			{
+				Field * fields = result->Fetch();
+				Technology* technology = new Technology();
+				technology->LoadTechlevelsFromStr(fields[1].GetString());
+				technology->loadSkillsFromStr(fields[2].GetString());
+				technology->setAccount(fields[0].GetUInt32());
+				technology->setTechValue(fields[3].GetUInt32());
+				_technologys.insert(maptechnology::value_type(technology->getAccount(), technology));
 
-		} while (result->NextRow());
+			} while (result->NextRow());
+		}
+		result->Delete();
 	}
 
-	result = CharacterDatabase.Query("SELECT * FROM %s","techconf");
-	fields = result->Fetch();
-	if (result->GetRowCount() > 0)
+
+	result = phoneDatabase->Query("SELECT * FROM %s","techconf");
+	if (result)
 	{
-		do 
+		if (result->GetRowCount() > 0)
 		{
-			techLevelconf* conf = NULL;
-			int level = fields[2].GetInt32();
-			maptechLevelconf::iterator it = _techLevelconfs.find(level);
-			if (it == _techLevelconfs.end())
+			do 
 			{
-				conf = new techLevelconf();
-				conf->level = level;
-				_techLevelconfs.insert(maptechLevelconf::value_type(conf->level, conf));
-			}
-			else
-			{
-				conf = it->second;
-			}
+				Field * fields = result->Fetch();
+				techLevelconf* conf = NULL;
+				int level = fields[2].GetInt32();
+				maptechLevelconf::iterator it = _techLevelconfs.find(level);
+				if (it == _techLevelconfs.end())
+				{
+					conf = new techLevelconf();
+					conf->level = level;
+					_techLevelconfs.insert(maptechLevelconf::value_type(conf->level, conf));
+				}
+				else
+				{
+					conf = it->second;
+				}
 
-			int id = fields[0].GetInt32();
+				int id = fields[0].GetInt32();
 
-			techLevelconf::maptechinfo::iterator itinfo = conf->techinfos.find(id);
-			if (itinfo == conf->techinfos.end())
-			{
-				techconf* info = new techconf();
-				info->id = id;
-				info->maxCount = fields[1].GetInt32();
-				info->LoadFromStr(fields[3].GetString());
-				conf->techinfos.insert(techLevelconf::maptechinfo::value_type(info->id, info));
-			}
+				techLevelconf::maptechinfo::iterator itinfo = conf->techinfos.find(id);
+				if (itinfo == conf->techinfos.end())
+				{
+					techconf* info = new techconf();
+					info->id = id;
+					info->maxCount = fields[1].GetInt32();
+					info->LoadFromStr(fields[3].GetString());
+					conf->techinfos.insert(techLevelconf::maptechinfo::value_type(info->id, info));
+				}
 
-		} while (result->NextRow());
+			} while (result->NextRow());
+		}
 	}
+
 	return true;
 }
 

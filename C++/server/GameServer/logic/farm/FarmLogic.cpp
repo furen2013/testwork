@@ -293,7 +293,7 @@ void FarmLogic::synSave()
 {
 	if (_modify)
 	{
-		CharacterDatabase.Execute("replace into PlayerFarm (id,cells) values(%lu,%s)",getAccount(), MakeCellsStr().c_str());
+		phoneDatabase->Execute("replace into PlayerFarm (id,cells) values(%lu,%s)",getAccount(), MakeCellsStr().c_str());
 		_modify =  false;
 	}
 	
@@ -303,7 +303,7 @@ void FarmLogic::Save()
 {
 	if (_modify)
 	{
-		CharacterDatabase.WaitExecute("replace into PlayerFarm (id,cells) values(%lu,%s)",getAccount(), MakeCellsStr().c_str());
+		phoneDatabase->WaitExecute("replace into PlayerFarm (id,cells) values(%lu,%s)",getAccount(), MakeCellsStr().c_str());
 		_modify = false;
 	}
 	

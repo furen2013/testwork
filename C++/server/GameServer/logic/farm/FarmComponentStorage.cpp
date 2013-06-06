@@ -5,7 +5,7 @@
 initialiseSingleton(FarmComponentStorage);
 FarmComponentStorage::FarmComponentStorage()
 {
-	Load();
+	//Load();
 }
 
 FarmComponentStorage::~FarmComponentStorage()
@@ -17,43 +17,52 @@ FarmComponentStorage::~FarmComponentStorage()
 void FarmComponentStorage::Load()
 {
 	QueryResult * result;
-	result = CharacterDatabase.Query("SELECT * FROM millconf");
-	if (!result)
-		return;
-	
-	if (result->GetRowCount() > 0)
+	result = phoneDatabase->Query("SELECT * FROM millconf");
+	if (result)
 	{
-		do 
+		if (result->GetRowCount() > 0)
 		{
-			Field * fields = result->Fetch();
-			MillConf* conf = new MillConf();
-			conf->level = fields[0].GetInt32();
-			conf->spendgold = fields[1].GetInt32();
-			conf->modify = fields[2].GetInt32();
-			conf->modifyPct = fields[3].GetInt32();
-			_millConfs.insert(MILLCONFS::value_type(conf->level, conf));
-		} while (result->NextRow());
+			do 
+			{
+				Field * fields = result->Fetch();
+				MillConf* conf = new MillConf();
+				conf->level = fields[0].GetInt32();
+				conf->spendgold = fields[1].GetInt32();
+				conf->modify = fields[2].GetInt32();
+				conf->modifyPct = fields[3].GetInt32();
+				_millConfs.insert(MILLCONFS::value_type(conf->level, conf));
+			} while (result->NextRow());
+		}
+		delete result;
 	}
-	delete result;
-	result = CharacterDatabase.Query("SELECT * FROM waterwayconf");
-	if (!result)
-		return;
-	
-	if (result->GetRowCount() > 0)
+	else
 	{
-		do 
+		MyLog::log->warn("no millconf be loaded");
+	}
+	result = phoneDatabase->Query("SELECT * FROM waterwayconf");
+	if (result)
+	{
+		if (result->GetRowCount() > 0)
 		{
-			Field * fields = result->Fetch();
-			WaterWayConf* conf = new WaterWayConf();
-			conf->level = fields[0].GetInt32();
-			conf->spendgold = fields[1].GetInt32();
-			conf->modify = fields[2].GetInt32();
-			conf->modifyPct = fields[3].GetInt32();
-			_waterWays.insert(WATERWAYCONFS::value_type(conf->level, conf));
-		} while (result->NextRow());
+			do 
+			{
+				Field * fields = result->Fetch();
+				WaterWayConf* conf = new WaterWayConf();
+				conf->level = fields[0].GetInt32();
+				conf->spendgold = fields[1].GetInt32();
+				conf->modify = fields[2].GetInt32();
+				conf->modifyPct = fields[3].GetInt32();
+				_waterWays.insert(WATERWAYCONFS::value_type(conf->level, conf));
+			} while (result->NextRow());
+		}
+
+		delete result;
+	}
+	else
+	{
+		MyLog::log->warn("no waterwayconf be loaded");
 	}
 
-	delete result;
 }
 
 const MillConf* FarmComponentStorage::getMillConf(int level)

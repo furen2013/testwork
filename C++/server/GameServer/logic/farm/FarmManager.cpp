@@ -39,7 +39,7 @@ FarmLogic* FarmManager::CreateFarm(DWORD account)
 void FarmManager::LoadFarms()
 {
 	QueryResult * result;
-	result = CharacterDatabase.Query("SELECT * FROM %s", "PlayerFarm");
+	result = phoneDatabase->Query("SELECT * FROM %s", "PlayerFarm");
 	if (!result)
 		return;
 	Field * fields = result->Fetch();

@@ -6,6 +6,7 @@
 #include "../../../MsgShard/MsgHead.pb.h"
 #include "../../../new_common/Source/log4cpp-1.0/MyLog.h"
 #include "../../Common/share/Config/Config.h"
+#include "GameServer.h"
 //#include "ProtoNet/CListenProtoSocket.h"
 //#include "ProtoNet/ProtoServer.h"
 #ifdef WIN32
@@ -130,19 +131,13 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 	MyLog::log->info("Using configuration file %s.", cfg_file);
 
-	//if (!CGS.Init())
-	//{
-	//	return -1;
-	//}
+	if (!CGS.Init())
+	{
+		return -1;
+	}
 
-	//CGS.Run();
+	CGS.Run();
 
-	//if(!sServer.Init())
-	//{
-	//	return -1;
-	//}
-
-	//sServer.Run();
 	fclose( g_fpLogConnection );
 	MyLog::Release();
 

@@ -21,7 +21,12 @@ World::~World()
 
 void World::Init()
 {
-
+	phoneDatabase = Database::CreateDatabaseInterface(1);
+	if (!phoneDatabase->Initialize("127.0.0.1", 3306, "root", "7283933", "phone", 5, 16384))
+	{
+		MyLog::log->error("Game Server can not connect mysql");
+		return;
+	}
 	TechnologyManager::getSingleton().init();
 	PlayerResourceManager::getSingleton().Init();
 	FarmManager::getSingleton().init();
@@ -38,7 +43,7 @@ void World::Run(uint32 time_difference)
 
 bool World::ExecuteSqlToDBServer( QueryBuffer* buf )
 {
-	CharacterDatabase.AddQueryBuffer(buf);
+	phoneDatabase->AddQueryBuffer(buf);
 	//if( sDSSocket && sDSSocket->is_connected() )
 	//{
 	//	MSG_GS2DB::stSave MsgSave;
@@ -53,11 +58,11 @@ bool World::ExecuteSqlToDBServer( QueryBuffer* buf )
 	//}
 	//else
 	//{
-		//scoped_sql_transaction_proc sstp( &CharacterDatabase );
+		//scoped_sql_transaction_proc sstp( &phoneDatabase );
 		//for( size_t i = 0; i < buf->queries.size(); ++i )
 		//{
 		//	char* p = buf->queries[i];
-		//	CharacterDatabase.ExecuteNA( p );
+		//	phoneDatabase->ExecuteNA( p );
 		//	free( p );
 		//}
 		//sstp.success();
@@ -84,7 +89,7 @@ bool World::ExecuteSqlToDBServer( const char* sql, ... )
 	//}
 	//else
 	//{
-		CharacterDatabase.WaitExecuteNA( QueryString );
+		phoneDatabase->WaitExecuteNA( QueryString );
 	//}
 	return true;
 }

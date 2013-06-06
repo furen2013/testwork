@@ -156,14 +156,14 @@ void Technology::openTechLevel(int level)
 
 void Technology::Save()
 {
-	CharacterDatabase.WaitExecute("replace into Technology (id, techs, skills) values(%lu, %s, %s)",
+	phoneDatabase->WaitExecute("replace into Technology (id, techs, skills) values(%lu, %s, %s)",
 		getAccount(), techlevelstoString().c_str(),skillstoString().c_str());
 }
 
 void Technology::synSave()
 {
 
-	CharacterDatabase.WaitExecute("replace into Technology (id, techs, skills) values(%lu, %s, %s)",
+	phoneDatabase->WaitExecute("replace into Technology (id, techs, skills) values(%lu, %s, %s)",
 		getAccount(), techlevelstoString().c_str(),skillstoString().c_str());
 }
 

@@ -14,6 +14,7 @@ SERVER_DECL Database* Database_Character;
 extern int m_ServiceStatus;
 #endif
 initialiseSingleton(CGameServer);
+Database* phoneDatabase = NULL; 
 volatile bool CGameServer::m_stopEvent = false;
 zip_compress_strategy impcs;
 CGameServer::CGameServer(void)
