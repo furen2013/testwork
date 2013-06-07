@@ -13,8 +13,10 @@ public:
 public:
 	NetSession* FindSession(DWORD account);
 	NetSession* CreateSession(DWORD account);
+	void update(int time);
 protected:
 	mapsession _sessions;
+	boost::mutex _mutex;
 
 };
 #endif

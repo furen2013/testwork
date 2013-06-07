@@ -11,6 +11,8 @@ void NetSession::HandleFarmStateReq(MsgHead& Msg)
 	_player->sendFarmState();
 }
 
+
+
 void NetSession::HandleGatherPloughCellReq(MsgHead& Msg)
 {
 	MsgGatherPloughCellReq MsgRecive;
@@ -41,8 +43,11 @@ void NetSession::HandleWaterCellReq(MsgHead& Msg)
 
 void NetSession::HandleCreateCellReq(MsgHead& Msg)
 {
-	if (_player)
+	if (_player&&_player->getFarm()!= NULL)
 	{
+		MsgCreateCellReq msg;
+		msg.ParseFromString(Msg.body());
+		_player->getFarm()->createCell(msg.id());
 	}
 }
 
@@ -52,8 +57,7 @@ void NetSession::HandleCreateFarmReq(MsgHead& Msg)
 	{
 		if (_player->getFarm() != NULL)
 		{
-
+			_player->createFarm();
 		}
-		
 	}
 }

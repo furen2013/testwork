@@ -8,6 +8,7 @@
 #include "farm/FarmComponentStorage.h"
 #include "farm/FarmManager.h"
 #include "Com/EventMgr.h"
+#include "../Net/NetSessionManager.h"
 
 initialiseSingleton( World );
 World::World()
@@ -38,6 +39,7 @@ void World::Run(uint32 time_difference)
 {
 
 	_holder->Update(time_difference);
+	NetSessionManager::getSingleton().update(time_difference);
   //every process
 }
 

@@ -2,7 +2,7 @@
 #include "NetSession.h"
 #include "../net/GSocket.h"
 #include "MessageFarmC2S.pb.h"
-
+OpcodeHandler WorldPacketHandlers[C2S_GSEnd - C2S_GSBegin];
 
 NetSession::NetSession(): _player(NULL)
 {
@@ -15,7 +15,29 @@ NetSession::~NetSession()
 {
 
 }
+void NetSession::addMsg(MsgHead* msg)
+{
+	boost::mutex::scoped_lock lock( _msgslock );
+	_msgs.push(msg);
+}
 
+void NetSession::update(int time)
+{
+	boost::mutex::scoped_lock lock( _msgslock );
+	while(!_msgs.empty())
+	{
+		MsgHead* p = _msgs.front();
+		MsgHead head(*p);
+		OpcodeHandler* handler = GetMsgOpcodeHandler(p->type());
+		(this->*handler->handler)(*p);
+		delete p;
+		_msgs.pop();
+	}
+	
+
+	
+	//_msgs.pop()
+}
 void NetSession::sendMessage(::google::protobuf::Message* message, MsgType type)
 {
 	MsgHead msgHead;

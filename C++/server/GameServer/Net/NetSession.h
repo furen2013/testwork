@@ -3,19 +3,22 @@
 #define NETSESSION_H
 #include "MsgHead.pb.h"
 #include "TypeDef.h"
+
 class CGTSocket;
 class NetSession;
+struct OpcodeHandler
+{
+	uint16 status;
+	void (NetSession::*handler)(MsgHead& Msg);
+};
+
 enum SessionStatus
 {
 	STATUS_AUTHED = 0,
 	STATUS_LOGGEDIN
 };
 
-struct OpcodeHandler
-{
-	uint16 status;
-	void (NetSession::*handler)(MsgHead& Msg);
-};
+
 class Player;
 class FarmLogic;
 class NetSession
@@ -26,6 +29,8 @@ public:
 	void sendMessage(::google::protobuf::Message* message, MsgType type);
 	void InitHandleTable();
 	inline void setPlayer(Player* p){_player = p;}
+	void addMsg(MsgHead* msg);
+
 public:
 	void HandleFarmStateReq(MsgHead& Msg);
 	void HandleSeedCellReq(MsgHead& Msg);
@@ -43,9 +48,7 @@ public:
 
 	void HandleCreateFarmReq(MsgHead& Msg);
 	void HandleCreateCellReq(MsgHead& Msg);
-
-
-	
+	void update(int time);
 protected:
 	OpcodeHandler* GetMsgOpcodeHandler(MsgType en);
 protected:
@@ -53,7 +56,10 @@ protected:
 	CGTSocket* _socket;
 	int _MsgNumber;
 	Player* _player;
-	OpcodeHandler WorldPacketHandlers[C2S_GSEnd - C2S_GSBegin];
+	
+	std::queue<MsgHead*> _msgs;
+	boost::mutex _msgslock;
+	
 };
 
 
