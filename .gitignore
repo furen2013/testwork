@@ -141,7 +141,10 @@ Thumbs.db
 Desktop.ini
 *.log
 *.manifest
-
+*.exe
+.filters
+.config
+*.vcxproj.filters
 
 #############
 ## Python
