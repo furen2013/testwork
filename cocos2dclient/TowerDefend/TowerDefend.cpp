@@ -19,6 +19,6 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	TowerDefendApp app;
 	CCEGLView* eglView = CCEGLView::sharedOpenGLView();
 	eglView->setFrameSize(480, 320);
-	return TowerDefendApp::sharedApplication()->run();
+	return CCApplication::sharedApplication()->run();
 }
 

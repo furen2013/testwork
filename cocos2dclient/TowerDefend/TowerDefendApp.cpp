@@ -3,231 +3,57 @@
 #include "CCEGLView.h"
 #include "CCDirector.h"
 #include <algorithm>
+#include "SimpleAudioEngine.h"
+#include "script_support/CCScriptSupport.h"
+#include "CCLuaEngine.h"
 
-/**
-@brief    This function change the PVRFrame show/hide setting in register.
-@param  bEnable If true show the PVRFrame window, otherwise hide.
-*/
-static void PVRFrameEnableControlWindow(bool bEnable);
+USING_NS_CC;
 
-NS_CC_BEGIN
+TowerDefendApp::TowerDefendApp() {
 
-	// sharedApplication pointer
-TowerDefendApp * TowerDefendApp::sm_pSharedApplication = 0;
-
-TowerDefendApp::TowerDefendApp()
-	: m_hInstance(NULL)
-	, m_hAccelTable(NULL)
-{
-	m_hInstance    = GetModuleHandle(NULL);
-	m_nAnimationInterval.QuadPart = 0;
-	CC_ASSERT(! sm_pSharedApplication);
-	sm_pSharedApplication = this;
 }
 
-TowerDefendApp::~TowerDefendApp()
+TowerDefendApp::~TowerDefendApp() 
 {
-	CC_ASSERT(this == sm_pSharedApplication);
-	sm_pSharedApplication = NULL;
 }
 
-int TowerDefendApp::run()
-{
-	PVRFrameEnableControlWindow(false);
+bool TowerDefendApp::applicationDidFinishLaunching() {
+	// initialize director
+	CCDirector *pDirector = CCDirector::sharedDirector();
 
-	// Main message loop:
-	MSG msg;
-	LARGE_INTEGER nFreq;
-	LARGE_INTEGER nLast;
-	LARGE_INTEGER nNow;
+	pDirector->setOpenGLView(CCEGLView::sharedOpenGLView());
 
-	QueryPerformanceFrequency(&nFreq);
-	QueryPerformanceCounter(&nLast);
+	// enable High Resource Mode(2x, such as iphone4) and maintains low resource on other devices.
+	// pDirector->enableRetinaDisplay(true);
 
-	// Initialize instance and cocos2d.
-	if (!applicationDidFinishLaunching())
-	{
-		return 0;
-	}
+	// turn on display FPS
+	pDirector->setDisplayStats(true);
 
-	CCEGLView* pMainWnd = CCEGLView::sharedOpenGLView();
-	pMainWnd->centerWindow();
-	ShowWindow(pMainWnd->getHWnd(), SW_SHOW);
+	// set FPS. the default value is 1.0/60 if you don't call this
+	pDirector->setAnimationInterval(1.0 / 60);
 
-	while (1)
-	{
-		if (! PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
-		{
-			// Get current time tick.
-			QueryPerformanceCounter(&nNow);
+	// ready to add my scence;
+	// create a scene. it's an autorelease object
+	//CCScene *pScene = HelloWorld::scene();
 
-			// If it's the time to draw next frame, draw it, else sleep a while.
-			if (nNow.QuadPart - nLast.QuadPart > m_nAnimationInterval.QuadPart)
-			{
-				nLast.QuadPart = nNow.QuadPart;
-				CCDirector::sharedDirector()->mainLoop();
-			}
-			else
-			{
-				Sleep(0);
-			}
-			continue;
-		}
-
-		if (WM_QUIT == msg.message)
-		{
-			// Quit message loop.
-			break;
-		}
-
-		// Deal with windows message.
-		if (! m_hAccelTable || ! TranslateAccelerator(msg.hwnd, m_hAccelTable, &msg))
-		{
-			TranslateMessage(&msg);
-			DispatchMessage(&msg);
-		}
-	}
-
-	return (int) msg.wParam;
-}
-
-void TowerDefendApp::setAnimationInterval(double interval)
-{
-	LARGE_INTEGER nFreq;
-	QueryPerformanceFrequency(&nFreq);
-	m_nAnimationInterval.QuadPart = (LONGLONG)(interval * nFreq.QuadPart);
-}
-
-//////////////////////////////////////////////////////////////////////////
-// static member function
-//////////////////////////////////////////////////////////////////////////
-TowerDefendApp* TowerDefendApp::sharedApplication()
-{
-	CC_ASSERT(sm_pSharedApplication);
-	return sm_pSharedApplication;
-}
-
-ccLanguageType TowerDefendApp::getCurrentLanguage()
-{
-	ccLanguageType ret = kLanguageEnglish;
-
-	LCID localeID = GetUserDefaultLCID();
-	unsigned short primaryLanguageID = localeID & 0xFF;
-
-	switch (primaryLanguageID)
-	{
-	case LANG_CHINESE:
-		ret = kLanguageChinese;
-		break;
-	case LANG_ENGLISH:
-		ret = kLanguageEnglish;
-		break;
-	case LANG_FRENCH:
-		ret = kLanguageFrench;
-		break;
-	case LANG_ITALIAN:
-		ret = kLanguageItalian;
-		break;
-	case LANG_GERMAN:
-		ret = kLanguageGerman;
-		break;
-	case LANG_SPANISH:
-		ret = kLanguageSpanish;
-		break;
-	case LANG_RUSSIAN:
-		ret = kLanguageRussian;
-		break;
-	case LANG_KOREAN:
-		ret = kLanguageKorean;
-		break;
-	}
-
-	return ret;
-}
-
-TargetPlatform TowerDefendApp::getTargetPlatform()
-{
-	return kTargetWindows;
-}
-
-
-   
-bool TowerDefendApp::applicationDidFinishLaunching()
-{
-
+	// run
+	//pDirector->runWithScene(pScene);
 
 	return true;
 }
 
-    /**
-    @brief  The function be called when the application enter background
-    @param  the pointer of the application
-    */
-void TowerDefendApp::applicationDidEnterBackground()
-{
+// This function will be called when the app is inactive. When comes a phone call,it's be invoked too
+void TowerDefendApp::applicationDidEnterBackground() {
+	CCDirector::sharedDirector()->stopAnimation();
 
+	// if you use SimpleAudioEngine, it must be pause
+	// SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
 }
 
-    /**
-    @brief  The function be called when the application enter foreground
-    @param  the pointer of the application
-    */
-void TowerDefendApp::applicationWillEnterForeground()
-{
+// this function will be called when the app is active again
+void TowerDefendApp::applicationWillEnterForeground() {
+	CCDirector::sharedDirector()->startAnimation();
 
-}
-
-void TowerDefendApp::setResourceRootPath(const std::string& rootResDir)
-{
-	m_resourceRootPath = rootResDir;
-	std::replace(m_resourceRootPath.begin(), m_resourceRootPath.end(), '\\', '/');
-	if (m_resourceRootPath[m_resourceRootPath.length() - 1] != '/')
-	{
-		m_resourceRootPath += '/';
-	}
-}
-
-void TowerDefendApp::setStartupScriptFilename(const std::string& startupScriptFile)
-{
-	m_startupScriptFilename = startupScriptFile;
-	std::replace(m_startupScriptFilename.begin(), m_startupScriptFilename.end(), '\\', '/');
-}
-
-NS_CC_END
-
-	//////////////////////////////////////////////////////////////////////////
-	// Local function
-	//////////////////////////////////////////////////////////////////////////
-	static void PVRFrameEnableControlWindow(bool bEnable)
-{
-	HKEY hKey = 0;
-
-	// Open PVRFrame control key, if not exist create it.
-	if(ERROR_SUCCESS != RegCreateKeyExW(HKEY_CURRENT_USER,
-		L"Software\\Imagination Technologies\\PVRVFRame\\STARTUP\\",
-		0,
-		0,
-		REG_OPTION_NON_VOLATILE,
-		KEY_ALL_ACCESS,
-		0,
-		&hKey,
-		NULL))
-	{
-		return;
-	}
-
-	const WCHAR* wszValue = L"hide_gui";
-	const WCHAR* wszNewData = (bEnable) ? L"NO" : L"YES";
-	WCHAR wszOldData[256] = {0};
-	DWORD   dwSize = sizeof(wszOldData);
-	LSTATUS status = RegQueryValueExW(hKey, wszValue, 0, NULL, (LPBYTE)wszOldData, &dwSize);
-	if (ERROR_FILE_NOT_FOUND == status              // the key not exist
-		|| (ERROR_SUCCESS == status                 // or the hide_gui value is exist
-		&& 0 != wcscmp(wszNewData, wszOldData)))    // but new data and old data not equal
-	{
-		dwSize = sizeof(WCHAR) * (wcslen(wszNewData) + 1);
-		RegSetValueEx(hKey, wszValue, 0, REG_SZ, (const BYTE *)wszNewData, dwSize);
-	}
-
-	RegCloseKey(hKey);
+	// if you use SimpleAudioEngine, it must resume here
+	// SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
 }

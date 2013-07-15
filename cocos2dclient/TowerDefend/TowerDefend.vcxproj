@@ -51,7 +51,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\win32;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\third_party\win32\OGLES;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\kazmath\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\win32;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\third_party\win32\OGLES;..\..\..\cocos2d-2.0-x-2.0.4\CocosDenshion\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\kazmath\include;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\cocos2dx_support;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -81,26 +81,29 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
-    <None Include="small.ico" />
-    <None Include="TowerDefend.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="logic\scene\LoginScene.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TowerDefend.h" />
     <ClInclude Include="TowerDefendApp.h" />
+    <ClInclude Include="utility\utilityItemComponent.h" />
+    <ClInclude Include="utility\utilityPoisition.h" />
+    <ClInclude Include="utility\VisibleRect.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="logic\scene\LoginScene.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TowerDefend.cpp" />
     <ClCompile Include="TowerDefendApp.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="TowerDefend.rc" />
+    <ClCompile Include="utility\utilityItemComponent.cpp" />
+    <ClCompile Include="utility\utilityPoisition.cpp" />
+    <ClCompile Include="utility\VisibleRect.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
