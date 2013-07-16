@@ -228,13 +228,20 @@ void TextFieldTTFDefaultTest::onEnter()
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)    
 	// on android, CCTextFieldTTF cannot auto adjust its position when soft-keyboard pop up
 	// so we had to set a higher position to make it visable
-	pTextField->setPosition(ccp(s.width / 2, s.height/2 + 50));
+	pTextField->setPosition(_RectPos._getLBccpt());
 #else
-	pTextField->setPosition(ccp(s.width / 2, s.height / 2));
+	pTextField->setPosition(_RectPos._getLBccpt());
 #endif
 
 	m_pTrackNode = pTextField;
 }
+
+
+void TextFieldTTFDefaultTest::_setRectPos(utilityRectPoisition& pos)
+{
+	_RectPos = pos;
+}
+
 
 //////////////////////////////////////////////////////////////////////////
 // implement TextFieldTTFActionTest
@@ -260,6 +267,12 @@ void TextFieldTTFActionTest::onClickTrackNode(bool bClicked)
 		CCLOG("TextFieldTTFActionTest:CCTextFieldTTF detachWithIME");
 		pTextField->detachWithIME();
 	}
+}
+
+
+void TextFieldTTFActionTest::_setRectPos(utilityRectPoisition& pos)
+{
+	_RectPos = pos;
 }
 
 void TextFieldTTFActionTest::onEnter()
@@ -290,9 +303,9 @@ void TextFieldTTFActionTest::onEnter()
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)    
 	// on android, CCTextFieldTTF cannot auto adjust its position when soft-keyboard pop up
 	// so we had to set a higher position
-	m_pTextField->setPosition(ccp(s.width / 2, s.height/2 + 50));
+	m_pTextField->setPosition(_RectPos._getLBccpt());
 #else
-	m_pTextField->setPosition(ccp(s.width / 2, s.height / 2));
+	m_pTextField->setPosition(_RectPos._getLBccpt());
 #endif
 
 	m_pTrackNode = m_pTextField;

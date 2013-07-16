@@ -77,6 +77,10 @@ public:
 
 	// CCLayer
 	virtual void onEnter();
+	void _setRectPos(utilityRectPoisition& pos);
+
+protected:
+	utilityRectPoisition _RectPos;
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -107,6 +111,12 @@ public:
 	virtual bool onTextFieldInsertText(CCTextFieldTTF * pSender, const char * text, int nLen);
 	virtual bool onTextFieldDeleteBackward(CCTextFieldTTF * pSender, const char * delText, int nLen);
 	virtual bool onDraw(CCTextFieldTTF * pSender);
+
+
+	void _setRectPos(utilityRectPoisition& pos);
+
+protected:
+	utilityRectPoisition _RectPos;
 };
 
 
