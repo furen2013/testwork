@@ -8,18 +8,19 @@
 
 USING_NS_CC;
 
-
 class utilityRectPoisition
 {
 public:
 	utilityRectPoisition(utilityRectPosX::posXType enX, float offsetX, utilityRectPosY::posYType enY, float offsetY, CCRect* rect);
 	utilityRectPoisition(utilityRectPosX& PosX, utilityRectPosY& PosY, CCRect* rect);
 	utilityRectPoisition();
+	utilityRectPoisition(utilityRectPoisition& temp);
 	~utilityRectPoisition(void);
 public:
 	void _setRect(CCRect* Rect);
-	void _setPosX(utilityRectPosX PosX);
-	void _setPosY(utilityRectPosY PosY);
+	void _setPosX(utilityRectPosX& PosX);
+	void _setPosY(utilityRectPosY& PosY);
+	void _setData(utilityRectPoisition& temp);
 	float _getLeftPosX();
 	float _getRightPosX();
 	float _getMiddlePosX();
@@ -68,7 +69,8 @@ public:
 	CCPoint _getRMccpt();
 	CCPoint _getRBccpt();
 	CCRect* _getRect(){return _Rect;}
-
+	utilityRectPosX getutilityRectPosX(){return _PosX;}
+	utilityRectPosY getutilityRectPosY(){return _PosY;}
 private:
 	utilityRectPosX _PosX;
 	utilityRectPosY	_PosY;	

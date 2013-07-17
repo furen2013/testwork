@@ -77,6 +77,7 @@ CCPoint VisibleRect::rightBottom()
 
 
 
+
 utilityRectPosX::utilityRectPosX()
 {
 	_en = posXType_Left;
@@ -112,7 +113,7 @@ float utilityRectPosX::_getLeftPosX()
 	{
 	case PosXType_Middle:
 		{
-			TempX = _offsetX -  _getRectMidX();
+			TempX = _offsetX +  _getRectMidX();
 		}
 		break;
 	case posXType_Right:
@@ -259,7 +260,7 @@ float utilityRectPosY::_getBottomPosY()
 		break;
 	case PosYType_Middle:
 		{
-			tempPosY = _offsetY - midY;
+			tempPosY = _offsetY + midY;
 		}
 		break;
 	case posYType_Bottom:

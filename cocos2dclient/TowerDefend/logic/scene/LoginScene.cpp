@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "LoginScene.h"
 #include "../../utility/VisibleRect.h"
+#include "../../utility/passwordTextFieldTTF.h"
 
 enum 
 {
@@ -45,7 +46,7 @@ void LoginController::Logout(CCObject* pSender)
 
 void LoginController::onEnter()
 {
-
+	CCLayer::onEnter();
 }
 
 LoginController::LoginController()
@@ -55,25 +56,51 @@ LoginController::LoginController()
 	posX._en = utilityRectPosX::PosXType_Middle;
 	posX._offsetX = - 20;
 	utilityRectPosY posY;
-	posY._en = utilityRectPosY::PosYType_Middle;
-	posY._offsetY = 0.f;
+	posY._en = utilityRectPosY::posYType_Bottom;
+	posY._offsetY =  40.f;
 
 	_LoginImagePath.ItemPos._setRect(VisibleRect::getVisibleRect());
 	_LoginImagePath.ItemPos._setPosX(posX);
 	_LoginImagePath.ItemPos._setPosY(posY);
-
-	posY._offsetY = - 20.f;
+	
+	posX._offsetX = 20.f;
 	_LogoutImagePath.ItemPos._setRect(VisibleRect::getVisibleRect());
 	_LogoutImagePath.ItemPos._setPosX(posX);
 	_LogoutImagePath.ItemPos._setPosY(posY);
 
-
+	for (int i = ItemImagePath_Normal; i < ItemImagePath_Max; i ++)
+	{
+		_LoginImagePath.imagepath._ItemImage[i] = "res/CloseNormal.png";
+		_LogoutImagePath.imagepath._ItemImage[i] = "res/CloseNormal.png";
+	}
+	
 
 	_pLoginMenuItemImage = CreateMenuItemImage(&_LoginImagePath, menu_selector(LoginController::Login));
-	_pLogoutMenuItemImage = CreateMenuItemImage(&_LoginImagePath, menu_selector(LoginController::Logout));
-	CCMenu* pMenu =CCMenu::create(_pLoginMenuItemImage, _pLogoutMenuItemImage);
+	_pLogoutMenuItemImage = CreateMenuItemImage(&_LogoutImagePath, menu_selector(LoginController::Logout));
+	_Menu  =CCMenu::create(_pLoginMenuItemImage, NULL);
+	_Menu->addChild(_pLogoutMenuItemImage);
 
-	pMenu->setPosition( CCPointZero );
+	_Menu->setPosition( CCPointZero );
+	posX._en = utilityRectPosX::PosXType_Middle;
+	posX._offsetX = - 20;
+
+	posY._en = utilityRectPosY::PosYType_Middle;
+	posY._offsetY =  40.f;
+	utilityRectPoisition pos;
+	pos._setPosX(posX);
+	pos._setPosY(posY);
+	pos._setRect(VisibleRect::getVisibleRect());
+	_account = new TextFieldTTFActionTest();
+	_account->_setRectPos(pos);
+	_password = new TextFieldTTFActionTest();
+	posY._offsetY = 0.f;
+	pos._setRect(VisibleRect::getVisibleRect());
+	pos._setPosY(posY);
+	_password->_setRectPos(pos);
+	_password->_setType(TextFieldTTFActionTest::TextFieldTTFAction_Password);
+	addChild(_Menu);
+	addChild(_account);
+	addChild(_password);
 
 	// add menu items for tests
 }
@@ -272,7 +299,9 @@ void TextFieldTTFActionTest::onClickTrackNode(bool bClicked)
 
 void TextFieldTTFActionTest::_setRectPos(utilityRectPoisition& pos)
 {
-	_RectPos = pos;
+	_RectPos._setData(pos);
+
+	_RectPos._getLBccpt();
 }
 
 void TextFieldTTFActionTest::onEnter()
@@ -292,10 +321,24 @@ void TextFieldTTFActionTest::onEnter()
 
 	// add CCTextFieldTTF
 	CCSize s = CCDirector::sharedDirector()->getWinSize();
+	switch(_editType)
+	{
+	case TextFieldTTFAction_Password:
+		{
+			m_pTextField  = passwordTextFieldTTF::textFieldWithPlaceHolder("<click here for input>",
+				FONT_NAME,
+				FONT_SIZE);
+		}
+		break;
+	default:
+		{
+			m_pTextField = CCTextFieldTTF::textFieldWithPlaceHolder("<click here for input>",
+				FONT_NAME,
+				FONT_SIZE);
+		}
+	}
 
-	m_pTextField = CCTextFieldTTF::textFieldWithPlaceHolder("<click here for input>",
-		FONT_NAME,
-		FONT_SIZE);
+
 	addChild(m_pTextField);
 
 	m_pTextField->setDelegate(this);
@@ -352,13 +395,29 @@ bool TextFieldTTFActionTest::onTextFieldInsertText(CCTextFieldTTF * pSender, con
 	{
 		return true;
 	}
-
+	CCLabelTTF * label = NULL;
 	// create a insert text sprite and do some action
-	CCLabelTTF * label = CCLabelTTF::create(text, FONT_NAME, FONT_SIZE);
-	this->addChild(label);
-	ccColor3B color = { 226, 121, 7};
-	label->setColor(color);
+	switch(_editType)
+	{
+	case TextFieldTTFAction_Normal:
+		{
+			label = CCLabelTTF::create(text, FONT_NAME, FONT_SIZE);
+		}
+		break;
+	case  TextFieldTTFAction_Password:
+		{
+			label = CCLabelTTF::create("*", FONT_NAME, FONT_SIZE);
+		}
+		break;
+	}
+	if (label != NULL)
+	{
+		addChild(label);
+		ccColor3B color = { 226, 121, 7};
+		label->setColor(color);
+	}
 
+	_text += text;
 	// move the sprite from top to position
 	CCPoint endPos = pSender->getPosition();
 	if (pSender->getCharCount())
@@ -384,6 +443,8 @@ bool TextFieldTTFActionTest::onTextFieldInsertText(CCTextFieldTTF * pSender, con
 	return false;
 }
 
+
+
 bool TextFieldTTFActionTest::onTextFieldDeleteBackward(CCTextFieldTTF * pSender, const char * delText, int nLen)
 {
 	// create a delete text sprite and do some action
@@ -398,12 +459,13 @@ bool TextFieldTTFActionTest::onTextFieldDeleteBackward(CCTextFieldTTF * pSender,
 
 	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
 	CCPoint endPos(- winSize.width / 4.0f, winSize.height * (0.5 + (float)rand() / (2.0f * RAND_MAX)));
-
+	
 	float duration = 1;
 	float rotateDuration = 0.2f;
 	int repeatTime = 5; 
 	label->setPosition(beginPos);
-
+	_text.find_last_of(delText);
+	_text.erase(_text.find_last_of(delText), nLen);
 	CCAction * seq = CCSequence::create(
 		CCSpawn::create(
 		CCMoveTo::create(duration, endPos),
@@ -420,10 +482,24 @@ bool TextFieldTTFActionTest::onTextFieldDeleteBackward(CCTextFieldTTF * pSender,
 
 bool TextFieldTTFActionTest::onDraw(CCTextFieldTTF * pSender)
 {
+	//m_pInputText;
 	return false;
 }
 
 void TextFieldTTFActionTest::callbackRemoveNodeWhenDidAction(CCNode * pNode)
 {
 	this->removeChild(pNode, true);
+}
+
+
+TextFieldTTFActionTest::TextFieldTTFActionTest()
+{
+	
+	m_pTextField = NULL;;
+	m_pTextFieldAction = NULL;
+	_editType = TextFieldTTFAction_Normal;
+}
+TextFieldTTFActionTest::~TextFieldTTFActionTest()
+{
+
 }

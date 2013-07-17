@@ -8,7 +8,7 @@
 #include "../../utility/utilityItemComponent.h"
 #include "../../utility/utilityPoisition.h"
 class KeyboardNotificationLayer;
-
+class TextFieldTTFActionTest;
 /**
 @brief    TextInputTest for retain prev, reset, next, main menu buttons.
 */
@@ -24,19 +24,20 @@ public:
 	void Login(CCObject* pSender);
 	void Logout(CCObject* pSender);
 	void addKeyboardNotificationLayer(KeyboardNotificationLayer * pLayer);
-
-
 	virtual void onEnter();
 protected:
 	CCMenuItemImage* CreateMenuItemImage(ItemImageResource* p, SEL_MenuHandler selector);
 
 private:
-	KeyboardNotificationLayer * m_pNotificationLayer;
 	ItemImageResource _LoginImagePath;
 	ItemImageResource _LogoutImagePath;
 
 	CCMenuItemImage* _pLoginMenuItemImage;
 	CCMenuItemImage* _pLogoutMenuItemImage;
+	CCMenu* _Menu; 
+
+	TextFieldTTFActionTest* _account;
+	TextFieldTTFActionTest* _password;
 };
 
 
@@ -89,12 +90,14 @@ protected:
 
 class TextFieldTTFActionTest : public KeyboardNotificationLayer, public CCTextFieldDelegate
 {
-	CCTextFieldTTF *    m_pTextField;
-	CCAction *          m_pTextFieldAction;
-	bool                m_bAction;
-	int                 m_nCharLimit;       // the textfield max char limit
-
 public:
+	enum enType{
+		TextFieldTTFAction_Normal,
+		TextFieldTTFAction_Password,
+	};
+public:
+	TextFieldTTFActionTest();
+	~TextFieldTTFActionTest();
 	void callbackRemoveNodeWhenDidAction(CCNode * pNode);
 
 	// KeyboardNotificationLayer
@@ -114,9 +117,19 @@ public:
 
 
 	void _setRectPos(utilityRectPoisition& pos);
+	void _setType(enType en){_editType = en;}
+
+protected:
+	//virtual void draw();
 
 protected:
 	utilityRectPoisition _RectPos;
+	CCTextFieldTTF *    m_pTextField;
+	CCAction *          m_pTextFieldAction;
+	bool                m_bAction;
+	int                 m_nCharLimit;       // the textfield max char limit
+	std::string			_text;
+	enType				_editType;
 };
 
 

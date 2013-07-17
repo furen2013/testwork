@@ -11,15 +11,24 @@ utilityRectPoisition::utilityRectPoisition(utilityRectPosX::posXType enX, float 
 	_PosY._offsetY = offsetY;
 	_PosY._en = enY;
 	_Rect = rect;
+	_PosX._parent = this;
+	_PosY._parent = this;
+}
+
+utilityRectPoisition::utilityRectPoisition(utilityRectPoisition& temp)
+{
+	_setData(temp);
 }
 utilityRectPoisition::utilityRectPoisition(utilityRectPosX& PosX, utilityRectPosY& PosY , CCRect* rect)
 {
 	_PosX = PosX;
 	_PosY = PosY;
 	_Rect = rect;
+	_PosX._parent = this;
+	_PosY._parent = this;
 }
 
-utilityRectPoisition::utilityRectPoisition()
+utilityRectPoisition::utilityRectPoisition():_Rect(NULL)
 {
 
 }
@@ -27,19 +36,31 @@ utilityRectPoisition::~utilityRectPoisition(void)
 {
 }
 
+void utilityRectPoisition::_setData(utilityRectPoisition& temp)
+{
+	_setPosX(temp.getutilityRectPosX());
+	_setPosY(temp.getutilityRectPosY());
+	_setRect(temp._getRect());
+}
 
 void utilityRectPoisition::_setRect(CCRect* Rect)
 {
 	_Rect = Rect;
+	
 }
-void utilityRectPoisition::_setPosX(utilityRectPosX PosX)
+void utilityRectPoisition::_setPosX(utilityRectPosX& PosX)
 {
 	_PosX = PosX;
+	_PosX._parent = this;
 }
-void utilityRectPoisition::_setPosY(utilityRectPosY PosY)
+void utilityRectPoisition::_setPosY(utilityRectPosY& PosY)
 {
 	_PosY = PosY;
+	_PosY._parent = this;
 }
+
+
+
 
 float utilityRectPoisition::_getLeftPosX()
 {

@@ -6,6 +6,7 @@
 #include "SimpleAudioEngine.h"
 #include "script_support/CCScriptSupport.h"
 #include "CCLuaEngine.h"
+#include "logic/scene/LoginScene.h"
 
 USING_NS_CC;
 
@@ -38,6 +39,15 @@ bool TowerDefendApp::applicationDidFinishLaunching() {
 
 	// run
 	//pDirector->runWithScene(pScene);
+
+
+	CCScene * pScene = CCScene::create();
+	CCLayer * pLayer = new LoginController();
+	pLayer->autorelease();
+
+	pScene->addChild(pLayer);
+	pDirector->runWithScene(pScene);
+
 
 	return true;
 }
