@@ -91,6 +91,11 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="logic\baseCreature.h" />
+    <ClInclude Include="logic\baseObj.h" />
+    <ClInclude Include="logic\baseTower.h" />
+    <ClInclude Include="logic\CreatureStorage.h" />
+    <ClInclude Include="logic\ResourceManager\TDResourceManager.h" />
     <ClInclude Include="logic\scene\LoginScene.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -98,11 +103,17 @@
     <ClInclude Include="TowerDefend.h" />
     <ClInclude Include="TowerDefendApp.h" />
     <ClInclude Include="utility\passwordTextFieldTTF.h" />
+    <ClInclude Include="utility\Singleton.h" />
     <ClInclude Include="utility\utilityItemComponent.h" />
     <ClInclude Include="utility\utilityPoisition.h" />
     <ClInclude Include="utility\VisibleRect.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="logic\baseCreature.cpp" />
+    <ClCompile Include="logic\baseObj.cpp" />
+    <ClCompile Include="logic\baseTower.cpp" />
+    <ClCompile Include="logic\CreatureStorage.cpp" />
+    <ClCompile Include="logic\ResourceManager\TDResourceManager.cpp" />
     <ClCompile Include="logic\scene\LoginScene.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

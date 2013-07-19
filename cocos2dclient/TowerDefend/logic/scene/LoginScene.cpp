@@ -70,8 +70,8 @@ LoginController::LoginController()
 
 	for (int i = ItemImagePath_Normal; i < ItemImagePath_Max; i ++)
 	{
-		_LoginImagePath.imagepath._ItemImage[i] = "res/CloseNormal.png";
-		_LogoutImagePath.imagepath._ItemImage[i] = "res/CloseNormal.png";
+		_LoginImagePath.imagepath._ItemImage[i] = "../res/CloseNormal.png";
+		_LogoutImagePath.imagepath._ItemImage[i] = "../res/CloseNormal.png";
 	}
 	
 
