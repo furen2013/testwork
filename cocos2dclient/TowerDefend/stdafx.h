@@ -17,5 +17,6 @@
 #include <memory.h>
 #include <tchar.h>
 
-
+#include "cocos2d.h"
+USING_NS_CC;
 // TODO: reference additional headers your program requires here

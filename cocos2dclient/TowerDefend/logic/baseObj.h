@@ -1,7 +1,7 @@
 #pragma once
 #ifndef BASE_OBJ_H
 #define BASE_OBJ_H
-#include "cocos2d.h"
+//#include "cocos2d.h"
 using namespace cocos2d;
 //NS_CC_BEGIN
 enum enObjType
@@ -19,7 +19,7 @@ class baseObj : CCNode
 public:
 	baseObj(void);
 	virtual ~baseObj(void);
-	virtual void LoadResource() = 0;
+	virtual void LoadResource(const char* config) = 0;
 public:
 	virtual void onAddToWorld();
 	virtual void onRemoveFromWorld();

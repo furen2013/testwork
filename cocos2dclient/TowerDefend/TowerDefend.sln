@@ -2,6 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TowerDefend", "TowerDefend.vcxproj", "{19011B5F-58B7-42CD-90DC-F82036931202}"
+	ProjectSection(ProjectDependencies) = postProject
+		{060CB513-0377-4555-A2E0-60290421D039} = {060CB513-0377-4555-A2E0-60290421D039}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Common", "..\..\C++\server\Common\Common.vcxproj", "{060CB513-0377-4555-A2E0-60290421D039}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +18,10 @@ Global
 		{19011B5F-58B7-42CD-90DC-F82036931202}.Debug|Win32.Build.0 = Debug|Win32
 		{19011B5F-58B7-42CD-90DC-F82036931202}.Release|Win32.ActiveCfg = Release|Win32
 		{19011B5F-58B7-42CD-90DC-F82036931202}.Release|Win32.Build.0 = Release|Win32
+		{060CB513-0377-4555-A2E0-60290421D039}.Debug|Win32.ActiveCfg = Debug|Win32
+		{060CB513-0377-4555-A2E0-60290421D039}.Debug|Win32.Build.0 = Debug|Win32
+		{060CB513-0377-4555-A2E0-60290421D039}.Release|Win32.ActiveCfg = Release|Win32
+		{060CB513-0377-4555-A2E0-60290421D039}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

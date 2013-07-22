@@ -1,5 +1,9 @@
 #pragma once
-#include "cocos2d.h"
+#ifndef UTILITYRECTPOISITION_H
+#define UTILITYRECTPOISITION_H
+
+
+//#include "cocos2d.h"
 #include "cocoa/CCGeometry.h"
 #include "GdiPlusEnums.h"
 #include "GdiPlusTypes.h"
@@ -77,3 +81,4 @@ private:
 	CCRect*		_Rect;	
 };
 
+#endif

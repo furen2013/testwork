@@ -1,9 +1,7 @@
+#pragma once
 #ifndef LOGINSCENE_H
 #define LOGINSCENE_H
-
-
-#pragma once
-#include "cocos2d.h"
+//#include "cocos2d.h"
 #include <iostream>
 #include "../../utility/utilityItemComponent.h"
 #include "../../utility/utilityPoisition.h"

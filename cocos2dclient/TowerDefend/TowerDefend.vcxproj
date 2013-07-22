@@ -52,17 +52,20 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\win32;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\third_party\win32\OGLES;..\..\..\cocos2d-2.0-x-2.0.4\CocosDenshion\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\kazmath\include;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\cocos2dx_support;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;BOOST_ALL_NO_LIB;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\win32;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\third_party\win32\OGLES;..\..\..\cocos2d-2.0-x-2.0.4\CocosDenshion\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\kazmath\include;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\cocos2dx_support;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\lua;..\..\C++\Server\Common\;..\..\..\boost_lib\boost_1_51_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Documents and Settings\Administrator\My Documents\GitHub\cocos2d-2.0-x-2.0.4\Debug.win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libExtensions.lib;libcocos2d.lib;libCocosDenshion.lib;opengl32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Documents and Settings\Administrator\My Documents\GitHub\cocos2d-2.0-x-2.0.4\Debug.win32;../../../boost_lib\boost_1_51_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libExtensions.lib;libCocosDenshion.lib;libcocos2d.lib;opengl32.lib;glew32.lib;wsock32.lib;libboost_system-vc100-mt-1_51.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>libcpmtd0.lib;LIBCMTD.lib</IgnoreSpecificDefaultLibraries>
     </Link>
     <PostBuildEvent>
-      <Command>copy ..\..\..\intermediate\Client\$(ProjectName)\Debug\$(ProjectName).exe  ..\..\..\intermediate\Client\$(ProjectName)\Bin\$(Configuration)\$(ProjectName)_D.exe</Command>
+      <Command>copy ..\..\..\intermediate\Client\$(ProjectName)\Debug\$(ProjectName).exe  ..\..\..\intermediate\Client\$(ProjectName)\Bin\$(Configuration)\$(ProjectName)_D.exe
+copy ..\..\..\intermediate\Client\libcocos2d\Debug\libcocos2d.dll  ..\..\..\intermediate\Client\$(ProjectName)\Bin\$(Configuration)\libcocos2d.dll</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -97,13 +100,13 @@
     <ClInclude Include="logic\CreatureStorage.h" />
     <ClInclude Include="logic\ResourceManager\TDResourceManager.h" />
     <ClInclude Include="logic\scene\LoginScene.h" />
+    <ClInclude Include="logic\spell\spell.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TowerDefend.h" />
     <ClInclude Include="TowerDefendApp.h" />
     <ClInclude Include="utility\passwordTextFieldTTF.h" />
-    <ClInclude Include="utility\Singleton.h" />
     <ClInclude Include="utility\utilityItemComponent.h" />
     <ClInclude Include="utility\utilityPoisition.h" />
     <ClInclude Include="utility\VisibleRect.h" />
@@ -115,6 +118,7 @@
     <ClCompile Include="logic\CreatureStorage.cpp" />
     <ClCompile Include="logic\ResourceManager\TDResourceManager.cpp" />
     <ClCompile Include="logic\scene\LoginScene.cpp" />
+    <ClCompile Include="logic\spell\spell.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

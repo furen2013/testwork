@@ -1,7 +1,8 @@
+#pragma once
 #ifndef __CC_TOWERDEFENDAPP_WIN32_H__
 #define __CC_TOWERDEFENDAPP_WIN32_H__
 
-#include "cocos2d.h"
+//#include "cocos2d.h"
 
 /**
 @brief    The cocos2d Application.

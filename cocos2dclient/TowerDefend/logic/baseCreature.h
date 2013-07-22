@@ -26,8 +26,9 @@ public:
 	baseCreature(void);
 	virtual ~baseCreature(void);
 public:
-	virtual void LoadResource();
-
+	virtual void LoadResource(const char* config);
+	virtual void onAddToWorld();
+	virtual void onRemoveFromWorld();
 
 public:
 	virtual void setDir(enCreatureDir en);
@@ -69,6 +70,7 @@ protected:
 	std::string			  _name;
 
 	std::string		      _resourseName;
+	CCAnimation*		  _currentAnimation;
 
 
 };

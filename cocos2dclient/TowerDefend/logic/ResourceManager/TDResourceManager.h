@@ -1,10 +1,10 @@
 #pragma once
 #ifndef TDRESOURCEMANAGER_H
 #define TDRESOURCEMANAGER_H
-#include "cocos2d.h"
+//#include "cocos2d.h"
 #include "sprite_nodes/CCSpriteFrameCache.h"
 #include "sprite_nodes/CCAnimationCache.h"
-#include "../../utility/Singleton.h"
+#include "share/Singleton.h"
 using namespace cocos2d;
 
 
@@ -21,6 +21,8 @@ public:
 private:
 	CCSpriteFrameCache* _spriteFramCache;
 	CCAnimationCache*   _animationCache;
+	std::string			_defaultAniName;
+	std::string			_defaultSpriteFrame;
 
 
 

@@ -2,12 +2,13 @@
 #include "TDResourceManager.h"
 using namespace cocos2d;
 
-
+initialiseSingleton(TDResourceManager);
 TDResourceManager::TDResourceManager(void)
 {
 	_spriteFramCache = CCSpriteFrameCache::sharedSpriteFrameCache();
 	CCAnimationCache::purgeSharedAnimationCache();
 	_animationCache = CCAnimationCache::sharedAnimationCache();
+	_defaultAniName = "default";
 }
 
 
@@ -19,25 +20,35 @@ TDResourceManager::~TDResourceManager(void)
 void TDResourceManager::LoadResource()
 {
 	
-	_spriteFramCache->addSpriteFramesWithFile("animations/grossini.plist");
-	_spriteFramCache->addSpriteFramesWithFile("animations/grossini_gray.plist", "animations/grossini_gray.png");
-	_spriteFramCache->addSpriteFramesWithFile("animations/grossini_blue.plist", "animations/grossini_blue.png");
-	_spriteFramCache->addSpriteFramesWithFile("animations/Role.plist", "animations/Role.png");
+	_spriteFramCache->addSpriteFramesWithFile("res/animations/grossini_blue.plist", "res/animations/grossini_blue.png");
+	_spriteFramCache->addSpriteFramesWithFile("res/animations/Role.plist", "res/animations/Role.png");
 
 	// Purge previously loaded animation
 	
 
-	_animationCache->addAnimationsWithFile("animations/blueanimations.plist");
+	_animationCache->addAnimationsWithFile("res/animations/myanimations.plist");
 
 }
 
 
 CCSpriteFrame* TDResourceManager::getSpriteFram(const char* name)
 {
-	return _spriteFramCache->spriteFrameByName(name);
+
+	CCSpriteFrame* frame = _spriteFramCache->spriteFrameByName(name);
+	if (!frame)
+	{
+		frame = _spriteFramCache->spriteFrameByName(_defaultSpriteFrame.c_str());
+	}
+
+	return frame;
 }
 
 CCAnimation* TDResourceManager::getAnimation(const char* name)
 {
-	return _animationCache->animationByName(name);
+	CCAnimation* pAni = _animationCache->animationByName(name);
+	if (!pAni)
+	{
+		pAni = _animationCache->animationByName(_defaultAniName.c_str());
+	}
+	return pAni;
 }
