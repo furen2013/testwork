@@ -2,10 +2,9 @@
 #include "LoginScene.h"
 #include "../../utility/VisibleRect.h"
 #include "../../utility/passwordTextFieldTTF.h"
-<<<<<<< HEAD
-=======
-//#include "../CreatureStorage.h"
->>>>>>> rollbackerrors
+#include "../CreatureStorage.h"
+#include "../ResourceManager/TDResourceManager.h"
+
 
 enum 
 {
@@ -42,10 +41,37 @@ CCMenuItemImage* LoginController::CreateMenuItemImage(ItemImageResource* pImageP
 void LoginController::Login(CCObject* pSender)
 {
 
+	std::string imgae;
+	CCAnimation* _Animation = TDResourceManager::getSingletonPtr()->getAnimation(imgae.c_str());
+
+	CCAnimate* _currentAnimate;
+	if (_Animation)
+	{
+		_currentAnimate = CCAnimate::create(_Animation);
+
+		CCActionInterval* p =CCRepeat::create(_currentAnimate, 111);
+
+		CCSprite* _currentSprite = CCSprite::create();
+		_currentSprite->runAction(p);
+		_currentSprite->setPosition(CCPoint(40.f, 40.f));
+		//addChild(_currentSprite);
+
+		testsprite* ptest  = new testsprite();
+		
+		//ptest->addChild(_currentSprite);
+		addChild(ptest);
+	}
 }
 void LoginController::Logout(CCObject* pSender)
 {
 
+	_baseCreature = CreatureStorage::getSingleton().CreateCreature("");
+	_baseCreature->setPosition(70,70);
+	addChild(_baseCreature);
+	//_baseCreature->setPosition(70,70);
+	//testsprite* p  = new testsprite();
+	//p->setPosition(70.f, 70.f);
+	//addChild(p);
 }
 
 void LoginController::onEnter()
@@ -87,8 +113,6 @@ LoginController::LoginController()
 	_Menu->setPosition( CCPointZero );
 	posX._en = utilityRectPosX::PosXType_Middle;
 	posX._offsetX = - 20;
-<<<<<<< HEAD
-
 	posY._en = utilityRectPosY::PosYType_Middle;
 	posY._offsetY =  40.f;
 	utilityRectPoisition pos;
@@ -106,29 +130,13 @@ LoginController::LoginController()
 	addChild(_Menu);
 	addChild(_account);
 	addChild(_password);
-=======
->>>>>>> rollbackerrors
-
-	posY._en = utilityRectPosY::PosYType_Middle;
-	posY._offsetY =  40.f;
-	utilityRectPoisition pos;
-	pos._setPosX(posX);
-	pos._setPosY(posY);
-	pos._setRect(VisibleRect::getVisibleRect());
-	_account = new TextFieldTTFActionTest();
-	_account->_setRectPos(pos);
-	_password = new TextFieldTTFActionTest();
-	posY._offsetY = 0.f;
-	pos._setRect(VisibleRect::getVisibleRect());
-	pos._setPosY(posY);
-	_password->_setRectPos(pos);
-	_password->_setType(TextFieldTTFActionTest::TextFieldTTFAction_Password);
-	addChild(_Menu);
-	addChild(_account);
-	addChild(_password);
-	/*_baseCreature = CreatureStorage::getSingleton().CreateCreature("2121");
-	addChild(_baseCreature);*/
+	_baseCreature = CreatureStorage::getSingleton().CreateCreature("2121");
+	addChild(_baseCreature);
 	// add menu items for tests
+
+
+
+
 }
 
 

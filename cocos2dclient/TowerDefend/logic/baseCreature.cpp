@@ -6,12 +6,8 @@
 
 baseCreature::baseCreature(void)
 	:_enDir(CreatureDir_Up),_configSpeed(0.f),
-<<<<<<< HEAD
-	_speed(0.f),_enState(CreatureState_Stop)
-=======
 	_speed(0.f),_enState(CreatureState_Stop),
-	_currentAnimate(NULL)
->>>>>>> rollbackerrors
+	_currentAnimate(NULL),_currentSprite(NULL)
 {
 	for (int i = 0; i < CreatureDir_Max; i ++)
 	{
@@ -23,6 +19,8 @@ baseCreature::baseCreature(void)
 	}
 
 	_currentAnimation = NULL;
+
+
 }
 
 baseCreature::~baseCreature(void)
@@ -31,6 +29,7 @@ baseCreature::~baseCreature(void)
 
 void baseCreature::LoadResource(const char* config)
 {
+	_currentPoint = _createPos;
 	_resourseName = config;
 	std::string imgae;
 	for (int i = 0; i < CreatureDir_Max; i ++)
@@ -41,17 +40,36 @@ void baseCreature::LoadResource(const char* config)
 			_Animation[i][j] = TDResourceManager::getSingletonPtr()->getAnimation(imgae.c_str());
 		}
 	}
+
+	if (!_currentAnimation)
+	{
+		_currentAnimation = _Animation[_enDir][_enState];
+	}
+	if (_currentAnimation)
+	{
+		_currentAnimate = CCAnimate::create(_currentAnimation);
+
+		CCActionInterval* p =CCRepeat::create(_currentAnimate, 111);
+
+		_currentSprite = CCSprite::create();
+		addChild(_currentSprite);
+		_currentSprite->runAction(p);
+		_currentSprite->setPosition(_currentPoint);
+
+
+
+	}
+
 }
 
-<<<<<<< HEAD
-=======
+
 void baseCreature::onEnter()
 {
+	baseObj::onEnter();
 	onAddToWorld();
-	
+
 }
 
->>>>>>> rollbackerrors
 
 void baseCreature::onRemoveFromWorld()
 {
@@ -62,23 +80,6 @@ void baseCreature::onRemoveFromWorld()
 void baseCreature::onAddToWorld()
 {
 	baseObj::onAddToWorld();
-<<<<<<< HEAD
-=======
-	if (!_currentAnimation)
-	{
-		_currentAnimation = _Animation[_enDir][_enState];
-	}
-	if (_currentAnimation)
-	{
-		_currentAnimate = CCAnimate::create(_currentAnimation);
-							
-		CCActionInterval* p =CCRepeat::create(_currentAnimate, 111);
-		
-		_currentSprite = CCSprite::create();
-		_currentSprite->runAction(p);
-		addChild(_currentSprite);
-	}
->>>>>>> rollbackerrors
 
 }
 
@@ -91,4 +92,14 @@ void baseCreature::setDir(enCreatureDir en)
 void baseCreature::setCreatureState(enCreatureActionState en)
 {
 	_enState = en;
+}
+
+void baseCreature::setPosition(float x, float y)
+{
+	baseObj::setPosition(x,y);
+	if (_currentSprite)
+	{
+		_currentSprite->setPosition(_currentPoint);
+	}
+
 }

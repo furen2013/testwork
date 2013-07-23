@@ -32,6 +32,13 @@ void baseObj::set_createPos(const CCPoint& pos)
 	_createPos = pos;
 }
 
+void baseObj::setPosition(float x, float y)
+{
+	_currentPoint.x = x;
+	_currentPoint.y = y;
+	CCNode::setPosition(_currentPoint);
+}
+
 void baseObj::set_lifeState(enObjLifeState en)
 {
 	_enLifeState = en;

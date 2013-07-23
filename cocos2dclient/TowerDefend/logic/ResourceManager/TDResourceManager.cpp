@@ -9,10 +9,7 @@ TDResourceManager::TDResourceManager(void)
 	CCAnimationCache::purgeSharedAnimationCache();
 	_animationCache = CCAnimationCache::sharedAnimationCache();
 	_defaultAniName = "default";
-<<<<<<< HEAD
-=======
 	LoadResource();
->>>>>>> rollbackerrors
 }
 
 
@@ -24,22 +21,12 @@ TDResourceManager::~TDResourceManager(void)
 void TDResourceManager::LoadResource()
 {
 	
-<<<<<<< HEAD
-	_spriteFramCache->addSpriteFramesWithFile("res/animations/grossini_blue.plist", "res/animations/grossini_blue.png");
-	_spriteFramCache->addSpriteFramesWithFile("res/animations/Role.plist", "res/animations/Role.png");
-=======
 	_spriteFramCache->addSpriteFramesWithFile("../res/animations/grossini_blue.plist", "../res/animations/grossini_blue.png");
-
->>>>>>> rollbackerrors
-
+	_spriteFramCache->addSpriteFramesWithFile("../res/animations/Role.plist", "../res/animations/Role.png");
 	// Purge previously loaded animation
 	
 
-<<<<<<< HEAD
-	_animationCache->addAnimationsWithFile("res/animations/myanimations.plist");
-=======
 	_animationCache->addAnimationsWithFile("../res/animations/myanimations.plist");
->>>>>>> rollbackerrors
 
 }
 
@@ -64,4 +51,31 @@ CCAnimation* TDResourceManager::getAnimation(const char* name)
 		pAni = _animationCache->animationByName(_defaultAniName.c_str());
 	}
 	return pAni;
+}
+
+
+testsprite::testsprite()
+{
+	std::string imgae;
+	CCAnimation* _Animation = TDResourceManager::getSingletonPtr()->getAnimation(imgae.c_str());
+
+	CCAnimate* _currentAnimate;
+	if (_Animation)
+	{
+		_currentAnimate = CCAnimate::create(_Animation);
+
+		CCActionInterval* p =CCRepeat::create(_currentAnimate, 111);
+
+		CCSprite* _currentSprite = CCSprite::create();
+		_currentSprite->runAction(p);
+		_currentSprite->setPosition(CCPoint(40.f, 40.f));
+		addChild(_currentSprite);
+	}
+
+
+}
+
+testsprite::~testsprite()
+{
+
 }

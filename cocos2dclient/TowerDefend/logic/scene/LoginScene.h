@@ -7,10 +7,7 @@
 #include "../../utility/utilityPoisition.h"
 class KeyboardNotificationLayer;
 class TextFieldTTFActionTest;
-<<<<<<< HEAD
-=======
 class baseCreature;
->>>>>>> rollbackerrors
 /**
 @brief    TextInputTest for retain prev, reset, next, main menu buttons.
 */
@@ -40,10 +37,7 @@ private:
 
 	TextFieldTTFActionTest* _account;
 	TextFieldTTFActionTest* _password;
-<<<<<<< HEAD
-=======
 	baseCreature*		    _baseCreature;	
->>>>>>> rollbackerrors
 };
 
 

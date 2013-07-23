@@ -14,21 +14,19 @@ enum enObjLifeState
 	ObjLifeState_Alife,
 	ObjLifeState_Dead,
 };
-<<<<<<< HEAD
-class baseObj : CCNode
-=======
+
 class baseObj : public CCNode
->>>>>>> rollbackerrors
 {
 public:
 	baseObj(void);
 	virtual ~baseObj(void);
-	virtual void LoadResource(const char* config) = 0;
+	virtual void LoadResource(const char* config){};
 public:
 	virtual void onAddToWorld();
 	virtual void onRemoveFromWorld();
 public:
 	virtual void set_createPos(const CCPoint& pos);
+	virtual void setPosition(float x, float y);
 	virtual CCPoint get_createPos();
 	enObjType getObjType(){return _objType;}
 	virtual void set_lifeState(enObjLifeState en);
@@ -61,6 +59,7 @@ protected:
 	enObjLifeState	_enLifeState;
 	int			   	_maxLife;
 	int				_currentLife;
+	CCPoint			_currentPoint;
 };
 
 #endif
