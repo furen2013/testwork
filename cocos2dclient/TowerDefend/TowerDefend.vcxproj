@@ -52,16 +52,26 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
+<<<<<<< HEAD
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;BOOST_ALL_NO_LIB;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\win32;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\third_party\win32\OGLES;..\..\..\cocos2d-2.0-x-2.0.4\CocosDenshion\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\kazmath\include;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\cocos2dx_support;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\lua;..\..\C++\Server\Common\;..\..\..\boost_lib\boost_1_51_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+=======
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;BOOST_ALL_NO_LIB;_ITERATOR_DEBUG_LEVEL = 0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\win32;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\third_party\win32\OGLES;..\..\..\cocos2d-2.0-x-2.0.4\CocosDenshion\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\kazmath\include;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\cocos2dx_support;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\lua;..\..\C++\server\Common;..\..\..\boost_lib\boost_1_51_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+>>>>>>> rollbackerrors
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+<<<<<<< HEAD
       <AdditionalLibraryDirectories>C:\Documents and Settings\Administrator\My Documents\GitHub\cocos2d-2.0-x-2.0.4\Debug.win32;../../../boost_lib\boost_1_51_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libExtensions.lib;libCocosDenshion.lib;libcocos2d.lib;opengl32.lib;glew32.lib;wsock32.lib;libboost_system-vc100-mt-1_51.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>libcpmtd0.lib;LIBCMTD.lib</IgnoreSpecificDefaultLibraries>
+=======
+      <AdditionalLibraryDirectories>C:\Documents and Settings\Administrator\My Documents\GitHub\cocos2d-2.0-x-2.0.4\Debug.win32;../../../\boost_lib\boost_1_51_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libExtensions.lib;libcocos2d.lib;libCocosDenshion.lib;opengl32.lib;glew32.lib;libboost_system-vc100-mt-gd-1_51.lib;%(AdditionalDependencies)</AdditionalDependencies>
+>>>>>>> rollbackerrors
     </Link>
     <PostBuildEvent>
       <Command>copy ..\..\..\intermediate\Client\$(ProjectName)\Debug\$(ProjectName).exe  ..\..\..\intermediate\Client\$(ProjectName)\Bin\$(Configuration)\$(ProjectName)_D.exe

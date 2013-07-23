@@ -22,6 +22,11 @@ static int _calcCharCount(const char * pszText)
 
 passwordTextFieldTTF::passwordTextFieldTTF(void)
 {
+<<<<<<< HEAD
+=======
+	m_pInputText = NULL;
+
+>>>>>>> rollbackerrors
 	_drawcode = '*';
 }
 

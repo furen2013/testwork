@@ -9,6 +9,10 @@ TDResourceManager::TDResourceManager(void)
 	CCAnimationCache::purgeSharedAnimationCache();
 	_animationCache = CCAnimationCache::sharedAnimationCache();
 	_defaultAniName = "default";
+<<<<<<< HEAD
+=======
+	LoadResource();
+>>>>>>> rollbackerrors
 }
 
 
@@ -20,13 +24,22 @@ TDResourceManager::~TDResourceManager(void)
 void TDResourceManager::LoadResource()
 {
 	
+<<<<<<< HEAD
 	_spriteFramCache->addSpriteFramesWithFile("res/animations/grossini_blue.plist", "res/animations/grossini_blue.png");
 	_spriteFramCache->addSpriteFramesWithFile("res/animations/Role.plist", "res/animations/Role.png");
+=======
+	_spriteFramCache->addSpriteFramesWithFile("../res/animations/grossini_blue.plist", "../res/animations/grossini_blue.png");
+
+>>>>>>> rollbackerrors
 
 	// Purge previously loaded animation
 	
 
+<<<<<<< HEAD
 	_animationCache->addAnimationsWithFile("res/animations/myanimations.plist");
+=======
+	_animationCache->addAnimationsWithFile("../res/animations/myanimations.plist");
+>>>>>>> rollbackerrors
 
 }
 

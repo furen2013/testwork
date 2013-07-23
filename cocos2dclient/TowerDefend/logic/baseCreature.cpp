@@ -6,7 +6,12 @@
 
 baseCreature::baseCreature(void)
 	:_enDir(CreatureDir_Up),_configSpeed(0.f),
+<<<<<<< HEAD
 	_speed(0.f),_enState(CreatureState_Stop)
+=======
+	_speed(0.f),_enState(CreatureState_Stop),
+	_currentAnimate(NULL)
+>>>>>>> rollbackerrors
 {
 	for (int i = 0; i < CreatureDir_Max; i ++)
 	{
@@ -38,6 +43,15 @@ void baseCreature::LoadResource(const char* config)
 	}
 }
 
+<<<<<<< HEAD
+=======
+void baseCreature::onEnter()
+{
+	onAddToWorld();
+	
+}
+
+>>>>>>> rollbackerrors
 
 void baseCreature::onRemoveFromWorld()
 {
@@ -48,6 +62,23 @@ void baseCreature::onRemoveFromWorld()
 void baseCreature::onAddToWorld()
 {
 	baseObj::onAddToWorld();
+<<<<<<< HEAD
+=======
+	if (!_currentAnimation)
+	{
+		_currentAnimation = _Animation[_enDir][_enState];
+	}
+	if (_currentAnimation)
+	{
+		_currentAnimate = CCAnimate::create(_currentAnimation);
+							
+		CCActionInterval* p =CCRepeat::create(_currentAnimate, 111);
+		
+		_currentSprite = CCSprite::create();
+		_currentSprite->runAction(p);
+		addChild(_currentSprite);
+	}
+>>>>>>> rollbackerrors
 
 }
 

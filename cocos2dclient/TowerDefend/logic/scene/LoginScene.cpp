@@ -2,6 +2,10 @@
 #include "LoginScene.h"
 #include "../../utility/VisibleRect.h"
 #include "../../utility/passwordTextFieldTTF.h"
+<<<<<<< HEAD
+=======
+//#include "../CreatureStorage.h"
+>>>>>>> rollbackerrors
 
 enum 
 {
@@ -83,6 +87,7 @@ LoginController::LoginController()
 	_Menu->setPosition( CCPointZero );
 	posX._en = utilityRectPosX::PosXType_Middle;
 	posX._offsetX = - 20;
+<<<<<<< HEAD
 
 	posY._en = utilityRectPosY::PosYType_Middle;
 	posY._offsetY =  40.f;
@@ -101,7 +106,28 @@ LoginController::LoginController()
 	addChild(_Menu);
 	addChild(_account);
 	addChild(_password);
+=======
+>>>>>>> rollbackerrors
 
+	posY._en = utilityRectPosY::PosYType_Middle;
+	posY._offsetY =  40.f;
+	utilityRectPoisition pos;
+	pos._setPosX(posX);
+	pos._setPosY(posY);
+	pos._setRect(VisibleRect::getVisibleRect());
+	_account = new TextFieldTTFActionTest();
+	_account->_setRectPos(pos);
+	_password = new TextFieldTTFActionTest();
+	posY._offsetY = 0.f;
+	pos._setRect(VisibleRect::getVisibleRect());
+	pos._setPosY(posY);
+	_password->_setRectPos(pos);
+	_password->_setType(TextFieldTTFActionTest::TextFieldTTFAction_Password);
+	addChild(_Menu);
+	addChild(_account);
+	addChild(_password);
+	/*_baseCreature = CreatureStorage::getSingleton().CreateCreature("2121");
+	addChild(_baseCreature);*/
 	// add menu items for tests
 }
 
@@ -352,6 +378,7 @@ void TextFieldTTFActionTest::onEnter()
 #endif
 
 	m_pTrackNode = m_pTextField;
+	m_pTextField->attachWithIME();
 }
 
 void TextFieldTTFActionTest::onExit()

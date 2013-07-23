@@ -29,6 +29,10 @@ public:
 	virtual void LoadResource(const char* config);
 	virtual void onAddToWorld();
 	virtual void onRemoveFromWorld();
+<<<<<<< HEAD
+=======
+	virtual void onEnter();
+>>>>>>> rollbackerrors
 
 public:
 	virtual void setDir(enCreatureDir en);
@@ -71,6 +75,11 @@ protected:
 
 	std::string		      _resourseName;
 	CCAnimation*		  _currentAnimation;
+<<<<<<< HEAD
+=======
+	CCAnimate*			  _currentAnimate;
+	CCSprite*			  _currentSprite;
+>>>>>>> rollbackerrors
 
 
 };

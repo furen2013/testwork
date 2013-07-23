@@ -14,7 +14,11 @@ enum enObjLifeState
 	ObjLifeState_Alife,
 	ObjLifeState_Dead,
 };
+<<<<<<< HEAD
 class baseObj : CCNode
+=======
+class baseObj : public CCNode
+>>>>>>> rollbackerrors
 {
 public:
 	baseObj(void);
