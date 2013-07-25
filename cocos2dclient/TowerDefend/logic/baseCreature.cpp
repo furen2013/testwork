@@ -37,28 +37,13 @@ void baseCreature::LoadResource(const char* config)
 		for (int j = 0; j < CreatureState_Max; j ++)
 		{
 			imgae = _resourseName + "_" + _defaultDirImageKey[i] + "_" + _defaultStateImageKey[j];
-			_Animation[i][j] = TDResourceManager::getSingletonPtr()->getAnimation(imgae.c_str());
+			CCAnimation* animation = TDResourceManager::getSingletonPtr()->getAnimation(imgae.c_str());
+			_actionInterval[i][j] = CCRepeat::create(CCAnimate::create(animation), 111);
+			
 		}
 	}
+	_currentSprite =  CCSprite::create();
 
-	if (!_currentAnimation)
-	{
-		_currentAnimation = _Animation[_enDir][_enState];
-	}
-	if (_currentAnimation)
-	{
-		_currentAnimate = CCAnimate::create(_currentAnimation);
-
-		CCActionInterval* p =CCRepeat::create(_currentAnimate, 111);
-
-		_currentSprite = CCSprite::create();
-		addChild(_currentSprite);
-		_currentSprite->runAction(p);
-		_currentSprite->setPosition(_currentPoint);
-
-
-
-	}
 
 }
 
@@ -80,18 +65,51 @@ void baseCreature::onRemoveFromWorld()
 void baseCreature::onAddToWorld()
 {
 	baseObj::onAddToWorld();
+	if (_actionInterval[i][j])
+	{
+		if (_currentSprite->isRunning())
+		{
+			_currentSprite->stopAllActions();
+		}
+		_currentSprite->setPosition(_currentPoint);
+		_currentSprite->runAction(_actionInterval[i][j]);
+	}
 
 }
 
 void baseCreature::setDir(enCreatureDir en)
 {
-	_enDir = en;
+	if (_enDir != en)
+	{
+		_enDir = en;
+		onSpriteChange();
+	}
+}
+
+
+void baseCreature::onSpriteChange()
+{
+	if (_actionInterval[_enDir][_enState])
+	{
+		if (_currentSprite->isRunning())
+		{
+			_currentSprite->stopAllActions();
+		}
+
+		_currentSprite->runAction(_actionInterval[_enDir][_enState]);
+
+	}
 }
 
 
 void baseCreature::setCreatureState(enCreatureActionState en)
 {
-	_enState = en;
+	if (_enState != en)
+	{
+		_enState = en;
+		onSpriteChange();
+	}
+
 }
 
 void baseCreature::setPosition(float x, float y)

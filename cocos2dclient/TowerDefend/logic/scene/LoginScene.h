@@ -5,13 +5,14 @@
 #include <iostream>
 #include "../../utility/utilityItemComponent.h"
 #include "../../utility/utilityPoisition.h"
+#include "myLayer.h"
 class KeyboardNotificationLayer;
 class TextFieldTTFActionTest;
 class baseCreature;
 /**
 @brief    TextInputTest for retain prev, reset, next, main menu buttons.
 */
-class LoginController : public CCLayer
+class LoginController : public myLayer
 {
 
 public:
@@ -24,9 +25,6 @@ public:
 	void Logout(CCObject* pSender);
 	void addKeyboardNotificationLayer(KeyboardNotificationLayer * pLayer);
 	virtual void onEnter();
-protected:
-	CCMenuItemImage* CreateMenuItemImage(ItemImageResource* p, SEL_MenuHandler selector);
-
 private:
 	ItemImageResource _LoginImagePath;
 	ItemImageResource _LogoutImagePath;
@@ -137,7 +135,7 @@ class LoginScene : public cocos2d::CCScene
 {
 public:
 	LoginScene();
-	~LoginScene();
+	virtual ~LoginScene();
 public:
 };
 //////////////////////

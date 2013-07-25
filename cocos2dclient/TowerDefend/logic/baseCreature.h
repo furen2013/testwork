@@ -63,6 +63,9 @@ public:
 	{
 		return _configSpeed;
 	}
+
+protected:
+	virtual void onSpriteChange();
 protected:
 	enCreatureDir		  _enDir;
 	enCreatureActionState _enState;
@@ -76,6 +79,7 @@ protected:
 	CCAnimation*		  _currentAnimation;
 	CCAnimate*			  _currentAnimate;
 	CCSprite*			  _currentSprite;
+	CCActionInterval*	  _actionInterval[CreatureDir_Max][CreatureState_Max]
 
 
 
