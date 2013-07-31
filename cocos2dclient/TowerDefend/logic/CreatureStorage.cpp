@@ -7,15 +7,15 @@ initialiseSingleton(CreatureStorage);
 
 CreatureStorage::CreatureStorage(void)
 {
-	_defaultDirImageKey[CreatureDir_Up] = "Up";
-	_defaultDirImageKey[CreatureDir_Down] = "Down";
-	_defaultDirImageKey[CreatureDir_Left] = "Left";
-	_defaultDirImageKey[CreatureDir_Right] = "Right";
+	_defaultDirImageKey[CreatureDir_Up] = "up";
+	_defaultDirImageKey[CreatureDir_Down] = "down";
+	_defaultDirImageKey[CreatureDir_Left] = "left";
+	_defaultDirImageKey[CreatureDir_Right] = "right";
 
 
-	_defaultStateImageKey[CreatureState_Stop] = "Stop";
-	_defaultStateImageKey[CreatureState_Move] = "Move";
-	_defaultStateImageKey[CreatureState_Dead] = "Dead";
+	_defaultStateImageKey[CreatureState_Stop] = "stop";
+	_defaultStateImageKey[CreatureState_Move] = "walk";
+	_defaultStateImageKey[CreatureState_Dead] = "dead";
 }
 
 

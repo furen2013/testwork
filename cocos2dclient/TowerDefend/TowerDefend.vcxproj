@@ -96,13 +96,15 @@ copy ..\..\..\intermediate\Client\libcocos2d\Debug\libcocos2d.dll  ..\..\..\inte
     <ClInclude Include="logic\baseObj.h" />
     <ClInclude Include="logic\baseTower.h" />
     <ClInclude Include="logic\CreatureStorage.h" />
+    <ClInclude Include="logic\mapComponent\BaseMapCell.h" />
+    <ClInclude Include="logic\mapComponent\gameMap.h" />
+    <ClInclude Include="logic\mapComponent\mapStaticCell.h" />
     <ClInclude Include="logic\ResourceManager\TDResourceManager.h" />
     <ClInclude Include="logic\scene\GameController.h" />
     <ClInclude Include="logic\scene\GameScene.h" />
     <ClInclude Include="logic\scene\LoginScene.h" />
     <ClInclude Include="logic\scene\myLayer.h" />
     <ClInclude Include="logic\spell\spell.h" />
-    <ClInclude Include="mapCellInfo.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -118,13 +120,15 @@ copy ..\..\..\intermediate\Client\libcocos2d\Debug\libcocos2d.dll  ..\..\..\inte
     <ClCompile Include="logic\baseObj.cpp" />
     <ClCompile Include="logic\baseTower.cpp" />
     <ClCompile Include="logic\CreatureStorage.cpp" />
+    <ClCompile Include="logic\mapComponent\BaseMapCell.cpp" />
+    <ClCompile Include="logic\mapComponent\gameMap.cpp" />
+    <ClCompile Include="logic\mapComponent\mapStaticCell.cpp" />
     <ClCompile Include="logic\ResourceManager\TDResourceManager.cpp" />
     <ClCompile Include="logic\scene\GameController.cpp" />
     <ClCompile Include="logic\scene\GameScene.cpp" />
     <ClCompile Include="logic\scene\LoginScene.cpp" />
     <ClCompile Include="logic\scene\myLayer.cpp" />
     <ClCompile Include="logic\spell\spell.cpp" />
-    <ClCompile Include="mapCellInfo.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

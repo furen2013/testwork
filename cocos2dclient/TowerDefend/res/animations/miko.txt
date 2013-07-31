@@ -1,0 +1,6 @@
+stand		10F
+jump		11F
+walk		8F
+liftwalk 	8F
+attack		16F
+die		18F

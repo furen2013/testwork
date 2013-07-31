@@ -14,7 +14,7 @@ baseCreature::baseCreature(void)
 		for (int j = 0; j < CreatureState_Max; j ++)
 		{
 	
-			_Animation[i][j] = NULL;
+			_actionInterval[i][j] = NULL;
 		}
 	}
 
@@ -65,15 +65,7 @@ void baseCreature::onRemoveFromWorld()
 void baseCreature::onAddToWorld()
 {
 	baseObj::onAddToWorld();
-	if (_actionInterval[i][j])
-	{
-		if (_currentSprite->isRunning())
-		{
-			_currentSprite->stopAllActions();
-		}
-		_currentSprite->setPosition(_currentPoint);
-		_currentSprite->runAction(_actionInterval[i][j]);
-	}
+
 
 }
 

@@ -71,7 +71,7 @@ protected:
 	enCreatureActionState _enState;
 	float				  _speed;
 	float				  _configSpeed;
-	CCAnimation*		  _Animation[CreatureDir_Max][CreatureState_Max];
+	//CCAnimation*		  _Animation[CreatureDir_Max][CreatureState_Max];
 	std::vector<CCAnimation*> _SourceAni;
 	std::string			  _name;
 
@@ -79,7 +79,7 @@ protected:
 	CCAnimation*		  _currentAnimation;
 	CCAnimate*			  _currentAnimate;
 	CCSprite*			  _currentSprite;
-	CCActionInterval*	  _actionInterval[CreatureDir_Max][CreatureState_Max]
+	CCActionInterval*	  _actionInterval[CreatureDir_Max][CreatureState_Max];
 
 
 

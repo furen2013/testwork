@@ -1,14 +1,7 @@
 #pragma once
-#ifndef MAPCELLINFO_H
-#define MAPCELLINFO_H
+#ifndef GAMEMAP_H
+#define GAMEMAP_H
 #include "iostream"
-class mapCellInfo
-{
-public:
-	mapCellInfo(void);
-	virtual ~mapCellInfo(void);
-};
-
 class gameMap
 {
 public:

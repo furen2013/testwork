@@ -7,6 +7,8 @@ using namespace cocos2d;
 enum enObjType
 {
 	ObjType_NULL,
+	ObjType_Creature,
+	ObjType_MapComponent,
 };
 
 enum enObjLifeState

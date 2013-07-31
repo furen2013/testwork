@@ -4,7 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>Role/caocao/Attack-01.png</key>
+            <key>defaule/Attack-01.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,609},{153,126}}</string>
@@ -17,7 +17,7 @@
                 <key>sourceSize</key>
                 <string>{153,126}</string>
             </dict>
-            <key>Role/caocao/Attack-02.png</key>
+            <key>defaule/Attack-02.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,737},{114,138}}</string>
@@ -30,7 +30,7 @@
                 <key>sourceSize</key>
                 <string>{114,138}</string>
             </dict>
-            <key>Role/caocao/Attack-03.png</key>
+            <key>defaule/Attack-03.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{262,444},{151,176}}</string>
@@ -43,7 +43,7 @@
                 <key>sourceSize</key>
                 <string>{151,176}</string>
             </dict>
-            <key>Role/caocao/Attack-04.png</key>
+            <key>defaule/Attack-04.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{255,597},{151,154}}</string>
@@ -56,7 +56,7 @@
                 <key>sourceSize</key>
                 <string>{151,154}</string>
             </dict>
-            <key>Role/caocao/Attack-05.png</key>
+            <key>defaule/Attack-05.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{274,2},{151,180}}</string>
@@ -69,7 +69,7 @@
                 <key>sourceSize</key>
                 <string>{151,180}</string>
             </dict>
-            <key>Role/caocao/Attack-06.png</key>
+            <key>defaule/Attack-06.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{274,155},{146,180}}</string>
@@ -82,7 +82,7 @@
                 <key>sourceSize</key>
                 <string>{146,180}</string>
             </dict>
-            <key>Role/caocao/Attack-07.png</key>
+            <key>defaule/Attack-07.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{262,303},{139,179}}</string>
@@ -95,7 +95,7 @@
                 <key>sourceSize</key>
                 <string>{139,179}</string>
             </dict>
-            <key>Role/caocao/Attack-08.png</key>
+            <key>defaule/Attack-08.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,272},{258,172}}</string>
@@ -108,7 +108,7 @@
                 <key>sourceSize</key>
                 <string>{258,172}</string>
             </dict>
-            <key>Role/caocao/Attack-09.png</key>
+            <key>defaule/Attack-09.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,446},{251,161}}</string>
@@ -121,7 +121,7 @@
                 <key>sourceSize</key>
                 <string>{251,161}</string>
             </dict>
-            <key>Role/caocao/Avatar.png</key>
+            <key>defaule/Avatar.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,2},{270,268}}</string>
@@ -134,7 +134,7 @@
                 <key>sourceSize</key>
                 <string>{280,268}</string>
             </dict>
-            <key>Role/caocao/BeAttack.png</key>
+            <key>defaule/BeAttack.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{142,737},{100,129}}</string>
@@ -147,7 +147,7 @@
                 <key>sourceSize</key>
                 <string>{128,131}</string>
             </dict>
-            <key>Role/caocao/HeadImage.png</key>
+            <key>defaule/HeadImage.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{411,597},{99,99}}</string>
@@ -160,7 +160,7 @@
                 <key>sourceSize</key>
                 <string>{99,99}</string>
             </dict>
-            <key>Role/caocao/Name.png</key>
+            <key>defaule/Name.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{456,2},{107,45}}</string>
@@ -173,7 +173,7 @@
                 <key>sourceSize</key>
                 <string>{147,49}</string>
             </dict>
-            <key>Role/caocao/Stand.png</key>
+            <key>defaule/Stand.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,853},{128,131}}</string>

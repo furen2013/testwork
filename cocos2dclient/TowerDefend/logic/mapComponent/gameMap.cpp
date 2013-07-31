@@ -1,17 +1,5 @@
 #include "StdAfx.h"
-#include "mapCellInfo.h"
-
-
-mapCellInfo::mapCellInfo(void)
-{
-}
-
-
-mapCellInfo::~mapCellInfo(void)
-{
-}
-
-
+#include "gameMap.h"
 gameMap::gameMap()
 {
 

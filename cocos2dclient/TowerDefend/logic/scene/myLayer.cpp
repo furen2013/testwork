@@ -1,6 +1,6 @@
 #include "StdAfx.h"
 #include "myLayer.h"
-
+#include "../../utility/utilityItemComponent.h"
 
 myLayer::myLayer(void)
 {
@@ -12,7 +12,7 @@ myLayer::~myLayer(void)
 }
 
 
-CCMenuItemImage* LoginController::CreateMenuItemImage(ItemImageResource* pImagePath, SEL_MenuHandler selector)
+CCMenuItemImage* myLayer::CreateMenuItemImage(ItemImageResource* pImagePath, SEL_MenuHandler selector)
 {
 	const ItemImageResurcePath& path = pImagePath->imagepath;
 	CCMenuItemImage* p = CCMenuItemImage::create(path._ItemImage[ItemImagePath_Normal].c_str(),

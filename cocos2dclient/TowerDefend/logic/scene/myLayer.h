@@ -1,6 +1,8 @@
 #pragma once
 #ifndef MYLAYER_H
 #define MYLAYER_H
+#include "cocos2d.h"
+struct ItemImageResource;
 
 class myLayer : public CCLayer
 {
