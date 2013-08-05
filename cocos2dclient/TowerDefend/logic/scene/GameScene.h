@@ -1,15 +1,16 @@
 #pragma once
 #ifndef GAMESCENE_H
 #define GAMESCENE_H
+#include "mys"
 #include "myLayer.h"
 
-class GameScene : public myLayer
+class GameScene  : public cocos2d::CCScene
 {
 public:
 	GameScene(void);
 	virtual ~GameScene(void);
 public:
-	void Init();
+	virtual void Init();
 protected:
 
 };

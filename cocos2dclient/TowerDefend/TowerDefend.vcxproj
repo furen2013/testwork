@@ -107,6 +107,8 @@ copy ..\..\..\intermediate\Client\libcocos2d\Debug\libcocos2d.dll  ..\..\..\inte
     <ClInclude Include="logic\scene\GameScene.h" />
     <ClInclude Include="logic\scene\LoginScene.h" />
     <ClInclude Include="logic\scene\myLayer.h" />
+    <ClInclude Include="logic\scene\myScene.h" />
+    <ClInclude Include="logic\scene\sceneManager.h" />
     <ClInclude Include="logic\spell\spell.h" />
     <ClInclude Include="logic\TDWorld.h" />
     <ClInclude Include="Resource.h" />
@@ -133,6 +135,8 @@ copy ..\..\..\intermediate\Client\libcocos2d\Debug\libcocos2d.dll  ..\..\..\inte
     <ClCompile Include="logic\scene\GameScene.cpp" />
     <ClCompile Include="logic\scene\LoginScene.cpp" />
     <ClCompile Include="logic\scene\myLayer.cpp" />
+    <ClCompile Include="logic\scene\myScene.cpp" />
+    <ClCompile Include="logic\scene\sceneManager.cpp" />
     <ClCompile Include="logic\spell\spell.cpp" />
     <ClCompile Include="logic\TDWorld.cpp" />
     <ClCompile Include="stdafx.cpp">

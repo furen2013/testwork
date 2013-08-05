@@ -72,9 +72,9 @@ void LoginController::Logout(CCObject* pSender)
 	//{
 	//	addChild(_baseCreature);
 	//}
-	TDWorld::getSingletonPtr()->LoadResource("../res/map/map.xml");
-	addChild(TDWorld::getSingletonPtr());
-	
+	//TDWorld::getSingletonPtr()->LoadResource("../res/map/map.xml");
+	//addChild(TDWorld::getSingletonPtr());
+	//
 	//_baseCreature->setPosition(70,70);
 	//testsprite* p  = new testsprite();
 	//p->setPosition(70.f, 70.f);

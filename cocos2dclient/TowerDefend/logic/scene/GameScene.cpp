@@ -15,5 +15,5 @@ GameScene::~GameScene(void)
 
 void GameScene::Init()
 {
-	mapComponentStorage::getSingleton().LoadXml("../res/map/mapcells.xml")
+	mapComponentStorage::getSingleton().LoadXml("../res/map/mapcells.xml");
 }

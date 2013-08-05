@@ -45,8 +45,11 @@ bool TowerDefendApp::applicationDidFinishLaunching() {
 	CCLayer * pLayer = new LoginController();
 	pLayer->autorelease();
 
+	GameScene * pGameScene = new GameScene();
+
 	pScene->addChild(pLayer);
 	pDirector->runWithScene(pScene);
+
 
 
 	return true;
