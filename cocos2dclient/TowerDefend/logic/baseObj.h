@@ -9,11 +9,13 @@ enum enObjType
 	ObjType_NULL,
 	ObjType_Creature,
 	ObjType_MapComponent,
+	ObjType_MapStaticComponent,
 };
 
 enum enObjLifeState
 {
 	ObjLifeState_Alife,
+	ObjLifeState_Die,
 	ObjLifeState_Dead,
 };
 
@@ -22,13 +24,14 @@ class baseObj : public CCNode
 public:
 	baseObj(void);
 	virtual ~baseObj(void);
-	virtual void LoadResource(const char* config){};
 public:
+	virtual void LoadResource(const char* config){};
 	virtual void onAddToWorld();
 	virtual void onRemoveFromWorld();
 public:
 	virtual void set_createPos(const CCPoint& pos);
 	virtual void setPosition(float x, float y);
+	virtual void actionChange();
 	virtual CCPoint get_createPos();
 	enObjType getObjType(){return _objType;}
 	virtual void set_lifeState(enObjLifeState en);
@@ -62,6 +65,8 @@ protected:
 	int			   	_maxLife;
 	int				_currentLife;
 	CCPoint			_currentPoint;
+	bool			_canbeAttack;
+	bool			_block;
 };
 
 #endif

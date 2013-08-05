@@ -53,13 +53,15 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;BOOST_ALL_NO_LIB;_ITERATOR_DEBUG_LEVEL = 0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\win32;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\third_party\win32\OGLES;..\..\..\cocos2d-2.0-x-2.0.4\CocosDenshion\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\kazmath\include;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\cocos2dx_support;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\lua;..\..\C++\server\Common;..\..\..\boost_lib\boost_1_51_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\win32;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\third_party\win32\OGLES;..\..\..\cocos2d-2.0-x-2.0.4\CocosDenshion\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\kazmath\include;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\cocos2dx_support;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\lua;..\..\C++\server\Common;..\..\..\boost_lib\boost_1_51_0;..\..\C++\server\Common\share;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Documents and Settings\Administrator\My Documents\GitHub\cocos2d-2.0-x-2.0.4\Debug.win32;../../../\boost_lib\boost_1_51_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libExtensions.lib;libcocos2d.lib;libCocosDenshion.lib;opengl32.lib;glew32.lib;libboost_system-vc100-mt-gd-1_51.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
     <PostBuildEvent>
       <Command>copy ..\..\..\intermediate\Client\$(ProjectName)\Debug\$(ProjectName).exe  ..\..\..\intermediate\Client\$(ProjectName)\Bin\$(Configuration)\$(ProjectName)_D.exe
@@ -98,6 +100,7 @@ copy ..\..\..\intermediate\Client\libcocos2d\Debug\libcocos2d.dll  ..\..\..\inte
     <ClInclude Include="logic\CreatureStorage.h" />
     <ClInclude Include="logic\mapComponent\BaseMapCell.h" />
     <ClInclude Include="logic\mapComponent\gameMap.h" />
+    <ClInclude Include="logic\mapComponent\mapComponentStorage.h" />
     <ClInclude Include="logic\mapComponent\mapStaticCell.h" />
     <ClInclude Include="logic\ResourceManager\TDResourceManager.h" />
     <ClInclude Include="logic\scene\GameController.h" />
@@ -105,6 +108,7 @@ copy ..\..\..\intermediate\Client\libcocos2d\Debug\libcocos2d.dll  ..\..\..\inte
     <ClInclude Include="logic\scene\LoginScene.h" />
     <ClInclude Include="logic\scene\myLayer.h" />
     <ClInclude Include="logic\spell\spell.h" />
+    <ClInclude Include="logic\TDWorld.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -122,6 +126,7 @@ copy ..\..\..\intermediate\Client\libcocos2d\Debug\libcocos2d.dll  ..\..\..\inte
     <ClCompile Include="logic\CreatureStorage.cpp" />
     <ClCompile Include="logic\mapComponent\BaseMapCell.cpp" />
     <ClCompile Include="logic\mapComponent\gameMap.cpp" />
+    <ClCompile Include="logic\mapComponent\mapComponentStorage.cpp" />
     <ClCompile Include="logic\mapComponent\mapStaticCell.cpp" />
     <ClCompile Include="logic\ResourceManager\TDResourceManager.cpp" />
     <ClCompile Include="logic\scene\GameController.cpp" />
@@ -129,6 +134,7 @@ copy ..\..\..\intermediate\Client\libcocos2d\Debug\libcocos2d.dll  ..\..\..\inte
     <ClCompile Include="logic\scene\LoginScene.cpp" />
     <ClCompile Include="logic\scene\myLayer.cpp" />
     <ClCompile Include="logic\spell\spell.cpp" />
+    <ClCompile Include="logic\TDWorld.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

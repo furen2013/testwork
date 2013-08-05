@@ -9,7 +9,7 @@ TDResourceManager::TDResourceManager(void)
 	CCAnimationCache::purgeSharedAnimationCache();
 	_animationCache = CCAnimationCache::sharedAnimationCache();
 	_defaultAniName = "default";
-	_defaultAniName = "Walk";
+	_defaultAniName = "up_walk_fly_48bat.png";
 	LoadResource();
 }
 
@@ -25,7 +25,7 @@ void TDResourceManager::LoadResource()
 	_spriteFramCache->addSpriteFramesWithFile("../res/animations/grossini_blue.plist", "../res/animations/grossini_blue.png");
 	_spriteFramCache->addSpriteFramesWithFile("../res/animations/Role.plist", "../res/animations/Role.png");
 	_spriteFramCache->addSpriteFramesWithFile("../res/animations/miko.plist","../res/animations/miko.png");
-	_spriteFramCache->addSpriteFramesWithFile("../res/animations/testimage.plist", "../res/animations/fly_048ÃÔÄãòùòð.png");
+	_spriteFramCache->addSpriteFramesWithFile("../res/animations/testimage.plist", "../res/animations/fly_048bat.png");
 	// Purge previously loaded animation
 	
 

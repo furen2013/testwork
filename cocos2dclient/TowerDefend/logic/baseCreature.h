@@ -65,7 +65,7 @@ public:
 	}
 
 protected:
-	virtual void onSpriteChange();
+	virtual void actionChange();
 protected:
 	enCreatureDir		  _enDir;
 	enCreatureActionState _enState;
@@ -79,7 +79,8 @@ protected:
 	CCAnimation*		  _currentAnimation;
 	CCAnimate*			  _currentAnimate;
 	CCSprite*			  _currentSprite;
-	CCActionInterval*	  _actionInterval[CreatureDir_Max][CreatureState_Max];
+	CCAction*			  _currentAction;
+	//CCActionInterval*	  _actionInterval[CreatureDir_Max][CreatureState_Max];
 
 
 

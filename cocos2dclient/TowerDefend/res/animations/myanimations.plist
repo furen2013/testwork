@@ -125,7 +125,7 @@
 		<key>default</key>
 		<dict>
 			<key>delay</key>
-			<real>0.20000000000000001</real>
+			<real>0.125</real>
 			<key>frames</key>
 			<array>
 				<string>defaule/Attack-01.png</string>
@@ -139,52 +139,52 @@
 				<string>defaule/Attack-09.png</string>
 			</array>
 		</dict>
-		<key>down_walk_fly_48迷你蝙蝠.png</key>
+		<key>down_walk_fly_48bat.png</key>
 		<dict>
 			<key>delay</key>
-			<real>0.20000000000000001</real>
+			<real>0.125</real>
 			<key>frames</key>
 			<array>
-				<string>down_walk_fly_1_048迷你蝙蝠.png</string>
-				<string>down_walk_fly_2_048迷你蝙蝠.png</string>
-				<string>down_walk_fly_3_048迷你蝙蝠.png</string>
-				<string>down_walk_fly_4_048迷你蝙蝠.png</string>
+				<string>down_walk_fly_1_048bat.png</string>
+				<string>down_walk_fly_2_048bat.png</string>
+				<string>down_walk_fly_3_048bat.png</string>
+				<string>down_walk_fly_4_048bat.png</string>
 			</array>
 		</dict>
-		<key>left_walk_fly_48迷你蝙蝠.png</key>
+		<key>left_walk_fly_48bat.png</key>
 		<dict>
 			<key>delay</key>
-			<real>0.20000000000000001</real>
+			<real>0.125</real>
 			<key>frames</key>
 			<array>
-				<string>left_walk_fly_1_048迷你蝙蝠.png</string>
-				<string>left_walk_fly_2_048迷你蝙蝠.png</string>
-				<string>left_walk_fly_3_048迷你蝙蝠.png</string>
-				<string>left_walk_fly_4_048迷你蝙蝠.png</string>
+				<string>left_walk_fly_1_048bat.png</string>
+				<string>left_walk_fly_2_048bat.png</string>
+				<string>left_walk_fly_3_048bat.png</string>
+				<string>left_walk_fly_4_048bat.png</string>
 			</array>
 		</dict>
-		<key>right_walk_fly_48迷你蝙蝠.png</key>
+		<key>right_walk_fly_48bat.png</key>
 		<dict>
 			<key>delay</key>
-			<real>0.20000000000000001</real>
+			<real>0.125</real>
 			<key>frames</key>
 			<array>
-				<string>right_walk_fly_1_048迷你蝙蝠.png</string>
-				<string>right_walk_fly_2_048迷你蝙蝠.png</string>
-				<string>right_walk_fly_3_048迷你蝙蝠.png</string>
-				<string>right_walk_fly_4_048迷你蝙蝠.png</string>
+				<string>right_walk_fly_1_048bat.png</string>
+				<string>right_walk_fly_2_048bat.png</string>
+				<string>right_walk_fly_3_048bat.png</string>
+				<string>right_walk_fly_4_048bat.png</string>
 			</array>
 		</dict>
-		<key>up_walk_fly_48迷你蝙蝠.png</key>
+		<key>up_walk_fly_48bat.png</key>
 		<dict>
 			<key>delay</key>
-			<real>0.20000000000000001</real>
+			<real>0.125</real>
 			<key>frames</key>
 			<array>
-				<string>up_walk_fly_1_048迷你蝙蝠.png</string>
-				<string>up_walk_fly_2_048迷你蝙蝠.png</string>
-				<string>up_walk_fly_3_048迷你蝙蝠.png</string>
-				<string>up_walk_fly_4_048迷你蝙蝠.png</string>
+				<string>up_walk_fly_1_048bat.png</string>
+				<string>up_walk_fly_2_048bat.png</string>
+				<string>up_walk_fly_3_048bat.png</string>
+				<string>up_walk_fly_4_048bat.png</string>
 			</array>
 		</dict>
 	</dict>

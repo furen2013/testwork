@@ -4,6 +4,7 @@
 #include "../../utility/passwordTextFieldTTF.h"
 #include "../CreatureStorage.h"
 #include "../ResourceManager/TDResourceManager.h"
+#include "../TDWorld.h"
 
 
 enum 
@@ -55,9 +56,25 @@ void LoginController::Login(CCObject* pSender)
 void LoginController::Logout(CCObject* pSender)
 {
 
-	_baseCreature = CreatureStorage::getSingleton().CreateCreature("");
-	_baseCreature->setPosition(70,70);
-	addChild(_baseCreature);
+	//bool newadd = false;
+	//if (!_baseCreature)
+	//{
+	//	_baseCreature = CreatureStorage::getSingleton().CreateCreature("fly_48bat.png");
+	//	_baseCreature->setPosition(140,140);
+	//	newadd = true;
+	//}
+	//static int n = 0;
+	//n ++;
+	//_baseCreature->setDir( (enCreatureDir)(n%CreatureDir_Max));
+	//_baseCreature->setCreatureState(CreatureState_Move);
+	//
+	//if (newadd)
+	//{
+	//	addChild(_baseCreature);
+	//}
+	TDWorld::getSingletonPtr()->LoadResource("../res/map/map.xml");
+	addChild(TDWorld::getSingletonPtr());
+	
 	//_baseCreature->setPosition(70,70);
 	//testsprite* p  = new testsprite();
 	//p->setPosition(70.f, 70.f);
@@ -120,11 +137,11 @@ LoginController::LoginController()
 	addChild(_Menu);
 	addChild(_account);
 	addChild(_password);
-	_baseCreature = CreatureStorage::getSingleton().CreateCreature("2121");
-	addChild(_baseCreature);
+	//_baseCreature = CreatureStorage::getSingleton().CreateCreature("2121");
+	//addChild(_baseCreature);
 	// add menu items for tests
 
-
+	_baseCreature = NULL;
 
 
 }

@@ -8,6 +8,10 @@ class GameScene : public myLayer
 public:
 	GameScene(void);
 	virtual ~GameScene(void);
+public:
+	void Init();
+protected:
+
 };
 
 
