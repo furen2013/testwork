@@ -6,6 +6,7 @@
 #include "../../utility/utilityItemComponent.h"
 #include "../../utility/utilityPoisition.h"
 #include "myLayer.h"
+#include "myScene.h"
 class KeyboardNotificationLayer;
 class TextFieldTTFActionTest;
 class baseCreature;
@@ -131,7 +132,7 @@ protected:
 };
 
 
-class LoginScene : public cocos2d::CCScene
+class LoginScene : public myScene
 {
 public:
 	LoginScene();

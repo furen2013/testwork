@@ -7,6 +7,8 @@ class myScene  : public cocos2d::CCScene
 public:
 	myScene(void);
 	virtual ~myScene(void);
+public:
+	virtual void init();
 };
 
 #endif

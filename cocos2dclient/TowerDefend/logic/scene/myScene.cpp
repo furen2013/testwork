@@ -10,3 +10,8 @@ myScene::myScene(void)
 myScene::~myScene(void)
 {
 }
+
+void myScene::init()
+{
+
+}
