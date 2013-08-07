@@ -5,6 +5,9 @@
 #include "../CreatureStorage.h"
 #include "../ResourceManager/TDResourceManager.h"
 #include "../TDWorld.h"
+#include "../mapComponent/BaseMapCell.h"
+#include "../mapComponent/mapComponentStorage.h"
+#include "sceneManager.h"
 
 
 enum 
@@ -56,6 +59,12 @@ void LoginController::Login(CCObject* pSender)
 void LoginController::Logout(CCObject* pSender)
 {
 
+	sceneManager::getSingleton().enterScene(Game_Scene);
+	/*	TDWorld::getSingleton().LoadResource("../res/map/map.xml");
+	addChild(TDWorld::getSingletonPtr())*/;
+	//baseMapCell* cell =mapComponentStorage::getSingletonPtr()->CreateMapComponent(0);
+	//cell->setPosition(70.f, 70.f);
+	//addChild(cell);
 	//bool newadd = false;
 	//if (!_baseCreature)
 	//{
@@ -86,7 +95,22 @@ void LoginController::onEnter()
 	myLayer::onEnter();
 }
 
+
 LoginController::LoginController()
+{
+
+
+
+}
+
+
+LoginController::~LoginController()
+{
+
+}
+
+
+void LoginController::init()
 {
 	// add close menu
 	utilityRectPosX posX;
@@ -99,7 +123,7 @@ LoginController::LoginController()
 	_LoginImagePath.ItemPos._setRect(VisibleRect::getVisibleRect());
 	_LoginImagePath.ItemPos._setPosX(posX);
 	_LoginImagePath.ItemPos._setPosY(posY);
-	
+
 	posX._offsetX = 20.f;
 	_LogoutImagePath.ItemPos._setRect(VisibleRect::getVisibleRect());
 	_LogoutImagePath.ItemPos._setPosX(posX);
@@ -110,7 +134,7 @@ LoginController::LoginController()
 		_LoginImagePath.imagepath._ItemImage[i] = "../res/CloseNormal.png";
 		_LogoutImagePath.imagepath._ItemImage[i] = "../res/CloseNormal.png";
 	}
-	
+
 
 	_pLoginMenuItemImage = CreateMenuItemImage(&_LoginImagePath, menu_selector(LoginController::Login));
 	_pLogoutMenuItemImage = CreateMenuItemImage(&_LogoutImagePath, menu_selector(LoginController::Logout));
@@ -142,14 +166,6 @@ LoginController::LoginController()
 	// add menu items for tests
 
 	_baseCreature = NULL;
-
-
-}
-
-
-LoginController::~LoginController()
-{
-
 }
 
 LoginScene::LoginScene(void)
@@ -159,6 +175,13 @@ LoginScene::LoginScene(void)
 
 LoginScene::~LoginScene(void)
 {
+}
+
+void LoginScene::init(myLayer* layer)
+{
+	myScene::init(layer);
+	//TDWorld::getSingleton().LoadResource("../res/map/map.xml");
+	//addChild(TDWorld::getSingletonPtr());
 }
 
 //////////////////////////////////////////////////////////////////////////

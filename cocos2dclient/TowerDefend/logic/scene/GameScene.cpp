@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "GameScene.h"
-#include "../mapComponent/mapComponentStorage.h"
+#include "../TDWorld.h"
+
 
 
 GameScene::GameScene(void)
@@ -13,7 +14,8 @@ GameScene::~GameScene(void)
 }
 
 
-void GameScene::Init()
+void GameScene::init(myLayer* layer)
 {
-	mapComponentStorage::getSingleton().LoadXml("../res/map/mapcells.xml");
+	myScene::init(layer);
+
 }

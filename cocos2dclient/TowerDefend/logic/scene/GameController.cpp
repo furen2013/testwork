@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include "GameController.h"
+#include "../TDWorld.h"
 
 
 GameController::GameController(void)
@@ -12,6 +13,13 @@ GameController::~GameController(void)
 }
 
 
+
+void GameController::init()
+{
+	//myLayer::init();
+	TDWorld::getSingleton().LoadResource("../res/map/map.xml");
+	addChild(TDWorld::getSingletonPtr());
+}
 
 void GameController::onBackToLogin(CCObject* pSender)
 {

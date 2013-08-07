@@ -7,6 +7,7 @@
 #include "script_support/CCScriptSupport.h"
 #include "CCLuaEngine.h"
 #include "logic/scene/LoginScene.h"
+#include "logic/scene/sceneManager.h"
 
 USING_NS_CC;
 
@@ -33,6 +34,8 @@ bool TowerDefendApp::applicationDidFinishLaunching() {
 	// set FPS. the default value is 1.0/60 if you don't call this
 	pDirector->setAnimationInterval(1.0 / 60);
 
+	sceneManager::getSingleton().init(pDirector);
+	sceneManager::getSingleton().enterScene(Login_Scene);
 	// ready to add my scence;
 	// create a scene. it's an autorelease object
 	//CCScene *pScene = HelloWorld::scene();
@@ -41,14 +44,14 @@ bool TowerDefendApp::applicationDidFinishLaunching() {
 	//pDirector->runWithScene(pScene);
 
 
-	CCScene * pScene = CCScene::create();
-	CCLayer * pLayer = new LoginController();
-	pLayer->autorelease();
+	//CCScene * pScene = CCScene::create();
+	//CCLayer * pLayer = new LoginController();
+	//pLayer->autorelease();
 
-	GameScene * pGameScene = new GameScene();
+	//GameScene * pGameScene = new GameScene();
 
-	pScene->addChild(pLayer);
-	pDirector->runWithScene(pScene);
+	//pScene->addChild(pLayer);
+	//pDirector->runWithScene(pScene);
 
 
 

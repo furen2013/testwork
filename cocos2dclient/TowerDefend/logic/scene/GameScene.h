@@ -10,7 +10,7 @@ public:
 	GameScene(void);
 	virtual ~GameScene(void);
 public:
-	virtual void Init();
+	virtual void init(myLayer* layer);
 protected:
 
 };

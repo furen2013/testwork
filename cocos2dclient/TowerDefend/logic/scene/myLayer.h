@@ -9,6 +9,8 @@ class myLayer : public CCLayer
 public:
 	myLayer(void);
 	virtual ~myLayer(void);
+public:
+	virtual void init() = 0;
 
 protected:
 	CCMenuItemImage* CreateMenuItemImage(ItemImageResource* p, SEL_MenuHandler selector);

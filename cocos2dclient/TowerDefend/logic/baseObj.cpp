@@ -22,6 +22,7 @@ baseObj::~baseObj(void)
 void baseObj::onAddToWorld()
 {
 	_isInWorld = true;
+	actionChange();
 }
 
 void baseObj::onRemoveFromWorld()

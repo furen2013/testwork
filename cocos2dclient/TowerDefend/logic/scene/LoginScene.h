@@ -20,6 +20,7 @@ public:
 	LoginController();
 	virtual ~LoginController();
 public:
+	virtual void init();
 	void TextInputTest();
 
 	void Login(CCObject* pSender);
@@ -138,6 +139,7 @@ public:
 	LoginScene();
 	virtual ~LoginScene();
 public:
+	virtual void init(myLayer* layer);
 };
 //////////////////////
 #endif
