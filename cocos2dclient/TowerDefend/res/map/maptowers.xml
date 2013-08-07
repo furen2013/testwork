@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<mapcells>
+	<info id="1" life="100" block="true" canAttack="true" animationname="default" deadanimationname="default" deadBox="0"/>
+	<info id="0" life="100" block="false" canAttack="false" animationname="default" deadanimationname="default" deadBox="0"/>
+</mapcells>
