@@ -10,7 +10,7 @@ new_commonD.lib
 WS2_32.Lib
 *.filters
 *.user
-*.XML
+*.xml
 *.suo
 #################
 ## Eclipse
