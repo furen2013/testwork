@@ -19,5 +19,6 @@
 
 #include "cocos2d.h"
 #include "tinyxml/tinyxml.h"
+#include "utility/AppMacros.h"
 USING_NS_CC;
 // TODO: reference additional headers your program requires here

@@ -4,7 +4,6 @@
 #include "stdafx.h"
 #include "TowerDefendApp.h"
 #include "CCEGLView.h"
-
 USING_NS_CC;
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,

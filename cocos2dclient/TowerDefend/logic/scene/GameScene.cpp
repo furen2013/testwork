@@ -3,7 +3,6 @@
 #include "../TDWorld.h"
 
 
-
 GameScene::GameScene(void)
 {
 }

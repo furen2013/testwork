@@ -5,6 +5,7 @@
 #include "mapComponentStorage.h"
 #include "BaseMapCell.h"
 #include "../TDWorld.h"
+#include "../astar/Astar.h"
 gameMap::gameMap()
 	:_width(0),
 	_height(0),
@@ -12,7 +13,8 @@ gameMap::gameMap()
 	_cellheight(0),
 	_offsetx(0),
 	_offsety(0),
-	_mapdata(NULL)
+	_mapdata(NULL),
+	_tile_map(NULL)
 {
 }
 
@@ -47,6 +49,10 @@ void gameMap::Create(const char* xml)
 					if (!_mapdata)
 					{
 						_mapdata = new char[_width * _height];
+						_tile_map = new tile_map();
+						_tile_map->column = _width;
+						_tile_map->row = _height;
+						init_map(_tile_map);
 					}
 					Tokens sarray;
 					TiXmlElement* cellInfoNode = (TiXmlElement*)cellNodes->FirstChild("Info");
@@ -77,6 +83,25 @@ void gameMap::Create(const char* xml)
 	
 }
 
+
+bool gameMap::setRoadBlock(int row, int col, bool block)
+{
+	if (_tile_map&&_tile_map->row < row&& _tile_map->column < col)
+	{
+		if (block)
+		{
+			gen_cell(_tile_map, col, block, WALL);
+		}
+		else
+		{
+			gen_cell(_tile_map, col, block, EMPTY);
+		}
+
+		return true;
+	}
+	return false;
+}
+
 void gameMap::createMap()
 {
 	if (_mapdata)
@@ -89,13 +114,22 @@ void gameMap::createMap()
 			
 			for (int j = 0; j < _width; j ++)
 			{
+				
 				int n = *(_mapdata + heightcount + j);
 				baseMapCell* cell =mapComponentStorage::getSingletonPtr()->CreateMapComponent(n);
 				if (cell)
 				{
 					float posX = j * _cellwidth;
-					cell->setPosition(posX, posY);
+					cell->setPosition(posX/2.f, posY/2.f);
 					TDWorld::getSingletonPtr()->addcell(cell);
+					if (_tile_map&&cell->is_block())
+					{
+						setRoadBlock(j, i, true);
+					}
+					else
+					{
+						setRoadBlock(j, i, false);
+					}
 					//_mapObjs.push_back(cell);
 				}
 

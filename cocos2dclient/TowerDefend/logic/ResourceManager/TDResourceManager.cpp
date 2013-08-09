@@ -26,6 +26,9 @@ void TDResourceManager::LoadResource()
 	_spriteFramCache->addSpriteFramesWithFile("../res/animations/Role.plist", "../res/animations/Role.png");
 	_spriteFramCache->addSpriteFramesWithFile("../res/animations/miko.plist","../res/animations/miko.png");
 	_spriteFramCache->addSpriteFramesWithFile("../res/animations/testimage.plist", "../res/animations/fly_048bat.png");
+	_spriteFramCache->addSpriteFramesWithFile("../res/animations/grasscell.plist", "../res/animations/grasscell.png" );
+	_spriteFramCache->addSpriteFramesWithFile("../res/animations/caverncell.plist", "../res/animations/caverncell.png" );
+
 	// Purge previously loaded animation
 	
 

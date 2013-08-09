@@ -3,6 +3,7 @@
 #define GAMEMAP_H
 #include "iostream"
 class baseMapCell;
+struct tile_map;
 class gameMap
 {
 public:
@@ -11,6 +12,7 @@ public:
 
 public:
 	void Create(const char* xml);
+	bool setRoadBlock(int row, int col, bool block);
 protected:
 	void createMap();
 
@@ -22,7 +24,9 @@ private:
 	int _offsetx;
 	int _offsety;
 	char* _mapdata;
-	std::vector<baseMapCell*> _mapObjs;
+
+	tile_map* _tile_map;
+	
 };
 
 

@@ -57,6 +57,7 @@ public:
 	{
 		return _currentLife;
 	}
+	bool is_block(){return _block;}
 protected:
 	CCPoint			_createPos;
 	enObjType		_objType;

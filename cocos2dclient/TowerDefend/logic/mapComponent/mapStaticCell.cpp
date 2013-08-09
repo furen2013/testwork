@@ -43,6 +43,7 @@ void mapStaticCell::LoadResource(const char* config)
 	if (_currentSprite == NULL)
 	{
 		_currentSprite =  CCSprite::create();
+		
 		addChild(_currentSprite);
 	}
 }

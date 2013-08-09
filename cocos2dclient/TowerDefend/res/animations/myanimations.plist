@@ -187,6 +187,24 @@
 				<string>up_walk_fly_4_048bat.png</string>
 			</array>
 		</dict>
+		<key>grasscell.png</key>
+		<dict>
+			<key>delay</key>
+			<real>0.125</real>
+			<key>frames</key>
+			<array>
+				<string>grasscell.png</string>
+			</array>
+		</dict>
+		<key>caverncell.png</key>
+		<dict>
+			<key>delay</key>
+			<real>0.125</real>
+			<key>frames</key>
+			<array>
+				<string>caverncell.png</string>
+			</array>
+		</dict>
 	</dict>
 </dict>
 </plist>
