@@ -30,4 +30,9 @@ struct TechSkillInfo
 	int parameter;
 	int parameter1;
 };
+
+struct TechSkillUnskillInfo
+{
+
+};
 #endif

@@ -59,28 +59,28 @@ void LoginController::Login(CCObject* pSender)
 void LoginController::Logout(CCObject* pSender)
 {
 
-	sceneManager::getSingleton().enterScene(Game_Scene);
+	//sceneManager::getSingleton().enterScene(Game_Scene);
 	/*	TDWorld::getSingleton().LoadResource("../res/map/map.xml");
 	addChild(TDWorld::getSingletonPtr())*/;
-	//baseMapCell* cell =mapComponentStorage::getSingletonPtr()->CreateMapComponent(0);
-	//cell->setPosition(70.f, 70.f);
-	//addChild(cell);
-	//bool newadd = false;
-	//if (!_baseCreature)
-	//{
-	//	_baseCreature = CreatureStorage::getSingleton().CreateCreature("fly_48bat.png");
-	//	_baseCreature->setPosition(140,140);
-	//	newadd = true;
-	//}
-	//static int n = 0;
-	//n ++;
-	//_baseCreature->setDir( (enCreatureDir)(n%CreatureDir_Max));
-	//_baseCreature->setCreatureState(CreatureState_Move);
-	//
-	//if (newadd)
-	//{
-	//	addChild(_baseCreature);
-	//}
+	baseMapCell* cell =mapComponentStorage::getSingletonPtr()->CreateMapComponent(0);
+	cell->setPosition(70.f, 70.f);
+	addChild(cell);
+	bool newadd = false;
+	if (!_baseCreature)
+	{
+		_baseCreature = CreatureStorage::getSingleton().CreateCreature("fly_48bat.png");
+		_baseCreature->setPosition(140,140);
+		newadd = true;
+	}
+	static int n = 0;
+	n ++;
+	_baseCreature->setDir( (enCreatureDir)(n%CreatureDir_Max));
+	_baseCreature->setCreatureState(CreatureState_Move);
+
+	if (newadd)
+	{
+		addChild(_baseCreature);
+	}
 	//TDWorld::getSingletonPtr()->LoadResource("../res/map/map.xml");
 	//addChild(TDWorld::getSingletonPtr());
 	//

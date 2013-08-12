@@ -52,14 +52,14 @@ void mapStaticCell::LoadResource(const char* config)
 void mapStaticCell::onAddToWorld()
 {
 	baseMapCell::onAddToWorld();
-	_currentSprite->setPosition(_currentPoint);
+	//_currentSprite->setPosition(_currentPoint);
 }
 
 
 void mapStaticCell::setPosition(float x, float y)
 {
 	baseMapCell::setPosition(x, y);
-	_currentSprite->setPosition(_currentPoint);
+	//_currentSprite->setPosition(_currentPoint);
 }
 
 
@@ -75,14 +75,14 @@ void mapStaticCell::actionChange()
 		{
 			CCAnimation* animation = TDResourceManager::getSingletonPtr()->getAnimation(_animation.c_str());
 			_currentSprite->runAction(CCRepeat::create(CCAnimate::create(animation), 50));
-			_currentSprite->setPosition(_currentPoint);
+			//_currentSprite->setPosition(_currentPoint);
 		}
 		break;
 	case ObjLifeState_Die:
 		{
 			CCAnimation* animation = TDResourceManager::getSingletonPtr()->getAnimation(_deadanimation.c_str());
 			_currentSprite->runAction(CCRepeat::create(CCAnimate::create(animation), 50));
-			_currentSprite->setPosition(_currentPoint);
+			//_currentSprite->setPosition(_currentPoint);
 		}
 		break;
 	case ObjLifeState_Dead:

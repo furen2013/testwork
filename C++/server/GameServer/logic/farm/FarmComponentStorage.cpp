@@ -62,7 +62,7 @@ void FarmComponentStorage::Load()
 		}
 
 		delete result;
-		MyLog::log->notice("%d waterwayconf be loaded");
+		MyLog::log->notice("%d waterwayconf be loaded", ncount);
 	}
 	else
 	{

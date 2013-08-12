@@ -120,7 +120,7 @@ void gameMap::createMap()
 				if (cell)
 				{
 					float posX = j * _cellwidth;
-					cell->setPosition(posX/2.f, posY/2.f);
+					cell->setPosition(posX, posY);
 					TDWorld::getSingletonPtr()->addcell(cell);
 					if (_tile_map&&cell->is_block())
 					{

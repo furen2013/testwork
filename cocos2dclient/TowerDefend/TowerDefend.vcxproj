@@ -64,8 +64,8 @@
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
     <PostBuildEvent>
-      <Command>copy ..\..\..\intermediate\Client\$(ProjectName)\Debug\$(ProjectName).exe  ..\..\..\intermediate\Client\$(ProjectName)\Bin\$(Configuration)\$(ProjectName)_D.exe
-copy ..\..\..\intermediate\Client\libcocos2d\Debug\libcocos2d.dll  ..\..\..\intermediate\Client\$(ProjectName)\Bin\$(Configuration)\libcocos2d.dll</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
