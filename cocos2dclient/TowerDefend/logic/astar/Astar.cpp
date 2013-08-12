@@ -39,13 +39,13 @@ int main(int argc, char* argv[])
 	return (0);
 }
 */
-bool astar_next_step(struct tile_map* tmap, int st_x, int st_y, int end_x, int end_y, aPoint& nextstep, distance_t distance)
+bool astar_next_step(struct tile_map* tmap, int st_x, int st_y, int end_x, int end_y, aPoint& nextstep, distance_t distance, bool fourdir)
 {
 	Bheap *o_heap = NULL;
 	Bheap *c_heap = NULL;
 	bool find = false;
 	map_node* omnode = NULL;
-	omnode = astar_find_road(tmap, st_x, st_y, end_x, end_y, o_heap, c_heap, distance);
+	omnode = astar_find_road(tmap, st_x, st_y, end_x, end_y, o_heap, c_heap, distance, fourdir);
 	if (omnode)
 	{
 		nextstep.posX = omnode->x;
@@ -65,20 +65,21 @@ bool astar_next_step(struct tile_map* tmap, int st_x, int st_y, int end_x, int e
 	return find;
 	
 }
-bool astar_full_road(struct tile_map* tmap, int st_x, int st_y, int end_x, int end_y, std::vector<aPoint>&vcPoint, distance_t distance)
+bool astar_full_road(struct tile_map* tmap, int st_x, int st_y, int end_x, int end_y, std::vector<CCPoint>&vcPoint,
+	int _cellwidth, int _cellheight, int _offsetx, int _offsety, distance_t distance, bool fourdir)
 {	
 	Bheap *o_heap = NULL;
 	Bheap *c_heap = NULL;
 	map_node* omnode = NULL;
 	bool bfind = false;
-	omnode = astar_find_road(tmap, st_x, st_y, end_x, end_y, o_heap, c_heap, distance);
+	omnode = astar_find_road(tmap, st_x, st_y, end_x, end_y, o_heap, c_heap, distance, fourdir);
 	if (omnode)
 	{
 		while(NULL != omnode)
 		{
-			aPoint point;
-			point.posX = omnode->x;
-			point.posY = omnode->y;
+			CCPoint point;
+			point.x = omnode->x * _cellwidth + _offsetx + _cellwidth / 2.f;
+			point.y = omnode->y * _cellheight + _offsety + _cellheight / 2.f;
 			vcPoint.push_back(point);
 			omnode = omnode->parent;
 			bfind = true;
@@ -173,29 +174,10 @@ map_node* astar_find_road(tile_map* tmap, int st_x, int st_y, int end_x, int end
 					omnode, distance, end_x, end_y))
 					continue;
 			}
-			/*右上*/
-			fx = omnode->x + 1;
-			fy = omnode->y - 1;
-			if (is_reachable(tmap, fx, fy))
-			{	
-				if(1 == deal_child(tmap, o_heap, c_heap, fx, fy,
-					omnode, distance, end_x, end_y))
-					continue;
-			}
 
 			/*右*/
 			fx = omnode->x + 1;
 			fy = omnode->y;
-			if (is_reachable(tmap, fx, fy))
-			{
-				if(1 == deal_child(tmap, o_heap, c_heap, fx, fy,
-					omnode, distance, end_x, end_y))
-					continue;
-			}
-
-			/*右下*/
-			fx = omnode->x + 1;
-			fy = omnode->y + 1;
 			if (is_reachable(tmap, fx, fy))
 			{
 				if(1 == deal_child(tmap, o_heap, c_heap, fx, fy,
@@ -213,16 +195,6 @@ map_node* astar_find_road(tile_map* tmap, int st_x, int st_y, int end_x, int end
 					continue;
 			}
 
-			/*左下*/
-			fx = omnode->x - 1;
-			fy = omnode->y + 1;
-			if (is_reachable(tmap, fx, fy))
-			{	
-				if(1 == deal_child(tmap, o_heap, c_heap, fx, fy,
-					omnode, distance, end_x, end_y))
-					continue;
-			}
-
 			/*左*/
 			fx = omnode->x - 1;
 			fy = omnode->y;
@@ -233,14 +205,48 @@ map_node* astar_find_road(tile_map* tmap, int st_x, int st_y, int end_x, int end
 					continue;
 			}
 
-			/*左上*/
-			fx = omnode->x - 1;
-			fy = omnode->y - 1;
-			if (is_reachable(tmap, fx, fy))
+			if (fourdir == false)
 			{
-				if(1 == deal_child(tmap, o_heap, c_heap, fx, fy,
-					omnode, distance, end_x, end_y))
-					continue;
+				/*左上*/
+				fx = omnode->x - 1;
+				fy = omnode->y - 1;
+				if (is_reachable(tmap, fx, fy))
+				{
+					if(1 == deal_child(tmap, o_heap, c_heap, fx, fy,
+						omnode, distance, end_x, end_y))
+						continue;
+				}
+
+				/*右上*/
+				fx = omnode->x + 1;
+				fy = omnode->y - 1;
+				if (is_reachable(tmap, fx, fy))
+				{	
+					if(1 == deal_child(tmap, o_heap, c_heap, fx, fy,
+						omnode, distance, end_x, end_y))
+						continue;
+				}
+
+				/*右下*/
+				fx = omnode->x + 1;
+				fy = omnode->y + 1;
+				if (is_reachable(tmap, fx, fy))
+				{
+					if(1 == deal_child(tmap, o_heap, c_heap, fx, fy,
+						omnode, distance, end_x, end_y))
+						continue;
+				}
+
+
+				/*左下*/
+				fx = omnode->x - 1;
+				fy = omnode->y + 1;
+				if (is_reachable(tmap, fx, fy))
+				{	
+					if(1 == deal_child(tmap, o_heap, c_heap, fx, fy,
+						omnode, distance, end_x, end_y))
+						continue;
+				}
 			}
 		}
 	}
@@ -248,7 +254,7 @@ map_node* astar_find_road(tile_map* tmap, int st_x, int st_y, int end_x, int end
 }
 
 /* 搜索路径 */
-void astar(struct tile_map* tmap, int st_x, int st_y, int end_x, int end_y, distance_t distance)
+void astar(struct tile_map* tmap, int st_x, int st_y, int end_x, int end_y, distance_t distance, bool fourdir)
 {
 	struct Bheap *o_heap = NULL, *c_heap = NULL;
 	struct map_node *fnode = NULL;
@@ -299,101 +305,6 @@ void astar(struct tile_map* tmap, int st_x, int st_y, int end_x, int end_y, dist
 #if 0
 	print_map(tmap);
 #endif
-
-	for ( ; ; )
-	{
-		omnode = NULL;
-		if (NULL == (onode = Bheap_pop(o_heap, _comp)))
-		{
-			break;
-		}
-		else
-		{
-			omnode = (struct map_node*)onode->value;
-			if (is_arrived(tmap, omnode))
-					break;
-			Bheap_push(c_heap, onode, _comp);
-			
-			/*上*/
-			fx = omnode->x;
-			fy = omnode->y - 1;
-			if (is_reachable(tmap, fx, fy))
-			{
-				if(1 == deal_child(tmap, o_heap, c_heap, fx, fy,
-																		 omnode, distance, end_x, end_y))
-					continue;
-			}
-			/*右上*/
-			fx = omnode->x + 1;
-			fy = omnode->y - 1;
-			if (is_reachable(tmap, fx, fy))
-			{	
-				if(1 == deal_child(tmap, o_heap, c_heap, fx, fy,
-																		 omnode, distance, end_x, end_y))
-					continue;
-			}
-			
-			/*右*/
-			fx = omnode->x + 1;
-			fy = omnode->y;
-			if (is_reachable(tmap, fx, fy))
-			{
-				if(1 == deal_child(tmap, o_heap, c_heap, fx, fy,
-																		 omnode, distance, end_x, end_y))
-					continue;
-			}
-			
-			/*右下*/
-			fx = omnode->x + 1;
-			fy = omnode->y + 1;
-			if (is_reachable(tmap, fx, fy))
-			{
-				if(1 == deal_child(tmap, o_heap, c_heap, fx, fy,
-																		 omnode, distance, end_x, end_y))
-					continue;
-			}
-			
-			/*下*/
-			fx = omnode->x;
-			fy = omnode->y + 1;
-			if (is_reachable(tmap, fx, fy))
-			{
-				if(1 == deal_child(tmap, o_heap, c_heap, fx, fy,
-																		 omnode, distance, end_x, end_y))
-					continue;
-			}
-			
-			/*左下*/
-			fx = omnode->x - 1;
-			fy = omnode->y + 1;
-			if (is_reachable(tmap, fx, fy))
-			{	
-				if(1 == deal_child(tmap, o_heap, c_heap, fx, fy,
-																		 omnode, distance, end_x, end_y))
-					continue;
-			}
-			
-			/*左*/
-			fx = omnode->x - 1;
-			fy = omnode->y;
-			if (is_reachable(tmap, fx, fy))
-			{	
-				if(1 == deal_child(tmap, o_heap, c_heap, fx, fy,
-																		 omnode, distance, end_x, end_y))
-					continue;
-			}
-			
-			/*左上*/
-			fx = omnode->x - 1;
-			fy = omnode->y - 1;
-			if (is_reachable(tmap, fx, fy))
-			{
-				if(1 == deal_child(tmap, o_heap, c_heap, fx, fy,
-																		 omnode, distance, end_x, end_y))
-					continue;
-			}
-		}
-	}
 
 	if (NULL == omnode)
 	{

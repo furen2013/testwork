@@ -137,3 +137,55 @@ void gameMap::createMap()
 		}
 	}
 }
+
+bool gameMap::getNextRoad(CCPoint startPoint, CCPoint& nextPoint)
+{
+	aPoint p = getCell(startPoint);
+	
+	aPoint nextstep;
+	if (astar_next_step(_tile_map, p.posX, p.posY, _endPoint.x, _endPoint.y, nextstep, manhattan_distance))
+	{
+		nextPoint = getCellCenterPoint(nextstep.posX, nextstep.posY);
+		return true;
+	}
+	return false;
+}
+
+CCPoint gameMap::getCellCenterPoint(int posX, int posY)
+{
+	CCPoint point;
+	point.x = posX * _cellwidth + _offsetx;
+	point.y = posY * _cellheight + _offsety;
+	return point;
+}
+
+aPoint gameMap::getCell(CCPoint point)
+{
+	aPoint cellpoint;
+	cellpoint.posX = (point.x - _offsetx) / _cellwidth;
+	cellpoint.posY = (point.y - _offsety) / _cellheight;
+	return cellpoint;
+}
+
+bool gameMap::getFullWay(CCPoint startPoint, std::vector<CCPoint>& way)
+{
+	aPoint p = getCell(startPoint);
+
+	aPoint nextstep;
+	if (astar_full_road(_tile_map, p.posX, p.posY, _endPoint.x, _endPoint.y, way, _cellwidth,
+		_cellheight, _offsetx, _offsety, manhattan_distance))
+	{
+		nextPoint = getCellCenterPoint(nextstep.posX, nextstep.posY);
+		return true;
+	}
+	return false;
+}
+
+bool gameMap::isArrived(CCPoint pos)
+{
+	if (_endCellCenterPoint == pos)
+	{
+		return true;
+	}
+	return false;
+}

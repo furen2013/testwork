@@ -57,10 +57,11 @@ int init_map(struct tile_map*);
 void gen_wall(struct tile_map*);
 bool gen_cell(struct tile_map* tmap, int row, int column, int type);
 void destory_map(struct tile_map*);
-void astar(struct tile_map*, int, int, int, int, distance_t);
-map_node* astar_find_road(tile_map* tmap, int st_x, int st_y, int end_x, int end_y, Bheap *o_heap,Bheap *c_heap, distance_t distance);
-bool astar_full_road(struct tile_map* tmap, int st_x, int st_y, int end_x, int end_y, std::vector<aPoint>&vcPoint, distance_t distance);
-bool astar_next_step(struct tile_map* tmap, int st_x, int st_y, int end_x, int end_y, aPoint& nextstep, distance_t distance);
+void astar(struct tile_map*, int, int, int, int, distance_t, bool fourdir = true);
+map_node* astar_find_road(tile_map* tmap, int st_x, int st_y, int end_x, int end_y, Bheap *o_heap,Bheap *c_heap, distance_t distance, bool fourdir = true);
+bool astar_full_road(struct tile_map* tmap, int st_x, int st_y, int end_x, int end_y,
+	std::vector<CCPoint>&vcPoint,int _cellwidth, int _cellheight, int _offsetx, int _offsety, distance_t distance, bool fourdir = true);
+bool astar_next_step(struct tile_map* tmap, int st_x, int st_y, int end_x, int end_y, aPoint& nextstep, distance_t distance, bool fourdir = true;);
 int _comp(struct Bheap_node*, struct Bheap_node*);
 int _eq(struct Bheap_node*, struct Bheap_node*);
 int is_reachable(struct tile_map*, int, int);

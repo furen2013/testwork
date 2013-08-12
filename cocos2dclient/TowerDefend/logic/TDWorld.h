@@ -13,6 +13,7 @@ public:
 	void LoadResource(const char* xmlpath);
 	void addcell(baseMapCell* cell);
 	virtual void update(float dt);
+	gameMap* get_gameMap();;
 protected:
 	std::vector<baseMapCell*> _mapObjs;
 	gameMap* _gameMap;

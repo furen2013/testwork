@@ -35,3 +35,8 @@ void TDWorld::update(float dt)
 {
 	CCNode::update(dt);
 }
+
+gameMap* TDWorld::get_gameMap()
+{
+	return _gameMap;
+}

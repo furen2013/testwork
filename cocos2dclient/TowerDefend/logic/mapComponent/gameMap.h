@@ -13,8 +13,13 @@ public:
 public:
 	void Create(const char* xml);
 	bool setRoadBlock(int row, int col, bool block);
+	bool getNextRoad(CCPoint startPoint, CCPoint& nextPoint);
+	bool getFullWay(CCPoint startPoint, std::vector<CCPoint>& way);
+	bool isArrived(CCPoint pos);
 protected:
 	void createMap();
+	CCPoint getCellCenterPoint(int posX, int posY);
+	aPoint getCell(CCPoint point);
 
 private:
 	int _width;
@@ -26,6 +31,8 @@ private:
 	char* _mapdata;
 
 	tile_map* _tile_map;
+	CCPoint _endPoint;
+	CCPoint	_endCellCenterPoint;
 	
 };
 

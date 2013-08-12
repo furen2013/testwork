@@ -19,6 +19,24 @@ enum enCreatureActionState
 	CreatureState_Dead,
 	CreatureState_Max
 };
+
+struct mapWay
+{
+	mapWay()
+	{
+
+	}
+
+	void reset()
+	{
+		_index = 0;
+		_vcFullWay.clear();
+	}
+	
+	int _index;
+	std::vector<CCPoint>  _vcFullWay;
+
+};
 class baseCreature :
 	public baseObj
 {
@@ -31,6 +49,7 @@ public:
 	virtual void onRemoveFromWorld();
 	virtual void onEnter();
 	virtual void setPosition(float x, float y);
+	virtual void update(float dt);
 
 
 public:
@@ -63,9 +82,11 @@ public:
 	{
 		return _configSpeed;
 	}
-
+	bool isArriver();
+	bool isHaveWay();
 protected:
 	virtual void actionChange();
+	virtual void createWay();
 protected:
 	enCreatureDir		  _enDir;
 	enCreatureActionState _enState;
@@ -80,6 +101,10 @@ protected:
 	CCAnimate*			  _currentAnimate;
 	CCSprite*			  _currentSprite;
 	CCAction*			  _currentAction;
+	CCPoint				  _nextCellCenterPoint;
+	mapWay				  _mapWay;
+	bool				  _isArriver;
+	bool				  _isHaveWay;
 	//CCActionInterval*	  _actionInterval[CreatureDir_Max][CreatureState_Max];
 
 

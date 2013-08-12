@@ -28,6 +28,7 @@ public:
 	virtual void LoadResource(const char* config){};
 	virtual void onAddToWorld();
 	virtual void onRemoveFromWorld();
+	virtual void update(float dt);
 public:
 	virtual void set_createPos(const CCPoint& pos);
 	virtual void setPosition(float x, float y);
