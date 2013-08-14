@@ -9,7 +9,8 @@ baseCreature::baseCreature(void)
 	:_enDir(CreatureDir_Up),_configSpeed(0.f),
 	_speed(0.f),_enState(CreatureState_Stop),
 	_currentAnimate(NULL),_currentSprite(NULL),
-	_isArriver(false)
+	_isArriver(false),
+	_isHaveWay(false)
 {
 
 	_currentAnimation = NULL;
@@ -110,6 +111,8 @@ bool baseCreature::isArriver()
 	{
 		_isArriver = map->isArrived(_currentPoint);
 	}
+	std::list::empty()
+	std::list::size()
 	return _isArriver;
 }
 
@@ -187,7 +190,7 @@ void baseCreature::update(float dt)
 		}
 		if (overmoverdistance > 0)
 		{
-			if (_mapWay.mapWay)
+			if (_isHaveWay)
 			{
 			}
 		}
