@@ -139,7 +139,7 @@
 				<string>defaule/Attack-09.png</string>
 			</array>
 		</dict>
-		<key>down_walk_fly_48bat.png</key>
+		<key>up_walk_fly_48bat.png</key>
 		<dict>
 			<key>delay</key>
 			<real>0.125</real>
@@ -175,7 +175,7 @@
 				<string>right_walk_fly_4_048bat.png</string>
 			</array>
 		</dict>
-		<key>up_walk_fly_48bat.png</key>
+		<key>down_walk_fly_48bat.png</key>
 		<dict>
 			<key>delay</key>
 			<real>0.125</real>

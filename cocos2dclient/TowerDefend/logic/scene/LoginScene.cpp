@@ -34,54 +34,35 @@ static CCRect getRect(CCNode * pNode)
 
 void LoginController::Login(CCObject* pSender)
 {
-
-	std::string imgae;
-	CCAnimation* _Animation = TDResourceManager::getSingletonPtr()->getAnimation(imgae.c_str());
-
-	CCAnimate* _currentAnimate;
-	if (_Animation)
-	{
-		_currentAnimate = CCAnimate::create(_Animation);
-
-		CCActionInterval* p =CCRepeat::create(_currentAnimate, 111);
-
-		CCSprite* _currentSprite = CCSprite::create();
-		_currentSprite->runAction(p);
-		_currentSprite->setPosition(CCPoint(40.f, 40.f));
-		//addChild(_currentSprite);
-
-		testsprite* ptest  = new testsprite();
-		
-		//ptest->addChild(_currentSprite);
-		addChild(ptest);
-	}
+	sceneManager::getSingleton().enterScene(Game_Scene);
+	
 }
 void LoginController::Logout(CCObject* pSender)
 {
 
-	//sceneManager::getSingleton().enterScene(Game_Scene);
-	/*	TDWorld::getSingleton().LoadResource("../res/map/map.xml");
-	addChild(TDWorld::getSingletonPtr())*/;
-	baseMapCell* cell =mapComponentStorage::getSingletonPtr()->CreateMapComponent(0);
-	cell->setPosition(70.f, 70.f);
-	addChild(cell);
+
 	bool newadd = false;
 	if (!_baseCreature)
 	{
-		_baseCreature = CreatureStorage::getSingleton().CreateCreature("fly_48bat.png");
+		_baseCreature = CreatureStorage::getSingleton().CreateCreature(1);
 		_baseCreature->setPosition(140,140);
 		newadd = true;
 	}
-	static int n = 0;
-	n ++;
-	_baseCreature->setDir( (enCreatureDir)(n%CreatureDir_Max));
-	_baseCreature->setCreatureState(CreatureState_Move);
+
+	if (_baseCreature)
+	{
+		static int n = 0;
+		n ++;
+		_baseCreature->setDir( (enCreatureDir)(n%CreatureDir_Max));
+		_baseCreature->setCreatureState(CreatureState_Move);
+
+	}
 
 	if (newadd)
 	{
 		addChild(_baseCreature);
 	}
-	//TDWorld::getSingletonPtr()->LoadResource("../res/map/map.xml");
+	//TDWorld::getSingletonPtr()->LoadResource("../../../../../testwork/cocos2dclient/TowerDefend/res/map/map.xml");
 	//addChild(TDWorld::getSingletonPtr());
 	//
 	//_baseCreature->setPosition(70,70);
@@ -131,8 +112,8 @@ void LoginController::init()
 
 	for (int i = ItemImagePath_Normal; i < ItemImagePath_Max; i ++)
 	{
-		_LoginImagePath.imagepath._ItemImage[i] = "../res/CloseNormal.png";
-		_LogoutImagePath.imagepath._ItemImage[i] = "../res/CloseNormal.png";
+		_LoginImagePath.imagepath._ItemImage[i] = "../../../../../testwork/cocos2dclient/TowerDefend/res/CloseNormal.png";
+		_LogoutImagePath.imagepath._ItemImage[i] = "../../../../../testwork/cocos2dclient/TowerDefend/res/CloseNormal.png";
 	}
 
 
@@ -180,7 +161,7 @@ LoginScene::~LoginScene(void)
 void LoginScene::init(myLayer* layer)
 {
 	myScene::init(layer);
-	//TDWorld::getSingleton().LoadResource("../res/map/map.xml");
+	//TDWorld::getSingleton().LoadResource("../../../../../testwork/cocos2dclient/TowerDefend/res/map/map.xml");
 	//addChild(TDWorld::getSingletonPtr());
 }
 

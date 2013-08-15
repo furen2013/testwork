@@ -16,7 +16,7 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
-
+#include <vector>
 #include "cocos2d.h"
 #include "tinyxml/tinyxml.h"
 #include "utility/AppMacros.h"

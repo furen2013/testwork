@@ -80,7 +80,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <AdditionalOptions>/D_WIN32_WINNT=0x0500 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>../../new_common/source/log4cpp-1.0/include;../../new_common/source/log4cpp-1.0;../Common;share/;database/;config;util;../../SDBase/Public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Common;share/;database/;config;util;../../SDBase/Public;../../new_common/source/log4cpp-1.0/include;../../new_common/source/log4cpp-1.0;..\..\..\..\boost_lib\boost_1_51_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;BOOST_THREAD_BUILD_LIB;BOOST_ALL_NO_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>

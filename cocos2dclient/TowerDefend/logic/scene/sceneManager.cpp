@@ -5,6 +5,7 @@
 #include "GameScene.h"
 #include "GameController.h"
 #include "../mapComponent/mapComponentStorage.h"
+#include "../CreatureStorage.h"
 initialiseSingleton(sceneManager);
 
 sceneManager::sceneManager(void):_currentScene(NULL),
@@ -20,7 +21,10 @@ sceneManager::~sceneManager(void)
 
 void sceneManager::init(CCDirector * director)
 {
-	mapComponentStorage::getSingleton().LoadXml("../res/map/mapcells.xml");
+	mapComponentStorage::getSingleton().LoadXml("../../../../../testwork/cocos2dclient/TowerDefend/res/map/mapcells.xml");
+	CreatureStorage::getSingleton().loadXml("../../../../../testwork/cocos2dclient/TowerDefend/res/creatures/creatureinfos.xml");
+
+	
 	_director = director;
 	LoginScene* pLoginScene = new LoginScene();
 	

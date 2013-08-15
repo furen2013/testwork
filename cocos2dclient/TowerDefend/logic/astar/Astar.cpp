@@ -90,7 +90,7 @@ bool astar_full_road(struct tile_map* tmap, int st_x, int st_y, int end_x, int e
 	{
 		Bheap_destory(&o_heap, 1, free_map_node);
 	}
-	
+
 	if (c_heap)
 	{
 		Bheap_destory(&c_heap, 1, free_map_node);
@@ -99,7 +99,7 @@ bool astar_full_road(struct tile_map* tmap, int st_x, int st_y, int end_x, int e
 	
 }
 
-map_node* astar_find_road(tile_map* tmap, int st_x, int st_y, int end_x, int end_y, Bheap *o_heap,Bheap *c_heap, distance_t distance)
+map_node* astar_find_road(tile_map* tmap, int st_x, int st_y, int end_x, int end_y, Bheap *o_heap,Bheap *c_heap, distance_t distance, bool fourdir)
 {
 	
 	map_node *fnode = NULL;
@@ -492,17 +492,17 @@ int _eq(struct Bheap_node* n1, struct Bheap_node* n2)
 int init_map(struct tile_map* tmap)
 {
 	int o_idx;
-	int i ,j;
+	//int i ,j;
 	if (NULL == tmap)
 		return (-1);
 	
 	tmap->map = MALLOC(int*, tmap->row);
-	memset(tmap->map, 0x00, sizeof(int*) * tmap->row);
+	memset(tmap->map, WALL, sizeof(int*) * tmap->row);
 	
 	for (o_idx = 0; o_idx < tmap->row; o_idx++)
 	{
 		tmap->map[o_idx] = MALLOC(int, tmap->column);
-		memset(tmap->map[o_idx], 0x00, sizeof(int) * tmap->column);
+		memset(tmap->map[o_idx], WALL, sizeof(int) * tmap->column);
 	}
 	return 0;
 }
@@ -517,9 +517,9 @@ int init_map(struct tile_map* tmap)
 
 bool gen_cell(struct tile_map* tmap, int row, int column, int type)
 {
-	if (tmap&&tmap->column <= column&&tmap->row <= row)
+	if (tmap&&tmap->column > column&&tmap->row > row)
 	{
-		tmap->map[2][2] = type;
+		tmap->map[row][column] = type;
 		return true;
 	}
 	return false;

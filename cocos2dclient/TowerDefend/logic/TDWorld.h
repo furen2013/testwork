@@ -4,6 +4,8 @@
 #include "share/Singleton.h"
 class baseMapCell;
 class gameMap;
+class baseCreature;
+class baseObj;
 class TDWorld : public CCNode , public Singleton<TDWorld>
 {
 public:
@@ -16,6 +18,8 @@ public:
 	gameMap* get_gameMap();;
 protected:
 	std::vector<baseMapCell*> _mapObjs;
+	std::vector<baseCreature*> _creatures;
+	std::vector<baseObj*> _objs;
 	gameMap* _gameMap;
 
 };

@@ -47,6 +47,11 @@ void baseObj::actionChange()
 
 }
 
+void baseObj::update(float dt)
+{
+	CCNode::update(dt);
+}
+
 void baseObj::set_lifeState(enObjLifeState en)
 {
 	if (_enLifeState != en)

@@ -86,15 +86,15 @@ void gameMap::Create(const char* xml)
 
 bool gameMap::setRoadBlock(int row, int col, bool block)
 {
-	if (_tile_map&&_tile_map->row < row&& _tile_map->column < col)
+	if (_tile_map&&_tile_map->row > row&& _tile_map->column > col)
 	{
 		if (block)
 		{
-			gen_cell(_tile_map, col, block, WALL);
+			gen_cell(_tile_map, col, row, WALL);
 		}
 		else
 		{
-			gen_cell(_tile_map, col, block, EMPTY);
+			gen_cell(_tile_map, col, row, EMPTY);
 		}
 
 		return true;
@@ -110,25 +110,42 @@ void gameMap::createMap()
 		for (int i = 0; i < _height; i ++)
 		{
 			heightcount = i * _width;
-			float posY = i * _cellheight;
+			float posY = i * _cellheight + _offsety;
 			
 			for (int j = 0; j < _width; j ++)
 			{
 				
 				int n = *(_mapdata + heightcount + j);
+
+
 				baseMapCell* cell =mapComponentStorage::getSingletonPtr()->CreateMapComponent(n);
 				if (cell)
 				{
-					float posX = j * _cellwidth;
+					float posX = j * _cellwidth + _offsetx;
+					if (n == 2)
+					{
+						_endCellCenterPoint.x = posX + _cellwidth / 2.f;;
+						_endCellCenterPoint.y = posY + _cellheight / 2.f;;
+						_endPoint = getCell(_endCellCenterPoint);
+					}
+					else if (n == 3)
+					{
+						_startCellCenterPoint.x = posX + _cellwidth / 2.f;
+						_startCellCenterPoint.y = posY + _cellheight / 2.f;
+					}
+					
 					cell->setPosition(posX, posY);
 					TDWorld::getSingletonPtr()->addcell(cell);
-					if (_tile_map&&cell->is_block())
+					if (_tile_map)
 					{
-						setRoadBlock(j, i, true);
-					}
-					else
-					{
-						setRoadBlock(j, i, false);
+						if (cell->is_block())
+						{
+							setRoadBlock(i, j, true);
+						}
+						else
+						{
+							setRoadBlock(i, j, false);
+						}
 					}
 					//_mapObjs.push_back(cell);
 				}
@@ -143,7 +160,7 @@ bool gameMap::getNextRoad(CCPoint startPoint, CCPoint& nextPoint)
 	aPoint p = getCell(startPoint);
 	
 	aPoint nextstep;
-	if (astar_next_step(_tile_map, p.posX, p.posY, _endPoint.x, _endPoint.y, nextstep, manhattan_distance))
+	if (astar_next_step(_tile_map, p.posX, p.posY, _endPoint.posX, _endPoint.posY, nextstep, manhattan_distance))
 	{
 		nextPoint = getCellCenterPoint(nextstep.posX, nextstep.posY);
 		return true;
@@ -172,10 +189,10 @@ bool gameMap::getFullWay(CCPoint startPoint, std::vector<CCPoint>& way)
 	aPoint p = getCell(startPoint);
 
 	aPoint nextstep;
-	if (astar_full_road(_tile_map, p.posX, p.posY, _endPoint.x, _endPoint.y, way, _cellwidth,
+	if (astar_full_road(_tile_map, p.posX, p.posY, _endPoint.posX, _endPoint.posY, way, _cellwidth,
 		_cellheight, _offsetx, _offsety, manhattan_distance))
 	{
-		nextPoint = getCellCenterPoint(nextstep.posX, nextstep.posY);
+		//nextPoint = getCellCenterPoint(nextstep.posX, nextstep.posY);
 		return true;
 	}
 	return false;
@@ -183,9 +200,19 @@ bool gameMap::getFullWay(CCPoint startPoint, std::vector<CCPoint>& way)
 
 bool gameMap::isArrived(CCPoint pos)
 {
-	if (_endCellCenterPoint == pos)
+	if (_endCellCenterPoint.x == pos.x && _endCellCenterPoint.y == pos.y)
 	{
 		return true;
 	}
 	return false;
+}
+
+CCPoint gameMap::getStartPt()
+{
+	return _startCellCenterPoint;
+}
+
+CCPoint gameMap::getEndPt()
+{
+	return _endCellCenterPoint;
 }

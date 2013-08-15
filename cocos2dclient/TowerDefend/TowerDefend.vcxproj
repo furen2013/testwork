@@ -52,7 +52,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;BOOST_ALL_NO_LIB;_ITERATOR_DEBUG_LEVEL = 0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;BOOST_ALL_NO_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\win32;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\third_party\win32\OGLES;..\..\..\cocos2d-2.0-x-2.0.4\CocosDenshion\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\kazmath\include;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\cocos2dx_support;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\lua;..\..\C++\server\Common;..\..\..\boost_lib\boost_1_51_0;..\..\C++\server\Common\share;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
@@ -75,16 +75,16 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\win32;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\third_party\win32\OGLES;..\..\..\cocos2d-2.0-x-2.0.4\CocosDenshion\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\kazmath\include;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\cocos2dx_support;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;BOOST_ALL_NO_LIB;_ITERATOR_DEBUG_LEVEL = 0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\win32;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\platform\third_party\win32\OGLES;..\..\..\cocos2d-2.0-x-2.0.4\CocosDenshion\include;..\..\..\cocos2d-2.0-x-2.0.4\cocos2dx\kazmath\include;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\cocos2dx_support;..\..\..\cocos2d-2.0-x-2.0.4\scripting\lua\lua;..\..\C++\server\Common;..\..\..\boost_lib\boost_1_51_0;..\..\C++\server\Common\share;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Documents and Settings\Administrator\My Documents\GitHub\cocos2d-2.0-x-2.0.4\Release.win32\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libExtensions.lib;libcocos2d.lib;libCocosDenshion.lib;opengl32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../../../cocos2d-2.0-x-2.0.4/Release.win32;../../../boost_lib/boost_1_51_0/stage/lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libExtensions.lib;libcocos2d.lib;libCocosDenshion.lib;opengl32.lib;glew32.lib;libboost_system-vc100-mt-gd-1_51.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy ..\..\..\intermediate\Client\$(ProjectName)\$(Configuration)\$(ProjectName).exe  ..\..\..\intermediate\Client\$(ProjectName)\Bin\$(Configuration)\$(ProjectName).exe</Command>

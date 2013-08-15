@@ -2,6 +2,7 @@
 #ifndef GAMEMAP_H
 #define GAMEMAP_H
 #include "iostream"
+#include "../astar/Astar.h"
 class baseMapCell;
 struct tile_map;
 class gameMap
@@ -16,9 +17,13 @@ public:
 	bool getNextRoad(CCPoint startPoint, CCPoint& nextPoint);
 	bool getFullWay(CCPoint startPoint, std::vector<CCPoint>& way);
 	bool isArrived(CCPoint pos);
+	CCPoint getStartPt();
+	CCPoint getEndPt();
+	CCPoint getCellCenterPoint(int posX, int posY);
+	tile_map* _tile_map;
 protected:
 	void createMap();
-	CCPoint getCellCenterPoint(int posX, int posY);
+	
 	aPoint getCell(CCPoint point);
 
 private:
@@ -30,9 +35,11 @@ private:
 	int _offsety;
 	char* _mapdata;
 
-	tile_map* _tile_map;
-	CCPoint _endPoint;
+	
+	aPoint _endPoint;
 	CCPoint	_endCellCenterPoint;
+	CCPoint _startPoint;
+	CCPoint _startCellCenterPoint;
 	
 };
 

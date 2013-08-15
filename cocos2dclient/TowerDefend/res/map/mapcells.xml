@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <mapcells>
-	<info id="1" life="100" block="1" canAttack="1" animationname="grasscell.png" deadanimationname="default" deadBox="0"/>
-	<info id="0" life="100" block="0" canAttack="0" animationname="caverncell.png" deadanimationname="default" deadBox="0"/>
+	<info id="0" life="100" block="1" canAttack="1" animationname="grasscell.png" deadanimationname="default" deadBox="0"/>
+	<info id="1" life="100" block="0" canAttack="0" animationname="caverncell.png" deadanimationname="default" deadBox="0"/>
+	<info id="2" life="100" block="0" canAttack="0" animationname="caverncell.png" deadanimationname="default" deadBox="0"/>
+	<info id="3" life="100" block="0" canAttack="0" animationname="caverncell.png" deadanimationname="default" deadBox="0"/>
 </mapcells>

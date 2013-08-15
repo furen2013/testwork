@@ -32,10 +32,38 @@ struct mapWay
 		_index = 0;
 		_vcFullWay.clear();
 	}
+
+	bool isArrive()
+	{
+		if (_index == 0)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	int generateNextIndex()
+	{
+		if (isArrive())
+		{
+			return -1;
+		}
+		_index --;
+		return _index;
+	}
 	
 	int _index;
 	std::vector<CCPoint>  _vcFullWay;
 
+};
+
+struct creatureInfo
+{
+	int id;
+	float _speed;
+	float _life;
+	std::string _name;
+	std::string _resourceName;
 };
 class baseCreature :
 	public baseObj
@@ -44,6 +72,7 @@ public:
 	baseCreature(void);
 	virtual ~baseCreature(void);
 public:
+	void createCreature(creatureInfo* info);
 	virtual void LoadResource(const char* config);
 	virtual void onAddToWorld();
 	virtual void onRemoveFromWorld();
@@ -84,9 +113,12 @@ public:
 	}
 	bool isArriver();
 	bool isHaveWay();
+	mapWay				  _mapWay;
 protected:
 	virtual void actionChange();
 	virtual void createWay();
+	CCPoint moveDistance(CCPoint cupoint, float& movedistance, enCreatureDir dir);
+	enCreatureDir GetNaxtPointDir();
 protected:
 	enCreatureDir		  _enDir;
 	enCreatureActionState _enState;
@@ -102,9 +134,10 @@ protected:
 	CCSprite*			  _currentSprite;
 	CCAction*			  _currentAction;
 	CCPoint				  _nextCellCenterPoint;
-	mapWay				  _mapWay;
+	
 	bool				  _isArriver;
 	bool				  _isHaveWay;
+	CCPoint				  _endPos;
 	//CCActionInterval*	  _actionInterval[CreatureDir_Max][CreatureState_Max];
 
 

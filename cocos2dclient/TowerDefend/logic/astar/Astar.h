@@ -10,8 +10,7 @@
 #include <math.h>
 #include "bheap.h"
 #include "iostream"
-#include <vector>
-
+#define _ITERATOR_DEBUG_LEVEL  0
 #define MALLOC(type,n)  (type *)malloc((n)*sizeof(type))
 
 #define MAX(a,b) ((a)>(b))?(a):(b)
@@ -61,7 +60,7 @@ void astar(struct tile_map*, int, int, int, int, distance_t, bool fourdir = true
 map_node* astar_find_road(tile_map* tmap, int st_x, int st_y, int end_x, int end_y, Bheap *o_heap,Bheap *c_heap, distance_t distance, bool fourdir = true);
 bool astar_full_road(struct tile_map* tmap, int st_x, int st_y, int end_x, int end_y,
 	std::vector<CCPoint>&vcPoint,int _cellwidth, int _cellheight, int _offsetx, int _offsety, distance_t distance, bool fourdir = true);
-bool astar_next_step(struct tile_map* tmap, int st_x, int st_y, int end_x, int end_y, aPoint& nextstep, distance_t distance, bool fourdir = true;);
+bool astar_next_step(struct tile_map* tmap, int st_x, int st_y, int end_x, int end_y, aPoint& nextstep, distance_t distance, bool fourdir = true);
 int _comp(struct Bheap_node*, struct Bheap_node*);
 int _eq(struct Bheap_node*, struct Bheap_node*);
 int is_reachable(struct tile_map*, int, int);

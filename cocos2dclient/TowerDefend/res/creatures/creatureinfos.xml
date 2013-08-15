@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<creatureinfos>
+	<info id="1" life="100" speed="10" name="蝙蝠" resourcename="fly_48bat.png"/>
+	<info id="2" life="100" speed="10" name="1" resourcename="fly_48bat.png"/>
+</creatureinfos>
