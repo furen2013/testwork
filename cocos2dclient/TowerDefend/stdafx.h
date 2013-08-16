@@ -20,5 +20,6 @@
 #include "cocos2d.h"
 #include "tinyxml/tinyxml.h"
 #include "utility/AppMacros.h"
+#include "utility/VisibleRect.h"
 USING_NS_CC;
 // TODO: reference additional headers your program requires here

@@ -5,7 +5,7 @@
 #include "mapComponentStorage.h"
 #include "BaseMapCell.h"
 #include "../TDWorld.h"
-#include "../astar/Astar.h"
+//#include "../astar/Astar.h"
 gameMap::gameMap()
 	:_width(0),
 	_height(0),

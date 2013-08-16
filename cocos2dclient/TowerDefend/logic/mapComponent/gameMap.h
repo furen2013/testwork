@@ -2,7 +2,7 @@
 #ifndef GAMEMAP_H
 #define GAMEMAP_H
 #include "iostream"
-#include "../astar/Astar.h"
+//#include "../astar/Astar.h"
 class baseMapCell;
 struct tile_map;
 class gameMap
