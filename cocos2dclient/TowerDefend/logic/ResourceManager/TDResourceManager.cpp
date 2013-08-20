@@ -22,17 +22,17 @@ TDResourceManager::~TDResourceManager(void)
 void TDResourceManager::LoadResource()
 {
 	
-	_spriteFramCache->addSpriteFramesWithFile("../../../../../testwork/cocos2dclient/TowerDefend/res/animations/grossini_blue.plist", "../../../../../testwork/cocos2dclient/TowerDefend/res/animations/grossini_blue.png");
-	_spriteFramCache->addSpriteFramesWithFile("../../../../../testwork/cocos2dclient/TowerDefend/res/animations/Role.plist", "../../../../../testwork/cocos2dclient/TowerDefend/res/animations/Role.png");
-	_spriteFramCache->addSpriteFramesWithFile("../../../../../testwork/cocos2dclient/TowerDefend/res/animations/miko.plist","../../../../../testwork/cocos2dclient/TowerDefend/res/animations/miko.png");
-	_spriteFramCache->addSpriteFramesWithFile("../../../../../testwork/cocos2dclient/TowerDefend/res/animations/testimage.plist", "../../../../../testwork/cocos2dclient/TowerDefend/res/animations/fly_048bat.png");
-	_spriteFramCache->addSpriteFramesWithFile("../../../../../testwork/cocos2dclient/TowerDefend/res/animations/grasscell.plist", "../../../../../testwork/cocos2dclient/TowerDefend/res/animations/grasscell.png" );
-	_spriteFramCache->addSpriteFramesWithFile("../../../../../testwork/cocos2dclient/TowerDefend/res/animations/caverncell.plist", "../../../../../testwork/cocos2dclient/TowerDefend/res/animations/caverncell.png" );
+	_spriteFramCache->addSpriteFramesWithFile("../../../../testwork/cocos2dclient/TowerDefend/res/animations/grossini_blue.plist", "../../../../testwork/cocos2dclient/TowerDefend/res/animations/grossini_blue.png");
+	_spriteFramCache->addSpriteFramesWithFile("../../../../testwork/cocos2dclient/TowerDefend/res/animations/Role.plist", "../../../../testwork/cocos2dclient/TowerDefend/res/animations/Role.png");
+	_spriteFramCache->addSpriteFramesWithFile("../../../../testwork/cocos2dclient/TowerDefend/res/animations/miko.plist","../../../../testwork/cocos2dclient/TowerDefend/res/animations/miko.png");
+	_spriteFramCache->addSpriteFramesWithFile("../../../../testwork/cocos2dclient/TowerDefend/res/animations/testimage.plist", "../../../../testwork/cocos2dclient/TowerDefend/res/animations/fly_048bat.png");
+	_spriteFramCache->addSpriteFramesWithFile("../../../../testwork/cocos2dclient/TowerDefend/res/animations/grasscell.plist", "../../../../testwork/cocos2dclient/TowerDefend/res/animations/grasscell.png" );
+	_spriteFramCache->addSpriteFramesWithFile("../../../../testwork/cocos2dclient/TowerDefend/res/animations/caverncell.plist", "../../../../testwork/cocos2dclient/TowerDefend/res/animations/caverncell.png" );
 
 	// Purge previously loaded animation
 	
 
-	_animationCache->addAnimationsWithFile("../../../../../testwork/cocos2dclient/TowerDefend/res/animations/myanimations.plist");
+	_animationCache->addAnimationsWithFile("../../../../testwork/cocos2dclient/TowerDefend/res/animations/myanimations.plist");
 
 }
 

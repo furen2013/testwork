@@ -17,7 +17,7 @@ GameController::~GameController(void)
 void GameController::init()
 {
 	//myLayer::init();
-	TDWorld::getSingleton().LoadResource("../../../../../testwork/cocos2dclient/TowerDefend/res/map/map.xml");
+	TDWorld::getSingleton().LoadResource("../../../../testwork/cocos2dclient/TowerDefend/res/map/map.xml");
 	addChild(TDWorld::getSingletonPtr());
 }
 

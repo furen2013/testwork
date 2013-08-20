@@ -21,8 +21,8 @@ sceneManager::~sceneManager(void)
 
 void sceneManager::init(CCDirector * director)
 {
-	mapComponentStorage::getSingleton().LoadXml("../../../../../testwork/cocos2dclient/TowerDefend/res/map/mapcells.xml");
-	CreatureStorage::getSingleton().loadXml("../../../../../testwork/cocos2dclient/TowerDefend/res/creatures/creatureinfos.xml");
+	mapComponentStorage::getSingleton().LoadXml("../../../../testwork/cocos2dclient/TowerDefend/res/map/mapcells.xml");
+	CreatureStorage::getSingleton().loadXml("../../../../testwork/cocos2dclient/TowerDefend/res/creatures/creatureinfos.xml");
 
 	
 	_director = director;
