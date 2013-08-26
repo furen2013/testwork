@@ -1,0 +1,123 @@
+package clientmsg;
+
+message CharInfo
+{
+	optional uint32 charid = 1;
+	optional uint64 user_account = 2;
+	optional string name = 3;
+	optional uint32 head = 4;
+	optional uint32 sex = 5;
+};
+
+//地图角色信息
+message MapCharInfo
+{
+	optional CharInfo charinfo = 1;	//角色基本信息
+	optional uint32 x = 2;			//位置x
+	optional uint32 y = 3;			//位置y
+	optional uint32 dir = 4;		//方向
+};
+
+//上线初始化角色信息
+enum enumGetCharResult
+{
+	Response_Success  = 0;			//成功获取角色
+	Response_SystemError = 1;		//系统错误
+	Response_NewChar = 2;			//创建新角色，需要设置新手信息
+};
+
+enum CommonConst
+{	
+	MAX_NAMESIZE = 32;
+};
+
+//屏的长和宽
+enum SCREEN_CONST
+{
+	SCREEN_WIDTH	=	13;
+	SCREEN_HEIGHT	=	19;
+};
+
+//移动的方向
+enum DIR
+{
+	DIR_UP			= 0;
+	DIR_UPRIGHT		= 1;
+	DIR_RIGHT		= 2;
+	DIR_DOWNRIGHT	= 3;
+	DIR_DOWN		= 4;
+	DIR_DOWNLEFT	= 5;
+	DIR_LEFT		= 6;
+	DIR_UPLEFT		= 7;
+	DIR_ERROR		= 8;
+};
+
+message LoginRequest
+{
+	optional string name = 1;
+	optional string pwd = 2;
+}
+
+//登录结果枚举
+enum enumLoginResult
+{
+	enumLoginResult_Success = 0;
+	enumLoginResult_Fail = 1;
+	enumLoginResult_NameFail = 2;
+	enumLoginResult_PwdFail = 3;
+	enumLoginResult_HaveLogin = 4;	//已经登录
+};
+
+
+message LoginResponse
+{
+	optional string gate_ip = 1;
+	optional uint32 gate_port = 2;
+	optional uint64 user_account = 3;		//账号ID
+	optional enumLoginResult result = 4;	//登录结果
+};
+
+//登录Gate
+message LoginGame
+{
+	required uint64 user_account = 1;		//账号ID
+};
+
+//玩家初始化信息
+message ClientInit
+{
+	optional CharInfo charinfo = 1;
+	optional enumGetCharResult result = 2;
+};
+
+//客户端更新创建角色信息
+message CreateChar
+{
+	optional CharInfo charinfo = 1;	  //创建角色
+	optional uint32 mapid = 2;
+	optional uint32 cityid = 3;
+};
+
+//离开服务器
+message ClientExit
+{
+	optional uint32 charid = 1;
+	optional uint64 user_account = 2;
+};
+
+
+//消息的类型
+enum enumChatType
+{
+	Chat_User = 1;		//点对点聊天
+	Chat_World = 2;		//世界聊天
+	Chat_Sys = 3;		//系统消息
+};
+
+//聊天消息, 客户端发送给服务器，服务器再广播出去
+message SendChat
+{
+	optional enumChatType type  = 1;
+	optional uint32 charid = 2;
+	optional string msg = 3;
+};
