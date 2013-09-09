@@ -8,6 +8,8 @@ class baseTower :
 public:
 	baseTower(void);
 	virtual ~baseTower(void);
+public:
+
 };
 
 #endif

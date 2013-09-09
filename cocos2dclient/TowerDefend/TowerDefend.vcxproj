@@ -98,6 +98,7 @@
     <ClInclude Include="logic\astar\slist.h" />
     <ClInclude Include="logic\baseCreature.h" />
     <ClInclude Include="logic\baseObj.h" />
+    <ClInclude Include="logic\baseShot.h" />
     <ClInclude Include="logic\baseTower.h" />
     <ClInclude Include="logic\Creature.h" />
     <ClInclude Include="logic\CreatureStorage.h" />
@@ -128,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="logic\baseCreature.cpp" />
     <ClCompile Include="logic\baseObj.cpp" />
+    <ClCompile Include="logic\baseShot.cpp" />
     <ClCompile Include="logic\baseTower.cpp" />
     <ClCompile Include="logic\Creature.cpp" />
     <ClCompile Include="logic\CreatureStorage.cpp" />
