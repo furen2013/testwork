@@ -219,16 +219,16 @@ bool CProtoLoginServer::Init()
 
 
 #ifdef _WIN32
-	if( !LGLISTENER.create( 95502, 50, 2 ) )
+	if( !LGLISTENER.create( 5502, 50, 2 ) )
 #else
-	if( !LGLISTENER.create( 95502, sGTConfig.m_nPlayerLimit, 16 ) )
+	if( !LGLISTENER.create( 5502, sGTConfig.m_nPlayerLimit, 16 ) )
 #endif
 	{
-		MyLog::log->error("Start Listen Client on port[%u]", 95502);
+		MyLog::log->error("Start Listen Client on port[%u]", 5502);
 		return false;
 	}
 	LGLISTENER.set_limit_mode( true );
-	MyLog::log->notice("Start Listen Client on port[%u]", 95502);
+	MyLog::log->notice("Start Listen Client on port[%u]", 5502);
 
 
 	return true;

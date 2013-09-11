@@ -84,7 +84,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>new_commonD.lib;libprotobuf.lib;libprotoc.lib;MsgShardD.lib;My_CommnonD.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName)D.exe</OutputFile>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories>../../D_LIB/;..\common\openssl-0.9.8b\lib;../../lib_x86/;E:\MyCode\GitHub\MyPhoneWork\C++\lib_x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
@@ -95,7 +95,7 @@
       <Profile>true</Profile>
     </Link>
     <PostBuildEvent>
-      <Command>Copy $(OutDir)$(ProjectName)D.exe ..\..\ServerExe\GateServer.exe</Command>
+      <Command>copy ..\..\..\..\intermediate\Server\$(ProjectName)\$(Configuration)\$(ProjectName).exe ..\..\ServerExe\$(ProjectName)\$(ProjectName).exe</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

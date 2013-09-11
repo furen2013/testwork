@@ -17,7 +17,7 @@ CUserStorage::~CUserStorage(void)
 bool CUserStorage::Init()
 {
 	phoneDatabase = Database::CreateDatabaseInterface(1);
-	if (!phoneDatabase->Initialize("127.0.0.1", 3306, "root", "7283933", "phone", 5, 16384))
+	if (!phoneDatabase->Initialize("192.168.1.103", 3306, "root", "7283933", "phone", 5, 16384))
 	{
 		MyLog::log->error("Login Server can not connect mysql");
 		return false;

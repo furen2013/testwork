@@ -116,16 +116,16 @@ bool CProtoServer::Init()
 //	m_nGroupID = sGTConfig.m_nGroupID;
 
 #ifdef _WIN32
-	if( !CCListenProtoSocket::getSingleton().create( 95501, 50, 2 ) )
+	if( !CCListenProtoSocket::getSingleton().create( 5501, 50, 2 ) )
 #else
-	if( !CCListenProtoSocket::getSingleton().create( 95501, sGTConfig.m_nPlayerLimit, 16 ) )
+	if( !CCListenProtoSocket::getSingleton().create( 5501, sGTConfig.m_nPlayerLimit, 16 ) )
 #endif
 	{
-		MyLog::log->error("Start Listen Client on port[%u]", 95501);
+		MyLog::log->error("Start Listen Client on port[%u]", 5501);
 		return false;
 	}
 	CCListenProtoSocket::getSingleton().set_limit_mode( true );
-	MyLog::log->notice("Start Listen Client on port[%u]", 95501);
+	MyLog::log->notice("Start Listen Client on port[%u]", 5501);
 
 	connectLG();
 	connectGS();
@@ -274,7 +274,7 @@ bool CProtoServer::connectLG()
 		p2LoginSocket = new LoginSocket(*MyNetGlobleObj::get_io_service());
 		p2LoginSocket->setServerName("LoginServerName");
 	}
-	p2LoginSocket->connect("127.0.0.1", 95502);
+	p2LoginSocket->connect("192.168.1.103", 5502);
 	return true;
 }
 
@@ -285,6 +285,6 @@ bool CProtoServer::connectGS()
 		p2GameServerSocket = new GameServerSocket(*MyNetGlobleObj::get_io_service());
 		p2GameServerSocket->setServerName("GameServerName");
 	}
-	p2GameServerSocket->connect("127.0.0.1", 95503);	
+	p2GameServerSocket->connect("192.168.1.103", 5503);	
 	return true;
 }

@@ -224,16 +224,16 @@ bool CGameServer::Init()
 
 
 #ifdef _WIN32
-	if( !GSL.create( 95502, 50, 2 ) )
+	if( !GSL.create( 5503, 50, 2 ) )
 #else
-	if( !GSL.create( 95502, sGTConfig.m_nPlayerLimit, 16 ) )
+	if( !GSL.create( 5503, sGTConfig.m_nPlayerLimit, 16 ) )
 #endif
 	{
-		MyLog::log->error("Start Listen Client on port[%u]", 95502);
+		MyLog::log->error("Start Listen Client on port[%u]", 5503);
 		return false;
 	}
 	GSL.set_limit_mode( true );
-	MyLog::log->notice("Start Listen Client on port[%u]", 95502);
+	MyLog::log->notice("Start Listen Client on port[%u]", 5503);
 	World::getSingleton().Init();
 
 	return true;

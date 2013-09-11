@@ -59,6 +59,9 @@
       <AdditionalLibraryDirectories>../D_LIB/;..\common\openssl-0.9.8b\lib;../lib_x86/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>new_commonD.lib;libprotobuf.lib;libprotoc.lib;MsgShardD.lib;My_CommnonD.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy ..\..\..\intermediate\Server\$(ProjectName)\$(Configuration)\$(ProjectName).exe ..\ServerExe\$(ProjectName)\$(ProjectName).exe</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

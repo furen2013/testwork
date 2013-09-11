@@ -44,7 +44,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	int HeadLen =  sizeof(unsigned short);
 	MyNetGlobleObj::InitMsg(HeadLen, 0);
 	protoSocket = new CProtoSocket(*MyNetGlobleObj::get_io_service());
-	protoSocket->connect("127.0.0.1", 95501);
+	protoSocket->connect("49.221.162.85", 5501);
 	
 	s_net_client_thread = new boost::thread( &thread );
 	//s_net_client_thread->join();  
@@ -56,18 +56,18 @@ int _tmain(int argc, _TCHAR* argv[])
 		{
 		case 1:
 			{
-				MsgC2GateLoginReq message;
+				MsgC2SLoginReq message;
 				message.set_id("1002");
 				message.set_password("1003");
-				protoSocket->send_message(C2Gate_MsgLoginReq,&message);
+				protoSocket->send_message(C2S_MsgLoginReq,&message);
 				MyLog::log->debug("send message[MsgC2GateLoginReq]");
 			}
 			break;
 		case 2:
 			{
-				MsgC2GateLoginMacReq message;
+				MsgC2SLoginMacReq message;
 				message.set_mac("12120");
-				protoSocket->send_message(C2Gate_MsgLoginMacReq, &message);
+				protoSocket->send_message(C2S_MsgLoginMacReq, &message);
 				MyLog::log->debug("send message[MsgC2GateLoginMacReq]");
 			}
 			break;
@@ -79,7 +79,7 @@ int _tmain(int argc, _TCHAR* argv[])
 				message.set_mac("12120");
 				message.set_password("c2010");
 				MyLog::log->debug("send message[MsgBindMailReq]");
-				protoSocket->send_message(C2Gate_MsgBindMailReq, &message,CClientMsgParser::getSingleton().account);
+				protoSocket->send_message(C2S_MsgBindMailReq, &message,CClientMsgParser::getSingleton().account);
 			}
 			break;
 		case 4:
@@ -90,7 +90,7 @@ int _tmain(int argc, _TCHAR* argv[])
 				message.set_mac("12120");
 				message.set_password("c2010");
 				MyLog::log->debug("send message[MsgUnbindMacReq]");
-				protoSocket->send_message(C2Gate_MsgUnbindMacReq, &message,CClientMsgParser::getSingleton().account);
+				protoSocket->send_message(C2S_MsgUnbindMacReq, &message,CClientMsgParser::getSingleton().account);
 			}
 			break;
 		case 5:

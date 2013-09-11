@@ -25,15 +25,15 @@ void CClientMsgParser::proc_message(const message_t& msg, CProtoSocket* p)
 	//unsigned short msgBodyBegin = mark + headsize;
 	switch(Msghead.type())
 	{
-	case G2C_LoginMacACK:
-		{
-			MsgG2CLoginMacACK Msg;
-			Msg.ParseFromString(Msghead.body());
-			MyLog::log->notice("MsgG2CLoginMacACK receive account[%lu]", Msg.account());
-			account = Msg.account();
+	//case G2C_LoginMacACK:
+	//	{
+	//		MsgG2CLoginMacACK Msg;
+	//		Msg.ParseFromString(Msghead.body());
+	//		MyLog::log->notice("MsgG2CLoginMacACK receive account[%lu]", Msg.account());
+	//		account = Msg.account();
 
-		}
-		break;
+	//	}
+	//	break;
 	case G2C_MsgG2CErrorACK:
 		{
 			MsgG2CErrorACK Msg;

@@ -1,0 +1,65 @@
+	result = Config.MainConfig.GetString( "CharacterDatabase", "Username", &username );
+	Config.MainConfig.GetString( "CharacterDatabase", "Password", &password );
+	result = !result ? result : Config.MainConfig.GetString( "CharacterDatabase", "Hostname", &hostname );
+	result = !result ? result : Config.MainConfig.GetString( "CharacterDatabase", "Name", &database );
+	result = !result ? result : Config.MainConfig.GetInt( "CharacterDatabase", "Port", &port );
+	result = !result ? result : Config.MainConfig.GetInt( "CharacterDatabase", "Type", &type );
+	Database_Character = Database::CreateDatabaseInterface(type);
+
+
+////
+void Player::LoadRechargeableCardInfoProc( QueryResultVector& results )
+{
+	if( !IsValid() ) return;
+
+	if( !m_session )
+	{
+		RemovePendingPlayer();
+		return;
+	}
+	if( results.size()  == 0 )
+	{
+		//MyLog::log->error( "load rechargeable card info failed! guid:%u", GetLowGUID() );
+		return;
+	}
+	QueryResult *result = results[0].result;
+	if( !result )
+	{
+		//MyLog::log->error( "load rechargeable card info failed! guid:%u", GetLowGUID() );
+		return;
+	}
+
+	int n = 0;
+	do
+	{
+		Field* f = result->Fetch();
+		if( f )
+		{
+			rechargeable_card rc;
+			rc.card_serial = f[0].GetString();
+			rc.remain_points = f[1].GetInt32();
+			if( rc.remain_points < 0 )
+				rc.remain_points = 0;
+			int date = f[2].GetUInt32();
+			m_mapRechargeableCards.insert( std::make_pair( date, rc ) );
+			n += rc.remain_points;
+		}
+	}
+	while( result->NextRow() );
+	SetUInt32Value( PLAYER_FIELD_YUANBAO, n );
+	//if( m_playerInfo )
+	//	m_playerInfo->yuanbao = GetUInt32Value(PLAYER_FIELD_YUANBAO);
+}
+
+	SQLCallbackBase* pCallBack2 = new SQLClassCallbackP0<Player>( this, &Player::LoadRechargeableCardInfoProc );
+	AsyncQuery * q2 = new AsyncQuery( pCallBack2 );
+	q2->AddQuery( "select card_serial, remain_points, date from acc_point_card where acc_id = %u", m_session->GetAccountId() );
+
+	RealmDatabase.QueueAsyncQuery( q2 );
+
+SERVER_DECL extern Database* Database_Realm;
+
+#define WorldDatabase (*Database_World)
+#define CharacterDatabase (*Database_Character)
+#define RealmDatabase (*Database_Realm)
+///

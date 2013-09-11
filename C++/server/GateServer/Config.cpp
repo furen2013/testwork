@@ -10,11 +10,11 @@ bool CGTConfig::Load()
 		exit( 0 );
 		return false;
 	}
-	m_CTIP			= Config.MainConfig.GetStringDefault("CeneterServer", "IP", "127.0.0.1");
+	m_CTIP			= Config.MainConfig.GetStringDefault("CeneterServer", "IP", "192.168.1.103");
 	m_nCTPort		= Config.MainConfig.GetIntDefault("CeneterServer", "Port", 7102);
-	m_DBIP			= Config.MainConfig.GetStringDefault("DBServer", "IP", "127.0.0.1");
+	m_DBIP			= Config.MainConfig.GetStringDefault("DBServer", "IP", "192.168.1.103");
 	m_nDBPort		= Config.MainConfig.GetIntDefault("DBServer", "Port", 7103);
-	m_GateIP		= Config.MainConfig.GetStringDefault("GateServer", "IP", "127.0.0.1");
+	m_GateIP		= Config.MainConfig.GetStringDefault("GateServer", "IP", "192.168.1.103");
 	m_nGatePort		= Config.MainConfig.GetIntDefault("GateServer", "Port", 7001);
 	m_nFrameTick	= Config.MainConfig.GetIntDefault("ServerInfo", "FrameTickCount", 200);
 
@@ -25,7 +25,7 @@ bool CGTConfig::Load()
 	for (int i = 0; i < m_nGSNum; i++)
 	{
 		sprintf(szTag, "IP%d", i);
-		m_GMIP[i]	= Config.MainConfig.GetStringDefault("GameServer", szTag,  "127.0.0.1");
+		m_GMIP[i]	= Config.MainConfig.GetStringDefault("GameServer", szTag,  "192.168.1.103");
 
 		sprintf(szTag, "Port%d", i);
 		m_nGMPort[i]	= Config.MainConfig.GetIntDefault("GameServer", szTag, 7101);
